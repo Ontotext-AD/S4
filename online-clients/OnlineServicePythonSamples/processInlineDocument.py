@@ -3,8 +3,8 @@
 import urllib2
 import json
 
-endpointUrl = "https://s4.ontotext.com/online-processing/item/"
-shopItemId = "2"
+endpointUrl = "https://text.s4.ontotext.com/"
+shopItemId = "twitie"
 keyId = "<your-credentials-here>"
 password = "<your-credentials-here>"
 

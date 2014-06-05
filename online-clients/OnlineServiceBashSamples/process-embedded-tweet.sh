@@ -2,8 +2,8 @@
 
 # Url of the endpoint
 PROTOCOL="https://"
-ENDPOINT_URL="s4.ontotext.com/online-processing/item/"
-SHOP_ITEM_ID="2"
+ENDPOINT_URL="text.s4.ontotext.com/"
+SHOP_ITEM_ID="twitie"
 
 # API Key
 KEY_ID="<your-credentials-here>"

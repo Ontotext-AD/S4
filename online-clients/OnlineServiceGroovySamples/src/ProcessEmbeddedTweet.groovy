@@ -4,8 +4,8 @@ import groovyx.net.http.*
 import org.apache.http.entity.FileEntity
 import org.apache.http.util.EntityUtils
 
-def onlineServiceEndpoint = 'https://s4.ontotext.com/online-processing/item/'
-def shopItemId = '2'
+def onlineServiceEndpoint = 'https://text.s4.ontotext.com/'
+def shopItemId = 'twitie'
 
 def keyId = '<your-credentials-here>'
 def password = '<your-credentials-here>'

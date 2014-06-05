@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PROTOCOL="https://"
-ENDPOINT_URL="s4.ontotext.com/online-processing/item/"
+ENDPOINT_URL="text.s4.ontotext.com/"
 
 # API Key
 KEY_ID="<your-credentials-here>"

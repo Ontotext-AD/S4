@@ -16,9 +16,9 @@ namespace SynchServiceSamples
         private const String GATE_JSON = "application/gate+json";
 
         //The URL of the Self Service Semantic Suite Online Processing Service Endpoint
-        private static String endpointUrl = "https://s4.ontotext.com/online-processing/item/";
+        private static String endpointUrl = "https://text.s4.ontotext.com/";
         //The shop item which will be used for processing
-        private static String shopItemId = "2";
+        private static String shopItemId = "twitie";
 
         //API Keys
         //TODO set your own credentials generated from s4.ontotext.com
