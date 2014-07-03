@@ -6,12 +6,10 @@ A Java client library and command-line tool for the [S4.ontotext.com REST API][1
 Documentation can be found on [the wiki][2]:
 - [Client library usage guide][3] 
 - [Client library JavaDocs][4]
-- [Command line tool usage guide][5]
 
 
 
-  [1]: https://s4.ontotext.com/info/help/rest-api.html
-  [2]: https://github.com/Ontotext-AD/S4/java-client/wiki
-  [3]: https://github.com/Ontotext-AD/S4/java-client/wiki/Client-Library-Usage-Guide
+  [1]: https://confluence.ontotext.com/display/S4docs/REST+APIs
+  [2]: https://confluence.ontotext.com/display/S4docs/Java+Client+API
+  [3]: https://confluence.ontotext.com/display/S4docs/Java+Client+API
   [4]: http://ontotext-ad.github.io/S4/java-client-master/javadoc/
-  [5]: https://github.com/Ontotext-AD/S4/java-client/wiki/Command-Line-Tool-Usage-Guide
