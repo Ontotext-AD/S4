@@ -10,22 +10,7 @@
 
   <modules>
     <module>library</module>
-    <module>cli</module>
   </modules>
-
-  <distributionManagement>
-    <repository>
-      <id>gate-release</id>
-      <name>GATE Releases</name>
-      <url>http://repo.gate.ac.uk/content/repositories/releases/</url>
-    </repository>
-    <snapshotRepository>
-      <uniqueVersion>true</uniqueVersion>
-      <id>gate-snapshots</id>
-      <name>GATE Snapshots</name>
-      <url>http://repo.gate.ac.uk/content/repositories/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
 
   <build>
     <plugins>
