@@ -13,5 +13,5 @@ Documentation can be found on [the wiki][2]:
   [1]: https://s4.ontotext.com/info/help/rest-api.html
   [2]: https://github.com/Ontotext-AD/S4/java-client/wiki
   [3]: https://github.com/Ontotext-AD/S4/java-client/wiki/Client-Library-Usage-Guide
-  [4]: https://github.com/Ontotext-AD/S4/tree/master/java-client-master/library/doc
+  [4]: http://ontotext-ad.github.io/S4/java-client-master/javadoc/
   [5]: https://github.com/Ontotext-AD/S4/java-client/wiki/Command-Line-Tool-Usage-Guide
