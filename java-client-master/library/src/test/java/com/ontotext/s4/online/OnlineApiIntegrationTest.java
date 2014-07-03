@@ -1,4 +1,4 @@
-package online;
+package com.ontotext.s4.online;
 
 import java.io.File;
 import java.io.InputStream;
@@ -28,7 +28,7 @@ public class OnlineApiIntegrationTest {
 
 	private static final String testApiKeyId = "";
 	private static final String testApiKeyPass = "";
-	private static final String pipelineEndpoint = "https://text.s4.ontotext.com";
+	private static final String pipelineEndpoint = "https://text.s4.onotext.com/v1/twitie";
 
 
 	private OnlineApi api;
@@ -85,9 +85,10 @@ public class OnlineApiIntegrationTest {
 		String documentText = "Barack Obama is the president of the USA";
 		ResponseFormat serializationFormat = ResponseFormat.GATE_XML;		
 		OnlineServiceRequest rq = new OnlineServiceRequest(documentText, SupportedMimeType.PLAINTEXT, null);
-		InputStream result = api.processRequestForStream(rq, serializationFormat, true);
+		InputStream result = api.processRequestForStream(rq, serializationFormat, false);
 		StringWriter w = new StringWriter();
 		IOUtils.copy(result, w, Charset.forName("UTF-8"));
+		
 		assertTrue(w.toString().contains("Barack"));
 	}
 }
