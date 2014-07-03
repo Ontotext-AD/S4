@@ -5,8 +5,8 @@ import urllib
 import json
 from array import *
 
-endpointUrl = "https://text.s4.ontotext.com/"
-shopItemId = "twitie"
+endpointUrl = "https://text.s4.ontotext.com/v1"
+ItemId = "twitie"
 keyId = "<your-credentials-here>"
 password = "<your-credentials-here>"
 
@@ -154,6 +154,7 @@ data = {
 jsonData = json.dumps(data)
 print(jsonData)
 
+#prepare headers
 headers = {
                 'Accept' : "application/gate+json",
 				'Content-type': "application/json",
@@ -161,10 +162,11 @@ headers = {
 }
 
 #Prepare request
-request = urllib2.Request(endpointUrl+shopItemId,jsonData,headers)
+request = urllib2.Request(endpointUrl+ItemId,jsonData,headers)
 
 response=urllib2.urlopen(request)
 
+# Getting response
 print json.dumps(response.read())
 
 # Getting the code
