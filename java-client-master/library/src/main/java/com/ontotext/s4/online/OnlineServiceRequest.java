@@ -44,7 +44,7 @@ public class OnlineServiceRequest {
   /**
    * The MIME type that the document should be parsed as by the service.
    */
-  private String mimeType;
+  private String documentType;
 
   /**
    * Annotation selector expressions representing the annotations to
@@ -67,7 +67,7 @@ public class OnlineServiceRequest {
   public OnlineServiceRequest(String document, SupportedMimeType type,
           List<AnnotationSelector> annotationSelectors) {
     this.document = document;
-    this.mimeType = type.value;
+    this.documentType = type.value;
     if(annotationSelectors != null) {
       this.annotationSelectors = new LinkedList<String>();
       for(AnnotationSelector as : annotationSelectors) {
@@ -93,7 +93,7 @@ public class OnlineServiceRequest {
   public OnlineServiceRequest(URL documentUrl, SupportedMimeType type,
           List<AnnotationSelector> annotationSelectors) {
     this.documentUrl = documentUrl.toString();
-    this.mimeType = type.value;
+    this.documentType = type.value;
     if(annotationSelectors != null) {
       this.annotationSelectors = new LinkedList<String>();
       for(AnnotationSelector as : annotationSelectors) {
@@ -119,8 +119,8 @@ public class OnlineServiceRequest {
   /**
    * @return the MIME type that will be used to interpret the document.
    */
-  public String getMimeType() {
-    return mimeType;
+  public String getDocumentType() {
+    return documentType;
   }
 
   /**

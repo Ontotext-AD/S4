@@ -28,7 +28,7 @@ public class OnlineApiIntegrationTest {
 
 	private static final String testApiKeyId = "";
 	private static final String testApiKeyPass = "";
-	private static final String pipelineEndpoint = "https://text.s4.onotext.com/v1/twitie";
+	private static final String pipelineEndpoint = "https://text.s4.ontotext.com/v1/twitie";
 
 
 	private OnlineApi api;

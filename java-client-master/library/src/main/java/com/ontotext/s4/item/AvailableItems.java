@@ -6,17 +6,17 @@ public class AvailableItems {
 		switch(itemName){
 		case "TwitIE":{
 			item.name="TwitIE";
-			item.onlineUrl="https://text.s4.ontotext.com/twitie";
+			item.onlineUrl="https://text.s4.ontotext.com/v1/twitie";
 			return item;
 		}
 		case "SBT":{
 			item.name="SBT";
-			item.onlineUrl="https://text.s4.ontotext.com/sbt";
+			item.onlineUrl="https://text.s4.ontotext.com/v1/sbt";
 			return item;
 		}
 		case "news":{
 			item.name="news";
-			item.onlineUrl="https://text.s4.ontotext.com/news";
+			item.onlineUrl="https://text.s4.ontotext.com/v1/news";
 			return item;
 		}
 		default:{
