@@ -1,4 +1,4 @@
-s4.ontotext.com client library
+S4 Java client library
 =============================
 
 A Java client library and command-line tool for the [S4 REST API][1].
