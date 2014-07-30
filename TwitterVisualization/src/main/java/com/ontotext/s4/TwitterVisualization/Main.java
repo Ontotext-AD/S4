@@ -1,3 +1,20 @@
+/** Self-Service Semantic Suite (S4)
+* Copyright (c) 2014, Ontotext AD, All rights reserved.
+* 
+* This library is free software; you can redistribute it and/or
+* modify it under the terms of the GNU Lesser General Public
+* License as published by the Free Software Foundation; either
+* version 3.0 of the License, or (at your option) any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* Lesser General Public License for more details.
+* 
+* You should have received a copy of the GNU Lesser General Public
+* License along with this library.
+*/
+ 
 package com.ontotext.s4.TwitterVisualization;
 
 import org.apache.log4j.Logger;
@@ -13,11 +30,6 @@ public class Main {
 
 	public static Logger logger = Logger.getLogger(Main.class);
 
-	/*
-	 * we need Twitter api key and secret ...; we need Search words; we need S4
-	 * api key and secret ; we need folders to save raw tweets, process tweets,
-	 * and visualisation;
-	 */
 	public static void main(String[] args) {
 		/*
 		 * prepare app propertie file
@@ -57,17 +69,16 @@ public class Main {
 				appProperties.getProperty("s4.apiPass"),
 				appProperties.getProperty("rawTweetsFolder"),
 				appProperties.getProperty("proccessedTweetsFolder"));
-		
+
 		processingTweets.ProcessTweetsNow();
 
 		/*
 		 * prepare visualisation;
 		 */
-		TwitterReader twitterReader=new TwitterReader(
-				appProperties.getProperty("timelineTerms").split(","),
+		TwitterReader twitterReader = new TwitterReader(appProperties
+				.getProperty("timelineTerms").split(","),
 				appProperties.getProperty("proccessedTweetsFolder"),
-				appProperties.getProperty("visualisationFolder")
-				);
+				appProperties.getProperty("visualisationFolder"));
 		try {
 			twitterReader.startVisualisation();
 		} catch (Exception e) {
