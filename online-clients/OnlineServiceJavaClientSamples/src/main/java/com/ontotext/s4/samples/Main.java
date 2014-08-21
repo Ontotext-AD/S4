@@ -1,3 +1,4 @@
+package com.ontotext.s4.samples;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -7,13 +8,13 @@ import java.io.Writer;
 import java.nio.charset.Charset;
 import java.util.List;
 
-import com.ontotext.s4.item.AvailableItems;
-import com.ontotext.s4.item.Item;
-import com.ontotext.s4.online.AnnotatedDocument;
-import com.ontotext.s4.online.Annotation;
-import com.ontotext.s4.online.OnlineApi;
-import com.ontotext.s4.online.OnlineApiException;
-import com.ontotext.s4.online.SupportedMimeType;
+import com.ontotext.s4.catalog.ServiceDescriptor;
+import com.ontotext.s4.catalog.ServicesCatalog;
+import com.ontotext.s4.service.AnnotatedDocument;
+import com.ontotext.s4.service.Annotation;
+import com.ontotext.s4.service.S4ServiceClient;
+import com.ontotext.s4.service.S4ServiceClientException;
+import com.ontotext.s4.service.SupportedMimeType;
 
 
 public class Main {
@@ -21,14 +22,14 @@ public class Main {
 	private static String apiKey = "<api key>";
 	private static String apiPass = "<api pass>";
 
-	public static void main(String... args) throws IOException, OnlineApiException {
+	public static void main(String... args) throws IOException, S4ServiceClientException {
 
 		//find the TwittIE item
-		Item item=AvailableItems.getItem("TwitIE");		
+		ServiceDescriptor service = ServicesCatalog.getItem("TwitIE");		
 
 		//instantiate an API Object for anntating with this pipeline
-		OnlineApi api = new OnlineApi(item, apiKey, apiPass);
-		System.out.println("Annotating documents with pipeline " + item.name + item.shortDescription);		
+		S4ServiceClient client = new S4ServiceClient(service, apiKey, apiPass);
+		System.out.println("Annotating documents with pipeline " + service.name + service.shortDescription);		
 
 		//get all documents in a folder
 		File f = new File("tweets");
@@ -46,7 +47,7 @@ public class Main {
 					continue;
 				}					
 				//annotate each file
-				AnnotatedDocument result = api.annotateFileContents(document, 
+				AnnotatedDocument result = client.annotateFileContents(document, 
 						Charset.forName("UTF-8"), 
 						SupportedMimeType.TWITTER_JSON);
 
