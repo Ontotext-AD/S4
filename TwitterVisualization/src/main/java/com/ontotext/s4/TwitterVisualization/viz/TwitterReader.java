@@ -28,6 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.log4j.Logger;
 
@@ -48,6 +49,12 @@ public class TwitterReader {
 	private String outPath;
 	private List<Tweet> alltweets = new ArrayList<Tweet>();
 	
+	/**
+	 * Initializes TwitterReader object
+	 * @param timelineTerms Terms on what we want to create the timeline Visualization.
+	 * @param inDataPath Processed tweets folder.
+	 * @param outPath Output folder. This is the folder with *.htm files.
+	 */
 	public TwitterReader(String[] timelineTerms, String inDataPath,
 			String outPath) {
 		this.timelineTerms = timelineTerms;
@@ -55,10 +62,18 @@ public class TwitterReader {
 		setOutPath(outPath);
 	}
 	
+	/**
+	 * 
+	 * @return Folder with processed tweets.
+	 */
 	public String getInDataPath() {
 		return inDataPath;
 	}
 
+	/**
+	 * This method sets processed tweets folder
+	 * @param inDataPath Path to processed tweets folder.
+	 */
 	public void setInDataPath(String inDataPath) {
 		if (inDataPath != null) {
 			this.inDataPath = inDataPath;
@@ -67,10 +82,17 @@ public class TwitterReader {
 		}
 	}
 
+	/**
+	 * @return Output folder.
+	 */
 	public String getOutPath() {
 		return outPath;
 	}
 
+	/**
+	 * This method sets the output directory
+	 * @param outPath Path to the output directory
+	 */
 	public void setOutPath(String outPath) {
 		if (outPath != null) {
 			this.outPath = outPath;
@@ -80,7 +102,12 @@ public class TwitterReader {
 	}
 
 	
-
+	/**
+	 * This method will create visualizations.
+	 * It will take tweets from the processed tweets folder.
+	 * It will save js files with visualizations data into output folder.
+	 * @throws Exception
+	 */
 	public void startVisualisation() throws Exception {
 		File inDir = new File(inDataPath);
 		if (inDir.exists() == false) {
@@ -139,6 +166,11 @@ public class TwitterReader {
 		logger.info("Completed");
 	}
 
+	/**
+	 * This method will read one processed file and load it into the List of tweets.
+	 * @param inPath path to file.
+	 * @throws Exception
+	 */
 	private void processSingleFile(String inPath) throws Exception {
 		// System.out.println("Processing " + inPath);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -224,8 +256,14 @@ public class TwitterReader {
 	}
 
 	private static DateFormat formatter = new SimpleDateFormat(
-			"EEE MMM d HH:mm:ss zzzz yyy");
+			"EEE MMM d HH:mm:ss zzzz yyy",Locale.UK);
 
+	/**
+	 * This method parse "created_at" date from a tweet  
+	 * @param twData One tweet loaded into JsonObject.
+	 * @return String with date into format 'YYYY-MM-DD HH:mm'
+	 * @throws Exception
+	 */
 	private static String parseDateToJson(JsonObject twData) throws Exception {
 		if (twData.has("created_at")) {
 			Date date = formatter.parse(twData.get("created_at").getAsString());
@@ -243,6 +281,12 @@ public class TwitterReader {
 		return null;
 	}
 
+	/**
+	 * This method will list all files into the folder.
+	 * @param buffer List of files
+	 * @param file Path to the folder
+	 * @return List of files
+	 */
 	private static List<String> scanFolder(List<String> buffer, File file) {
 		if (false == file.exists()) {
 			return buffer;

@@ -22,12 +22,18 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-
+/**
+ * Properties wrapper class, initializing its data from a file path provided
+ */
 public class PropertiesService {
 
 	private static Logger log = Logger.getLogger(PropertiesService.class);
 	private Properties p;
 
+	/**
+	 * This method loads the properties file
+	 * @param propertiesFile Path to the properties file to use.
+	 */
 	public PropertiesService(String propertiesFile) {
 		log.info("Initializing Properties Service with file " + propertiesFile);
 		p = new Properties();
@@ -41,6 +47,11 @@ public class PropertiesService {
 		}
 	}
 
+	/**
+	 * This method returns the value of a property.
+	 * @param key property name. 
+	 * @return value Value of the property.
+	 */
 	public String getProperty(String key) {
 		return p.getProperty(key);	
 	}

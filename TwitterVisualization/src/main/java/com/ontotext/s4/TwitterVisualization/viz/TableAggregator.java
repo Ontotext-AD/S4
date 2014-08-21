@@ -1,19 +1,19 @@
 /** Self-Service Semantic Suite (S4)
-* Copyright (c) 2014, Ontotext AD, All rights reserved.
-* 
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU Lesser General Public
-* License as published by the Free Software Foundation; either
-* version 3.0 of the License, or (at your option) any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-* Lesser General Public License for more details.
-* 
-* You should have received a copy of the GNU Lesser General Public
-* License along with this library.
-*/
+ * Copyright (c) 2014, Ontotext AD, All rights reserved.
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3.0 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.
+ */
 package com.ontotext.s4.TwitterVisualization.viz;
 
 import java.util.Arrays;
@@ -23,16 +23,25 @@ import java.util.List;
 import java.util.Map;
 
 public class TableAggregator {
-	
+
 	static class Helper {
 		String token, type;
 		int count;
 	}
 
+	/**
+	 * This method convert list of tweets to a JSON String. This is the JSON we will
+	 * send to Google Visualization API in order to create a table
+	 * visualization.
+	 * 
+	 * @param tweets
+	 *            List of tweets we will visualize.
+	 * @return JSON in an appropriate format for Google Visualization API.
+	 */
 	public static String process(List<Tweet> tweets) {
 		Map<String, Helper> buffer = new HashMap<String, TableAggregator.Helper>();
-		for(Tweet tw : tweets) {
-			for(String loc : tw.locs) {
+		for (Tweet tw : tweets) {
+			for (String loc : tw.locs) {
 				Helper h = buffer.get(loc);
 				if (h == null) {
 					h = new Helper();
@@ -42,7 +51,7 @@ public class TableAggregator {
 				}
 				h.count++;
 			}
-			for(String org : tw.orgs) {
+			for (String org : tw.orgs) {
 				Helper h = buffer.get(org);
 				if (h == null) {
 					h = new Helper();
@@ -52,7 +61,7 @@ public class TableAggregator {
 				}
 				h.count++;
 			}
-			for(String person : tw.people) {
+			for (String person : tw.people) {
 				Helper h = buffer.get(person);
 				if (h == null) {
 					h = new Helper();
@@ -62,7 +71,7 @@ public class TableAggregator {
 				}
 				h.count++;
 			}
-			for(String htag : tw.htags) {
+			for (String htag : tw.htags) {
 				Helper h = buffer.get(htag);
 				if (h == null) {
 					h = new Helper();
@@ -80,13 +89,15 @@ public class TableAggregator {
 			}
 		});
 		StringBuffer result = new StringBuffer("var thedata = [\n");
-		for(Helper h : recs) {
-			// ['Jim',   {v:8000,   f: '$8,000'},  false],
-			result.append("['").append(h.token.replace("'", "\\\'")).append("', '").append(h.type).append("', ").append(h.count).append("],\n");
+		for (Helper h : recs) {
+			// ['Jim', {v:8000, f: '$8,000'}, false],
+			result.append("['").append(h.token.replace("'", "\\\'"))
+					.append("', '").append(h.type).append("', ")
+					.append(h.count).append("],\n");
 		}
 		String jsData = result.toString();
 		if (jsData.endsWith(",\n")) {
-			jsData = jsData.substring(0,  jsData.length() - 2) + '\n';
+			jsData = jsData.substring(0, jsData.length() - 2) + '\n';
 		}
 		return jsData + "];";
 	}

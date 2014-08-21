@@ -20,7 +20,11 @@ import java.util.List;
 
 public class TermsAggregator {
 	
-
+	/**
+	 * This method will list all term from the tweets.
+	 * @param tweets List of tweets.
+	 * @return String with one term per line.
+	 */
 	public static String process(List<Tweet> tweets) {
 		StringBuffer result = new StringBuffer();
 		for(Tweet tw : tweets) {

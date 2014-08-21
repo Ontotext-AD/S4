@@ -19,6 +19,10 @@ package com.ontotext.s4.TwitterVisualization.viz;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Class that represents one processed tweet by S4 services.
+ * It contains the text, date and any entities recognized by the service.
+ */
 public class Tweet {
 
 	String text;

@@ -25,14 +25,24 @@ import com.ontotext.s4.TwitterVisualization.viz.TwitterReader;
 
 import twitter4j.TwitterException;
 
+/**
+ * This class is the main entry point to the demo application. It performs data collection, 
+ * annotation and vizualization
+ * Make sure 'app.properties' file contains the proper credentials prior to running the application.
+ */
 public class Main {
 	private static final String DEFAULT_PROPERTIES_FILE = "app.properties";
 
 	public static Logger logger = Logger.getLogger(Main.class);
 
+	/**
+	 * Main method
+	 * @param args the only argument necessary is a properties file. 
+	 * If omitted the deault will be 'app.properties'.
+	 */
 	public static void main(String[] args) {
 		/*
-		 * prepare app propertie file
+		 * searching and reading the app properties file
 		 */
 		PropertiesService appProperties;
 		try {
@@ -43,9 +53,8 @@ public class Main {
 		}
 
 		/*
-		 * search for tweets on topic(twitterQuery);
+		 * performs search for tweets on topic (twitterQuery property);
 		 */
-
 		SearchTweets searchTweets = new SearchTweets(
 				appProperties.getProperty("twitter.consumerKey"),
 				appProperties.getProperty("twitter.consumerSecret"),
@@ -62,7 +71,7 @@ public class Main {
 		}
 
 		/*
-		 * process tweets;
+		 * processing the tweets using the S4 text analyzis services
 		 */
 		ProcessingTweets processingTweets = new ProcessingTweets(
 				appProperties.getProperty("s4.apiKey"),
@@ -70,10 +79,10 @@ public class Main {
 				appProperties.getProperty("rawTweetsFolder"),
 				appProperties.getProperty("proccessedTweetsFolder"));
 
-		processingTweets.ProcessTweetsNow();
+		processingTweets.ProcessTweets();
 
 		/*
-		 * prepare visualisation;
+		 * aggregating the results and preparing the inputs for visualization;
 		 */
 		TwitterReader twitterReader = new TwitterReader(appProperties
 				.getProperty("timelineTerms").split(","),

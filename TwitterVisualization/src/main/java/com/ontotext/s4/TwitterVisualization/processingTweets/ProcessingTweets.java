@@ -1,19 +1,19 @@
 /** Self-Service Semantic Suite (S4)
-* Copyright (c) 2014, Ontotext AD, All rights reserved.
-* 
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU Lesser General Public
-* License as published by the Free Software Foundation; either
-* version 3.0 of the License, or (at your option) any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-* Lesser General Public License for more details.
-* 
-* You should have received a copy of the GNU Lesser General Public
-* License along with this library.
-*/
+ * Copyright (c) 2014, Ontotext AD, All rights reserved.
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3.0 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.
+ */
 package com.ontotext.s4.TwitterVisualization.processingTweets;
 
 import java.io.File;
@@ -29,35 +29,56 @@ import java.nio.file.Files;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
-import com.ontotext.s4.item.AvailableItems;
-import com.ontotext.s4.item.Item;
-import com.ontotext.s4.online.OnlineApi;
-import com.ontotext.s4.online.ResponseFormat;
-import com.ontotext.s4.online.SupportedMimeType;
+import com.ontotext.s4.catalog.ServiceDescriptor;
+import com.ontotext.s4.catalog.ServicesCatalog;
+import com.ontotext.s4.service.ResponseFormat;
+import com.ontotext.s4.service.S4ServiceClient;
+import com.ontotext.s4.service.SupportedMimeType;
 
+
+/**
+ * Read tweets from the 'rawTweetsFolder'.Send them for processing to S4.
+ * Save them into the 'processedTweetsFolder'(one file per tweet).
+ */
 public class ProcessingTweets {
 	Logger logger = Logger.getLogger(ProcessingTweets.class);
+
 	private String rawTweetsFolder;
 	private String processedTweetsFolder;
 	private String apiKey;
 	private String apiPass;
 
+	/**
+	 * 
+	 * @param apiKey
+	 *            API key for S4
+	 * @param apiPass
+	 *            API pass for S4
+	 * @param rawTweetsFolder
+	 *            path to the raw tweets folder
+	 * @param processedTweetsFolder
+	 *            path to the processed tweets folder
+	 */
 	public ProcessingTweets(String apiKey, String apiPass,
 			String rawTweetsFolder, String processedTweetsFolder) {
-		this.apiKey=apiKey;
-		this.apiPass=apiPass;
+		this.apiKey = apiKey;
+		this.apiPass = apiPass;
 		this.rawTweetsFolder = rawTweetsFolder;
 		this.processedTweetsFolder = processedTweetsFolder;
 	}
 
-	public void ProcessTweetsNow() {
+	/**
+	 * Process all documents into the raw tweets folder. Save processed tweets
+	 * into the processed tweets Folder.
+	 */
+	public void ProcessTweets() {
 
 		// get all documents in a folder
 		File f = new File(rawTweetsFolder);
 		File[] documents = f.listFiles();
-		
+
 		//
-		if (documents==null) {
+		if (documents == null) {
 			logger.info("There are no files to process");
 			return;
 		}
@@ -75,13 +96,14 @@ public class ProcessingTweets {
 				if (document.isDirectory() || !document.canRead()) {
 					continue;
 				}
-				
-				logger.info("Just send "+document.getName()+" for processing.");
+
+				logger.info("Just send " + document.getName()
+						+ " for processing.");
 				// annotate each file
 				String result = ProcessThisTweet(new String(
 						Files.readAllBytes(document.toPath())));
-				
-				logger.info("Received "+document.getName());
+
+				logger.info("Received " + document.getName());
 				w = new OutputStreamWriter(new FileOutputStream(
 						processedTweetsFolder + "/" + document.getName()));
 				w.append(result);
@@ -102,15 +124,22 @@ public class ProcessingTweets {
 		}
 	}
 
+	/**
+	 * Process one tweet.
+	 * 
+	 * @param tweet
+	 *            Tweet we want to process.
+	 * @return Processed tweet
+	 */
 	private String ProcessThisTweet(String tweet) {
 
-		Item twitieItem = AvailableItems.getItem("TwitIE");
-		OnlineApi api = new OnlineApi(twitieItem, apiKey,apiPass);
+		ServiceDescriptor twitieItem = ServicesCatalog.getItem("TwitIE");
+		S4ServiceClient client = new S4ServiceClient(twitieItem, apiKey, apiPass);
 
 		String documentText = tweet;
 		SupportedMimeType documentMimeType = SupportedMimeType.TWITTER_JSON;
 		ResponseFormat serializationFormat = ResponseFormat.JSON;
-		InputStream result = api.annotateDocumentAsStream(documentText,
+		InputStream result = client.annotateDocumentAsStream(documentText,
 				documentMimeType, serializationFormat);
 		StringWriter w = new StringWriter();
 		try {

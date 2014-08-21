@@ -1,19 +1,19 @@
 /** Self-Service Semantic Suite (S4)
-* Copyright (c) 2014, Ontotext AD, All rights reserved.
-* 
-* This library is free software; you can redistribute it and/or
-* modify it under the terms of the GNU Lesser General Public
-* License as published by the Free Software Foundation; either
-* version 3.0 of the License, or (at your option) any later version.
-*
-* This library is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-* Lesser General Public License for more details.
-* 
-* You should have received a copy of the GNU Lesser General Public
-* License along with this library.
-*/
+ * Copyright (c) 2014, Ontotext AD, All rights reserved.
+ * 
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3.0 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.
+ */
 package com.ontotext.s4.TwitterVisualization.downloadTweets;
 
 import java.io.BufferedWriter;
@@ -25,7 +25,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -35,6 +34,12 @@ import twitter4j.TwitterFactory;
 import twitter4j.TwitterObjectFactory;
 import twitter4j.conf.ConfigurationBuilder;
 
+/**
+ * This class is responsible for collecting twitter date based on Twitter Search API
+ * and storing the results in a certain local folder. The class expects proper twitter
+ * credentials to be provided (API keys and access tokens)
+ *
+ */
 public class SearchTweets {
 	Logger logger = Logger.getLogger(SearchTweets.class);
 
@@ -46,11 +51,40 @@ public class SearchTweets {
 	private String accessTokenSecret;
 	private String dataFolder;
 
+	/**
+	 * Creates new Twitter client instance. It requires valid API key, API
+	 * secret, access token and access token secret. Data folder will be set to:
+	 * 'data/rawTweets' (default)
+	 * 
+	 * @param consumerKey
+	 *            API key
+	 * @param consumerSecret
+	 *            API secret
+	 * @param accessToken
+	 *            accessToken
+	 * @param accessTokenSecret
+	 *            accessTokenSecret
+	 */
 	public SearchTweets(String consumerKey, String consumerSecret,
 			String accessToken, String accessTokenSecret) {
 		this(consumerKey, consumerSecret, accessToken, accessTokenSecret, null);
 	}
 
+	/**
+	 * Creates new Twitter client instance. It requires valid API key, API
+	 * secret, access token and access token secret.
+	 * 
+	 * @param consumerKey
+	 *            API key
+	 * @param consumerSecret
+	 *            API secret
+	 * @param accessToken
+	 *            accessToken
+	 * @param accessTokenSecret
+	 *            accessTokenSecret
+	 * @param dataFolder
+	 *            Twitter data result local folder. If this is null the default folder is 'data/rawTweets'
+	 */
 	public SearchTweets(String consumerKey, String consumerSecret,
 			String accessToken, String accessTokenSecret, String dataFolder) {
 		this.consumerKey = consumerKey;
@@ -71,8 +105,13 @@ public class SearchTweets {
 	public void setDataFolder(String dataFolder) {
 		this.dataFolder = dataFolder;
 	}
-	
 
+	
+	/**
+	 * Creates and configures Twitter client instance with provided credentials.
+	 * 
+	 * @return Twitter instance
+	 */
 	private Twitter ConfigurateTwitterAccount() {
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		cb.setDebugEnabled(true).setOAuthConsumerKey(consumerKey)
@@ -84,70 +123,65 @@ public class SearchTweets {
 		Twitter twitter = tf.getInstance();
 		return twitter;
 	}
-
-
+	
 	/**
-	 * 
+	 * This method executes search query on Twitter. The results are saved into the preconfigured result folder.
 	 * @param queryString
-	 *            Search query; For more info how to write it right look
-	 *            https://dev.twitter.com/docs/using-search
-	 * @throws TwitterException 
+	 *            the search query string. For more information refer to https://dev.twitter.com/docs/using-search
+	 * @throws TwitterException
+	 *            any problem related to authentication, communication, search, etc.
 	 */
 	public void search(String queryString) throws TwitterException {
-		// configure twitter API keys
+		// configures twitter API keys
 		Twitter twitter = ConfigurateTwitterAccount();
 
-		// prepare query
+		// preparint the query
 		Query query = new Query(queryString);
 
-		// look for both popular and recent tweets
+		// search in both popular and recent tweets
 		query.resultType(Query.MIXED);
-		
-		//restrict result to English language
+
+		// restrict result to English language
 		query.lang("en");
 
-		// result of query
+		// result of the query
 		QueryResult result;
-		
+
 		do {
 			logger.debug(query);
-			
-			// execute query
+
+			// executing the query
 			result = twitter.search(query);
 
-			// make list of all tweets we can get
+			// collect all tweets available
 			List<Status> tweets = result.getTweets();
 
-			// save them one by one
+			// save each tweet into a file
 			for (Status tweet : tweets) {
 				saveTweetIntoFile(tweet);
 			}
 
 		}
-
-		// if query contains link to next page just continue
+		// handle the paging of the results
 		while ((query = result.nextQuery()) != null);
 
 	}
 
 	/**
-	 * Save this Tweet into file. Name of the file will be id of Tweet.
+	 * Saves a Tweet into file. The name of the file will be the id of the Tweet.
 	 * 
 	 * @param tweet
-	 *            Tweet we want to save.
+	 *            Tweet message to save.
 	 */
 	private void saveTweetIntoFile(Status tweet) {
 		/*
-		 * check if data folder exist. if not create it.
+		 * checks if data folder exist. If not creates it.
 		 */
 		File files = new File(dataFolder);
 		if (!files.exists()) {
 			files.mkdirs();
 		}
 
-		/*
-		 * create file with tweet id for name.
-		 */
 		BufferedWriter writer = null;
 		try {
 			/*
@@ -159,16 +193,12 @@ public class SearchTweets {
 							+ ".json"), "UTF-8"));
 
 			/*
-			 *  append raw Json from tweet and then add new line into file
+			 * appends raw Json from tweet and then add new line into file
 			 */
 			writer.append(TwitterObjectFactory.getRawJSON(tweet) + "\n");
 		} catch (IOException e) {
 			logger.debug(e);
 		}
-
-		/*
-		 *  close file
-		 */
 		finally {
 			try {
 				writer.close();
