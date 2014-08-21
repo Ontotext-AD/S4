@@ -12,4 +12,4 @@ Documentation can be found on [the S4 wiki][2]:
   [1]: http://docs.s4.ontotext.com/display/S4docs/REST+APIs
   [2]: http://docs.s4.ontotext.com/display/S4docs/Java+Client+API
   [3]: http://docs.s4.ontotext.com/display/S4docs/Java+Client+API
-  [4]: http://ontotext-ad.github.io/S4/java-client-master/javadoc/
+  [4]: http://ontotext-ad.github.io/S4/java-client/javadoc/
