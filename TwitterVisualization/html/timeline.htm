@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script type='text/javascript' src='http://www.google.com/jsapi'></script>
+	<script type='text/javascript' src='timeline.js'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1.1', {'packages':['annotationchart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+		initTable(data);
+
+        var chart = new google.visualization.AnnotationChart(document.getElementById('chart_div'));
+
+        var options = {
+          displayAnnotations: true,
+        };
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id='chart_div' style='width: 900px; height: 500px;'></div>
+  </body>
+</html>

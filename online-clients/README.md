@@ -1,8 +1,8 @@
 online-clients
 ==============
 
-Sample code for accessing the document-at-a-time online processing APIs on [text.s4.ontotext.com][1].
+Sample code for accessing the S4 text analytics API. More infomration is available on the [S4 wiki][1].
 
 
 
- [1]: https://s4.ontotext.com
+ [1]: http://docs.s4.ontotext.com/display/S4docs/Sample+Code
