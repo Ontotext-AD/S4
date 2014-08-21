@@ -1,4 +1,4 @@
-online-clients
+Example clients
 ==============
 
 Sample code for accessing the S4 text analytics API. More infomration is available on the [S4 wiki][1].
