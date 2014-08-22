@@ -4,13 +4,13 @@ import groovyx.net.http.*
 import org.apache.http.entity.FileEntity
 import org.apache.http.util.EntityUtils
 
-def onlineServiceEndpoint = 'https://text.s4.ontotext.com/'
-def shopItemId = 'twitie'
+def onlineServiceEndpoint = 'https://text.s4.ontotext.com/v1/'
+def serviceId = 'twitie'
 
 def keyId = '<your-credentials-here>'
 def password = '<your-credentials-here>'
 
-def client = new RESTClient(onlineServiceEndpoint + shopItemId)
+def client = new RESTClient(onlineServiceEndpoint + serviceId)
 client.auth.basic(keyId, password)
 
 def builder = new groovy.json.JsonBuilder();
@@ -34,7 +34,7 @@ builder(
 				"housing nationally recognised institutions such as the " +
 				"Indian Institute of Management and the National " +
 				"Institute of Technology.",
-	mimeType : "text/plain" //specify that the document should be treated as plain text
+	documentType : "text/plain" //specify that the document should be treated as plain text
 	);
 
 println(builder.toPrettyString())
