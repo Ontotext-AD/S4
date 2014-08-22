@@ -399,7 +399,7 @@ public class S4ServiceClient {
 			System.out.println(error);
 		}
 		System.out.println("Usage: S4ClientService parameter1=value1 parameter2=value2 ...");
-		System.out.println("Parmeters:");
+		System.out.println("Parameters:");
 		System.out.println("  service - the service id to be used (one of:'TwitIE', 'SBT' and 'news')");
 		System.out.println("  file    - input file path");
 		System.out.println("  url     - input document URL");
