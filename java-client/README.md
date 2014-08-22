@@ -11,7 +11,8 @@ A Java client library and command-line tool for the [S4 REST API][1].
 	service - the service id to be used (one of: 'TwitIE', 'SBT' and 'news')
 	file	- input file path
 	url     - input document URL
-	dtype   - the MIME type of the document (one of:'text/plain', 'text/html', 'application/xml', 'text/xml', 'text/x-pubmed', 'text/x-pubmed', 'text/x-cochrane', 'text/x-mediawiki', 'text/x-json-twitter')
+	dtype   - the MIME type of the document (one of:'text/plain', 'text/html', 'application/xml', 'text/xml',
+	          'text/x-pubmed', 'text/x-pubmed', 'text/x-cochrane', 'text/x-mediawiki', 'text/x-json-twitter')
 	out     - result file name. Defaults to 'result.txt'
 	apikey  - the api key if credentials file is not used
 	secret  - the api secret if credentials file is not used
