@@ -18,7 +18,7 @@ public class ProcessingRequest {
 	
 	private String document;
 	private String documentUrl;
-	private String mimeType;
+	private String documentType;
 	private String[] annotationSelectors;
 	
 	public String toJSON() throws JsonGenerationException, JsonMappingException, IOException {
@@ -37,11 +37,11 @@ public class ProcessingRequest {
 	public void setDocumentUrl(String documentUrl) {
 		this.documentUrl = documentUrl;
 	}
-	public String getMimeType() {
-		return mimeType;
+	public String getDocumentType() {
+		return documentType;
 	}
-	public void setMimeType(String mimeType) {
-		this.mimeType = mimeType;
+	public void setDocumentType(String mimeType) {
+		this.documentType = mimeType;
 	}	
 	public String[] getAnnotationSelectors() {
 		return annotationSelectors;

@@ -27,9 +27,9 @@ public class Main {
 	private static final String GATE_JSON = "application/gate+json";
 	
 	//The URL of the Self Service Semantic Suite Online Processing Service Endpoint
-	private static String endpointUrl = "https://text.s4.ontotext.com/";
-	//The shop item which will be used for processing
-	private static String shopItemId = "twitie";
+	private static String endpointUrl = "https://text.s4.ontotext.com/v1/";
+	//The service which will be used for processing
+	private static String serviceId = "twitie";
 	
 	//API Keys
 	//TODO set your own credentials generated from s4.ontotext.com
@@ -136,7 +136,7 @@ public class Main {
 				"housing nationally recognised institutions such as the " +
 				"Indian Institute of Management and the National " +
 				"Institute of Technology.");
-		pr.setMimeType("text/plain");
+		pr.setDocumentType("text/plain");
 		processRequest(pr, GATE_JSON);		
 	}
 	
@@ -146,126 +146,16 @@ public class Main {
 	 */
 	private static void processTweet() {
 		ProcessingRequest pr = new ProcessingRequest();
-		pr.setDocument("" +
-				"{    " +
-				"\"created_at\": \"Tue Jan 21 10:09:50 +0000 2014\"," +
-				"    \"id\": 425570928198561800," +
-				"    \"id_str\": \"425570928198561792\"," +
-				"    \"text\": \"halo @shafiqah5387 kami menjual Cord Holder edisi rilakkuma, korilakkuma dan kiiroitori. Harga Rp. 30.000/2pcs aja :) http://t.co/oOJRmipac1\"," +
-				"    \"source\": \"web\"," +
-				"    \"truncated\": false," +
-				"    \"in_reply_to_status_id\": 425565523825266700," +
-				"    \"in_reply_to_status_id_str\": \"425565523825266688\"," +
-				"    \"in_reply_to_user_id\": 425061303," +
-				"    \"in_reply_to_user_id_str\": \"425061303\"," +
-				"    \"in_reply_to_screen_name\": \"shafiqah5387\"," +
-				"    \"user\": {" +
-				"        \"id\": 2275508352," +
-				"        \"id_str\": \"2275508352\"," +
-				"        \"name\": \"Eileen by adinda\"," +
-				"        \"screen_name\": \"eileenbyadinda\"," +
-				"        \"location\": \"Jakarta\"," +
-				"        \"url\": \"http://eileenbyadinda.tumblr.com\"," +
-				"        \"description\": \"Jual berbagai tas, hijab &gadget equipment import HK & Korea. Whatsapp / sms: Adinda - 085692273224. Thank you!\"," +
-				"        \"protected\": false," +
-				"        \"followers_count\": 24," +
-				"        \"friends_count\": 60," +
-				"        \"listed_count\": 0," +
-				"        \"created_at\": \"Sat Jan 04 03:48:02 +0000 2014\"," +
-				"        \"favourites_count\": 0," +
-				"        \"utc_offset\": 25200," +
-				"        \"time_zone\": \"Bangkok\"," +
-				"        \"geo_enabled\": false," +
-				"        \"verified\": false," +
-				"        \"statuses_count\": 24," +
-				"        \"lang\": \"en\"," +
-				"        \"contributors_enabled\": false," +
-				"        \"is_translator\": false," +
-				"        \"profile_background_color\": \"C0DEED\"," +
-				"        \"profile_background_image_url\": \"http://abs.twimg.com/images/themes/theme1/bg.png\"," +
-				"        \"profile_background_image_url_https\": \"https://abs.twimg.com/images/themes/theme1/bg.png\"," +
-				"        \"profile_background_tile\": false," +
-				"        \"profile_image_url\": \"http://pbs.twimg.com/profile_images/419315801309450240/BV9KiP3P_normal.jpeg\"," +
-				"        \"profile_image_url_https\": \"https://pbs.twimg.com/profile_images/419315801309450240/BV9KiP3P_normal.jpeg\"," +
-				"        \"profile_link_color\": \"0084B4\"," +
-				"        \"profile_sidebar_border_color\": \"C0DEED\"," +
-				"        \"profile_sidebar_fill_color\": \"DDEEF6\"," +
-				"        \"profile_text_color\": \"333333\"," +
-				"        \"profile_use_background_image\": true," +
-				"        \"default_profile\": true," +
-				"        \"default_profile_image\": false," +
-				"        \"following\": null," +
-				"        \"follow_request_sent\": null," +
-				"        \"notifications\": null" +
-				"    }," +
-				"    \"geo\": null," +
-				"    \"coordinates\": null," +
-				"    \"place\": null," +
-				"    \"contributors\": null," +
-				"    \"retweet_count\": 0," +
-				"    \"favorite_count\": 0," +
-				"    \"entities\": {" +
-				"        \"hashtags\": []," +
-				"        \"symbols\": []," +
-				"        \"urls\": []," +
-				"        \"user_mentions\": [" +
-				"            {" +
-				"                \"screen_name\": \"shafiqah5387\"," +
-				"                \"name\": \"¦Shafiqah Ismail¦ ?\"," +
-				"                \"id\": 425061303," +
-				"                \"id_str\": \"425061303\"," +
-				"                \"indices\": [" +
-				"                    5," +
-				"                    18" +
-				"                ]" +
-				"            }" +
-				"        ]," +
-				"        \"media\": [" +
-				"            {" +
-				"                \"id\": 425570928206950400," +
-				"                \"id_str\": \"425570928206950400\"," +
-				"                \"indices\": [" +
-				"                    118," +
-				"                    140" +
-				"                ], " +
-				"               \"media_url\": \"http://pbs.twimg.com/media/BefugSKCMAAGunF.jpg\"," +
-				"                \"media_url_https\": \"https://pbs.twimg.com/media/BefugSKCMAAGunF.jpg\"," +
-				"                \"url\": \"http://t.co/oOJRmipac1\"," +
-				"                \"display_url\": \"pic.twitter.com/oOJRmipac1\"," +
-				"                \"expanded_url\": \"http://twitter.com/eileenbyadinda/status/425570928198561792/photo/1\"," +
-				"                \"type\": \"photo\"," +
-				"                \"sizes\": {" +
-				"                    \"small\": {" +
-				"                        \"w\": 340," +
-				"                        \"h\": 331," +
-				"                        \"resize\": \"fit\"" +
-				"                    }," +
-				"                    \"large\": {" +
-				"                        \"w\": 585," +
-				"                        \"h\": 570," +
-				"                        \"resize\": \"fit\"" +
-				"                    }," +
-				"                    \"thumb\": {" +
-				"                        \"w\": 150," +
-				"                        \"h\": 150," +
-				"                        \"resize\": \"crop\"" +
-				"                    }," +
-				"                    \"medium\": {" +
-				"                        \"w\": 585," +
-				"                        \"h\": 570," +
-				"                        \"resize\": \"fit\"" +
-				"                    }" +
-				"                }" +
-				"            }" +
-				"        ]" +
-				"    }," +
-				"    \"favorited\": false," +
-				"    \"retweeted\": false," +
-				"    \"possibly_sensitive\": false," +
-				"    \"filter_level\": \"medium\"," +
-				"    \"lang\": \"id\"" +
-				"}");
-		pr.setMimeType("text/x-json-twitter");
+		pr.setDocument(
+			"{\"text\":\"Nearly 200,000 people have been killed in #Syria since the start of the conflict in 2011, according to the U.N. http://t.co/pK7t8AD7Xf\","
+			+ "\"lang\":\"en\",\"entities\":{\"symbols\":[],"
+			+ "\"urls\":[{\"expanded_url\":\"http://on.wsj.com/1pZmkY9\",\"indices\":[112,134],\"display_url\":\"on.wsj.com/1pZmkY9\",\"url\":\"http://t.co/pK7t8AD7Xf\"}],"
+			+ "\"hashtags\":[{\"text\":\"Syria\",\"indices\":[42,48]}],"
+			+ "\"user_mentions\":[]},"
+			+ "\"id\":502743846716207104,"
+			+ "\"created_at\":\"Fri Aug 22 09:07:28 +0000 2014\","
+			+ "\"id_str\":\"502743846716207104\"}");
+		pr.setDocumentType("text/x-json-twitter");
 		pr.setAnnotationSelectors(new String[]{":", "Original markups:"});
 		processRequest(pr, GATE_JSON);		
 	}
@@ -277,7 +167,7 @@ public class Main {
 	private static void processRemoteDocument() {
 		ProcessingRequest pr = new ProcessingRequest();
 		pr.setDocumentUrl("http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car");
-		pr.setMimeType("text/html");
+		pr.setDocumentType("text/html");
 		processRequest(pr, GATE_XML);		
 	}
 
@@ -288,7 +178,7 @@ public class Main {
 	 * @param acceptType the type of output we want to produce
 	 */
 	private static void processRequest(ProcessingRequest pr, String acceptType) {
-		HttpPost post = new HttpPost(endpointUrl + shopItemId);
+		HttpPost post = new HttpPost(endpointUrl + serviceId);
 		post.setHeader("Content-Type", "application/json");
 		post.setHeader("Accept", acceptType);
 		post.setHeader("Accept-Encoding", "gzip");
