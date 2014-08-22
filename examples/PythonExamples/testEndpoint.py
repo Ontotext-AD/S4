@@ -1,6 +1,6 @@
 import urllib2
 
-endpointUrl = "https://text.s4.ontotext.com/"
+endpointUrl = "https://text.s4.ontotext.com/v1/"
 keyId = "<your-credentials-here>"
 password = "<your-credentials-here>"
 

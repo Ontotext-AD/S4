@@ -5,8 +5,8 @@ import urllib
 import json
 from array import *
 
-endpointUrl = "https://text.s4.ontotext.com/"
-shopItemId = "twitie"
+endpointUrl = "https://text.s4.ontotext.com/v1/"
+serviceId = "twitie"
 keyId = "<your-credentials-here>"
 password = "<your-credentials-here>"
 
@@ -27,7 +27,7 @@ urllib2.install_opener(opener)
 
 data = {
 	"documentUrl" : "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
-	"mimeType" : "text/html",
+	"documentType" : "text/html",
 }
 
 #json serialize
@@ -41,7 +41,7 @@ headers = {
 }
 
 #Prepare request
-request = urllib2.Request(endpointUrl+shopItemId,jsonData,headers)
+request = urllib2.Request(endpointUrl+serviceId,jsonData,headers)
 
 response=urllib2.urlopen(request)
 

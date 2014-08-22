@@ -3,8 +3,8 @@
 import urllib2
 import json
 
-endpointUrl = "https://text.s4.ontotext.com/"
-shopItemId = "twitie"
+endpointUrl = "https://text.s4.ontotext.com/v1/"
+serviceId = "twitie"
 keyId = "<your-credentials-here>"
 password = "<your-credentials-here>"
 
@@ -42,7 +42,7 @@ data = {
 				"housing nationally recognised institutions such as the " +
 				"Indian Institute of Management and the National " +
 				"Institute of Technology.",
-	"mimeType" : "text/plain"
+	"documentType" : "text/plain"
 }
 #json serialize
 jsonData = json.dumps(data)
@@ -55,7 +55,7 @@ headers = {
 }
 
 #Prepare request
-request = urllib2.Request(endpointUrl+shopItemId,jsonData,headers)
+request = urllib2.Request(endpointUrl+serviceId,jsonData,headers)
 
 response=urllib2.urlopen(request)
 
