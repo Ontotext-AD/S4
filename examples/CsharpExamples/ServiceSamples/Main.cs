@@ -22,8 +22,8 @@ namespace ServiceSamples
 
         //API Keys
         //TODO set your own credentials generated from s4.ontotext.com
-        private static String keyId = "<your-credentials-here>";
-        private static String password = "<your-credentials-here>";
+        private static String keyId = "s4llp1f39mp4";
+        private static String password = "6363uuc478kd05m";
 
 
         private static NetworkCredential nc;
@@ -175,6 +175,11 @@ namespace ServiceSamples
 
             // Create a WebRequest with the specified URL. 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endpointUrl + serviceId);
+            
+            //set gzip decompression
+            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+            
+            //set credentials
             request.Credentials = nc;
 
             // Set the content type of the data being posted.
