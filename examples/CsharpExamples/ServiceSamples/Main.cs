@@ -22,8 +22,8 @@ namespace ServiceSamples
 
         //API Keys
         //TODO set your own credentials generated from s4.ontotext.com
-        private static String keyId = "s4llp1f39mp4";
-        private static String password = "6363uuc478kd05m";
+        private static String keyId = "<your-credentials-here>";
+        private static String password = "<your-credentials-here>";
 
 
         private static NetworkCredential nc;
