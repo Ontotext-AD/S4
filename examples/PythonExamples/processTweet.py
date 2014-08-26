@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import urllib2
-import urllib
 import json
+from StringIO import StringIO
+import gzip
 from array import *
 
 endpointUrl = "https://text.s4.ontotext.com/v1/"
@@ -45,9 +46,9 @@ print(jsonData)
 
 #prepare headers
 headers = {
-                'Accept' : "application/gate+json",
+                'Accept' : "application/json",
 				'Content-type': "application/json",
-				'Accept-Encoding':"gzip",
+				'Accept-Encoding':"gzip"
 }
 
 #Prepare request
@@ -55,8 +56,15 @@ request = urllib2.Request(endpointUrl+ItemId,jsonData,headers)
 
 response=urllib2.urlopen(request)
 
+if response.info().get('Content-Encoding') == 'gzip':
+    buf = StringIO( response.read())
+    f = gzip.GzipFile(fileobj=buf)
+    data = f.read()
+else:
+    data = response.read()
+
 # Getting response
-print json.dumps(response.read())
+print data
 
 # Getting the code
 print "\n\n\nThis gets the code: ", response.code
