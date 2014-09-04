@@ -1,0 +1,57 @@
+<!-- creole.xml for S4 PR -->
+<CREOLE-DIRECTORY>
+	<CREOLE>
+		<RESOURCE>
+			<NAME>Tagger_S4</NAME>
+			<COMMENT>The Self-Service Semantic Suite (S4) GATE plugin</COMMENT>
+			<HELPURL>http://docs.s4.ontotext.com/display/S4docs/Home</HELPURL>
+			<ICON>/gate/resources/img/s4Logo32x32.png</ICON>
+			<JAR>GateS4.jar</JAR>
+			<JAR>lib/httpclient-4.3.5.jar</JAR>
+			<JAR>lib/httpcore-4.3.2.jar</JAR>
+			<JAR>lib/jackson-mapper-asl-1.9.13.jar</JAR>
+			<JAR>lib/jackson-core-asl-1.9.13.jar</JAR>
+			<CLASS>com.ontotext.s4.api.S4Plugin</CLASS>
+			<PARAMETER NAME="document"
+					COMMENT="The document to be analysed."
+					RUNTIME="true">gate.corpora.DocumentImpl</PARAMETER>
+			<PARAMETER NAME="configFileURL"
+					COMMENT="ConfigFile"
+					DEFAULT="S4.config">java.net.URL</PARAMETER>
+			<OR>
+				<PARAMETER NAME="s4URL"
+						COMMENT="The URL for the S4 REST service"
+						DEFAULT="TWITTIE">
+					com.ontotext.s4.api.S4Endpoints</PARAMETER>
+				<PARAMETER NAME="restServiceUrlString"
+						COMMENT="The URL for the S4 REST service">java.lang.String</PARAMETER>
+
+			</OR>
+
+			<!-- Copy of above parameters just to make them editable -->
+			<PARAMETER NAME="configFileURL"
+					COMMENT="ConfigFile"
+					DEFAULT="S4.config"
+					RUNTIME="true">java.net.URL</PARAMETER>
+			<OR>
+				<PARAMETER NAME="s4URL"
+						COMMENT="The URL for the S4 REST service"
+						DEFAULT="TWITTIE"
+						RUNTIME="true">
+					com.ontotext.s4.api.S4Endpoints</PARAMETER>
+				<PARAMETER NAME="restServiceUrlString"
+						COMMENT="The URL for the S4 REST service"
+						RUNTIME="true">java.lang.String</PARAMETER>
+
+			</OR>
+
+			<!-- 
+			<PARAMETER NAME="debug"
+					COMMENT="Just for debuging"
+					DEFAULT="true">java.lang.Boolean</PARAMETER>
+					-->
+
+
+		</RESOURCE>
+	</CREOLE>
+</CREOLE-DIRECTORY>
