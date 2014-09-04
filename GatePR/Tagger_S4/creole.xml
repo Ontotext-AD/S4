@@ -1,5 +1,7 @@
 <!-- creole.xml for S4 PR -->
 <CREOLE-DIRECTORY>
+	<ID>gateS4plugin</ID>
+	<VERSION>0.1</VERSION>
 	<CREOLE>
 		<RESOURCE>
 			<NAME>Tagger_S4</NAME>
