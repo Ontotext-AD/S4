@@ -1,7 +1,5 @@
 <!-- creole.xml for S4 PR -->
-<CREOLE-DIRECTORY>
-	<ID>gateS4plugin</ID>
-	<VERSION>0.1</VERSION>
+<CREOLE-DIRECTORY ID="S4.GatePR" VERSION="1.0">
 	<CREOLE>
 		<RESOURCE>
 			<NAME>Tagger_S4</NAME>
@@ -47,11 +45,10 @@
 
 			</OR>
 
-			<!-- 
+			<!-- -->
 			<PARAMETER NAME="debug"
 					COMMENT="Just for debuging"
 					DEFAULT="true">java.lang.Boolean</PARAMETER>
-					-->
 
 
 		</RESOURCE>
