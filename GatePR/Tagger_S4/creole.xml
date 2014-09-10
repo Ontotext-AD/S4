@@ -1,5 +1,5 @@
 <!-- creole.xml for S4 PR -->
-<CREOLE-DIRECTORY ID="S4.GatePR" VERSION="1.0">
+<CREOLE-DIRECTORY ID="com.ontotext.s4" VERSION="1.0">
 	<CREOLE>
 		<RESOURCE>
 			<NAME>Tagger_S4</NAME>
@@ -9,8 +9,10 @@
 			<JAR>GateS4.jar</JAR>
 			<JAR>lib/httpclient-4.3.5.jar</JAR>
 			<JAR>lib/httpcore-4.3.2.jar</JAR>
-			<JAR>lib/jackson-mapper-asl-1.9.13.jar</JAR>
-			<JAR>lib/jackson-core-asl-1.9.13.jar</JAR>
+			<JAR>lib/jackson-dataformat-xml-2.3.0.jar</JAR>
+			<JAR>lib/junit-4.8.1.jar</JAR>
+			<JAR>lib/s4-client-1.0-SNAPSHOT.jar</JAR>
+			<JAR>lib/stax2-api-3.1.1.jar</JAR>
 			<CLASS>com.ontotext.s4.api.S4Plugin</CLASS>
 			<PARAMETER NAME="document"
 					COMMENT="The document to be analysed."
@@ -28,28 +30,11 @@
 
 			</OR>
 
-			<!-- Copy of above parameters just to make them editable -->
-			<PARAMETER NAME="configFileURL"
-					COMMENT="ConfigFile"
-					DEFAULT="S4.config"
-					RUNTIME="true">java.net.URL</PARAMETER>
-			<OR>
-				<PARAMETER NAME="s4URL"
-						COMMENT="The URL for the S4 REST service"
-						DEFAULT="TWITTIE"
-						RUNTIME="true">
-					com.ontotext.s4.api.S4Endpoints</PARAMETER>
-				<PARAMETER NAME="restServiceUrlString"
-						COMMENT="The URL for the S4 REST service"
-						RUNTIME="true">java.lang.String</PARAMETER>
-
-			</OR>
-
-			<!-- -->
+			<!-- 
 			<PARAMETER NAME="debug"
 					COMMENT="Just for debuging"
 					DEFAULT="true">java.lang.Boolean</PARAMETER>
-
+-->
 
 		</RESOURCE>
 	</CREOLE>
