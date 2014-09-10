@@ -6,7 +6,7 @@
 			<COMMENT>The Self-Service Semantic Suite (S4) GATE plugin</COMMENT>
 			<HELPURL>http://docs.s4.ontotext.com/display/S4docs/Home</HELPURL>
 			<ICON>/gate/resources/img/s4Logo32x32.png</ICON>
-			<JAR>GateS4.jar</JAR>
+			<JAR>Tagger_S4-1.0.jar</JAR>
 			<JAR>lib/httpclient-4.3.5.jar</JAR>
 			<JAR>lib/httpcore-4.3.2.jar</JAR>
 			<JAR>lib/jackson-dataformat-xml-2.3.0.jar</JAR>
