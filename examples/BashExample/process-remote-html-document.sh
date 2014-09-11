@@ -11,7 +11,7 @@ PASSWORD="<your-credentials-here>"
 
 
 # Headers
-ACCEPT="application/gate+xml"
+ACCEPT="application/json"
 CONTENT_TYPE="application/json"
 
 # POST body parameters
