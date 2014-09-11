@@ -10,7 +10,7 @@ KEY_ID="<your-credentials-here>"
 PASSWORD="<your-credentials-here>"
 
 # Headers
-ACCEPT="application/gate+json"
+ACCEPT="application/json"
 CONTENT_TYPE="application/json"
 
 # POST body parameters
