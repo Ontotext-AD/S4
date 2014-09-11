@@ -162,7 +162,7 @@ namespace ServiceSamples
             ProcessingRequest pr = new ProcessingRequest();
             pr.documentUrl = ("http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car");
             pr.documentType = ("text/html");
-            processRequest(pr, GATE_XML);
+            processRequest(pr, GATE_JSON);
         }
 
         /**

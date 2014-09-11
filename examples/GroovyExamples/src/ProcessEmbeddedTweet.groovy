@@ -33,6 +33,6 @@ println(builder.toPrettyString())
 def response = client.post(
 	body : builder.toString(), //set request body
 	requestContentType : "application/json",  //request body is always JSON, application/json is the only valid value for the Content-Type header
-	contentType : "application/gate+json") //request GATE JSON output
+	contentType : "application/json") //request GATE JSON output
 println response.getStatusLine()
 println response.data.text

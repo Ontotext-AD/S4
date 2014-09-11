@@ -23,6 +23,6 @@ println(builder.toPrettyString())
 def response = client.post(
 	body : builder.toString(), //the request body
 	requestContentType : "application/json", //the request body is always JSON
-	contentType : "application/gate+xml") //request GATE XML output
+	contentType : "application/json") //request GATE XML output
 println response.getStatusLine()
 println response.data.text

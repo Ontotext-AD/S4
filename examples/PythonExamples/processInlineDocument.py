@@ -51,7 +51,7 @@ jsonData = json.dumps(data)
 print(jsonData)
 
 headers = {
-                'Accept' : "application/gate+json",
+                'Accept' : "application/json",
 				'Content-type': "application/json",
 				'Accept-Encoding':"gzip",
 }

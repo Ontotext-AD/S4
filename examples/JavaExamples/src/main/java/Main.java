@@ -168,7 +168,7 @@ public class Main {
 		ProcessingRequest pr = new ProcessingRequest();
 		pr.setDocumentUrl("http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car");
 		pr.setDocumentType("text/html");
-		processRequest(pr, GATE_XML);		
+		processRequest(pr, GATE_JSON);		
 	}
 
 
