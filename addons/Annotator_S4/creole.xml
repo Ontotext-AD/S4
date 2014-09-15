@@ -1,0 +1,41 @@
+<!-- creole.xml for S4 PR -->
+<CREOLE-DIRECTORY ID="Annotator S4" VERSION="1.0">
+	<CREOLE>
+		<RESOURCE>
+			<NAME>Annotator_S4</NAME>
+			<COMMENT>The Self-Service Semantic Suite (S4) plugin</COMMENT>
+			<HELPURL>http://docs.s4.ontotext.com/display/S4docs/Home</HELPURL>
+			<ICON>/com/ontotext/s4/api/s4Logo32x32.png</ICON>
+			<JAR>Annotator_S4-1.0.jar</JAR>
+			<JAR>lib/httpclient-4.3.5.jar</JAR>
+			<JAR>lib/httpcore-4.3.2.jar</JAR>
+			<JAR>lib/jackson-dataformat-xml-2.3.0.jar</JAR>
+			<JAR>lib/junit-4.8.1.jar</JAR>
+			<JAR>lib/s4-client-1.0-SNAPSHOT.jar</JAR>
+			<JAR>lib/stax2-api-3.1.1.jar</JAR>
+			<CLASS>com.ontotext.s4.api.S4Plugin</CLASS>
+			<PARAMETER NAME="document"
+					COMMENT="The document to be analysed."
+					RUNTIME="true">gate.corpora.DocumentImpl</PARAMETER>
+			<PARAMETER NAME="configFileURL"
+					COMMENT="ConfigFile"
+					DEFAULT="S4.config">java.net.URL</PARAMETER>
+			<OR>
+				<PARAMETER NAME="url"
+						COMMENT="URL of S4 service (predefined)"
+						DEFAULT="TWITIE">
+					com.ontotext.s4.api.S4Endpoints</PARAMETER>
+				<PARAMETER NAME="customUrl"
+						COMMENT="URL of S4 service (custom)">java.lang.String</PARAMETER>
+
+			</OR>
+
+			<!-- 
+			<PARAMETER NAME="debug"
+					COMMENT="Just for debuging"
+					DEFAULT="true">java.lang.Boolean</PARAMETER>
+-->
+
+		</RESOURCE>
+	</CREOLE>
+</CREOLE-DIRECTORY>
