@@ -1,12 +1,12 @@
 <!-- creole.xml for S4 PR -->
-<CREOLE-DIRECTORY ID="com.ontotext.s4" VERSION="1.0">
+<CREOLE-DIRECTORY ID="Annotator S4" VERSION="1.0">
 	<CREOLE>
 		<RESOURCE>
-			<NAME>Tagger_S4</NAME>
-			<COMMENT>The Self-Service Semantic Suite (S4) GATE plugin</COMMENT>
+			<NAME>Annotator_S4</NAME>
+			<COMMENT>The Self-Service Semantic Suite (S4) plugin</COMMENT>
 			<HELPURL>http://docs.s4.ontotext.com/display/S4docs/Home</HELPURL>
-			<ICON>/gate/resources/img/s4Logo32x32.png</ICON>
-			<JAR>Tagger_S4-1.0.jar</JAR>
+			<ICON>/com/ontotext/s4/api/s4Logo32x32.png</ICON>
+			<JAR>Annotator_S4-1.0.jar</JAR>
 			<JAR>lib/httpclient-4.3.5.jar</JAR>
 			<JAR>lib/httpcore-4.3.2.jar</JAR>
 			<JAR>lib/jackson-dataformat-xml-2.3.0.jar</JAR>
@@ -21,12 +21,12 @@
 					COMMENT="ConfigFile"
 					DEFAULT="S4.config">java.net.URL</PARAMETER>
 			<OR>
-				<PARAMETER NAME="s4URL"
-						COMMENT="The URL for the S4 REST service"
-						DEFAULT="TWITTIE">
+				<PARAMETER NAME="url"
+						COMMENT="URL of S4 service (predefined)"
+						DEFAULT="TWITIE">
 					com.ontotext.s4.api.S4Endpoints</PARAMETER>
-				<PARAMETER NAME="restServiceUrlString"
-						COMMENT="The URL for the S4 REST service">java.lang.String</PARAMETER>
+				<PARAMETER NAME="customUrl"
+						COMMENT="URL of S4 service (custom)">java.lang.String</PARAMETER>
 
 			</OR>
 
