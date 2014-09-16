@@ -4,7 +4,7 @@ S4 Annotator Plug-in for GATE
 This component provides access to the S4 text analytics services directly into the GATE platform. The plug-in implemented as Processing Resource acts as a local proxy client to the remotely accessible RESTful services, hiding the complexity of the underlying technologies and communication protocols. The PR can be integrated in any processing pipeline regardless of the context.
 
 ## Download
-- [Direct download url][1]
+- [Direct download][1]
 - [GATE update site][2]
 
 ## Documentation
