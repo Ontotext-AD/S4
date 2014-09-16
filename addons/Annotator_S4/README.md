@@ -13,5 +13,5 @@ This component provides access to the S4 text analytics services directly into t
 
   [1]: http://ontotext-ad.github.io/S4/GatePR/Annotator_S4/Annotator_S4.zip
   [2]: http://ontotext-ad.github.io/S4/GatePR/gate-update-site.xml
-  [3]: http://docs.s4.ontotext.com/display/S4docs/S4+Annotator+Plug-in+for+GATE
+  [3]: http://docs.s4.ontotext.com/display/S4docs/GATE+Plugin+for+S4
   [4]: http://ontotext-ad.github.io/S4/GatePR/javadoc/
