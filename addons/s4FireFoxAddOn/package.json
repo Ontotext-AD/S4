@@ -1,0 +1,10 @@
+{
+  "name": "s4firefoxaddon",
+  "title": "S4 FireFox Add-on",
+  "id": "jid1-VSGQHDHEjSxQMQ",
+  "description": "This add-on can be used to send parts of current page to S4 pipelines.",
+  "author": "",
+  "license": "MPL 2.0",
+  "version": "0.1",
+  "icon": "data/s4Logo.png"
+}

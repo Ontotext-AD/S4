@@ -1,0 +1,29 @@
+<fieldset>
+	<legend>Results</legend>
+	 <div style="height: 300px; overflow: auto;">
+        <div class="control-group" data-ng-show="colorLegend">
+            <hr data-ng-show="colorLegend"/>
+              <table style="width: 390px;">
+                  <tr>
+                      <td style="padding: 0px !important;">
+                          Annotation colors
+                      </td>
+                  </tr>
+                  <tr data-ng-repeat="colorElement in colorLegend">
+                      <td style="padding: 0px !important; position: relative;" data-ng-style="$parent.setBackgroundColor(colorElement.1.0)">
+                          {{colorElement.0}}
+                          <input style="display: inline; border: 0; margin: 0; position: absolute; right: 1px; top: 4px;" type="checkbox" data-ng-if="colorElement.1.0.s4HideItem" data-ng-click="$parent.showS4Type(colorElement.0)"/>
+                          <input style="display: inline; border: 0; margin: 0; position: absolute; right: 1px; top: 4px;" type="checkbox" data-ng-if="!colorElement.1.0.s4HideItem" data-ng-click="$parent.removeS4Type(colorElement.0)" checked="checked"/>
+                      </td>
+                  </tr>
+              </table>
+            <hr data-ng-show="colorLegend"/>
+        </div>
+        <div class="control-group" id="visualisationResult" data-visualize-pipe-line-result
+             data-ng-model="$parent.resultFromResponse">
+        </div>
+	 </div>
+     <div>
+         <input class="btn-primary" type="button"  value="Back" data-ng-click="$parent.cancelMethod()"/>
+     </div>
+ </fieldset>
