@@ -132,7 +132,7 @@ namespace ServiceSamples
            + "    ?Location geo-ont:parentFeature ?o.\n"
            + "    ?o geo-ont:parentCountry dbpedia:United_States .\n} limit 5";
             query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
-            return apiExecutor.processRequest("query=" + query,S4ServiceClient.SPARQL_ACCEPT_HEADER,S4ServiceClient.SPARQL_URLENCODED);
+            return apiExecutor.processRequest("query=" + query, S4ServiceClient.SPARQL_ACCEPT_HEADER, S4ServiceClient.SPARQL_CONTENT_TYPE);
         }
     }
 }
