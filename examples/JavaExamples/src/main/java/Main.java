@@ -2,21 +2,21 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import s4.RESTService.APIRequestExecutor;
+import service.S4ServiceClient;
 import tableCreator.TableCreator;
 import model.ProcessingRequest;
 
 public class Main {
 
-	private static APIRequestExecutor apiExecutor;
+	private static S4ServiceClient serviceClient;
 	private static String keyId = "<your-credentials-here>";
 	private static String password = "<your-credentials-here>";
 	
 	public static void main(String[] args) {
-		apiExecutor=new APIRequestExecutor("https://text.s4.ontotext.com/v1/twitie", keyId, password);
+		serviceClient=new S4ServiceClient("https://text.s4.ontotext.com/v1/twitie", keyId, password);
 		//send a test GET request to the endpoint
 		System.out.println("Testing endpoint...");
-		if(!apiExecutor.testEndpoint()) {
+		if(!serviceClient.testEndpoint()) {
 			return;
 		}
 		System.out.println("\n\n\n");
@@ -34,7 +34,7 @@ public class Main {
 		
 		
 		//change URL to SPARQL end-point
-		apiExecutor.setEndpointUrl("https://lod.s4.ontotext.com/v1/FactForge/sparql");
+		serviceClient.setEndpointUrl("https://lod.s4.ontotext.com/v1/FactForge/sparql");
 		
 		System.out.println("\n\n\n");		
 		//Software companies founded in the US
@@ -73,7 +73,7 @@ public class Main {
 				"Institute of Technology.");
 		pr.setDocumentType("text/plain");
 		try {
-			apiExecutor.processRequest(pr.toJSON(), APIRequestExecutor.APPLICATION_JSON_HEADER,APIRequestExecutor.APPLICATION_JSON_HEADER);
+			serviceClient.processRequest(pr.toJSON(), S4ServiceClient.APPLICATION_JSON_HEADER,S4ServiceClient.APPLICATION_JSON_HEADER);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,7 +98,7 @@ public class Main {
 		pr.setDocumentType("text/x-json-twitter");
 		pr.setAnnotationSelectors(new String[]{":", "Original markups:"});
 		try {
-			apiExecutor.processRequest(pr.toJSON(), APIRequestExecutor.APPLICATION_JSON_HEADER,APIRequestExecutor.APPLICATION_JSON_HEADER);
+			serviceClient.processRequest(pr.toJSON(), S4ServiceClient.APPLICATION_JSON_HEADER,S4ServiceClient.APPLICATION_JSON_HEADER);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -114,7 +114,7 @@ public class Main {
 		pr.setDocumentUrl("http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car");
 		pr.setDocumentType("text/html");
 		try {
-			apiExecutor.processRequest(pr.toJSON(), APIRequestExecutor.APPLICATION_JSON_HEADER,APIRequestExecutor.APPLICATION_JSON_HEADER);
+			serviceClient.processRequest(pr.toJSON(), S4ServiceClient.APPLICATION_JSON_HEADER,S4ServiceClient.APPLICATION_JSON_HEADER);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,7 +145,7 @@ public class Main {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		String response= apiExecutor.processRequest("query=" + query,APIRequestExecutor.SPARQL_JSON_HEADER,APIRequestExecutor.SPARQL_URLENCODED);
+		String response= serviceClient.processRequest("query=" + query,S4ServiceClient.SPARQL_JSON_HEADER,S4ServiceClient.SPARQL_URLENCODED);
 		System.out.println(TableCreator.createTableFromJSON(response));
 	}
 	

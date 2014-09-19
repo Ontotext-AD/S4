@@ -1,4 +1,4 @@
-package s4.RESTService;
+package service;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
@@ -25,7 +25,7 @@ import org.apache.http.impl.client.HttpClients;
  * @author YavorPetkov
  *
  */
-public class APIRequestExecutor {
+public class S4ServiceClient {
 
 	public static final String SPARQL_JSON_HEADER="application/sparql-results+json";
 	public static final String SPARQL_URLENCODED="application/x-www-form-urlencoded";
@@ -37,7 +37,7 @@ public class APIRequestExecutor {
 	private String keyId;
 	private String password;
 	
-	public APIRequestExecutor(String endpointURL,String keyId,String password){
+	public S4ServiceClient(String endpointURL,String keyId,String password){
 		this.setEndpointUrl(endpointURL);
 		this.keyId=keyId;
 		this.password=password;
