@@ -12,31 +12,22 @@ namespace ServiceSamples
 {
     class MainClass
     {
-        private const String GATE_XML = "application/gate+xml";
-        private const String GATE_JSON = "application/gate+json";
-
-        //The URL of the Self Service Semantic Suite Online Processing Service Endpoint
-        private static String endpointUrl = "https://text.s4.ontotext.com/v1/";
-        //The shop item which will be used for processing
-        private static String serviceId = "twitie";
 
         //API Keys
         //TODO set your own credentials generated from s4.ontotext.com
         private static String keyId = "<your-credentials-here>";
         private static String password = "<your-credentials-here>";
 
-
-        private static NetworkCredential nc;
+        private static S4ServiceClient apiExecutor;
 
 
         static void Main(string[] args)
         {
-            //setup authentication
-            setupContext();
+            apiExecutor = new S4ServiceClient("https://text.s4.ontotext.com/v1/twitie", keyId, password);
 
             //send a test GET request to the endpoint
             Console.Out.WriteLine("Testing endpoint...");
-            if (!testEndpoint())
+            if (!apiExecutor.testEndpoint())
             {
                 return;
             }
@@ -54,52 +45,11 @@ namespace ServiceSamples
             Console.Out.WriteLine("Processing a Tweet message...");
             processTweet();
 
+            apiExecutor.EndpointUrl = "https://lod.s4.ontotext.com/v1/FactForge/sparql";
+
+            processSparql();
+
             Console.Read();
-        }
-
-        /**
-         * Sets up a HTTPContext for authentication
-         */
-        private static void setupContext()
-        {
-            // Call the constructor  to create an instance of NetworkCredential with the  
-            // specified key id and password.
-            nc = new NetworkCredential(keyId, password);
-        }
-
-        /**
-         * Sends a test request to the service
-         * @return if the service is available
-         */
-        private static bool testEndpoint()
-        {
-            // Create a WebRequest with the specified URL. 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endpointUrl);
-            request.Credentials = nc;
-            Console.WriteLine("\n\nRequest to Url is sent.Waiting for response...");
-
-            // Send the request and wait for a response.
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            int statusCode = (int)response.StatusCode;
-            if (statusCode != 200)
-            {
-                Console.WriteLine("Error communicating with endpoint.");
-                Console.WriteLine("Status code: " + (int)response.StatusCode + " " + response.StatusDescription);
-                Console.WriteLine(response.Headers);
-                Console.WriteLine(getContent(response));
-                response.Close();
-                return false;
-            }
-            else
-            {
-                Console.WriteLine("Endpoint returned status SUCCESS.");
-                Console.WriteLine("Status code: " + (int)response.StatusCode + " " + response.StatusDescription);
-                Console.WriteLine(response.Headers);
-                Console.WriteLine("Response body: ");
-                Console.WriteLine(getContent(response));
-                response.Close();
-                return true;
-            }
         }
 
         /**
@@ -129,7 +79,7 @@ namespace ServiceSamples
                     "Indian Institute of Management and the National " +
                     "Institute of Technology.");
             pr.documentType = ("text/plain");
-            processRequest(pr, GATE_JSON);
+            apiExecutor.processRequest(pr.toJSON(),S4ServiceClient.APPLICATION_JSON_HEADER,S4ServiceClient.APPLICATION_JSON_HEADER);
         }
 
         /**
@@ -150,7 +100,7 @@ namespace ServiceSamples
 				+ "\"id_str\":\"502743846716207104\"}");
             pr.documentType = ("text/x-json-twitter");
             pr.annotationSelectors = (new String[] { ":", "Original markups:" });
-            processRequest(pr, GATE_JSON);
+            apiExecutor.processRequest(pr.toJSON(), S4ServiceClient.APPLICATION_JSON_HEADER, S4ServiceClient.APPLICATION_JSON_HEADER);
         }
 
         /**
@@ -162,143 +112,27 @@ namespace ServiceSamples
             ProcessingRequest pr = new ProcessingRequest();
             pr.documentUrl = ("http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car");
             pr.documentType = ("text/html");
-            processRequest(pr, GATE_JSON);
+            apiExecutor.processRequest(pr.toJSON(), S4ServiceClient.APPLICATION_JSON_HEADER, S4ServiceClient.APPLICATION_JSON_HEADER);
         }
 
         /**
-         * Serialize a ProcessingRequest and send it to Self Service Semantic Suite Online Processing Service
-         * @param pr the processing request to send
-         * @param acceptType the type of output we want to produce
-         */
-        private static void processRequest(ProcessingRequest pr, string acceptType)
+        * Executes one SPARQL query 
+        */
+        private static String processSparql()
         {
-
-            // Create a WebRequest with the specified URL. 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endpointUrl + serviceId);
-            
-            //set gzip decompression
-            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-            
-            //set credentials
-            request.Credentials = nc;
-
-            // Set the content type of the data being posted.
-            request.ContentType = "application/json";
-            request.Accept = acceptType;
-            request.Headers.Set("Accept-Encoding", "gzip");
-
-            // Set the 'Method' property of the 'HttpWebRequest' to 'POST'.
-            request.Method = "POST";
-
-            String postData = pr.toJSON();
-            UTF8Encoding encoding = new UTF8Encoding();
-            byte[] byte1 = encoding.GetBytes(postData);
-
-            Console.WriteLine("POST body is:");
-            Console.WriteLine(postData);
-
-            // Set the content length of the string being posted.
-            request.ContentLength = byte1.Length;
-
-            Stream RequestStream = request.GetRequestStream();
-
-            RequestStream.Write(byte1, 0, byte1.Length);
-
-            // Close the Stream object.
-            RequestStream.Close();
-            // Send the request and wait for a response.
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            //Console.WriteLine(getContent(myHttpWebResponse));
-
-            int statusCode = (int)response.StatusCode;
-            switch (statusCode)
-            {
-                case 200:
-                    {
-                        //Request was processed successfully
-                        Console.WriteLine("SUCCESS");
-                        Console.WriteLine("Status code: " + (int)response.StatusCode + " " + response.StatusDescription);
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                case 400:
-                    {
-                        //Bad request, there is some problem with user input
-                        Console.WriteLine("Bad request");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                case 403:
-                    {
-                        //Problem with user authentication
-                        Console.WriteLine("Error during authentication");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                case 404:
-                    {
-                        //Not found
-                        Console.WriteLine("Not found, check endpoint URL");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                case 406:
-                    {
-                        //Not Accepted
-                        Console.WriteLine("The request was not accepted. Check Accept header");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                case 408:
-                    {
-                        //Processing this request took too long
-                        Console.WriteLine("Could not process document in time");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                case 415:
-                    {
-                        //Unsupported media type
-                        Console.WriteLine("Invalid value in Content-Type header");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                case 500:
-                    {
-                        //Internal server error
-                        Console.WriteLine("Error during processing");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Could not process request");
-                        Console.WriteLine(response.Headers);
-                        Console.WriteLine(getContent(response));
-                        break;
-                    }
-            }
-        }
-
-        /**
-	     * Helper method which collects the response's body as a strting
-	     * @param response the HttpResponse whose content we want to collect
-	     * @return the String value of the response body
-	     */
-        private static String getContent(HttpWebResponse response)
-        {
-            StreamReader sr = new StreamReader(response.GetResponseStream(),
-            Encoding.UTF8);
-            String html = sr.ReadToEnd();
-            return html;
+            String query="PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+           + "PREFIX dbpedia: <http://dbpedia.org/resource/>\n"
+           + "PREFIX dbp-ont: <http://dbpedia.org/ontology/>\n"
+           + "PREFIX geo-ont: <http://www.geonames.org/ontology#>\n"
+           + "PREFIX umbel-sc: <http://umbel.org/umbel/sc/>\n\n"
+           + "SELECT DISTINCT ?Company ?Location\nWHERE {\n"
+           + "    ?Company rdf:type dbp-ont:Company ;\n"
+           + "             dbp-ont:industry dbpedia:Computer_software ;\n"
+           + "             dbp-ont:foundationPlace ?Location .\n"
+           + "    ?Location geo-ont:parentFeature ?o.\n"
+           + "    ?o geo-ont:parentCountry dbpedia:United_States .\n} limit 5";
+            query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
+            return apiExecutor.processRequest("query=" + query,S4ServiceClient.SPARQL_ACCEPT_HEADER,S4ServiceClient.SPARQL_URLENCODED);
         }
     }
 }

@@ -72,6 +72,7 @@
     <Compile Include="ProcessingRequest.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S4ServiceClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
