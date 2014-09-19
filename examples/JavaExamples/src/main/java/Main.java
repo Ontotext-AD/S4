@@ -145,7 +145,7 @@ public class Main {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		String response= serviceClient.processRequest("query=" + query,S4ServiceClient.SPARQL_JSON_HEADER,S4ServiceClient.SPARQL_URLENCODED);
+		String response= serviceClient.processRequest("query=" + query,S4ServiceClient.SPARQL_ACCEPT_HEADER,S4ServiceClient.SPARQL_CONTENT_TYPE);
 		System.out.println(TableCreator.createTableFromJSON(response));
 	}
 	

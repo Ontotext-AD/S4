@@ -27,8 +27,8 @@ import org.apache.http.impl.client.HttpClients;
  */
 public class S4ServiceClient {
 
-	public static final String SPARQL_JSON_HEADER="application/sparql-results+json";
-	public static final String SPARQL_URLENCODED="application/x-www-form-urlencoded";
+	public static final String SPARQL_ACCEPT_HEADER="application/sparql-results+json";
+	public static final String SPARQL_CONTENT_TYPE="application/x-www-form-urlencoded";
 	public static final String APPLICATION_JSON_HEADER = "application/json";
 	
 	private CloseableHttpClient httpClient;
