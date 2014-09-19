@@ -28,7 +28,7 @@ var s4Popup = require("sdk/panel").Panel({
         self.data.url("s4App.js"),
         self.data.url("constants.js"),
         self.data.url("stringHexNumber.js"),
-        self.data.url("createHighlightedArea.js"),       
+        self.data.url("createHighlightedArea.js"),
         self.data.url("directives.js"),
         self.data.url("sendRequestViaSelfPortEmit.js"),
         self.data.url("saveAdminData.js"),
@@ -38,7 +38,7 @@ var s4Popup = require("sdk/panel").Panel({
 });
 
 var menuItem = contextMenu.Item({
-    label: "Annotate Selection",
+    label: "Annotate Selection with S4",
     context: contextMenu.SelectionContext(),
     contentScript: 'self.on("click", function () {' +
         '  var text = window.getSelection().toString().replace(/(?:\\r\\n|\\n|\\r|\\s)/gm," ");' +
@@ -46,11 +46,23 @@ var menuItem = contextMenu.Item({
         '});',
     onMessage: function (selectionText) {
         selectedText = selectionText;
-        s4Popup.port.emit("showInterface", {
-            data: tabs.activeTab.url,
-            selectedText: selectedText
-        });
-        
+
+        if (typeof ss.storage.adminObj['username'] != 'undefined' &&
+            ss.storage.adminObj['username'] != '' &&
+            typeof ss.storage.adminObj['password'] != 'undefined' &&
+            ss.storage.adminObj['password'] != '' &&
+            typeof ss.storage.adminObj['selectedPipeLine'] != 'undefined' &&
+            ss.storage.adminObj['selectedPipeLine'] != '') {
+            s4Popup.port.emit("showInterface", {
+                selectedText: selectedText
+            });
+        } else {
+            s4Popup.port.emit("showInterface", {
+                selectedText: selectedText,
+                templateToRender: './settingsForm.html'
+            });
+        }
+
         s4Popup.show({
             position: {
                 right: 0,
@@ -69,12 +81,6 @@ var widget = widgets.Widget({
     }
 });
 
-s4Popup.on("show", function() {
-    s4Popup.port.emit("showInterface", {
-        data: tabs.activeTab.url
-    });
-});
-
 s4Popup.port.on("getAdminObj", function (receivedObj) {
     if (typeof receivedObj['eventId'] != 'undefined') {
         s4Popup.port.emit("sendAdminObj", {
@@ -84,11 +90,9 @@ s4Popup.port.on("getAdminObj", function (receivedObj) {
     }
 });
 
-
 s4Popup.port.on("hidePanel", function (adminObj) {
     s4Popup.hide();
 });
-
 
 s4Popup.port.on("setAdminObj", function (adminObj) {
     if (typeof adminObj['eventId'] != 'undefined') {
@@ -114,52 +118,59 @@ s4Popup.port.on("sendHttpRequestToUrl", function (configObj) {
 });
 
 s4Popup.port.on("sendCurrentPageToPipeLine", function (eventInputs) {
-	
-    if (typeof eventInputs['eventId'] != 'undefined' && typeof  eventInputs['data']["url"] != 'undefined') {
-		        var requestData = JSON.stringify({
-                    "document": eventInputs['selectedTextFromUser'],
-                    "annotationSelectors": [],
-                    "documentType": "text/plain"
-                });
 
-                var headers = {
-                    "Accept": "application/gate+json",
-                    "Accept-Encoding": "gzip, deflate",
-                    "Content-Type": "application/json;charset=utf-8"
-                };
-                
-                if (typeof ss.storage.adminObj.username != 'undefined' &&
-                    typeof ss.storage.adminObj.password != 'undefined' &&
-                    ss.storage.adminObj.username != "" &&
-                    ss.storage.adminObj.password != "") {
-                    headers['Authorization'] = "Basic " + Base64.encode(ss.storage.adminObj.username + ":" + ss.storage.adminObj.password);
+    if (typeof eventInputs['eventId'] != 'undefined' && typeof  eventInputs['data']["url"] != 'undefined') {
+        var requestData = JSON.stringify({
+            "document": eventInputs['selectedTextFromUser'],
+            "annotationSelectors": [],
+            "documentType": "text/plain"
+        });
+
+        var headers = {
+            "Accept": "application/gate+json",
+            "Accept-Encoding": "gzip, deflate",
+            "Content-Type": "application/json;charset=utf-8"
+        };
+
+        if (typeof ss.storage.adminObj.username != 'undefined' &&
+            typeof ss.storage.adminObj.password != 'undefined' &&
+            ss.storage.adminObj.username != "" &&
+            ss.storage.adminObj.password != "") {
+            headers['Authorization'] = "Basic " + Base64.encode(ss.storage.adminObj.username + ":" + ss.storage.adminObj.password);
+        }
+
+        /**
+         * The request must be send to
+         * eventInputs['data']["url"]
+         */
+        Request({
+            url: eventInputs['data']["url"],
+            content: requestData,
+            headers: headers,
+            onComplete: function (response) {
+                /**
+                 * Error handling
+                 */
+                if (typeof response.json != 'undefined' && response.json != null && typeof response.json.message != 'undefined') {
+                    s4Popup.port.emit("error", response.json.message);
+                    return;
+                } else if (typeof response.json == 'undefined' || response.json == null) {
+                    var errorMessage = "The system returns status: " + response.status;
+
+                    if (typeof response.statusText != 'undefined') {
+                        errorMessage += " message: ";
+                        errorMessage += response.statusText;
+                    }
+
+                    s4Popup.port.emit("error", errorMessage);
+                    return;
                 }
 
-                /**
-                 * The request must be send to
-                 * eventInputs['data']["url"]
-                 */
-                Request({
-                    url: eventInputs['data']["url"],
-                    content: requestData,
-                    headers: headers,
-                    onComplete: function (response) {
-                        /**
-                         * Error handling
-                         */
-                        if(typeof response.json != 'undefined' && response.json != null && typeof response.json.message != 'undefined') {
-                            s4Popup.port.emit("error", response.json.message);
-                            return;
-                        } else if(typeof response.json == 'undefined' ||  response.json == null) {
-                            s4Popup.port.emit("error", "The system returns status:" + response.status);
-                            return;
-                        }
-                        
-						s4Popup.port.emit("s4Message", {
-							data: response.json
-						});
-                    }
-                }).post();
+                s4Popup.port.emit("s4Message", {
+                    data: response.json
+                });
+            }
+        }).post();
     }
 });
 

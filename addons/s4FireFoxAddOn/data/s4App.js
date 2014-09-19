@@ -20,9 +20,7 @@ var s4App = angular.module('s4App', []);
 
 s4App.controller('DefaultController', function ($scope, sendRequestViaSelfPortEmit, sendCurrentPageToPipeLine, getAdminData, saveAdminData, settings) {
 
-    $scope.templateToRender = './choosePipeLine.html';
-
-    $scope.credentialsIsSet = false;
+    $scope.templateToRender = './settingsForm.html';
 
     sendRequestViaSelfPortEmit({
         methodToRequest: 'get',
@@ -45,16 +43,6 @@ s4App.controller('DefaultController', function ($scope, sendRequestViaSelfPortEm
         $scope.adminData = adminData;
     });
 
-    $scope.$watch('adminData', function () {
-        if (typeof $scope.adminData != 'undefined' &&
-            typeof $scope.adminData.username != 'undefined' &&
-            typeof $scope.adminData.password != 'undefined') {
-            $scope.credentialsIsSet = true;
-        } else {
-            $scope.credentialsIsSet = false;
-        }
-    });
-
     $scope.setBackgroundColor = function (obj) {
         return { 'background-color': obj.color, 'color': obj.invertColor};
     };
@@ -72,7 +60,7 @@ s4App.controller('DefaultController', function ($scope, sendRequestViaSelfPortEm
     };
 
     $scope.cancelMethod = function() {
-        $scope.templateToRender = './choosePipeLine.html';
+        $scope.templateToRender = './settingsForm.html';
     }
 
     $scope.goToSettingsForm = function() {
@@ -85,32 +73,28 @@ s4App.controller('DefaultController', function ($scope, sendRequestViaSelfPortEm
 
     $scope.sendCurrentPageToPipeLine = function() {
         $scope.templateToRender = './loader.html';
-        sendCurrentPageToPipeLine($scope.selectedPipeLine,$scope.selectedTextFromUser).then(
-          function(result) {
-              $scope.colorLegend = result;
-              $scope.templateToRender = './legend.html';
-          }
-        );
-    };
-
-    $scope.deleteCredentials = function() {
-        saveAdminData({}).then(
-            function (adminData) {
-				if(angular.isDefined($scope.selectedPipeLine)) {
-					delete $scope.selectedPipeLine;
-				}
-				
-                $scope.adminData = adminData;
-                $scope.templateToRender = './choosePipeLine.html';
-            }
-        );
+        sendCurrentPageToPipeLine($scope.adminData.selectedPipeLine,$scope.selectedTextFromUser);
     };
 
     $scope.confirmSaveCredentials = function() {
         saveAdminData($scope.adminData).then(
             function (adminData) {
-                $scope.adminData = adminData;
-                $scope.templateToRender = './choosePipeLine.html';
+                if(angular.isDefined($scope.autoSendRequestForm)) {
+                    delete $scope.autoSendRequestForm;
+                    $scope.adminData = adminData;
+                    $scope.sendCurrentPageToPipeLine();
+                } else if(typeof $scope.adminData['username'] != 'undefined' &&
+                    $scope.adminData['username'] != '' &&
+                    typeof $scope.adminData['password'] != 'undefined' &&
+                    $scope.adminData['password'] != '' &&
+                    typeof $scope.adminData['selectedPipeLine'] != 'undefined' &&
+                    $scope.adminData['selectedPipeLine'] != '') {
+                    $scope.templateToRender = './settingsForm.html';
+                    $scope.closePanel();
+                } else {
+                    $scope.adminData = adminData;
+                    $scope.templateToRender = './settingsForm.html';
+                }
             }
         );
     }
@@ -142,12 +126,32 @@ s4App.controller('DefaultController', function ($scope, sendRequestViaSelfPortEm
     });
 
     self.port.on('showInterface', function (inputData) {
-		if(angular.isDefined(inputData['selectedText'])) {
+        /**
+         * user is selected text ..
+         */
+		if(angular.isDefined(inputData) && angular.isDefined(inputData['selectedText']) && angular.isDefined(inputData['templateToRender']) == false) {
 			$scope.$apply(function () {
-				$scope.templateToRender = './choosePipeLine.html';
                 $scope.selectedTextFromUser = inputData['selectedText'];
+                $scope.sendCurrentPageToPipeLine();
             });
-		}
+		} else if(angular.isDefined(inputData) && angular.isDefined(inputData['selectedText']) && angular.isDefined(inputData['templateToRender']) == true) {
+            $scope.$apply(function () {
+                $scope.autoSendRequestForm = true;
+                $scope.selectedTextFromUser = inputData['selectedText'];
+                $scope.templateToRender = inputData['templateToRender'];
+            });
+        } else if(angular.isDefined(inputData) && angular.isDefined(inputData['selectedText']) == false && angular.isDefined(inputData['templateToRender']) == true){
+            $scope.$apply(function () {
+                $scope.templateToRender = inputData['templateToRender'];
+            });
+        } else if(typeof inputData == 'undefined' &&
+                  $scope.templateToRender != './result-page.html' &&
+                  angular.isDefined(inputData) == false &&
+                  angular.isDefined(inputData['templateToRender']) == false) {
+            $scope.$apply(function () {
+                $scope.templateToRender = './settingsForm.html';
+            });
+        }
     });
 
     self.port.on('showStartPage', function (inputData) {

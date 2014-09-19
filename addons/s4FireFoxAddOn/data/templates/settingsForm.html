@@ -25,7 +25,7 @@
                         API Key ID
                     </td>
                     <td>
-                        <input class="inputControl" required="required" type="text" name="username" data-ng-model="$parent.adminData.username" data-ng-value="{{$parent.adminData.username}}" placeholder="API Key ID"/>
+                        <input style="width: 200px;" class="inputControl" type="text" name="username" data-ng-model="$parent.adminData.username" placeholder="API Key ID"/>
                     </td>
                     <td>
                         <img class="imageInfo" src="questionMark.jpg" data-ng-click="goToInfoPage()"/>
@@ -35,17 +35,22 @@
                     <td>
                         API Key Secret
                     </td>
-                    <td>
-                        <input class="inputControl" required="required" type="text" name="password" data-ng-model="$parent.adminData.password" data-ng-value="{{$parent.adminData.password}}" placeholder="API Key Secret"/>
+                    <td colspan="2">
+                        <input style="width: 200px;" class="inputControl" type="text" name="password" data-ng-model="$parent.adminData.password" placeholder="API Key Secret"/>
                     </td>
+                </tr>
+                <tr>
                     <td>
-                        <img class="imageInfo" src="questionMark.jpg" data-ng-click="goToInfoPage()"/>
+                        Service
+                    </td>
+                    <td colspan="2">
+                        <select  style="width: 200px;" data-ng-model="$parent.adminData.selectedPipeLine" name="selectedPipeLine"  data-ng-options="obj.name for obj in pipeLinesList track by obj.name">
+                            <option value="" style="display: none;">Select pipeline</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <input data-ng-disabled="!$parent.adminData.password || !$parent.adminData.username" class="btn-primary" type="button"  value="Delete" data-ng-click="$parent.templateToRender = './confirmDelete.html'"/>
-                        <input class="btn-primary" type="button"  value="Back" data-ng-click="$parent.cancelMethod()"/>
                         <input class="btn-primary" type="submit" id="submit" value="Save"/>
                     </td>
                 </tr>
