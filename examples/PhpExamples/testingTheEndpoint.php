@@ -1,9 +1,11 @@
 <?php
 error_reporting(E_ALL);
 
-$username = '<keyId>';
-$password = '<password>';
+$username = '<your-credentials-here>';
+$password = '<your-credentials-here>';
 $pipeLineUrl = 'https://text.s4.ontotext.com/v1/';
+
+$isResultGzipEncoded = false;
 
 $options = array(
     'http' => array(
@@ -20,8 +22,22 @@ $result = file_get_contents($pipeLineUrl, false, $context);
 
 
 if(isset($http_response_header)) {
+array_walk($http_response_header, function ($itemValue) {
+    global $isResultGzipEncoded;
+    /**
+     * Here we will detect for gzip encoding.
+     */
+    if (preg_match("#Content-Encoding:\s+gzip#", $itemValue) == 1) {
+        $isResultGzipEncoded = true;
+    }
+
+});
+
  var_dump($http_response_header);
 }
 
-var_dump($result);
-?>
+if ($isResultGzipEncoded) {
+    var_dump(gzdecode($result));
+} else {
+    var_dump($result);
+}
