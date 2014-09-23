@@ -5,7 +5,6 @@ $username = '<your-credentials-here>';
 $password = '<your-credentials-here>';
 $pipeLineUrl = 'https://lod.s4.ontotext.com/v1/FactForge/sparql';
 
-$isResultGzipEncoded = false;
 
 
 $data = "query=" . urlencode('
@@ -37,21 +36,7 @@ $result = file_get_contents($pipeLineUrl, false, $context);
 
 
 if (isset($http_response_header)) {
-    array_walk($http_response_header, function ($itemValue) {
-        global $isResultGzipEncoded;
-        /**
-         * Here we will detect for gzip encoding.
-         */
-        if (preg_match("#Content-Encoding:\s+gzip#", $itemValue) == 1) {
-            $isResultGzipEncoded = true;
-        }
-
-    });
     var_dump($http_response_header);
 }
 
-if ($isResultGzipEncoded) {
-    var_dump(gzdecode($result));
-} else {
-    var_dump($result);
-}
+var_dump($result);
