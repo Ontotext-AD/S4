@@ -1,5 +1,5 @@
 (function () {
-    window.addEventListener("load", function testEndPointDemo() {
+    window.addEventListener("load", function sparqlQuery() {
         var username = "<key>";
         var password = "<password>";
         var url = "https://lod.s4.ontotext.com/v1/FactForge/sparql";
@@ -79,7 +79,7 @@
         xhr.send(dataString);
 
         // remove listener to clean up
-        window.removeEventListener("load", testEndPointDemo);
+        window.removeEventListener("load", sparqlQuery);
     });
 
     /*\

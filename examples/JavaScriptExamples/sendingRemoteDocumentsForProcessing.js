@@ -1,5 +1,5 @@
 (function () {
-    window.addEventListener("load", function testEndPointDemo() {
+    window.addEventListener("load", function sendingRemoteDocumentsForProcessing() {
         var username = "<key>";
         var password = "<password>";
         var url = "https://text.s4.ontotext.com/v1/twitie";
@@ -72,6 +72,6 @@
         xhr.send(dataString);
 
         // remove listener to clean up
-        window.removeEventListener("load", testEndPointDemo);
+        window.removeEventListener("load", sendingRemoteDocumentsForProcessing);
     });
 })();
