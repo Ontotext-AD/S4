@@ -1,20 +1,20 @@
 /*
- * Copyright (c) 2014  Ontotext AD
+ * S4 Java client library
+ * Copyright (c) 2014, Ontotext AD, All rights reserved.
  *
- * This file is part of the s4.ontotext.com REST client library, and is
- * licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 3.0 of the License, or (at your option) any later version.
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package com.ontotext.s4.service;
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.
+ */package com.ontotext.s4.service;
 
 public class S4ServiceClientException extends RuntimeException {
 
