@@ -1,6 +1,5 @@
 <?php
-/*
- S4 Web Page Annotation Browser Plugin
+/* 
  Copyright  2013, 2014, Ontotext AD
 
  This file is free software; you can redistribute it and/or modify it under
