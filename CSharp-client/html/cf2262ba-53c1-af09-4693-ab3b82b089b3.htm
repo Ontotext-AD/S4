@@ -1,0 +1,70 @@
+﻿<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="../icons/favicon.ico" />
+    <style type="text/css">.OH_CodeSnippetContainerTabLeftActive, .OH_CodeSnippetContainerTabLeft,.OH_CodeSnippetContainerTabLeftDisabled { }.OH_CodeSnippetContainerTabRightActive, .OH_CodeSnippetContainerTabRight,.OH_CodeSnippetContainerTabRightDisabled { }.OH_footer { }</style>
+    <link rel="stylesheet" type="text/css" href="../styles/branding.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" />
+    <script type="text/javascript" src="../scripts/branding.js"> </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>S4ServiceClient.annotateFileContentsAsStream Method </title>
+    <meta name="Language" content="en-us" />
+    <meta name="System.Keywords" content="annotateFileContentsAsStream method" />
+    <meta name="System.Keywords" content="S4ServiceClient.annotateFileContentsAsStream method" />
+    <meta name="Microsoft.Help.F1" content="Ontotext.S4.service.S4ServiceClient.annotateFileContentsAsStream" />
+    <meta name="Microsoft.Help.Id" content="M:Ontotext.S4.service.S4ServiceClient.annotateFileContentsAsStream(System.IO.FileStream,System.String,Ontotext.S4.service.SupportedMimeType,Ontotext.S4.service.ResponseFormat)" />
+    <meta name="Description" content="Annotates the contents of a single file returning an {@link InputStream} from which the annotated content can be read" />
+    <meta name="Microsoft.Help.ContentType" content="Reference" />
+    <meta name="BrandingAware" content="true" />
+    
+    <meta name="container" content="Ontotext.S4.service" />
+    <meta name="file" content="cf2262ba-53c1-af09-4693-ab3b82b089b3" />
+    <meta name="guid" content="cf2262ba-53c1-af09-4693-ab3b82b089b3" />
+    
+  </head>
+  <body onload="OnLoad('cs')">
+    <input type="hidden" id="userDataCache" class="userDataStyle" />
+    <div class="OH_outerDiv">
+      <div class="OH_outerContent">
+        <table class="TitleTable">
+          <tr>
+            <td class="OH_tdTitleColumn">S4ServiceClient<span id="LST8BF08345_0"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST8BF08345_0?cpp=::|nu=.");</script>annotateFileContentsAsStream Method </td>
+            <td class="OH_tdRunningTitleColumn">A Sandcastle Documented Class Library</td>
+          </tr>
+        </table>
+        <div id="mainSection">
+          <div id="mainBody">
+            <span class="introStyle"></span>
+            <div class="summary">
+            Annotates the contents of a single file returning an
+            {@link InputStream} from which the annotated content can be read
+            </div>
+            <p> </p>
+            <strong>Namespace:</strong> <a href="b66d78b8-67da-73b0-0680-0f50bd390d9f.htm">Ontotext.S4.service</a><br /><strong>Assembly:</strong> S4ClientLibrary (in S4ClientLibrary.dll) Version: 1.0.0.0 (1.0.0.0)<div class="OH_CollapsibleAreaRegion"><div class="OH_regiontitle">Syntax</div><div class="OH_CollapsibleArea_HrDiv"><hr class="OH_CollapsibleArea_Hr" /></div></div><div class="OH_clear"> </div><div class="OH_CodeSnippetContainer"><div class="OH_CodeSnippetContainerTabs"><div class="OH_CodeSnippetContainerTabLeft" id="ID0EDCA_tabimgleft"> </div><div id="ID0EDCA_tab1" class="OH_CodeSnippetContainerTabFirst"><a href="#" onclick="javascript:ChangeTab('ID0EDCA','cs','1','4');return false;">C#</a></div><div id="ID0EDCA_tab2" class="OH_CodeSnippetContainerTab"><a href="#" onclick="javascript:ChangeTab('ID0EDCA','vb','2','4');return false;">VB</a></div><div id="ID0EDCA_tab3" class="OH_CodeSnippetContainerTab"><a href="#" onclick="javascript:ChangeTab('ID0EDCA','cpp','3','4');return false;">C++</a></div><div id="ID0EDCA_tab4" class="OH_CodeSnippetContainerTab"><a href="#" onclick="javascript:ChangeTab('ID0EDCA','fs','4','4');return false;">F#</a></div><div class="OH_CodeSnippetContainerTabRight" id="ID0EDCA_tabimgright"> </div></div><div class="OH_CodeSnippetContainerCodeCollection"><div class="OH_CodeSnippetToolBar"><div class="OH_CodeSnippetToolBarText"><a id="ID0EDCA_copyCode" href="#" onclick="javascript:CopyToClipboard('ID0EDCA');return false;" title="Copy">Copy</a></div></div><div id="ID0EDCA_code_Div1" class="OH_CodeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="keyword">public</span> <span class="identifier">Stream</span> <span class="identifier">annotateFileContentsAsStream</span>(
+	<span class="identifier">FileStream</span> <span class="parameter">documentContent</span>,
+	<span class="identifier">string</span> <span class="parameter">documentEncoding</span>,
+	<span class="identifier">SupportedMimeType</span> <span class="parameter">documentMimeType</span>,
+	<span class="identifier">ResponseFormat</span> <span class="parameter">serializationFormat</span>
+)</pre></div><div id="ID0EDCA_code_Div2" class="OH_CodeSnippetContainerCode" style="display: none"><pre xml:space="preserve"><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">annotateFileContentsAsStream</span> ( 
+	<span class="parameter">documentContent</span> <span class="keyword">As</span> <span class="identifier">FileStream</span>,
+	<span class="parameter">documentEncoding</span> <span class="keyword">As</span> <span class="identifier">String</span>,
+	<span class="parameter">documentMimeType</span> <span class="keyword">As</span> <span class="identifier">SupportedMimeType</span>,
+	<span class="parameter">serializationFormat</span> <span class="keyword">As</span> <span class="identifier">ResponseFormat</span>
+) <span class="keyword">As</span> <span class="identifier">Stream</span></pre></div><div id="ID0EDCA_code_Div3" class="OH_CodeSnippetContainerCode" style="display: none"><pre xml:space="preserve"><span class="keyword">public</span>:
+<span class="identifier">Stream</span>^ <span class="identifier">annotateFileContentsAsStream</span>(
+	<span class="identifier">FileStream</span>^ <span class="parameter">documentContent</span>, 
+	<span class="identifier">String</span>^ <span class="parameter">documentEncoding</span>, 
+	<span class="identifier">SupportedMimeType</span> <span class="parameter">documentMimeType</span>, 
+	<span class="identifier">ResponseFormat</span> <span class="parameter">serializationFormat</span>
+)</pre></div><div id="ID0EDCA_code_Div4" class="OH_CodeSnippetContainerCode" style="display: none"><pre xml:space="preserve"><span class="keyword">member</span> <span class="identifier">annotateFileContentsAsStream</span> : 
+        <span class="parameter">documentContent</span> : <span class="identifier">FileStream</span> * 
+        <span class="parameter">documentEncoding</span> : <span class="identifier">string</span> * 
+        <span class="parameter">documentMimeType</span> : <span class="identifier">SupportedMimeType</span> * 
+        <span class="parameter">serializationFormat</span> : <span class="identifier">ResponseFormat</span> <span class="keyword">-&gt;</span> <span class="identifier">Stream</span> 
+</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EDCA");</script><h4 class="subHeading">Parameters</h4><dl><dt><span class="parameter">documentContent</span></dt><dd>Type: <a href="http://msdn2.microsoft.com/en-us/library/y0bs3w9t" target="_blank">System.IO<span id="LST8BF08345_1"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST8BF08345_1?cs=.|vb=.|cpp=::|nu=.|fs=.");</script>FileStream</a><br />the file which will be annotated</dd><dt><span class="parameter">documentEncoding</span></dt><dd>Type: <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">System<span id="LST8BF08345_2"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST8BF08345_2?cs=.|vb=.|cpp=::|nu=.|fs=.");</script>String</a><br />the encoding of the file which will be annotated</dd><dt><span class="parameter">documentMimeType</span></dt><dd>Type: <a href="1bb42c97-0b58-c029-448a-a3fef222f041.htm">Ontotext.S4.service<span id="LST8BF08345_3"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST8BF08345_3?cs=.|vb=.|cpp=::|nu=.|fs=.");</script>SupportedMimeType</a><br />the MIME type of the file which will be annotated</dd><dt><span class="parameter">serializationFormat</span></dt><dd>Type: <a href="688c6741-87f3-d288-7fcd-119bb61cb8f7.htm">Ontotext.S4.service<span id="LST8BF08345_4"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST8BF08345_4?cs=.|vb=.|cpp=::|nu=.|fs=.");</script>ResponseFormat</a><br />the serialization format used for the annotated content</dd></dl><h4 class="subHeading">Return Value</h4>Type: <a href="http://msdn2.microsoft.com/en-us/library/8f86tw9e" target="_blank">Stream</a><br />an {@link InputStream} from which<div class="OH_CollapsibleAreaRegion" id="seeAlsoSection"><div class="OH_regiontitle">See Also</div><div class="OH_CollapsibleArea_HrDiv"><hr class="OH_CollapsibleArea_Hr" /></div></div><div class="OH_clear"> </div><h4 class="subHeading">Reference</h4><div class="seeAlsoStyle"><a href="f10a70db-b430-4e48-75a3-d76443542fcf.htm">S4ServiceClient Class</a></div><div class="seeAlsoStyle"><a href="b66d78b8-67da-73b0-0680-0f50bd390d9f.htm">Ontotext.S4.service Namespace</a></div></div>
+        </div>
+      </div>
+    </div>
+    <div id="OH_footer" class="OH_footer"> </div>
+  </body>
+</html>

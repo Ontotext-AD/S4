@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="addFeature method">
+    <HelpKINode Title="AnnotatedDocument.addFeature Method " Url="html/ce6f6207-5902-448f-1d97-c30dc443ed77.htm" />
+    <HelpKINode Title="Annotation.addFeature Method " Url="html/d27975b5-aca7-ce9a-31f9-7b2569d4c71b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="allAnnotationsFromClass method" Url="html/1978a6cd-893f-607e-0a6c-d2ed159fcf39.htm" />
+  <HelpKINode Title="ALL_FROM_DEFAULT_SET field" Url="html/b3c4f15e-11c9-bbf4-9c82-f51d219693bb.htm" />
+  <HelpKINode Title="AnnotatedDocument class">
+    <HelpKINode Title="AnnotatedDocument Class" Url="html/ff366239-67da-3652-9c2a-77033b30fb1c.htm" />
+    <HelpKINode Title="about AnnotatedDocument class" Url="html/ff366239-67da-3652-9c2a-77033b30fb1c.htm" />
+    <HelpKINode Title="constructor" Url="html/90792d18-69b1-fd29-606b-9bb49edda9a9.htm" />
+    <HelpKINode Title="fields" Url="html/4f078f37-2fd8-b346-749c-e6e2f333e165.htm" />
+    <HelpKINode Title="methods" Url="html/1c864231-e0c4-0fc5-78cd-14dc9dd8da3a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AnnotatedDocument.addFeature method" Url="html/ce6f6207-5902-448f-1d97-c30dc443ed77.htm" />
+  <HelpKINode Title="AnnotatedDocument.AnnotatedDocument constructor" Url="html/90792d18-69b1-fd29-606b-9bb49edda9a9.htm" />
+  <HelpKINode Title="AnnotatedDocument.entities field" Url="html/3d05a4a1-768f-e0b4-2c11-32708872684a.htm" />
+  <HelpKINode Title="AnnotatedDocument.otherFeatures field" Url="html/93cea13e-3532-de3b-438f-6c379359c8d0.htm" />
+  <HelpKINode Title="AnnotatedDocument.text field" Url="html/7770868f-53e0-4b21-2591-c5c920a4e19e.htm" />
+  <HelpKINode Title="annotateDocument method" Url="html/a3652cd4-2571-f90f-dba0-29beb6f0f3fb.htm" />
+  <HelpKINode Title="annotateDocumentAsStream method" Url="html/e05d52ea-c3ea-b47f-0639-a70f1282b5cf.htm" />
+  <HelpKINode Title="annotateDocumentFromUrl method" Url="html/447fc732-28e6-141d-5673-c54547a3b5fa.htm" />
+  <HelpKINode Title="annotateDocumentFromUrlAsStream method" Url="html/b0da26e2-db49-1c4d-615b-125a1907be5a.htm" />
+  <HelpKINode Title="annotateFileContents method" Url="html/fe515e29-2c95-4edb-01ba-5e460cdef3e7.htm" />
+  <HelpKINode Title="annotateFileContentsAsStream method" Url="html/cf2262ba-53c1-af09-4693-ab3b82b089b3.htm" />
+  <HelpKINode Title="Annotation class">
+    <HelpKINode Title="Annotation Class" Url="html/a8c1a8df-bb08-5e67-de2c-49b516e6e0ea.htm" />
+    <HelpKINode Title="about Annotation class" Url="html/a8c1a8df-bb08-5e67-de2c-49b516e6e0ea.htm" />
+    <HelpKINode Title="constructor" Url="html/8df327b8-ca31-f766-1723-61206c9e6683.htm" />
+    <HelpKINode Title="fields" Url="html/58a39eb0-56a6-c20c-a411-9516f6cc82b2.htm" />
+    <HelpKINode Title="methods" Url="html/e374807c-a8cc-e544-c554-36db565198b9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Annotation.addFeature method" Url="html/d27975b5-aca7-ce9a-31f9-7b2569d4c71b.htm" />
+  <HelpKINode Title="Annotation.Annotation constructor" Url="html/8df327b8-ca31-f766-1723-61206c9e6683.htm" />
+  <HelpKINode Title="Annotation.endOffset field" Url="html/96099890-5cd8-2491-ec7c-bde687fc7665.htm" />
+  <HelpKINode Title="Annotation.features field" Url="html/6851c326-2ebc-ef28-40f8-1b468c986277.htm" />
+  <HelpKINode Title="Annotation.startOffset field" Url="html/1f8b3be0-20ec-8f57-4530-f17672497da7.htm" />
+  <HelpKINode Title="AnnotationSelector class">
+    <HelpKINode Title="AnnotationSelector Class" Url="html/78241939-b04a-f54d-bbe3-5b6defae9f8f.htm" />
+    <HelpKINode Title="about AnnotationSelector class" Url="html/78241939-b04a-f54d-bbe3-5b6defae9f8f.htm" />
+    <HelpKINode Title="constructor" Url="html/6c07a77e-4b8c-1e87-8a32-6386e21f11e9.htm" />
+    <HelpKINode Title="fields" Url="html/a8a2579e-5bff-529b-00aa-10b17014cacf.htm" />
+    <HelpKINode Title="methods" Url="html/c035b415-3659-75d5-1c6b-cce8882cdcce.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AnnotationSelector.allAnnotationsFromClass method" Url="html/1978a6cd-893f-607e-0a6c-d2ed159fcf39.htm" />
+  <HelpKINode Title="AnnotationSelector.ALL_FROM_DEFAULT_SET field" Url="html/b3c4f15e-11c9-bbf4-9c82-f51d219693bb.htm" />
+  <HelpKINode Title="AnnotationSelector.AnnotationSelector constructor" Url="html/6c07a77e-4b8c-1e87-8a32-6386e21f11e9.htm" />
+  <HelpKINode Title="AnnotationSelector.annotationSet field" Url="html/963a7bda-a535-d59e-28a3-cb6b1f9fa9d6.htm" />
+  <HelpKINode Title="AnnotationSelector.annotationType field" Url="html/c9b05711-0b67-1381-e51e-87dfe5036f1b.htm" />
+  <HelpKINode Title="AnnotationSelector.annotationTypeFromDefaultSet method" Url="html/1bf02b6a-843a-ba0e-c06a-e161d9a154f3.htm" />
+  <HelpKINode Title="AnnotationSelector.getAnnotationClass method" Url="html/cffdb714-2970-c158-800b-1e6fde9b6dc4.htm" />
+  <HelpKINode Title="AnnotationSelector.getAnnotationType method" Url="html/b7f36917-ea5b-7587-8e9f-89197c944da2.htm" />
+  <HelpKINode Title="AnnotationSelector.ToString method" Url="html/cf27c0d5-1817-343e-d7c9-a71d608f4f67.htm" />
+  <HelpKINode Title="AnnotationSelectors field" Url="html/1136a3be-b0ed-974f-a308-81f1226de21f.htm" />
+  <HelpKINode Title="annotationSelectors property" Url="html/89cbaaec-f694-a134-015d-5f90d13d18bf.htm" />
+  <HelpKINode Title="annotationSet field" Url="html/963a7bda-a535-d59e-28a3-cb6b1f9fa9d6.htm" />
+  <HelpKINode Title="annotationType field" Url="html/c9b05711-0b67-1381-e51e-87dfe5036f1b.htm" />
+  <HelpKINode Title="annotationTypeFromDefaultSet method" Url="html/1bf02b6a-843a-ba0e-c06a-e161d9a154f3.htm" />
+  <HelpKINode Title="baseUrl field" Url="html/e2459295-ad74-ceba-e237-bc80d547831a.htm" />
+  <HelpKINode Title="client field" Url="html/109e6cf1-7bc8-cbfd-f037-f7d75e4fca03.htm" />
+  <HelpKINode Title="COCHRANE enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="DEFAULT_BASE_URL field" Url="html/225afeb5-8b65-55e6-c54a-2c63b3e963ff.htm" />
+  <HelpKINode Title="delete method" Url="html/7bef7063-0249-91b6-be06-d30ce905c09b.htm" />
+  <HelpKINode Title="Document field" Url="html/e78e310a-d9e9-eb7e-4cd9-09405fb3feef.htm" />
+  <HelpKINode Title="document property" Url="html/6f731ce5-7387-430e-97c0-4276593a7e57.htm" />
+  <HelpKINode Title="DocumentType field" Url="html/8f7755b5-6350-787f-e53a-26220be775b0.htm" />
+  <HelpKINode Title="documentType property" Url="html/287d6a9e-f7cc-bb96-d6f4-933aedde7e21.htm" />
+  <HelpKINode Title="DocumentUrl field" Url="html/f3264029-ebc9-205f-57c1-2617cce861d9.htm" />
+  <HelpKINode Title="documentUrl property" Url="html/7c0f3bac-309f-59c5-35a0-aca5137881ad.htm" />
+  <HelpKINode Title="endOffset field" Url="html/96099890-5cd8-2491-ec7c-bde687fc7665.htm" />
+  <HelpKINode Title="entities field" Url="html/3d05a4a1-768f-e0b4-2c11-32708872684a.htm" />
+  <HelpKINode Title="features field" Url="html/6851c326-2ebc-ef28-40f8-1b468c986277.htm" />
+  <HelpKINode Title="GATE_XML enumeration member" Url="html/688c6741-87f3-d288-7fcd-119bb61cb8f7.htm" />
+  <HelpKINode Title="get(Of T) method" Url="html/024a9782-3448-115e-dd5f-85622bde554e.htm" />
+  <HelpKINode Title="get&lt;T&gt; method" Url="html/024a9782-3448-115e-dd5f-85622bde554e.htm" />
+  <HelpKINode Title="getAnnotationClass method" Url="html/cffdb714-2970-c158-800b-1e6fde9b6dc4.htm" />
+  <HelpKINode Title="getAnnotationType method" Url="html/b7f36917-ea5b-7587-8e9f-89197c944da2.htm" />
+  <HelpKINode Title="getBaseUrl method" Url="html/46b7f9d6-99ef-d91f-5047-ef41b7ada500.htm" />
+  <HelpKINode Title="getForUpdate method" Url="html/aee7b24d-32ac-2051-566c-a13b5a12e266.htm" />
+  <HelpKINode Title="getItem method" Url="html/c3bab026-9724-0281-eb84-eade838a313a.htm" />
+  <HelpKINode Title="GetProperties method" Url="html/7f760bd1-2b1f-175e-956b-66eb9f185b7a.htm" />
+  <HelpKINode Title="getRedirect method" Url="html/9a66f065-4d5b-0795-df80-fb3643eae6a1.htm" />
+  <HelpKINode Title="getResponse method" Url="html/bea9dfcf-5348-de99-9c6a-1c43d0c908f4.htm" />
+  <HelpKINode Title="getValue method" Url="html/bf72899b-82ec-8f32-0e6f-1b9d1c49b608.htm" />
+  <HelpKINode Title="HTML enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="HttpClient class">
+    <HelpKINode Title="HttpClient Class" Url="html/5646c233-15c9-0049-c5b8-46c2f4e6a4ae.htm" />
+    <HelpKINode Title="about HttpClient class" Url="html/5646c233-15c9-0049-c5b8-46c2f4e6a4ae.htm" />
+    <HelpKINode Title="constructor" Url="html/bcce44cd-853b-40f6-08fa-b338734cfc04.htm" />
+    <HelpKINode Title="fields" Url="html/c7056093-e1a2-841a-15f4-d273bb64be3b.htm" />
+    <HelpKINode Title="methods" Url="html/8cbc3657-7f20-e273-4440-ac5151762af7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HttpClient.baseUrl field" Url="html/e2459295-ad74-ceba-e237-bc80d547831a.htm" />
+  <HelpKINode Title="HttpClient.DEFAULT_BASE_URL field" Url="html/225afeb5-8b65-55e6-c54a-2c63b3e963ff.htm" />
+  <HelpKINode Title="HttpClient.delete method" Url="html/7bef7063-0249-91b6-be06-d30ce905c09b.htm" />
+  <HelpKINode Title="HttpClient.get(Of T) method" Url="html/024a9782-3448-115e-dd5f-85622bde554e.htm" />
+  <HelpKINode Title="HttpClient.get&lt;T&gt; method" Url="html/024a9782-3448-115e-dd5f-85622bde554e.htm" />
+  <HelpKINode Title="HttpClient.getBaseUrl method" Url="html/46b7f9d6-99ef-d91f-5047-ef41b7ada500.htm" />
+  <HelpKINode Title="HttpClient.getForUpdate method" Url="html/aee7b24d-32ac-2051-566c-a13b5a12e266.htm" />
+  <HelpKINode Title="HttpClient.getRedirect method" Url="html/9a66f065-4d5b-0795-df80-fb3643eae6a1.htm" />
+  <HelpKINode Title="HttpClient.HttpClient constructor" Url="html/bcce44cd-853b-40f6-08fa-b338734cfc04.htm" />
+  <HelpKINode Title="HttpClient.nc field" Url="html/530333b0-14ac-a1e9-0712-6c79432aca19.htm" />
+  <HelpKINode Title="HttpClient.post(Of T) method" Url="html/8d3de553-4f2f-c3fc-73ff-5940f0f244fb.htm" />
+  <HelpKINode Title="HttpClient.post&lt;T&gt; method" Url="html/8d3de553-4f2f-c3fc-73ff-5940f0f244fb.htm" />
+  <HelpKINode Title="HttpClient.postForUpdate method" Url="html/44202ff4-ec0e-2fd3-4cb9-707e887926b1.htm" />
+  <HelpKINode Title="HttpClient.readError method" Url="html/d4b596fc-5f6b-372d-ce0a-a7c24a1580b0.htm" />
+  <HelpKINode Title="HttpClient.readResponseOrError method" Url="html/a50573ca-18e6-4eb4-fb34-033290d25c24.htm" />
+  <HelpKINode Title="HttpClient.readResponseOrErrorForUpdate(Of T) method" Url="html/1c797424-5e61-be52-e27a-0c02cbc5cda2.htm" />
+  <HelpKINode Title="HttpClient.readResponseOrErrorForUpdate&lt;T&gt; method" Url="html/1c797424-5e61-be52-e27a-0c02cbc5cda2.htm" />
+  <HelpKINode Title="HttpClient.request(Of T) method" Url="html/bc2d3b0c-9bad-b26e-e64a-5dd14796d825.htm" />
+  <HelpKINode Title="HttpClient.request&lt;T&gt; method" Url="html/bc2d3b0c-9bad-b26e-e64a-5dd14796d825.htm" />
+  <HelpKINode Title="HttpClient.requestForStream method" Url="html/21b57df0-f81e-4130-b294-b693e5fae589.htm" />
+  <HelpKINode Title="HttpClient.requestForUpdate method" Url="html/7dde121e-46a9-d22f-68dc-8117b0f91840.htm" />
+  <HelpKINode Title="HttpClient.sendRequest method" Url="html/5913b642-ffe9-5a37-c108-a7ff42276260.htm" />
+  <HelpKINode Title="HttpClientException class">
+    <HelpKINode Title="HttpClientException Class" Url="html/3783251b-bcc9-7133-265f-02981cddbaa7.htm" />
+    <HelpKINode Title="about HttpClientException class" Url="html/3783251b-bcc9-7133-265f-02981cddbaa7.htm" />
+    <HelpKINode Title="constructor" Url="html/53540a50-69fe-b1ef-ffaa-25353bffbf6d.htm" />
+    <HelpKINode Title="events" Url="html/f38f7c6a-5b6f-5bb5-35bc-95d4d9597f82.htm" />
+    <HelpKINode Title="fields" Url="html/9b5795d2-6eed-12bc-a906-22eb9032880e.htm" />
+    <HelpKINode Title="methods" Url="html/a9376f19-c443-10f4-f003-ec1618c9302a.htm" />
+    <HelpKINode Title="properties" Url="html/363c33c3-b3ae-50eb-0465-4091bf17e7a3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HttpClientException.getResponse method" Url="html/bea9dfcf-5348-de99-9c6a-1c43d0c908f4.htm" />
+  <HelpKINode Title="HttpClientException.HttpClientException constructor" Url="html/53540a50-69fe-b1ef-ffaa-25353bffbf6d.htm" />
+  <HelpKINode Title="HttpClientException.response field" Url="html/42caacf8-93d9-14a7-5d84-efe949d5442b.htm" />
+  <HelpKINode Title="JSON enumeration member" Url="html/688c6741-87f3-d288-7fcd-119bb61cb8f7.htm" />
+  <HelpKINode Title="load method" Url="html/776b6640-0617-290e-7a75-0ba1c175dcc2.htm" />
+  <HelpKINode Title="main method" Url="html/1e225e87-fa71-e035-e558-18d856b9af56.htm" />
+  <HelpKINode Title="Main method" Url="html/ef3d3d26-3c7a-7eba-2113-d72c597429b7.htm" />
+  <HelpKINode Title="MEDIAWIKI enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="mParameters field" Url="html/4ccce1ef-54fa-173d-ca42-b5cb07de3da2.htm" />
+  <HelpKINode Title="name field" Url="html/e0b68c60-735b-6dec-1eac-0d020b5aeb43.htm" />
+  <HelpKINode Title="nc field" Url="html/530333b0-14ac-a1e9-0712-6c79432aca19.htm" />
+  <HelpKINode Title="NumToEnum(Of T) method" Url="html/c1f99413-3c85-8ea2-84f9-f83a3491feb2.htm" />
+  <HelpKINode Title="NumToEnum&lt;T&gt; method" Url="html/c1f99413-3c85-8ea2-84f9-f83a3491feb2.htm" />
+  <HelpKINode Title="onlineUrl field" Url="html/042d2be5-54c3-8c98-4c47-0af6a166cbe2.htm" />
+  <HelpKINode Title="Ontotext.S4 namespace" Url="html/7ef8a51f-121a-c37c-e319-edc30c8b8382.htm" />
+  <HelpKINode Title="Ontotext.S4.catalog namespace" Url="html/2a479016-44c7-b803-3535-a3934f2b6428.htm" />
+  <HelpKINode Title="Ontotext.S4.catalog.ServiceCatalog class" Url="html/dac37f9a-836c-9667-b653-0ba889a00b7f.htm" />
+  <HelpKINode Title="Ontotext.S4.catalog.ServiceDescriptor class" Url="html/37f21dd3-5ec5-8063-de63-0f697d6fe88f.htm" />
+  <HelpKINode Title="Ontotext.S4.client namespace" Url="html/5d34f216-35a5-7d76-726c-8219979b6a65.htm" />
+  <HelpKINode Title="Ontotext.S4.client.HttpClient class" Url="html/5646c233-15c9-0049-c5b8-46c2f4e6a4ae.htm" />
+  <HelpKINode Title="Ontotext.S4.client.HttpClientException class" Url="html/3783251b-bcc9-7133-265f-02981cddbaa7.htm" />
+  <HelpKINode Title="Ontotext.S4.common namespace" Url="html/d1c147f0-844f-f760-dc31-7cb45482f0bc.htm" />
+  <HelpKINode Title="Ontotext.S4.common.Parameters class" Url="html/26846f20-42a0-c2ab-72c4-40d21a7a56ea.htm" />
+  <HelpKINode Title="Ontotext.S4.common.StringValueAtribute class" Url="html/666aa24c-5cbf-5fcf-8f93-7f393d53e790.htm" />
+  <HelpKINode Title="Ontotext.S4.Program class" Url="html/408d3a2b-e8e3-c124-e6ff-0c27f24d5bdd.htm" />
+  <HelpKINode Title="Ontotext.S4.service namespace" Url="html/b66d78b8-67da-73b0-0680-0f50bd390d9f.htm" />
+  <HelpKINode Title="Ontotext.S4.service.AnnotatedDocument class" Url="html/ff366239-67da-3652-9c2a-77033b30fb1c.htm" />
+  <HelpKINode Title="Ontotext.S4.service.Annotation class" Url="html/a8c1a8df-bb08-5e67-de2c-49b516e6e0ea.htm" />
+  <HelpKINode Title="Ontotext.S4.service.AnnotationSelector class" Url="html/78241939-b04a-f54d-bbe3-5b6defae9f8f.htm" />
+  <HelpKINode Title="Ontotext.S4.service.ResponseFormat enumeration" Url="html/688c6741-87f3-d288-7fcd-119bb61cb8f7.htm" />
+  <HelpKINode Title="Ontotext.S4.service.S4ServiceClient class" Url="html/f10a70db-b430-4e48-75a3-d76443542fcf.htm" />
+  <HelpKINode Title="Ontotext.S4.service.S4ServiceClientException class" Url="html/2d8b2430-6e36-e04c-cdbf-5ecc7b3b51cb.htm" />
+  <HelpKINode Title="Ontotext.S4.service.ServiceRequest class" Url="html/779f2000-3fc4-c9ff-ed5d-f7d3db207e8c.htm" />
+  <HelpKINode Title="Ontotext.S4.service.StringValueExtension class" Url="html/4be0eff4-f16f-af9c-6f19-8406de164c1e.htm" />
+  <HelpKINode Title="Ontotext.S4.service.SupportedMimeType enumeration" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="otherFeatures field" Url="html/93cea13e-3532-de3b-438f-6c379359c8d0.htm" />
+  <HelpKINode Title="Parameters class">
+    <HelpKINode Title="Parameters Class" Url="html/26846f20-42a0-c2ab-72c4-40d21a7a56ea.htm" />
+    <HelpKINode Title="about Parameters class" Url="html/26846f20-42a0-c2ab-72c4-40d21a7a56ea.htm" />
+    <HelpKINode Title="constructor" Url="html/4a033f55-4cc1-451d-c7a8-b16a77ef0d81.htm" />
+    <HelpKINode Title="fields" Url="html/cce75279-6f9f-86e9-49f6-99eb4a482bc6.htm" />
+    <HelpKINode Title="methods" Url="html/4f97f760-f655-794c-154f-01f6060ca791.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Parameters.getValue method" Url="html/bf72899b-82ec-8f32-0e6f-1b9d1c49b608.htm" />
+  <HelpKINode Title="Parameters.mParameters field" Url="html/4ccce1ef-54fa-173d-ca42-b5cb07de3da2.htm" />
+  <HelpKINode Title="Parameters.Parameters constructor" Url="html/4a033f55-4cc1-451d-c7a8-b16a77ef0d81.htm" />
+  <HelpKINode Title="Parameters.parseNameValuePairs method" Url="html/99cb7c73-89d5-c572-fbf1-c066fbba2ab3.htm" />
+  <HelpKINode Title="Parameters.setDefaultValue method" Url="html/37d7f88e-70c9-1cf8-af91-9dec1f33f9e8.htm" />
+  <HelpKINode Title="Parameters.setValue method" Url="html/0e3717e3-3c58-391e-75e7-e94350a7121a.htm" />
+  <HelpKINode Title="parseNameValuePairs method" Url="html/99cb7c73-89d5-c572-fbf1-c066fbba2ab3.htm" />
+  <HelpKINode Title="PLAINTEXT enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="post(Of T) method" Url="html/8d3de553-4f2f-c3fc-73ff-5940f0f244fb.htm" />
+  <HelpKINode Title="post&lt;T&gt; method" Url="html/8d3de553-4f2f-c3fc-73ff-5940f0f244fb.htm" />
+  <HelpKINode Title="postForUpdate method" Url="html/44202ff4-ec0e-2fd3-4cb9-707e887926b1.htm" />
+  <HelpKINode Title="printUsageAndTerminate method" Url="html/2132b6ba-5129-08fa-5fc2-eb4506fb4c0d.htm" />
+  <HelpKINode Title="processRequest method" Url="html/ec2bd5d8-d866-a70e-ffe6-33c9649e8468.htm" />
+  <HelpKINode Title="processRequestForStream method" Url="html/db27753e-5e0e-e33e-d962-74273e022465.htm" />
+  <HelpKINode Title="Program class">
+    <HelpKINode Title="Program Class" Url="html/408d3a2b-e8e3-c124-e6ff-0c27f24d5bdd.htm" />
+    <HelpKINode Title="about Program class" Url="html/408d3a2b-e8e3-c124-e6ff-0c27f24d5bdd.htm" />
+    <HelpKINode Title="constructor" Url="html/0253cc7c-2715-a002-e198-443ddedf003b.htm" />
+    <HelpKINode Title="methods" Url="html/12a2048a-fd23-aafc-cb02-dd8f13b54f23.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Program.Main method" Url="html/ef3d3d26-3c7a-7eba-2113-d72c597429b7.htm" />
+  <HelpKINode Title="Program.Program constructor" Url="html/0253cc7c-2715-a002-e198-443ddedf003b.htm" />
+  <HelpKINode Title="PUBMED enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="readCredentials method" Url="html/829ce92c-fb75-28a2-dcc1-db2e3dd6a682.htm" />
+  <HelpKINode Title="readError method" Url="html/d4b596fc-5f6b-372d-ce0a-a7c24a1580b0.htm" />
+  <HelpKINode Title="readResponseOrError method" Url="html/a50573ca-18e6-4eb4-fb34-033290d25c24.htm" />
+  <HelpKINode Title="readResponseOrErrorForUpdate(Of T) method" Url="html/1c797424-5e61-be52-e27a-0c02cbc5cda2.htm" />
+  <HelpKINode Title="readResponseOrErrorForUpdate&lt;T&gt; method" Url="html/1c797424-5e61-be52-e27a-0c02cbc5cda2.htm" />
+  <HelpKINode Title="request(Of T) method" Url="html/bc2d3b0c-9bad-b26e-e64a-5dd14796d825.htm" />
+  <HelpKINode Title="request&lt;T&gt; method" Url="html/bc2d3b0c-9bad-b26e-e64a-5dd14796d825.htm" />
+  <HelpKINode Title="requestForStream method" Url="html/21b57df0-f81e-4130-b294-b693e5fae589.htm" />
+  <HelpKINode Title="requestForUpdate method" Url="html/7dde121e-46a9-d22f-68dc-8117b0f91840.htm" />
+  <HelpKINode Title="response field" Url="html/42caacf8-93d9-14a7-5d84-efe949d5442b.htm" />
+  <HelpKINode Title="ResponseFormat enumeration" Url="html/688c6741-87f3-d288-7fcd-119bb61cb8f7.htm" />
+  <HelpKINode Title="S4ServiceClient class">
+    <HelpKINode Title="S4ServiceClient Class" Url="html/f10a70db-b430-4e48-75a3-d76443542fcf.htm" />
+    <HelpKINode Title="about S4ServiceClient class" Url="html/f10a70db-b430-4e48-75a3-d76443542fcf.htm" />
+    <HelpKINode Title="constructor" Url="html/541a369e-13df-4cc0-5759-7dbd5e89ab0d.htm" />
+    <HelpKINode Title="fields" Url="html/b716a242-56b4-b974-ea60-adff3de84180.htm" />
+    <HelpKINode Title="methods" Url="html/da4910dd-30ad-1bb1-a1d6-51955fd3255c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="S4ServiceClient.annotateDocument method" Url="html/a3652cd4-2571-f90f-dba0-29beb6f0f3fb.htm" />
+  <HelpKINode Title="S4ServiceClient.annotateDocumentAsStream method" Url="html/e05d52ea-c3ea-b47f-0639-a70f1282b5cf.htm" />
+  <HelpKINode Title="S4ServiceClient.annotateDocumentFromUrl method" Url="html/447fc732-28e6-141d-5673-c54547a3b5fa.htm" />
+  <HelpKINode Title="S4ServiceClient.annotateDocumentFromUrlAsStream method" Url="html/b0da26e2-db49-1c4d-615b-125a1907be5a.htm" />
+  <HelpKINode Title="S4ServiceClient.annotateFileContents method" Url="html/fe515e29-2c95-4edb-01ba-5e460cdef3e7.htm" />
+  <HelpKINode Title="S4ServiceClient.annotateFileContentsAsStream method" Url="html/cf2262ba-53c1-af09-4693-ab3b82b089b3.htm" />
+  <HelpKINode Title="S4ServiceClient.client field" Url="html/109e6cf1-7bc8-cbfd-f037-f7d75e4fca03.htm" />
+  <HelpKINode Title="S4ServiceClient.GetProperties method" Url="html/7f760bd1-2b1f-175e-956b-66eb9f185b7a.htm" />
+  <HelpKINode Title="S4ServiceClient.load method" Url="html/776b6640-0617-290e-7a75-0ba1c175dcc2.htm" />
+  <HelpKINode Title="S4ServiceClient.main method" Url="html/1e225e87-fa71-e035-e558-18d856b9af56.htm" />
+  <HelpKINode Title="S4ServiceClient.NumToEnum(Of T) method" Url="html/c1f99413-3c85-8ea2-84f9-f83a3491feb2.htm" />
+  <HelpKINode Title="S4ServiceClient.NumToEnum&lt;T&gt; method" Url="html/c1f99413-3c85-8ea2-84f9-f83a3491feb2.htm" />
+  <HelpKINode Title="S4ServiceClient.printUsageAndTerminate method" Url="html/2132b6ba-5129-08fa-5fc2-eb4506fb4c0d.htm" />
+  <HelpKINode Title="S4ServiceClient.processRequest method" Url="html/ec2bd5d8-d866-a70e-ffe6-33c9649e8468.htm" />
+  <HelpKINode Title="S4ServiceClient.processRequestForStream method" Url="html/db27753e-5e0e-e33e-d962-74273e022465.htm" />
+  <HelpKINode Title="S4ServiceClient.readCredentials method" Url="html/829ce92c-fb75-28a2-dcc1-db2e3dd6a682.htm" />
+  <HelpKINode Title="S4ServiceClient.S4ServiceClient constructor" Url="html/541a369e-13df-4cc0-5759-7dbd5e89ab0d.htm" />
+  <HelpKINode Title="S4ServiceClientException class">
+    <HelpKINode Title="S4ServiceClientException Class" Url="html/2d8b2430-6e36-e04c-cdbf-5ecc7b3b51cb.htm" />
+    <HelpKINode Title="about S4ServiceClientException class" Url="html/2d8b2430-6e36-e04c-cdbf-5ecc7b3b51cb.htm" />
+    <HelpKINode Title="constructor" Url="html/407038e5-388b-dc53-54c7-f7743961c1ec.htm" />
+    <HelpKINode Title="events" Url="html/f5a01e94-f2f6-2dcd-a576-de137ef9aa75.htm" />
+    <HelpKINode Title="methods" Url="html/e618acc5-933a-3dae-9c91-a5e3039936ee.htm" />
+    <HelpKINode Title="properties" Url="html/5bbd7042-32e4-b8b1-8039-638326d9468e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="S4ServiceClientException.S4ServiceClientException constructor" Url="html/407038e5-388b-dc53-54c7-f7743961c1ec.htm" />
+  <HelpKINode Title="sendRequest method" Url="html/5913b642-ffe9-5a37-c108-a7ff42276260.htm" />
+  <HelpKINode Title="ServiceCatalog class">
+    <HelpKINode Title="ServiceCatalog Class" Url="html/dac37f9a-836c-9667-b653-0ba889a00b7f.htm" />
+    <HelpKINode Title="about ServiceCatalog class" Url="html/dac37f9a-836c-9667-b653-0ba889a00b7f.htm" />
+    <HelpKINode Title="constructor" Url="html/2cb86741-91f8-008f-956c-490900d81f84.htm" />
+    <HelpKINode Title="methods" Url="html/db98328b-77b5-345b-c875-6d954b503450.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ServiceCatalog.getItem method" Url="html/c3bab026-9724-0281-eb84-eade838a313a.htm" />
+  <HelpKINode Title="ServiceCatalog.ServiceCatalog constructor" Url="html/2cb86741-91f8-008f-956c-490900d81f84.htm" />
+  <HelpKINode Title="ServiceDescriptor class">
+    <HelpKINode Title="ServiceDescriptor Class" Url="html/37f21dd3-5ec5-8063-de63-0f697d6fe88f.htm" />
+    <HelpKINode Title="about ServiceDescriptor class" Url="html/37f21dd3-5ec5-8063-de63-0f697d6fe88f.htm" />
+    <HelpKINode Title="constructor" Url="html/2d447873-882b-5f01-af81-ecf42f9371a4.htm" />
+    <HelpKINode Title="fields" Url="html/ce7fe362-3921-7388-0ca6-3c8727426d6f.htm" />
+    <HelpKINode Title="methods" Url="html/af3e4b97-7137-ac0f-1d1c-59ace8452773.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ServiceDescriptor.name field" Url="html/e0b68c60-735b-6dec-1eac-0d020b5aeb43.htm" />
+  <HelpKINode Title="ServiceDescriptor.onlineUrl field" Url="html/042d2be5-54c3-8c98-4c47-0af6a166cbe2.htm" />
+  <HelpKINode Title="ServiceDescriptor.ServiceDescriptor constructor" Url="html/2d447873-882b-5f01-af81-ecf42f9371a4.htm" />
+  <HelpKINode Title="ServiceDescriptor.shortDescription field" Url="html/67a8a013-1c34-9525-07e1-b5a85f56ca57.htm" />
+  <HelpKINode Title="ServiceRequest class">
+    <HelpKINode Title="ServiceRequest Class" Url="html/779f2000-3fc4-c9ff-ed5d-f7d3db207e8c.htm" />
+    <HelpKINode Title="about ServiceRequest class" Url="html/779f2000-3fc4-c9ff-ed5d-f7d3db207e8c.htm" />
+    <HelpKINode Title="constructor" Url="html/ba6f7f7d-a635-ccae-2534-b7da964c1011.htm" />
+    <HelpKINode Title="fields" Url="html/9b28db30-a1ba-ca2e-05f6-57a2b63256f9.htm" />
+    <HelpKINode Title="methods" Url="html/aeb2e836-ee00-4dc0-b14e-58be12042cbf.htm" />
+    <HelpKINode Title="properties" Url="html/16cbee93-9e01-aa98-1a82-a75f39a884ee.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ServiceRequest.AnnotationSelectors field" Url="html/1136a3be-b0ed-974f-a308-81f1226de21f.htm" />
+  <HelpKINode Title="ServiceRequest.annotationSelectors property" Url="html/89cbaaec-f694-a134-015d-5f90d13d18bf.htm" />
+  <HelpKINode Title="ServiceRequest.Document field" Url="html/e78e310a-d9e9-eb7e-4cd9-09405fb3feef.htm" />
+  <HelpKINode Title="ServiceRequest.document property" Url="html/6f731ce5-7387-430e-97c0-4276593a7e57.htm" />
+  <HelpKINode Title="ServiceRequest.DocumentType field" Url="html/8f7755b5-6350-787f-e53a-26220be775b0.htm" />
+  <HelpKINode Title="ServiceRequest.documentType property" Url="html/287d6a9e-f7cc-bb96-d6f4-933aedde7e21.htm" />
+  <HelpKINode Title="ServiceRequest.DocumentUrl field" Url="html/f3264029-ebc9-205f-57c1-2617cce861d9.htm" />
+  <HelpKINode Title="ServiceRequest.documentUrl property" Url="html/7c0f3bac-309f-59c5-35a0-aca5137881ad.htm" />
+  <HelpKINode Title="ServiceRequest.ServiceRequest constructor" Url="html/ba6f7f7d-a635-ccae-2534-b7da964c1011.htm" />
+  <HelpKINode Title="setDefaultValue method" Url="html/37d7f88e-70c9-1cf8-af91-9dec1f33f9e8.htm" />
+  <HelpKINode Title="setValue method" Url="html/0e3717e3-3c58-391e-75e7-e94350a7121a.htm" />
+  <HelpKINode Title="shortDescription field" Url="html/67a8a013-1c34-9525-07e1-b5a85f56ca57.htm" />
+  <HelpKINode Title="startOffset field" Url="html/1f8b3be0-20ec-8f57-4530-f17672497da7.htm" />
+  <HelpKINode Title="StringValue property" Url="html/adaa9cb3-afbd-d2e8-93f4-efdcf2a4f7d1.htm" />
+  <HelpKINode Title="StringValueAtribute class">
+    <HelpKINode Title="StringValueAtribute Class" Url="html/666aa24c-5cbf-5fcf-8f93-7f393d53e790.htm" />
+    <HelpKINode Title="about StringValueAtribute class" Url="html/666aa24c-5cbf-5fcf-8f93-7f393d53e790.htm" />
+    <HelpKINode Title="constructor" Url="html/e3fbc232-0846-daeb-b745-c53accb55b7a.htm" />
+    <HelpKINode Title="methods" Url="html/a4c60fc7-4e7d-ca2a-f99d-101119911562.htm" />
+    <HelpKINode Title="properties" Url="html/a569cd1b-b725-fb75-4e6b-757b6ee0c387.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StringValueAtribute.StringValue property" Url="html/adaa9cb3-afbd-d2e8-93f4-efdcf2a4f7d1.htm" />
+  <HelpKINode Title="StringValueAtribute.StringValueAtribute constructor" Url="html/e3fbc232-0846-daeb-b745-c53accb55b7a.htm" />
+  <HelpKINode Title="StringValueExtension class">
+    <HelpKINode Title="StringValueExtension Class" Url="html/4be0eff4-f16f-af9c-6f19-8406de164c1e.htm" />
+    <HelpKINode Title="about StringValueExtension class" Url="html/4be0eff4-f16f-af9c-6f19-8406de164c1e.htm" />
+    <HelpKINode Title="methods" Url="html/5dd19312-3097-834b-99c4-d0f9eb8884aa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StringValueExtension.ToEnum(Of T) method" Url="html/8b8cf216-853e-918c-2280-0f5919c2cd12.htm" />
+  <HelpKINode Title="StringValueExtension.ToEnum&lt;T&gt; method" Url="html/8b8cf216-853e-918c-2280-0f5919c2cd12.htm" />
+  <HelpKINode Title="StringValueExtension.ToStringValue method" Url="html/0455790a-c1b2-125d-c798-9f3dada851f5.htm" />
+  <HelpKINode Title="SupportedMimeType enumeration" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="text field" Url="html/7770868f-53e0-4b21-2591-c5c920a4e19e.htm" />
+  <HelpKINode Title="ToEnum(Of T) method" Url="html/8b8cf216-853e-918c-2280-0f5919c2cd12.htm" />
+  <HelpKINode Title="ToEnum&lt;T&gt; method" Url="html/8b8cf216-853e-918c-2280-0f5919c2cd12.htm" />
+  <HelpKINode Title="ToString method" Url="html/cf27c0d5-1817-343e-d7c9-a71d608f4f67.htm" />
+  <HelpKINode Title="ToStringValue method" Url="html/0455790a-c1b2-125d-c798-9f3dada851f5.htm" />
+  <HelpKINode Title="TWITTER_JSON enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="XML_APPLICATION enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+  <HelpKINode Title="XML_TEXT enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
+</HelpKI>
