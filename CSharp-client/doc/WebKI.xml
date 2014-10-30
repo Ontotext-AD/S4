@@ -128,7 +128,6 @@
   <HelpKINode Title="JSON enumeration member" Url="html/688c6741-87f3-d288-7fcd-119bb61cb8f7.htm" />
   <HelpKINode Title="load method" Url="html/776b6640-0617-290e-7a75-0ba1c175dcc2.htm" />
   <HelpKINode Title="main method" Url="html/1e225e87-fa71-e035-e558-18d856b9af56.htm" />
-  <HelpKINode Title="Main method" Url="html/ef3d3d26-3c7a-7eba-2113-d72c597429b7.htm" />
   <HelpKINode Title="MEDIAWIKI enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
   <HelpKINode Title="mParameters field" Url="html/4ccce1ef-54fa-173d-ca42-b5cb07de3da2.htm" />
   <HelpKINode Title="name field" Url="html/e0b68c60-735b-6dec-1eac-0d020b5aeb43.htm" />
@@ -136,7 +135,6 @@
   <HelpKINode Title="NumToEnum(Of T) method" Url="html/c1f99413-3c85-8ea2-84f9-f83a3491feb2.htm" />
   <HelpKINode Title="NumToEnum&lt;T&gt; method" Url="html/c1f99413-3c85-8ea2-84f9-f83a3491feb2.htm" />
   <HelpKINode Title="onlineUrl field" Url="html/042d2be5-54c3-8c98-4c47-0af6a166cbe2.htm" />
-  <HelpKINode Title="Ontotext.S4 namespace" Url="html/7ef8a51f-121a-c37c-e319-edc30c8b8382.htm" />
   <HelpKINode Title="Ontotext.S4.catalog namespace" Url="html/2a479016-44c7-b803-3535-a3934f2b6428.htm" />
   <HelpKINode Title="Ontotext.S4.catalog.ServiceCatalog class" Url="html/dac37f9a-836c-9667-b653-0ba889a00b7f.htm" />
   <HelpKINode Title="Ontotext.S4.catalog.ServiceDescriptor class" Url="html/37f21dd3-5ec5-8063-de63-0f697d6fe88f.htm" />
@@ -146,7 +144,6 @@
   <HelpKINode Title="Ontotext.S4.common namespace" Url="html/d1c147f0-844f-f760-dc31-7cb45482f0bc.htm" />
   <HelpKINode Title="Ontotext.S4.common.Parameters class" Url="html/26846f20-42a0-c2ab-72c4-40d21a7a56ea.htm" />
   <HelpKINode Title="Ontotext.S4.common.StringValueAtribute class" Url="html/666aa24c-5cbf-5fcf-8f93-7f393d53e790.htm" />
-  <HelpKINode Title="Ontotext.S4.Program class" Url="html/408d3a2b-e8e3-c124-e6ff-0c27f24d5bdd.htm" />
   <HelpKINode Title="Ontotext.S4.service namespace" Url="html/b66d78b8-67da-73b0-0680-0f50bd390d9f.htm" />
   <HelpKINode Title="Ontotext.S4.service.AnnotatedDocument class" Url="html/ff366239-67da-3652-9c2a-77033b30fb1c.htm" />
   <HelpKINode Title="Ontotext.S4.service.Annotation class" Url="html/a8c1a8df-bb08-5e67-de2c-49b516e6e0ea.htm" />
@@ -179,14 +176,6 @@
   <HelpKINode Title="printUsageAndTerminate method" Url="html/2132b6ba-5129-08fa-5fc2-eb4506fb4c0d.htm" />
   <HelpKINode Title="processRequest method" Url="html/ec2bd5d8-d866-a70e-ffe6-33c9649e8468.htm" />
   <HelpKINode Title="processRequestForStream method" Url="html/db27753e-5e0e-e33e-d962-74273e022465.htm" />
-  <HelpKINode Title="Program class">
-    <HelpKINode Title="Program Class" Url="html/408d3a2b-e8e3-c124-e6ff-0c27f24d5bdd.htm" />
-    <HelpKINode Title="about Program class" Url="html/408d3a2b-e8e3-c124-e6ff-0c27f24d5bdd.htm" />
-    <HelpKINode Title="constructor" Url="html/0253cc7c-2715-a002-e198-443ddedf003b.htm" />
-    <HelpKINode Title="methods" Url="html/12a2048a-fd23-aafc-cb02-dd8f13b54f23.htm" />
-  </HelpKINode>
-  <HelpKINode Title="Program.Main method" Url="html/ef3d3d26-3c7a-7eba-2113-d72c597429b7.htm" />
-  <HelpKINode Title="Program.Program constructor" Url="html/0253cc7c-2715-a002-e198-443ddedf003b.htm" />
   <HelpKINode Title="PUBMED enumeration member" Url="html/1bb42c97-0b58-c029-448a-a3fef222f041.htm" />
   <HelpKINode Title="readCredentials method" Url="html/829ce92c-fb75-28a2-dcc1-db2e3dd6a682.htm" />
   <HelpKINode Title="readError method" Url="html/d4b596fc-5f6b-372d-ce0a-a7c24a1580b0.htm" />
