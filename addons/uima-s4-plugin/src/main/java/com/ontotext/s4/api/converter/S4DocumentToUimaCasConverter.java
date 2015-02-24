@@ -92,6 +92,7 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
 
         for (Map.Entry<String, List<Annotation>> entityEntry : entities.entrySet()) {
             String annotationName = entityEntry.getKey();
+            annotationName = removeDashes(annotationName);
             List<Annotation> annotations = entityEntry.getValue();
             for (Annotation ann : annotations) {
                 Type type = typeSystem.getType(annotationName);
@@ -109,9 +110,24 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
 
     public void inferCasTypeSystem(Map<String, List<Annotation>> entities) {
         for (String typeName : entities.keySet()) {
-            tsd.addType(typeName, "Automatically-generated type for " + typeName, "uima.tcas.Annotation");
+            //UIMA Annotations are not allowed to contain dashes
+            typeName = removeDashes(typeName);
+            tsd.addType(typeName, "Automatically generated type for " + typeName, "uima.tcas.Annotation");
             LOG.info("Inserted new type -> " + typeName);
         }
+    }
+
+    /**
+     * Removes dashes from UIMA Annotations because they are not allowed to contain dashes.
+     * 
+     * @param typeName
+     * @return
+     */
+    private String removeDashes(String typeName) {
+        if (typeName.contains("-")) {
+            typeName = typeName.replaceAll("-", "_");
+        }
+        return typeName;
     }
 
     @Override
