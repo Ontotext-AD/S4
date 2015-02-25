@@ -34,7 +34,7 @@ import java.io.*;
 
 public class S4XmiTool {
 
-    protected static class CommandLineParams {
+    private static class CommandLineParams {
 
         @Parameter(names = {"-t", "--service-type"}, required = true, description = "Type of S4 services: NEWS, TWITIE, SBT")
         private S4Endpoints s4Endpoint;
@@ -59,7 +59,7 @@ public class S4XmiTool {
                 description = "The directory where the XMI files produced will be written")
         private String xmiDir;
 
-        @Parameter(names = { "-h", "--help", "" }, help = true, description = "Display this help text")
+        @Parameter(names = { "-h", "--help" }, help = true, description = "Display this help text")
         private boolean help;
     }
 
@@ -76,11 +76,16 @@ public class S4XmiTool {
         JCommander commander = new JCommander(params, args);
         commander.setProgramName(S4XmiTool.class.getName());
         if (params.help) {
-            System.err.println(USAGE_DESC);
+            System.out.println(USAGE_DESC);
             commander.usage();
             return;
         }
-        runPipeline(params.s4Endpoint, params.apiKey, params.apiPassword, params.rawTextFilePath, params.descriptorDir, params.xmiDir);
+        runPipeline(params.s4Endpoint,
+                    params.apiKey,
+                    params.apiPassword,
+                    params.rawTextFilePath,
+                    params.descriptorDir,
+                    params.xmiDir);
     }
 
     private static void runPipeline(S4Endpoints s4Endpoint, String apiKeyId, String apiPassword, String rawTextFilePath, String descriptorDir, String xmiDir)
