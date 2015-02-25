@@ -34,7 +34,13 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * An CAS converter transforming a S4 document into a UIMA CAS document.
+ *
+ * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
+ * <p/>
+ * Date added: 2015-02-19
+ */
 public class S4DocumentToUimaCasConverter implements UimaCasConverter {
 
     private static final Logger LOG = LoggerFactory
@@ -44,18 +50,12 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
 
     private AnnotatedDocument startDocument;
 
-    private CAS endDocument;
-
     private ArrayFS annotationFeatureStructures;
 
     private int featureStructureArrayCapacity;
 
     public AnnotatedDocument getStartDocument() {
         return startDocument;
-    }
-
-    public CAS getConvertedDocument() {
-        return endDocument;
     }
 
     public S4DocumentToUimaCasConverter(AnnotatedDocument startDocument) {
@@ -73,43 +73,54 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
     }
 
     @Override
-    public void convertAnnotations() {
+    public void convertAnnotations(CAS cas) {
         Map<String, List<Annotation>> entities = this.startDocument.entities;
         int featureStructureArrayIndex = 0;
 
-        inferCasTypeSystem(entities);
-
+        inferCasTypeSystem(entities.keySet());
         try {
-            this.endDocument = CasCreationUtils.createCas(tsd, null, null);
+            /*
+             * This is a hack allowing the CAS object to have an updated type system.
+             * We are creating a new CAS by passing the new TypeSystemDescription which actually
+             * should have been updated by an internal call of typeSystemInit(cas.getTypeSystem())
+             * originally part of the CasInitializer interface that is now deprecated and the CollectionReader
+             * is calling it internally in its implementation. The problem consists in the fact that now the
+             * the typeSystemInit method of the CasInitializer_ImplBase has an empty implementation and
+             * nothing changes!
+             */
+            LOG.info("Creating new CAS with updated typesystem...");
+            cas = CasCreationUtils.createCas(tsd, null, null);
         } catch (ResourceInitializationException e) {
-            e.printStackTrace();
+            LOG.info("Error creating new CAS!", e);
         }
 
-        TypeSystem typeSystem = endDocument.getTypeSystem();
+        TypeSystem typeSystem = cas.getTypeSystem();
 
         this.featureStructureArrayCapacity = entities.size();
-        this.annotationFeatureStructures = endDocument.createArrayFS(featureStructureArrayCapacity);
+        this.annotationFeatureStructures = cas.createArrayFS(featureStructureArrayCapacity);
 
         for (Map.Entry<String, List<Annotation>> entityEntry : entities.entrySet()) {
             String annotationName = entityEntry.getKey();
             annotationName = removeDashes(annotationName);
+            Type type = typeSystem.getType(annotationName);
+
             List<Annotation> annotations = entityEntry.getValue();
+            LOG.info("Get Type -> " + type);
             for (Annotation ann : annotations) {
-                Type type = typeSystem.getType(annotationName);
-                LOG.info("Get Type -> " + type);
-                AnnotationFS afs = endDocument.createAnnotation(type, (int)ann.startOffset, (int)ann.endOffset);
-                endDocument.addFsToIndexes(afs);
+                AnnotationFS afs = cas.createAnnotation(type, (int)ann.startOffset, (int)ann.endOffset);
+                cas.addFsToIndexes(afs);
                 if (featureStructureArrayIndex + 1 == featureStructureArrayCapacity) {
-                    resizeArrayFS(featureStructureArrayCapacity * 2, annotationFeatureStructures);
+                    resizeArrayFS(featureStructureArrayCapacity * 2, annotationFeatureStructures, cas);
                 }
                 annotationFeatureStructures.set(featureStructureArrayIndex++, afs);
             }
         }
-        endDocument.addFsToIndexes(annotationFeatureStructures);
+        cas.addFsToIndexes(annotationFeatureStructures);
     }
 
-    public void inferCasTypeSystem(Map<String, List<Annotation>> entities) {
-        for (String typeName : entities.keySet()) {
+    @Override
+    public void inferCasTypeSystem(Iterable<String> originalTypes) {
+        for (String typeName : originalTypes) {
             //UIMA Annotations are not allowed to contain dashes
             typeName = removeDashes(typeName);
             tsd.addType(typeName, "Automatically generated type for " + typeName, "uima.tcas.Annotation");
@@ -120,8 +131,8 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
     /**
      * Removes dashes from UIMA Annotations because they are not allowed to contain dashes.
      *
-     * @param typeName
-     * @return
+     * @param typeName the annotation name of the current annotation of the source document
+     * @return the transformed annotation name suited for the UIMA typesystem
      */
     private String removeDashes(String typeName) {
         if (typeName.contains("-")) {
@@ -131,12 +142,12 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
     }
 
     @Override
-    public void setSourceDocumentText() {
-        endDocument.setSofaDataString(startDocument.text, "text/plain");
+    public void setSourceDocumentText(CAS cas) {
+        cas.setSofaDataString(startDocument.text, "text/plain");
     }
 
-    private void resizeArrayFS(int newCapacity, ArrayFS originalArray) {
-        ArrayFS biggerArrayFS = endDocument.createArrayFS(newCapacity);
+    private void resizeArrayFS(int newCapacity, ArrayFS originalArray, CAS cas) {
+        ArrayFS biggerArrayFS = cas.createArrayFS(newCapacity);
         biggerArrayFS.copyFromArray(originalArray.toArray(), 0, 0, originalArray.size());
         this.annotationFeatureStructures = biggerArrayFS;
         this.featureStructureArrayCapacity = annotationFeatureStructures.size();

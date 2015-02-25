@@ -17,15 +17,35 @@
 
 package com.ontotext.s4.api.converter;
 
+import org.apache.uima.cas.CAS;
+
 /**
+ * An interface representing operations needed to transform a custom annotated document format into a UIMA CAS document.
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
  * <p/>
- * Date added: 2/19/15.
+ * Date added: 2015-02-19
  */
-
 public interface UimaCasConverter {
 
-    void convertAnnotations();
+    /**
+     * Operation responsible for auto-discovering a UIMA type system from the original document's annotations.
+     *
+     * @param originalTypes original annotation types/names
+     */
+    void inferCasTypeSystem(Iterable<String> originalTypes);
 
-    void setSourceDocumentText();
+    /**
+     * Operation responsible for converting the custom annotations into native UIMA datastructures. .
+     *
+     * @param cas the CAS object to be populated
+     */
+    void convertAnnotations(CAS cas);
+
+    /**
+     * Operation responsible for setting the document's raw text to the CAS objects.
+     *
+     * @param cas the CAS object to be populated
+     */
+    void setSourceDocumentText(CAS cas);
 }

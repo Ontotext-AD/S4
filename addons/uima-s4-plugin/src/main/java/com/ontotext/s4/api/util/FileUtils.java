@@ -37,7 +37,7 @@ public class FileUtils {
         return new String(encoded, encoding);
     }
 
-    public static List<File> listRawTextFiles(String filePath) {
+    public static List<File> listFiles(String filePath) {
         File sourceDir = new File(filePath);
         if (sourceDir.exists()) {
             final File[] fileArray = sourceDir.listFiles();

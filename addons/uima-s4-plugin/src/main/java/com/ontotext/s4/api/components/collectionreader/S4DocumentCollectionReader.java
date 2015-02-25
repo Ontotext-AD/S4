@@ -114,7 +114,7 @@ public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
         initExternalResources();
         final AnnotatedDocument s4Document = fetchS4AnnotatedDocument(rawTextFiles.get(0));
         this.s4CasConverter = new S4DocumentToUimaCasConverter(s4Document);
-        s4CasConverter.inferCasTypeSystem(s4Document.entities);
+        s4CasConverter.inferCasTypeSystem(s4Document.entities.keySet());
         TypeSystemDescription tsd;
         try {
             tsd = s4CasConverter.getTypeSystemDescription();
@@ -167,7 +167,7 @@ public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
 
     private void initExternalResources() throws ResourceInitializationException {
         getConfigurationParams(parameters);
-        this.rawTextFiles = FileUtils.listRawTextFiles(rawTextFilePath);
+        this.rawTextFiles = FileUtils.listFiles(rawTextFilePath);
         this.restClient = S4ClientBuilder.newClientInstance()
                 .withS4Endpoint(serviceEndpoint)
                 .withApiKeyId(apiKeyId)
@@ -175,12 +175,11 @@ public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
                 .build();
     }
 
-    private void transformFetchedDocument(File rawTextFile, CAS... cas) {
+    private void transformFetchedDocument(File rawTextFile, CAS cas) {
         final AnnotatedDocument s4Document = fetchS4AnnotatedDocument(rawTextFile);
         this.s4CasConverter = new S4DocumentToUimaCasConverter(s4Document);
-        s4CasConverter.convertAnnotations();
-        s4CasConverter.setSourceDocumentText();
-        cas[0] = s4CasConverter.getConvertedDocument();
+        s4CasConverter.convertAnnotations(cas);
+        s4CasConverter.setSourceDocumentText(cas);
     }
 
     private AnnotatedDocument fetchS4AnnotatedDocument(File rawTextFile) {
