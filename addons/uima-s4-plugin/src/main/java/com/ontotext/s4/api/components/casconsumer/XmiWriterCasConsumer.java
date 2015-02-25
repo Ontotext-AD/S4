@@ -63,16 +63,16 @@ public class XmiWriterCasConsumer extends CasConsumer_ImplBase {
     public static final String PARAM_OUTPUT_DIR = "OUTPUT_DIR";
 
     /**
-	 * Name of configuration parameter that must be set to the path of a
-	 * directory into which the output files will be written.
-	 */
-	private boolean typeSystemWritten = false;
+     * Name of configuration parameter that must be set to the path of a
+     * directory into which the output files will be written.
+     */
+    private boolean typeSystemWritten = false;
 
 
-	@ConfigurationParameter(name = PARAM_OUTPUT_DIR, mandatory = true)
-	private File outputDir;
+    @ConfigurationParameter(name = PARAM_OUTPUT_DIR, mandatory = true)
+    private File outputDir;
 
-	private int docNum;
+    private int docNum;
 
     private File getTypeSystemXml() {
         return new File(outputDir, TYPE_SYSTEM_BASENAME);
@@ -82,96 +82,96 @@ public class XmiWriterCasConsumer extends CasConsumer_ImplBase {
         return new File(outputDir, DOCS_BASENAME);
     }
 
-	public void initialize(UimaContext context) throws ResourceInitializationException {
-	    super.initialize(context);
-		docNum = 0;
-		if (!getOutputDir().exists())
-			getOutputDir().mkdirs();
-	}
-
-	/**
-	 * Processes the CAS which was populated by the TextAnalysisEngines. <br>
-	 * In this case, the CAS is converted to XMI and written into the output
-	 * file .
-	 * 
-	 * @param cas
-     *           a CAS which has been populated by the TAEs
-	 * 
-	 * @throws org.apache.uima.analysis_engine.AnalysisEngineProcessException
-	 *             if there is an error in processing the Resource
-	 *
-	 * @see org.apache.uima.collection.base_cpm.CasObjectProcessor#processCas(org.apache.uima.cas.CAS)
-	 */
-	@Override
-	public void process(CAS cas) throws AnalysisEngineProcessException {
-		JCas jcas;
-		try {
-			jcas = cas.getJCas();
-		} catch (CASException e) {
-			throw new AnalysisEngineProcessException(e);
-		}
-
-		File outFile = new File(getOutputDir(), String.format("doc_%05d.xml", docNum++));
-
-		// serialize XCAS and write to output file
-		try {
-			writeXmi(jcas.getCas(), outFile);
-		} catch (IOException | SAXException | CASException e) {
-			throw new AnalysisEngineProcessException(e);
-		}
+    public void initialize(UimaContext context) throws ResourceInitializationException {
+        super.initialize(context);
+        docNum = 0;
+        if (!getOutputDir().exists())
+            getOutputDir().mkdirs();
     }
 
-	/**
-	 * Serialize a CAS to a file in XMI format
-	 *
-	 * @param cas
-	 *            CAS to serialize
-	 * @param name
-	 *            output file
-	 * @throws org.xml.sax.SAXException
-	 * @throws java.io.IOException
-	 *
-	 * @throws org.apache.uima.cas.CASException
-	 */
-	private void writeXmi(CAS cas, File name) throws IOException, SAXException, CASException {
-		if (!typeSystemWritten) {
+    /**
+     * Processes the CAS which was populated by the TextAnalysisEngines. <br>
+     * In this case, the CAS is converted to XMI and written into the output
+     * file .
+     *
+     * @param cas
+     *           a CAS which has been populated by the TAEs
+     *
+     * @throws org.apache.uima.analysis_engine.AnalysisEngineProcessException
+     *             if there is an error in processing the Resource
+     *
+     * @see org.apache.uima.collection.base_cpm.CasObjectProcessor#processCas(org.apache.uima.cas.CAS)
+     */
+    @Override
+    public void process(CAS cas) throws AnalysisEngineProcessException {
+        JCas jcas;
+        try {
+            jcas = cas.getJCas();
+        } catch (CASException e) {
+            throw new AnalysisEngineProcessException(e);
+        }
+
+        File outFile = new File(getOutputDir(), String.format("doc_%05d.xml", docNum++));
+
+        // serialize XCAS and write to output file
+        try {
+            writeXmi(jcas.getCas(), outFile);
+        } catch (IOException | SAXException | CASException e) {
+            throw new AnalysisEngineProcessException(e);
+        }
+    }
+
+    /**
+     * Serialize a CAS to a file in XMI format
+     *
+     * @param cas
+     *            CAS to serialize
+     * @param name
+     *            output file
+     * @throws org.xml.sax.SAXException
+     * @throws java.io.IOException
+     *
+     * @throws org.apache.uima.cas.CASException
+     */
+    private void writeXmi(CAS cas, File name) throws IOException, SAXException, CASException {
+        if (!typeSystemWritten) {
             writeTypeSystem(cas);
         }
 
         // write XMI
         try (FileOutputStream out = new FileOutputStream(name)) {
-			XmiCasSerializer ser = new XmiCasSerializer(cas.getTypeSystem());
-			XMLSerializer xmlSer = new XMLSerializer(out, false);
-			ser.serialize(cas, xmlSer.getContentHandler());
+            XmiCasSerializer ser = new XmiCasSerializer(cas.getTypeSystem());
+            XMLSerializer xmlSer = new XMLSerializer(out, false);
+            ser.serialize(cas, xmlSer.getContentHandler());
         }
-	}
+    }
 
-	/**
-	 * Parses and returns the descriptor for this collection reader. The
-	 * descriptor is stored in the uima.jar file and located using the
-	 * ClassLoader.
-	 *
-	 * @return an object containing all of the information parsed from the
-	 *         descriptor.
-	 *
-	 * @throws org.apache.uima.util.InvalidXMLException
-	 *             if the descriptor is invalid or missing
-	 */
-	public static CasConsumerDescription getDescription() throws InvalidXMLException {
-		InputStream descStream = XmiWriterCasConsumer.class
-				.getResourceAsStream("XmiWriterCasConsumer.xml");
-		return UIMAFramework.getXMLParser().parseCasConsumerDescription(
-				new XMLInputSource(descStream, null));
-	}
+    /**
+     * Parses and returns the descriptor for this collection reader. The
+     * descriptor is stored in the uima.jar file and located using the
+     * ClassLoader.
+     *
+     * @return an object containing all of the information parsed from the
+     *         descriptor.
+     *
+     * @throws org.apache.uima.util.InvalidXMLException
+     *             if the descriptor is invalid or missing
+     */
+    public static CasConsumerDescription getDescription() throws InvalidXMLException {
+        InputStream descStream = XmiWriterCasConsumer.class
+                .getResourceAsStream("XmiWriterCasConsumer.xml");
+        return UIMAFramework.getXMLParser().parseCasConsumerDescription(
+                new XMLInputSource(descStream, null));
+    }
 
-	private void writeTypeSystem(CAS cas) throws IOException, CASRuntimeException, SAXException, CASException {
+    private void writeTypeSystem(CAS cas) throws IOException, CASRuntimeException, SAXException, CASException {
         try (OutputStream typeOS = new BufferedOutputStream(new FileOutputStream(getTypeSystemXml()))) {
             TypeSystemUtil.typeSystem2TypeSystemDescription(cas.getTypeSystem()).toXML(typeOS);
         }
-	}
+    }
 
-	public static URL getDescriptorURL() {
-		return XmiWriterCasConsumer.class.getResource("XmiWriterCasConsumer.xml");
-	}
+    public static URL getDescriptorURL() {
+        return XmiWriterCasConsumer.class.getResource("XmiWriterCasConsumer.xml");
+    }
 
 }

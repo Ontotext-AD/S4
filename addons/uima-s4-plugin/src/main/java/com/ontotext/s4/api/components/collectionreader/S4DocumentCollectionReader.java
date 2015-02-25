@@ -54,31 +54,31 @@ import static org.apache.uima.fit.factory.ConfigurationParameterFactory.Configur
 */
 public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
 
-	public static final Logger LOG = LoggerFactory.getLogger(S4DocumentCollectionReader.class);
+    public static final Logger LOG = LoggerFactory.getLogger(S4DocumentCollectionReader.class);
 
-	public static final String PARAM_S4_SERVICE_ENDPOINT = "S4_SERVICE_ENDPOINT";
+    public static final String PARAM_S4_SERVICE_ENDPOINT = "S4_SERVICE_ENDPOINT";
 
-	public static final String PARAM_S4_API_KEY_ID = "API_KEY_ID";
+    public static final String PARAM_S4_API_KEY_ID = "API_KEY_ID";
 
-	public static final String PARAM_S4_API_PASSWORD = "API_PASSWORD";
+    public static final String PARAM_S4_API_PASSWORD = "API_PASSWORD";
 
     public static final String PARAM_SOURCE_TEXT_FILE_PATH = "SOURCE_TEXT_FILE_PATH";
 
 
-	@ConfigurationParameter(name = PARAM_S4_SERVICE_ENDPOINT,
+    @ConfigurationParameter(name = PARAM_S4_SERVICE_ENDPOINT,
             mandatory = true,
             description = "The type of service called to annotate your document.")
-	public String serviceEndpoint;
+    public String serviceEndpoint;
 
-	@ConfigurationParameter(name = PARAM_S4_API_KEY_ID,
+    @ConfigurationParameter(name = PARAM_S4_API_KEY_ID,
             mandatory = true,
             description = "The api key id to access the service.")
-	public String apiKeyId;
+    public String apiKeyId;
 
-	@ConfigurationParameter(name = PARAM_S4_API_PASSWORD,
+    @ConfigurationParameter(name = PARAM_S4_API_PASSWORD,
             mandatory = true,
             description = "The api password to access the service.")
-	public String apiPassword;
+    public String apiPassword;
 
     @ConfigurationParameter(name = PARAM_SOURCE_TEXT_FILE_PATH,
             mandatory = true,
@@ -86,7 +86,7 @@ public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
     public String rawTextFilePath;
 
 
-	private S4DocumentToUimaCasConverter s4CasConverter;
+    private S4DocumentToUimaCasConverter s4CasConverter;
 
     private S4ServiceClient restClient;
 
@@ -94,36 +94,36 @@ public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
 
     private Iterator<File> rawTextFilesIterator;
 
-	private int documentsFetched;
+    private int documentsFetched;
 
     private int totalDocuments;
 
     private Object[] parameters;
 
 
-	/**
+    /**
      * Create a collection reader description corresponding to the provided configuration data.
-	 *
-	 * @param confData Any configuration data values in the standard UIMAfit format
-	 * @return a new <code>CollectionReaderDescription</code> instance suitable for using a pipeline directly
-	 *    or serializing to disk as XML
-	 * @throws org.apache.uima.resource.ResourceInitializationException
-	 */
-	public CollectionReaderDescription createDescription(Object... confData) throws ResourceInitializationException {
+     *
+     * @param confData Any configuration data values in the standard UIMAfit format
+     * @return a new <code>CollectionReaderDescription</code> instance suitable for using a pipeline directly
+     *    or serializing to disk as XML
+     * @throws org.apache.uima.resource.ResourceInitializationException
+     */
+    public CollectionReaderDescription createDescription(Object... confData) throws ResourceInitializationException {
         this.parameters = confData;
         initExternalResources();
         final AnnotatedDocument s4Document = fetchS4AnnotatedDocument(rawTextFiles.get(0));
         this.s4CasConverter = new S4DocumentToUimaCasConverter(s4Document);
         s4CasConverter.inferCasTypeSystem(s4Document.entities);
         TypeSystemDescription tsd;
-		try {
-			tsd = s4CasConverter.getTypeSystemDescription();
-		} catch (Exception e) {
-			throw new ResourceInitializationException(e);
-		}
+        try {
+            tsd = s4CasConverter.getTypeSystemDescription();
+        } catch (Exception e) {
+            throw new ResourceInitializationException(e);
+        }
 
         return CollectionReaderFactory.createReaderDescription(S4DocumentCollectionReader.class, tsd, parameters);
-	}
+    }
 
     private void getConfigurationParams(Object... confData) throws ResourceInitializationException {
         ConfigurationData confDataParsed = ConfigurationParameterFactory.createConfigurationData(confData);
@@ -157,8 +157,8 @@ public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
         }
     }
 
-	@Override
-	public void initialize(UimaContext context) throws ResourceInitializationException {
+    @Override
+    public void initialize(UimaContext context) throws ResourceInitializationException {
         initExternalResources();
         this.rawTextFilesIterator = rawTextFiles.listIterator();
         this.documentsFetched = 0;
@@ -200,27 +200,27 @@ public class S4DocumentCollectionReader extends CasCollectionReader_ImplBase {
      * @see
      * org.apache.uima.collection.CollectionReader#getNext(org.apache.uima.cas.CAS)
      */
-	public void getNext(CAS cas) throws IOException, CollectionException {
-		documentsFetched++;
+    public void getNext(CAS cas) throws IOException, CollectionException {
+        documentsFetched++;
         transformFetchedDocument(rawTextFilesIterator.next(), cas);
     }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see org.apache.uima.collection.base_cpm.BaseCollectionReader#hasNext()
-	 */
-	public boolean hasNext() throws IOException, CollectionException {
-		return rawTextFilesIterator.hasNext();
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see org.apache.uima.collection.base_cpm.BaseCollectionReader#hasNext()
+     */
+    public boolean hasNext() throws IOException, CollectionException {
+        return rawTextFilesIterator.hasNext();
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see
-	 * org.apache.uima.collection.base_cpm.BaseCollectionReader#getProgress()
-	 */
-	public Progress[] getProgress() {
-		return new Progress[] { new ProgressImpl(documentsFetched, totalDocuments, Progress.ENTITIES) };
-	}
+    /*
+     * (non-Javadoc)
+     *
+     * @see
+     * org.apache.uima.collection.base_cpm.BaseCollectionReader#getProgress()
+     */
+    public Progress[] getProgress() {
+        return new Progress[] { new ProgressImpl(documentsFetched, totalDocuments, Progress.ENTITIES) };
+    }
 }

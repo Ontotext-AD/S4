@@ -37,7 +37,7 @@ import java.util.Map;
 
 public class S4DocumentToUimaCasConverter implements UimaCasConverter {
 
-	private static final Logger LOG = LoggerFactory
+    private static final Logger LOG = LoggerFactory
             .getLogger(S4DocumentToUimaCasConverter.class);
 
     private TypeSystemDescription tsd;
@@ -73,8 +73,8 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
     }
 
     @Override
-	public void convertAnnotations() {
-		Map<String, List<Annotation>> entities = this.startDocument.entities;
+    public void convertAnnotations() {
+        Map<String, List<Annotation>> entities = this.startDocument.entities;
         int featureStructureArrayIndex = 0;
 
         inferCasTypeSystem(entities);
@@ -104,9 +104,9 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
                 }
                 annotationFeatureStructures.set(featureStructureArrayIndex++, afs);
             }
-		}
-		endDocument.addFsToIndexes(annotationFeatureStructures);
-	}
+        }
+        endDocument.addFsToIndexes(annotationFeatureStructures);
+    }
 
     public void inferCasTypeSystem(Map<String, List<Annotation>> entities) {
         for (String typeName : entities.keySet()) {
@@ -119,7 +119,7 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
 
     /**
      * Removes dashes from UIMA Annotations because they are not allowed to contain dashes.
-     * 
+     *
      * @param typeName
      * @return
      */
