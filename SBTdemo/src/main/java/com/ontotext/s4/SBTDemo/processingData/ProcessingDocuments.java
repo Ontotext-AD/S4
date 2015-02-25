@@ -24,6 +24,7 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 
 import org.apache.commons.io.IOUtils;
@@ -143,7 +144,7 @@ public class ProcessingDocuments {
 				documentMimeType, serializationFormat);
 		StringWriter w = new StringWriter();
 		try {
-			IOUtils.copy(result, w);
+			IOUtils.copy(result, w,Charset.forName("UTF-8"));
 		} catch (IOException e) {
 			logger.debug(e);
 		}

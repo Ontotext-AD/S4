@@ -51,7 +51,7 @@ public class JsonToRDF {
 	public static final String SBT_DEMO_URI="http://s4.ontotext.com/demos/SBT/";
 	public static final String URI_START_WITH="http";
 	public static final String MENTIONS_URI="http://linkedlifedata.com/resource/lifeskim/mentions";
-	public static final String LABEL_URI="http://linkedlifedata.com/resource/skos/prefLabel";
+	public static final String LABEL_URI="http://www.w3.org/2000/01/rdf-schema#label";
 	public static final String ABSTRACT_TEXT_URI="http://linkedlifedata.com/resource/pubmed/abstractText";
 	public static final int SUBJECT=0;
 	public static final int PREDICATE=1;
@@ -60,18 +60,26 @@ public class JsonToRDF {
 	public static final String entity = "entities";
 	public static final String textJson="text";
 	public static final String inst="inst";
-	public static final String class2="class";
+	public static final String classProperty="class";
+	public static final String stringProperty="string";
 	public static final String type="type";
 	
 	public static boolean writeToFile;
 
 	RDFFormat format;
+	FileOutputStream out;
 
-	public JsonToRDF(String mimeType) {
+	public JsonToRDF(String mimeType,String rdfDataFolder) {
 		if (mimeType != null) {
 			format = RDFFormat.NTRIPLES;
 		} else {
 			format = RDFFormat.forMIMEType(mimeType);
+		}
+		
+		try {
+			out = new FileOutputStream(rdfDataFolder+'/'+"rdfFile.nt");
+		} catch (FileNotFoundException e) {
+			logger.error(e);
 		}
 	}
 
@@ -100,7 +108,7 @@ public class JsonToRDF {
 				factory.createURI(fileSubject),
 				factory.createURI(RDF_TYPE_URI),
 				factory.createURI(CITATION_URI));
-		writeIntoFile(graph, fileName,rdfDataFolder);
+		appendToFile(graph);
 		return graph;
 	}
 
@@ -140,14 +148,19 @@ public class JsonToRDF {
 								annotation.getAsJsonPrimitive(inst)
 										.getAsString(),
 								RDF_TYPE_URI,
-								annotation.getAsJsonPrimitive(class2)
+								annotation.getAsJsonPrimitive(classProperty)
 										.getAsString() };
+						String[] instanceLabelArray=new String[]{
+								annotation.getAsJsonPrimitive(inst).getAsString(),
+								LABEL_URI,
+								annotation.getAsJsonPrimitive(stringProperty).getAsString()
+						};
 						String[] classLableArray = new String[] {
-								annotation.getAsJsonPrimitive(class2)
+								annotation.getAsJsonPrimitive(classProperty)
 										.getAsString(),
 										LABEL_URI,
 								annotation.getAsJsonPrimitive(type)
-										.getAsString() };
+										.getAsString().replaceAll("_", " ") };
 						String[] stringAbstractText = new String[] {
 								fileSubject,
 								ABSTRACT_TEXT_URI,
@@ -156,6 +169,7 @@ public class JsonToRDF {
 						hashList.add(fileMentionsArray);
 						hashList.add(instanceTypeArray);
 						hashList.add(classLableArray);
+						hashList.add(instanceLabelArray);
 						hashList.add(stringAbstractText);
 					} catch (Exception e) {
 						logger.error(e);
@@ -169,13 +183,8 @@ public class JsonToRDF {
 		return hashList;
 	}
 
-	private void writeIntoFile(Model model, String fileName, String rdfDataFolder) {
-		FileOutputStream out = null;
-		try {
-			out = new FileOutputStream(rdfDataFolder+'/'+fileName);
-		} catch (FileNotFoundException e) {
-			logger.error(e);
-		}
+	private void appendToFile(Model model) {
+		
 
 		try {
 			Rio.write(model, out, format);

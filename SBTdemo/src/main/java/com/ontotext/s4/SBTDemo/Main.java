@@ -38,12 +38,6 @@ import com.ontotext.s4.SBTDemo.parse.JsonToRDF;
 import com.ontotext.s4.SBTDemo.processingData.ProcessingDocuments;
 import com.ontotext.s4.SBTDemo.utils.PropertiesNames;
 
-
-
-
-
-
-
 public class Main {
 
 	static Logger logger = Logger.getLogger(Main.class);
@@ -83,7 +77,7 @@ public class Main {
 		RepoManager repoManager = new RepoManager(
 				programProperties.getProperty(PropertiesNames.REPOSITORY_URL));
 		JsonToRDF jsonToRdfParser = new JsonToRDF(
-				programProperties.getProperty(PropertiesNames.MIME_TYPE));
+				programProperties.getProperty(PropertiesNames.MIME_TYPE),programProperties.getProperty(PropertiesNames.RDFIZE_FOLDER));
 
 		/*
 		 * Parse file content.

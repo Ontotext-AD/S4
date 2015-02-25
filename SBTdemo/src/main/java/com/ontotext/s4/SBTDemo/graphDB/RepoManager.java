@@ -18,12 +18,17 @@
  */
 package com.ontotext.s4.SBTDemo.graphDB;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
 import org.openrdf.model.Model;
 import org.openrdf.model.Statement;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.http.HTTPRepository;
+import org.openrdf.rio.RDFFormat;
+import org.openrdf.rio.RDFParseException;
 
 public class RepoManager {
 
@@ -65,6 +70,17 @@ public class RepoManager {
 		con.begin();
 		for (Statement st : graph) {
 			con.add(st);
+		}
+		con.commit();
+	}
+	
+	public void sendDataToGraphDB(File rdfFile)throws RepositoryException {
+		RepositoryConnection con = httpRepository.getConnection();
+		con.begin();
+		try {
+			con.add(rdfFile,"http://example.org/",RDFFormat.NTRIPLES);
+		} catch (RDFParseException | IOException e) {
+			logger.error(e);
 		}
 		con.commit();
 	}
