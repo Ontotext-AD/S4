@@ -32,5 +32,10 @@ public class PropertiesNames {
 	
 	public static final String S4_API_KEY="s4.apiKey";
 	public static final String S4_API_PASS="s4.apiPass";
+	
+	public static final String SERVICE="service";
+	public static final String RESPONSE_FORMAT="responseFormat";
+	
+	public static final String NUMBER_OF_THREADS="thread";
 
 }

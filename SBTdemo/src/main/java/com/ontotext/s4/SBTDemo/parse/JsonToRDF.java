@@ -46,68 +46,78 @@ import com.google.gson.JsonParser;
 public class JsonToRDF {
 	Logger logger = Logger.getLogger(JsonToRDF.class);
 
-	public static final String RDF_TYPE_URI="http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
-	public static final String CITATION_URI="http://linkedlifedata.com/resource/pubmed/Citation";
-	public static final String SBT_DEMO_URI="http://s4.ontotext.com/demos/SBT/";
-	public static final String URI_START_WITH="http";
-	public static final String MENTIONS_URI="http://linkedlifedata.com/resource/lifeskim/mentions";
-	public static final String LABEL_URI="http://www.w3.org/2000/01/rdf-schema#label";
-	public static final String ABSTRACT_TEXT_URI="http://linkedlifedata.com/resource/pubmed/abstractText";
-	public static final int SUBJECT=0;
-	public static final int PREDICATE=1;
-	public static final int OBJECT=2;
-	
+	public static final String RDF_TYPE_URI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
+	public static final String CITATION_URI = "http://linkedlifedata.com/resource/pubmed/Citation";
+	public static final String SBT_DEMO_URI = "http://s4.ontotext.com/demos/SBT/";
+	public static final String URI_START_WITH = "http";
+	public static final String MENTIONS_URI = "http://linkedlifedata.com/resource/lifeskim/mentions";
+	public static final String LABEL_URI = "http://www.w3.org/2000/01/rdf-schema#label";
+	public static final String ABSTRACT_TEXT_URI = "http://linkedlifedata.com/resource/pubmed/abstractText";
+	public static final int SUBJECT = 0;
+	public static final int PREDICATE = 1;
+	public static final int OBJECT = 2;
+
 	public static final String entity = "entities";
-	public static final String textJson="text";
-	public static final String inst="inst";
-	public static final String classProperty="class";
-	public static final String stringProperty="string";
-	public static final String type="type";
-	
+	public static final String textJson = "text";
+	public static final String inst = "inst";
+	public static final String classProperty = "class";
+	public static final String stringProperty = "string";
+	public static final String type = "type";
+
 	public static boolean writeToFile;
 
 	RDFFormat format;
 	FileOutputStream out;
 
-	public JsonToRDF(String mimeType,String rdfDataFolder) {
+	public JsonToRDF(String mimeType, String rdfDataFolder) {
 		if (mimeType != null) {
 			format = RDFFormat.NTRIPLES;
 		} else {
 			format = RDFFormat.forMIMEType(mimeType);
 		}
-		
+
 		try {
-			out = new FileOutputStream(rdfDataFolder+'/'+"rdfFile.nt");
+			out = new FileOutputStream(rdfDataFolder + '/' + "rdfFile.nt");
 		} catch (FileNotFoundException e) {
 			logger.error(e);
 		}
 	}
 
-	public Model wirteDataToRDF(String fileContent, String fileName,String rdfDataFolder) {
-		String fileSubject = SBT_DEMO_URI + fileName;
-		List<String[]> jsonObject = parse(fileContent, fileSubject);
-		Model graph = new LinkedHashModel();
-		ValueFactory factory = ValueFactoryImpl.getInstance();
-		for (String[] arr : jsonObject) {
-			try{
-			URI subjectURI = factory.createURI(arr[SUBJECT]);
-			URI predicateURI = factory.createURI(arr[PREDICATE]);
-			Value objectURI = arr[OBJECT].startsWith(URI_START_WITH) ? factory
-					.createURI(arr[OBJECT]) : factory.createLiteral(arr[OBJECT]);
-			Statement nameStatement = factory.createStatement(subjectURI,
-					predicateURI, objectURI);
-			graph.add(nameStatement);
-			}
-			catch(NullPointerException e){
-				logger.error(e);
-			}
-
+	public Model wirteDataToRDF(String fileContent, String fileName,
+			String rdfDataFolder) {
+		if (fileContent == "") {
+			return new LinkedHashModel();
 		}
+		String fileSubject = SBT_DEMO_URI + fileName;
 
-		graph.add(
-				factory.createURI(fileSubject),
-				factory.createURI(RDF_TYPE_URI),
-				factory.createURI(CITATION_URI));
+		Model graph = new LinkedHashModel();
+		try {
+			List<String[]> jsonObject = parse(fileContent, fileSubject);
+			ValueFactory factory = ValueFactoryImpl.getInstance();
+			for (String[] arr : jsonObject) {
+				try {
+					URI subjectURI = factory.createURI(arr[SUBJECT]);
+					URI predicateURI = factory.createURI(arr[PREDICATE]);
+					Value objectURI = arr[OBJECT].startsWith(URI_START_WITH) ? factory
+							.createURI(arr[OBJECT]) : factory
+							.createLiteral(arr[OBJECT]);
+					Statement nameStatement = factory.createStatement(
+							subjectURI, predicateURI, objectURI);
+					graph.add(nameStatement);
+				} catch (NullPointerException e) {
+					logger.error(e);
+				}
+
+			}
+
+			graph.add(factory.createURI(fileSubject),
+					factory.createURI(RDF_TYPE_URI),
+					factory.createURI(CITATION_URI));
+			// appendToFile(graph);
+			writeIntoFile(graph,fileName,rdfDataFolder);
+		} catch (Exception e) {
+			logger.error(e);
+		}
 		appendToFile(graph);
 		return graph;
 	}
@@ -119,7 +129,8 @@ public class JsonToRDF {
 	 * @param fileSubject
 	 * @return
 	 */
-	public List<String[]> parse(String jsonLine, String fileSubject) {
+	public List<String[]> parse(String jsonLine, String fileSubject)
+			throws Exception {
 		List<String[]> hashList = new LinkedList<String[]>();
 
 		JsonElement jelement = new JsonParser().parse(jsonLine);
@@ -150,27 +161,27 @@ public class JsonToRDF {
 								RDF_TYPE_URI,
 								annotation.getAsJsonPrimitive(classProperty)
 										.getAsString() };
-						String[] instanceLabelArray=new String[]{
-								annotation.getAsJsonPrimitive(inst).getAsString(),
+						String[] instanceLabelArray = new String[] {
+								annotation.getAsJsonPrimitive(inst)
+										.getAsString(),
 								LABEL_URI,
-								annotation.getAsJsonPrimitive(stringProperty).getAsString()
-						};
+								annotation.getAsJsonPrimitive(stringProperty)
+										.getAsString() };
 						String[] classLableArray = new String[] {
 								annotation.getAsJsonPrimitive(classProperty)
 										.getAsString(),
-										LABEL_URI,
+								LABEL_URI,
 								annotation.getAsJsonPrimitive(type)
 										.getAsString().replaceAll("_", " ") };
 						String[] stringAbstractText = new String[] {
-								fileSubject,
-								ABSTRACT_TEXT_URI,
-								text };
+								fileSubject, ABSTRACT_TEXT_URI, text };
 
 						hashList.add(fileMentionsArray);
 						hashList.add(instanceTypeArray);
 						hashList.add(classLableArray);
 						hashList.add(instanceLabelArray);
 						hashList.add(stringAbstractText);
+
 					} catch (Exception e) {
 						logger.error(e);
 					}
@@ -183,8 +194,24 @@ public class JsonToRDF {
 		return hashList;
 	}
 
+	private void writeIntoFile(Model model, String fileName,
+			String rdfDataFolder) {
+		FileOutputStream out = null;
+		try {
+			out = new FileOutputStream(rdfDataFolder + '/' + fileName);
+		} catch (FileNotFoundException e) {
+			logger.error(e);
+		}
+
+		try {
+			Rio.write(model, out, format);
+		} catch (RDFHandlerException e) {
+			logger.error(e);
+		}
+
+	}
+
 	private void appendToFile(Model model) {
-		
 
 		try {
 			Rio.write(model, out, format);

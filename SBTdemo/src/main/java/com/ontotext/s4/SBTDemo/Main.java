@@ -35,7 +35,6 @@ import org.openrdf.repository.RepositoryException;
 
 import com.ontotext.s4.SBTDemo.graphDB.RepoManager;
 import com.ontotext.s4.SBTDemo.parse.JsonToRDF;
-import com.ontotext.s4.SBTDemo.processingData.ProcessingDocuments;
 import com.ontotext.s4.SBTDemo.utils.PropertiesNames;
 
 public class Main {
@@ -53,22 +52,26 @@ public class Main {
 		 */
 		org.apache.log4j.PropertyConfigurator
 				.configure(args.length >= 1 ? args[1] : DEFAULT_LOG4J_FILE);
-		
-		
 
 		/*
 		 * Read properties file  List all annotated files. We should
 		 * use absolute path to the files
 		 */
 		init(args);
-		ProcessingDocuments processingDocuments = new ProcessingDocuments(
+		
+		/*ProcessingDocuments processingDocuments = new ProcessingDocuments(
 				programProperties.getProperty(PropertiesNames.S4_API_KEY),
 				programProperties.getProperty(PropertiesNames.S4_API_PASS),
 				programProperties.getProperty(PropertiesNames.RAW_FOLDER),
-				programProperties.getProperty(PropertiesNames.ANNOTATED_FOLDER));
+				programProperties.getProperty(PropertiesNames.ANNOTATED_FOLDER),
+				programProperties.getProperty(PropertiesNames.SERVICE),
+				programProperties.getProperty(PropertiesNames.MIME_TYPE),
+				programProperties
+						.getProperty(PropertiesNames.RESPONSE_FORMAT),
+				Integer.parseInt(programProperties.getProperty(PropertiesNames.NUMBER_OF_THREADS)));
 
 		processingDocuments.ProcessData();
-		
+		*/
 		File directory = new File(
 				programProperties.getProperty(PropertiesNames.ANNOTATED_FOLDER));
 		listOfAllAnnotatedFiles = FileUtils.listFiles(directory, new RegexFileFilter(
@@ -79,9 +82,8 @@ public class Main {
 		JsonToRDF jsonToRdfParser = new JsonToRDF(
 				programProperties.getProperty(PropertiesNames.MIME_TYPE),programProperties.getProperty(PropertiesNames.RDFIZE_FOLDER));
 
-		/*
-		 * Parse file content.
-		 */
+		
+		
 		for (File file : listOfAllAnnotatedFiles) {
 			String fileContent = null;
 			try {
@@ -89,21 +91,17 @@ public class Main {
 			} catch (IOException e) {
 				logger.error(e);
 			}
-			/*
-			 * RDFize already parsed JSON
-			 */
-			Model graph = jsonToRdfParser.wirteDataToRDF(fileContent,
+			
+			Model graph=jsonToRdfParser.wirteDataToRDF(fileContent,
 					file.getName(),programProperties.getProperty(PropertiesNames.RDFIZE_FOLDER));
-
-			/*
-			 * Send RDFized data to the GraphDB repository.
-			 */
 			try {
 				repoManager.sendDataTOGraphDB(graph);
 			} catch (RepositoryException e) {
 				logger.error(e);
 			}
+			
 		}
+		
 		repoManager.close();
 	}
 
