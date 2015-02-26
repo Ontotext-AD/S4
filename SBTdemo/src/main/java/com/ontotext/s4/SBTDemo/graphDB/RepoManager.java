@@ -1,8 +1,8 @@
 /*
- * Licensed to the Apache Software Foundation (ASF) under one
+ * Licensed to the Ontotext under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
+ * regarding copyright ownership.  The Ontotext licenses this file
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
@@ -20,14 +20,11 @@ package com.ontotext.s4.SBTDemo.graphDB;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
-import org.openrdf.model.Literal;
 import org.openrdf.model.Model;
-import org.openrdf.model.Resource;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
 import org.openrdf.model.Value;
@@ -36,10 +33,6 @@ import org.openrdf.model.impl.ValueFactoryImpl;
 import org.openrdf.repository.RepositoryConnection;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.repository.http.HTTPRepository;
-import org.openrdf.rio.RDFFormat;
-import org.openrdf.rio.RDFParseException;
-import org.openrdf.rio.RDFParser;
-import org.openrdf.rio.Rio;
 
 import com.ontotext.s4.SBTDemo.parse.JsonToRDF;
 
