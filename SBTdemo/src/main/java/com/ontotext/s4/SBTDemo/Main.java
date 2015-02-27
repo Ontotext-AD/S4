@@ -35,6 +35,7 @@ import org.openrdf.repository.RepositoryException;
 
 import com.ontotext.s4.SBTDemo.graphDB.RepoManager;
 import com.ontotext.s4.SBTDemo.parse.JsonToRDF;
+import com.ontotext.s4.SBTDemo.processingData.ProcessingDocuments;
 import com.ontotext.s4.SBTDemo.utils.PropertiesNames;
 
 public class Main {
@@ -59,7 +60,7 @@ public class Main {
 		 */
 		init(args);
 		
-		/*ProcessingDocuments processingDocuments = new ProcessingDocuments(
+		ProcessingDocuments processingDocuments = new ProcessingDocuments(
 				programProperties.getProperty(PropertiesNames.S4_API_KEY),
 				programProperties.getProperty(PropertiesNames.S4_API_PASS),
 				programProperties.getProperty(PropertiesNames.RAW_FOLDER),
@@ -71,7 +72,7 @@ public class Main {
 				Integer.parseInt(programProperties.getProperty(PropertiesNames.NUMBER_OF_THREADS)));
 
 		processingDocuments.ProcessData();
-		*/
+		
 		File directory = new File(
 				programProperties.getProperty(PropertiesNames.ANNOTATED_FOLDER));
 		listOfAllAnnotatedFiles = FileUtils.listFiles(directory, new RegexFileFilter(
@@ -127,9 +128,6 @@ public class Main {
 		} catch (IOException e) {
 			logger.error("Error loading app.properties. " + e);
 		}
-
-		
-
 	}
 
 }

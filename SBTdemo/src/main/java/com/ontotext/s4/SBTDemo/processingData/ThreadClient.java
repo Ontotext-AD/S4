@@ -144,8 +144,11 @@ public class ThreadClient implements Runnable {
 
 	private File changeDataFolder(File currentFile) {
 		String path = currentFile.getAbsolutePath();
-		path = path.replace(inputFolder, outputFolder);
+		
+		path = path.replace(new File(inputFolder).getAbsolutePath(), new File(outputFolder).getAbsolutePath());
+		
 		File outputFile = new File(path);
+		
 		outputFile.getParentFile().mkdirs();
 		return outputFile;
 	}
