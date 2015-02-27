@@ -112,7 +112,7 @@ public class JsonToRDF {
 			graph.add(factory.createURI(fileSubject),
 					factory.createURI(RDF_TYPE_URI),
 					factory.createURI(CITATION_URI));
-			// appendToFile(graph);
+			
 			writeIntoFile(graph,fileName,rdfDataFolder);
 		} catch (Exception e) {
 			logger.error(e);

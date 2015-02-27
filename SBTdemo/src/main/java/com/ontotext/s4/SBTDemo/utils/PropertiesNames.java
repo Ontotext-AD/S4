@@ -27,8 +27,8 @@ public class PropertiesNames {
 	public static final String MIME_TYPE="mimeType";
 	
 	public static final String REPOSITORY_URL="repositoryURL";
-	public static final String REPOSITORY_USER_NAME="baseAuthUserName";
-	public static final String REPOSITORY_PASSWORD="baseAuthUserPass";
+	public static final String REPOSITORY_USER_NAME="userName";
+	public static final String REPOSITORY_PASSWORD="userPass";
 	
 	public static final String S4_API_KEY="s4.apiKey";
 	public static final String S4_API_PASS="s4.apiPass";
