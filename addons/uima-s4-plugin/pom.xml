@@ -10,9 +10,86 @@
 
     <profiles>
         <profile>
-            <id>pearPackage</id>
+            <id>pearPackaging</id>
+
+            <activation>
+                <property>
+                    <name>generatePear</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
             <build>
                 <directory>bin</directory>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.uima</groupId>
+                        <artifactId>uimafit-maven-plugin</artifactId>
+                        <version>2.1.0</version>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <phase>process-classes</phase>
+                                <goals>
+                                    <goal>enhance</goal>
+                                    <goal>generate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.6</version>
+                        <executions>
+                            <execution>
+                                <id>copy-resources</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.basedir}/desc</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.build.directory}/com/ontotext/s4/api/components/uimafit</directory>
+                                            <filtering>true</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.uima</groupId>
+                        <artifactId>PearPackagingMavenPlugin</artifactId>
+                        <version>2.6.0</version>
+                        <extensions>true</extensions>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <configuration>
+                                    <!-- PEAR file component classpath settings -->
+                                    <classpath>$main_root/bin</classpath>
+                                    <!-- PEAR file main component descriptor -->
+                                    <mainComponentDesc>com.ontotext.s4.api.uima.types/${project.artifactId}.xml</mainComponentDesc>
+                                    <!-- PEAR file component ID -->
+                                    <componentId>${project.artifactId}</componentId>
+                                    <!-- PEAR file UIMA datapath settings -->
+                                    <datapath>$main_root/resources</datapath>
+                                </configuration>
+                                <goals>
+                                    <goal>package</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
             </build>
         </profile>
     </profiles>
@@ -135,11 +212,6 @@
             <groupId>org.apache.uima</groupId>
             <artifactId>uimafit-core</artifactId>
             <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.uimafit</groupId>
-            <artifactId>uimafit</artifactId>
-            <version>1.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.uima</groupId>
