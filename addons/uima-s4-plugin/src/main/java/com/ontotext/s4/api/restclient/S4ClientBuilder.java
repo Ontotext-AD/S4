@@ -24,9 +24,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
+ * A builder class enabling easy configuration of the S4ServiceClient
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
- * <p/>
- * Date added: 2/19/15.
+ * @since 2015-02-19.
  */
 public final class S4ClientBuilder {
 

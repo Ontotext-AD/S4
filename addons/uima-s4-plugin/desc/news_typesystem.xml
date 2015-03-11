@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <types>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.Keyphrase</name>
+            <description>Automatically generated type for Keyphrase</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;Keyphrase&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.Location</name>
+            <description>Automatically generated type for Location</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.Organization</name>
+            <description>Automatically generated type for Organization</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.Person</name>
+            <description>Automatically generated type for Person</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationAcquisition</name>
+            <description>Automatically generated type for RelationAcquisition</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationAcquisition&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationOrganizationAbbreviation</name>
+            <description>Automatically generated type for RelationOrganizationAbbreviation</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationOrganizationAbbreviation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization</name>
+            <description>Automatically generated type for RelationOrganizationAffiliatedWithOrganization</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationOrganizationAffiliatedWithOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationOrganizationLocation</name>
+            <description>Automatically generated type for RelationOrganizationLocation</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationOrganizationLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationOrganizationOrganization</name>
+            <description>Automatically generated type for RelationOrganizationOrganization</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationOrganizationOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationOrganizationQuotation</name>
+            <description>Automatically generated type for RelationOrganizationQuotation</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationOrganizationQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationPersonCareer</name>
+            <description>Automatically generated type for RelationPersonCareer</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationPersonCareer&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationPersonHasPositionWithinLocation</name>
+            <description>Automatically generated type for RelationPersonHasPositionWithinLocation</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationPersonHasPositionWithinLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationPersonHasPositionWithinOrganisationInLocation</name>
+            <description>Automatically generated type for RelationPersonHasPositionWithinOrganisationInLocation</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationPersonHasPositionWithinOrganisationInLocation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationPersonHasPositionWithinOrganization</name>
+            <description>Automatically generated type for RelationPersonHasPositionWithinOrganization</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationPersonHasPositionWithinOrganization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.RelationPersonQuotation</name>
+            <description>Automatically generated type for RelationPersonQuotation</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;RelationPersonQuotation&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.api.uima.types.news.Sentence</name>
+            <description>Automatically generated type for Sentence</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>organization1Str</name>
+                    <description>Feature &lt;organization1Str&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationUri</name>
+                    <description>Feature &lt;organizationUri&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organization1Uri</name>
+                    <description>Feature &lt;organization1Uri&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>relType</name>
+                    <description>Feature &lt;relType&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>class_feature</name>
+                    <description>Feature &lt;class_feature&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>inst</name>
+                    <description>Feature &lt;inst&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>organizationStr</name>
+                    <description>Feature &lt;organizationStr&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevUri</name>
+                    <description>Feature &lt;abbrevUri&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>abbrevStr</name>
+                    <description>Feature &lt;abbrevStr&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>quotationStr</name>
+                    <description>Feature &lt;quotationStr&gt; for type &lt;Sentence&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+    </types>
+</typeSystemDescription>

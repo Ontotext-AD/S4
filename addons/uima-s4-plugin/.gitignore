@@ -10,6 +10,7 @@
 
 # Maven build files
 target
+bin
 
 # Custom project ignored files and directories
 log

@@ -19,113 +19,149 @@ package com.ontotext.s4.api.converter;
 
 import com.ontotext.s4.service.AnnotatedDocument;
 import com.ontotext.s4.service.Annotation;
-import org.apache.uima.cas.ArrayFS;
-import org.apache.uima.cas.CAS;
+import org.apache.uima.cas.Feature;
 import org.apache.uima.cas.Type;
-import org.apache.uima.cas.TypeSystem;
-import org.apache.uima.cas.text.AnnotationFS;
 import org.apache.uima.fit.factory.TypeSystemDescriptionFactory;
+import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
+import org.apache.uima.resource.metadata.TypeDescription;
 import org.apache.uima.resource.metadata.TypeSystemDescription;
-import org.apache.uima.util.CasCreationUtils;
+import org.joor.Reflect;
+import org.joor.ReflectException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
- * An CAS converter transforming a S4 document into a UIMA CAS document.
+ * A CAS converter transforming a S4 document into a UIMA CAS structure.
  *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
- * <p/>
- * Date added: 2015-02-19
+ * @since 2015-02-19
  */
-public class S4DocumentToUimaCasConverter implements UimaCasConverter {
+public class S4DocumentToUimaCasConverter {
 
     private static final Logger LOG = LoggerFactory
             .getLogger(S4DocumentToUimaCasConverter.class);
+
+    public static final String UIMA_ANNOTATION_TYPES_PACKAGE = "com.ontotext.s4.api.uima.types.";
 
     private TypeSystemDescription tsd;
 
     private AnnotatedDocument startDocument;
 
-    private ArrayFS annotationFeatureStructures;
+    private org.apache.uima.jcas.tcas.Annotation casAnnotation;
 
-    private int featureStructureArrayCapacity;
+    private Map<String, List<Annotation>> entities;
+
+    private Collection<List<Annotation>> documentAnnotations;
+
+    private Set<String> annotationTypes;
 
     public AnnotatedDocument getStartDocument() {
         return startDocument;
     }
 
-    public S4DocumentToUimaCasConverter(AnnotatedDocument startDocument) {
+
+    private S4DocumentToUimaCasConverter(AnnotatedDocument startDocument) {
+        this.startDocument = startDocument;
+        this.entities = startDocument.entities;
+        this.documentAnnotations = entities.values();
+        this.annotationTypes = entities.keySet();
         try {
+            TypeSystemDescriptionFactory.forceTypeDescriptorsScan();
             this.tsd = TypeSystemDescriptionFactory.createTypeSystemDescription();
         } catch (ResourceInitializationException e) {
             LOG.error("Error when creating default type system", e);
         }
-        this.startDocument = startDocument;
     }
 
-
-    public TypeSystemDescription getTypeSystemDescription() {
-        return this.tsd;
+    public static S4DocumentToUimaCasConverter newInstance(AnnotatedDocument startDocument) {
+        return new S4DocumentToUimaCasConverter(startDocument);
     }
 
-    @Override
-    public void convertAnnotations(CAS cas) {
-        Map<String, List<Annotation>> entities = this.startDocument.entities;
-        int featureStructureArrayIndex = 0;
-
-        inferCasTypeSystem(entities.keySet());
-        try {
-            /*
-             * This is a hack allowing the CAS object to have an updated type system.
-             * We are creating a new CAS by passing the new TypeSystemDescription which actually
-             * should have been updated by an internal call of typeSystemInit(cas.getTypeSystem())
-             * originally part of the CasInitializer interface that is now deprecated and the CollectionReader
-             * is calling it internally in its implementation. The problem consists in the fact that now the
-             * the typeSystemInit method of the CasInitializer_ImplBase has an empty implementation and
-             * nothing changes!
-             */
-            LOG.info("Creating new CAS with updated typesystem...");
-            cas = CasCreationUtils.createCas(tsd, null, null);
-        } catch (ResourceInitializationException e) {
-            LOG.info("Error creating new CAS!", e);
-        }
-
-        TypeSystem typeSystem = cas.getTypeSystem();
-
-        this.featureStructureArrayCapacity = entities.size();
-        this.annotationFeatureStructures = cas.createArrayFS(featureStructureArrayCapacity);
-
+    public void convertAnnotations(JCas cas, String serviceType) {
         for (Map.Entry<String, List<Annotation>> entityEntry : entities.entrySet()) {
             String annotationName = entityEntry.getKey();
-            annotationName = removeDashes(annotationName);
-            Type type = typeSystem.getType(annotationName);
-
+            annotationName = UIMA_ANNOTATION_TYPES_PACKAGE + serviceType + "." + removeDashes(annotationName);
             List<Annotation> annotations = entityEntry.getValue();
-            LOG.info("Get Type -> " + type);
             for (Annotation ann : annotations) {
-                AnnotationFS afs = cas.createAnnotation(type, (int)ann.startOffset, (int)ann.endOffset);
-                cas.addFsToIndexes(afs);
-                if (featureStructureArrayIndex + 1 == featureStructureArrayCapacity) {
-                    resizeArrayFS(featureStructureArrayCapacity * 2, annotationFeatureStructures, cas);
+                casAnnotation = getFeatureStructureForS4Annotation(cas, annotationName);
+                if (casAnnotation == null) {
+                    LOG.warn(annotationName + " not available");
+                    return;
                 }
-                annotationFeatureStructures.set(featureStructureArrayIndex++, afs);
+
+                Type type = casAnnotation.getType();
+                LOG.info(">>>>>>>>>>> Get Type -> " + type);
+                casAnnotation.setBegin((int) ann.startOffset);
+                casAnnotation.setEnd((int) ann.endOffset);
+                Map<String, Object> features = ann.features;
+                for (Map.Entry<String, Object> entry : features.entrySet()) {
+                    String featureName = patchMatchingFeatureNamesWithUimaReservedKeywords(entry.getKey());
+                    Feature feature = type.getFeatureByBaseName(featureName);
+                    Object value = entry.getValue();
+                    String stringValue;
+                    if (value != null) {
+                        stringValue = value.toString();
+                    } else {
+                        continue;
+                    }
+
+                    if (feature == null) {
+                        continue;
+                    }
+                    casAnnotation.setFeatureValueFromString(feature, stringValue);
+                }
+                cas.addFsToIndexes(casAnnotation);
             }
         }
-        cas.addFsToIndexes(annotationFeatureStructures);
     }
 
-    @Override
-    public void inferCasTypeSystem(Iterable<String> originalTypes) {
-        for (String typeName : originalTypes) {
+    private org.apache.uima.jcas.tcas.Annotation getFeatureStructureForS4Annotation(JCas cas, String annotationName) {
+        // use reflection to instantiate classes of the proper type in the type system
+        // usually jcas gen creates the constructor with jcas argument as the second one
+        try {
+            return (org.apache.uima.jcas.tcas.Annotation) Reflect.on(annotationName)
+                    .create(cas)
+                    .get();
+        } catch (ReflectException e) {
+            LOG.error(e.getCause().toString(), e);
+            return null;
+        }
+    }
+
+    public TypeSystemDescription inferCasTypeSystem(String serviceType) {
+        for (String typeName : annotationTypes) {
             //UIMA Annotations are not allowed to contain dashes
             typeName = removeDashes(typeName);
-            tsd.addType(typeName, "Automatically generated type for " + typeName, "uima.tcas.Annotation");
-            LOG.info("Inserted new type -> " + typeName);
+            TypeDescription typeDescription = tsd.addType(UIMA_ANNOTATION_TYPES_PACKAGE + serviceType + "."  + typeName,
+                    "Automatically generated type for " + typeName, "uima.tcas.Annotation");
+            LOG.info(">>>>>>>> Inserted new type -> " + typeName);
+            for (List<Annotation> annList : documentAnnotations) {
+                Map<String, Object> features = annList.get(0).features;
+                Set<String> featureNames = features.keySet();
+                for (String feature : featureNames) {
+                    feature = patchMatchingFeatureNamesWithUimaReservedKeywords(feature);
+                    typeDescription.addFeature(feature, String.format("Feature <%s> for type <%s>", feature, typeName), "uima.cas.String");
+                    LOG.info("\t\tInserted feature <{}> for type -> {}", feature, typeName);
+                }
+                break;
+            }
         }
+        return tsd;
+    }
+
+    private String patchMatchingFeatureNamesWithUimaReservedKeywords(String feature) {
+        if (feature.equals("class")) {
+            feature = "class_feature";
+        } else if (feature.equals("type")) {
+            feature = "type_feature";
+        }
+        return feature;
     }
 
     /**
@@ -139,17 +175,5 @@ public class S4DocumentToUimaCasConverter implements UimaCasConverter {
             typeName = typeName.replaceAll("-", "_");
         }
         return typeName;
-    }
-
-    @Override
-    public void setSourceDocumentText(CAS cas) {
-        cas.setSofaDataString(startDocument.text, "text/plain");
-    }
-
-    private void resizeArrayFS(int newCapacity, ArrayFS originalArray, CAS cas) {
-        ArrayFS biggerArrayFS = cas.createArrayFS(newCapacity);
-        biggerArrayFS.copyFromArray(originalArray.toArray(), 0, 0, originalArray.size());
-        this.annotationFeatureStructures = biggerArrayFS;
-        this.featureStructureArrayCapacity = annotationFeatureStructures.size();
     }
 }

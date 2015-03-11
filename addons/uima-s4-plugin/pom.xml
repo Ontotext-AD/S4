@@ -8,46 +8,18 @@
     <artifactId>uima-s4-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <profiles>
+        <profile>
+            <id>pearPackage</id>
+            <build>
+                <directory>bin</directory>
+            </build>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <createDependencyReducedPom>true</createDependencyReducedPom>
-                    <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
-                    <filters>
-                        <filter>
-                            <artifact>*:*</artifact>
-                            <excludes>
-                                <exclude>META-INF/*.SF</exclude>
-                                <exclude>META-INF/*.DSA</exclude>
-                                <exclude>META-INF/*.RSA</exclude>
-                                <exclude>junit:junit</exclude>
-                            </excludes>
-                        </filter>
-                    </filters>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.ontotext.s4.api.console.S4XmiTool</mainClass>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
+            <!--Compile project with Java 7-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -57,29 +29,97 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+
             <plugin>
-            <groupId>org.apache.uima</groupId>
-            <artifactId>PearPackagingMavenPlugin</artifactId>
-            <extensions>true</extensions>
-            <executions>
-              <execution>
-                <phase>package</phase>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
                 <configuration>
-                    <!-- PEAR file component classpath settings -->
-                    <classpath>$main_root/lib/sample.jar</classpath>
-                    <!-- PEAR file main component descriptor -->
-                    <mainComponentDesc>desc/${artifactId}.xml</mainComponentDesc>
-                    <!-- PEAR file component ID -->
-                    <componentId>${artifactId} </componentId>
-                    <!-- PEAR file UIMA datapath settings -->
-                    <datapath>$main_root/resources</datapath>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.ontotext.s4.api.console.S4UimaPipeline</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
-                <goals>
-                  <goal>package</goal>
-                </goals>
-              </execution>
-            </executions>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.uima</groupId>
+                <artifactId>uimafit-maven-plugin</artifactId>
+                <version>2.1.0</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}/com/ontotext/s4/api/uima/types</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>desc</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.uima</groupId>-->
+                <!--<artifactId>PearPackagingMavenPlugin</artifactId>-->
+                <!--<version>2.6.0</version>-->
+                <!--<extensions>true</extensions>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<phase>package</phase>-->
+                        <!--<configuration>-->
+                            <!--&lt;!&ndash; PEAR file component classpath settings &ndash;&gt;-->
+                            <!--<classpath>$main_root/bin</classpath>-->
+                            <!--&lt;!&ndash; PEAR file main component descriptor &ndash;&gt;-->
+                            <!--<mainComponentDesc>com.ontotext.s4.api.uima.types/${project.artifactId}.xml-->
+                            <!--</mainComponentDesc>-->
+                            <!--&lt;!&ndash; PEAR file component ID &ndash;&gt;-->
+                            <!--<componentId>${project.artifactId}</componentId>-->
+                            <!--&lt;!&ndash; PEAR file UIMA datapath settings &ndash;&gt;-->
+                            <!--<datapath>$main_root/resources</datapath>-->
+                        <!--</configuration>-->
+                        <!--<goals>-->
+                            <!--<goal>package</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
 
         </plugins>
     </build>
@@ -95,6 +135,11 @@
             <groupId>org.apache.uima</groupId>
             <artifactId>uimafit-core</artifactId>
             <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.uimafit</groupId>
+            <artifactId>uimafit</artifactId>
+            <version>1.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.uima</groupId>
@@ -117,6 +162,11 @@
             <version>1.30</version>
         </dependency>
         <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>joor</artifactId>
+            <version>0.9.5</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.10</version>
@@ -127,6 +177,5 @@
             <version>1.7.10</version>
         </dependency>
     </dependencies>
-
 
 </project>
