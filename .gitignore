@@ -1,0 +1,30 @@
+# IntelliJ IDEA project files
+*.iml
+.idea
+
+# Eclipse project files
+.project
+.classpath
+.settings
+.metadata
+
+# Maven build files
+target
+bin
+
+# Custom project ignored files and directories
+log
+
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
