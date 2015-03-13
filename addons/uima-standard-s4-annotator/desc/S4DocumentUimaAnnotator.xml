@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+    <primitive>true</primitive>
+    <annotatorImplementationName>com.ontotext.s4.api.annotator.S4DocumentUimaAnnotator</annotatorImplementationName>
+    <analysisEngineMetaData>
+        <name>com.ontotext.s4.api.annotator.S4DocumentUimaAnnotator</name>
+        <version>1.0-SNAPSHOT</version>
+        <configurationParameters>
+            <configurationParameter>
+                <name>S4_SERVICE_ENDPOINT</name>
+                <description>The type of service called to annotate your document.</description>
+                <type>String</type>
+                <multiValued>false</multiValued>
+                <mandatory>true</mandatory>
+            </configurationParameter>
+            <configurationParameter>
+                <name>API_KEY_ID</name>
+                <description>The api key id to access the service.</description>
+                <type>String</type>
+                <multiValued>false</multiValued>
+                <mandatory>true</mandatory>
+            </configurationParameter>
+            <configurationParameter>
+                <name>API_PASSWORD</name>
+                <description>The api password to access the service.</description>
+                <type>String</type>
+                <multiValued>false</multiValued>
+                <mandatory>true</mandatory>
+            </configurationParameter>
+        </configurationParameters>
+        <configurationParameterSettings>
+            <nameValuePair>
+                <name>S4_SERVICE_ENDPOINT</name>
+                <value>
+                    <string>https://text.s4.ontotext.com/v1/news</string>
+                </value>
+            </nameValuePair>
+            <nameValuePair>
+                <name>API_KEY_ID</name>
+                <value>
+                    <string>s4nfnim4rnmt</string>
+                </value>
+            </nameValuePair>
+            <nameValuePair>
+                <name>API_PASSWORD</name>
+                <value>
+                    <string>ukrb34e2feea31l</string>
+                </value>
+            </nameValuePair>
+        </configurationParameterSettings>
+        <typeSystemDescription>
+            <imports>
+                <import location="news_typesystem.xml"/>
+                <import location="sbt_typesystem.xml"/>
+                <import location="twitie_typesystem.xml"/>
+            </imports>
+        </typeSystemDescription>
+        <typePriorities/>
+        <fsIndexCollection/>
+        <capabilities/>
+        <operationalProperties>
+            <modifiesCas>true</modifiesCas>
+            <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+            <outputsNewCASes>false</outputsNewCASes>
+        </operationalProperties>
+    </analysisEngineMetaData>
+</analysisEngineDescription>

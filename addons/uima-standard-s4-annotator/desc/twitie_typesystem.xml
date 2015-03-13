@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <types>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.Date</name>
+            <description>Automatically generated type for Date</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>rule1</name>
+                    <description>Feature &lt;rule1&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule2</name>
+                    <description>Feature &lt;rule2&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>kind</name>
+                    <description>Feature &lt;kind&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>length</name>
+                    <description>Feature &lt;length&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>normalized</name>
+                    <description>Feature &lt;normalized&gt; for type &lt;Date&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.Emoticon</name>
+            <description>Automatically generated type for Emoticon</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>normalized</name>
+                    <description>Feature &lt;normalized&gt; for type &lt;Emoticon&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Emoticon&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.Hashtag</name>
+            <description>Automatically generated type for Hashtag</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Hashtag&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Hashtag&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>length</name>
+                    <description>Feature &lt;length&gt; for type &lt;Hashtag&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Hashtag&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>kind</name>
+                    <description>Feature &lt;kind&gt; for type &lt;Hashtag&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location</name>
+            <description>Automatically generated type for Location</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>rule1</name>
+                    <description>Feature &lt;rule1&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule2</name>
+                    <description>Feature &lt;rule2&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>kind</name>
+                    <description>Feature &lt;kind&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>length</name>
+                    <description>Feature &lt;length&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>replaced</name>
+                    <description>Feature &lt;replaced&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>user</name>
+                    <description>Feature &lt;user&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>normalized</name>
+                    <description>Feature &lt;normalized&gt; for type &lt;Location&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.Organization</name>
+            <description>Automatically generated type for Organization</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>rule1</name>
+                    <description>Feature &lt;rule1&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule2</name>
+                    <description>Feature &lt;rule2&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>kind</name>
+                    <description>Feature &lt;kind&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>length</name>
+                    <description>Feature &lt;length&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>replaced</name>
+                    <description>Feature &lt;replaced&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>user</name>
+                    <description>Feature &lt;user&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>normalized</name>
+                    <description>Feature &lt;normalized&gt; for type &lt;Organization&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person</name>
+            <description>Automatically generated type for Person</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>rule1</name>
+                    <description>Feature &lt;rule1&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule2</name>
+                    <description>Feature &lt;rule2&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>kind</name>
+                    <description>Feature &lt;kind&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>length</name>
+                    <description>Feature &lt;length&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>replaced</name>
+                    <description>Feature &lt;replaced&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>user</name>
+                    <description>Feature &lt;user&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>normalized</name>
+                    <description>Feature &lt;normalized&gt; for type &lt;Person&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.URL</name>
+            <description>Automatically generated type for URL</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>rule1</name>
+                    <description>Feature &lt;rule1&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule2</name>
+                    <description>Feature &lt;rule2&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>kind</name>
+                    <description>Feature &lt;kind&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>length</name>
+                    <description>Feature &lt;length&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>normalized</name>
+                    <description>Feature &lt;normalized&gt; for type &lt;URL&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+        <typeDescription>
+            <name>com.ontotext.s4.com.ontotext.s4.api.types.twitie.UserID</name>
+            <description>Automatically generated type for UserID</description>
+            <supertypeName>uima.tcas.Annotation</supertypeName>
+            <features>
+                <featureDescription>
+                    <name>rule</name>
+                    <description>Feature &lt;rule&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>string</name>
+                    <description>Feature &lt;string&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>length</name>
+                    <description>Feature &lt;length&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>replaced</name>
+                    <description>Feature &lt;replaced&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>type_feature</name>
+                    <description>Feature &lt;type_feature&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>user</name>
+                    <description>Feature &lt;user&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>kind</name>
+                    <description>Feature &lt;kind&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule1</name>
+                    <description>Feature &lt;rule1&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+                <featureDescription>
+                    <name>rule2</name>
+                    <description>Feature &lt;rule2&gt; for type &lt;UserID&gt;</description>
+                    <rangeTypeName>uima.cas.String</rangeTypeName>
+                </featureDescription>
+            </features>
+        </typeDescription>
+    </types>
+</typeSystemDescription>
