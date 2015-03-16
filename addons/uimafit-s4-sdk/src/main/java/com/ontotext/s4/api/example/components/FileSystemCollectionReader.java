@@ -21,10 +21,8 @@ import com.ontotext.s4.api.util.FileUtils;
 import com.ontotext.s4.api.util.Preconditions;
 import org.apache.uima.UimaContext;
 import org.apache.uima.collection.CollectionException;
-import org.apache.uima.collection.CollectionReaderDescription;
 import org.apache.uima.fit.component.JCasCollectionReader_ImplBase;
 import org.apache.uima.fit.descriptor.ConfigurationParameter;
-import org.apache.uima.fit.factory.CollectionReaderFactory;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.Progress;
@@ -40,6 +38,10 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * A UIMA CollectionReader component responsible for reading raw text files from the file system.
+ * NOTE: This component is implemented only for the purpose of running the example pipeline. Though it
+ * could still be used as a regular component in any uimaFIT pipeline.
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov23@gmail.com>
  * @since 2015-03-05
  */
@@ -55,21 +57,34 @@ public class FileSystemCollectionReader extends JCasCollectionReader_ImplBase {
             description = "The file path leading to the source text files to be processed")
     public String rawTextFilePath;
 
+    /**
+     * List with raw text files
+     */
     private List<Path> rawTextFiles;
 
+    /**
+     * An iterator for the raw text files used in the overriden hasNext() and getNext(...) methods of the Collection Reader.
+     */
     private Iterator<Path> rawTextFilesIterator;
 
+    /**
+     * Number of files read.
+     */
     private int filesRead;
 
+    /**
+     * Number of total available raw text files being read.
+     */
     private int totalFiles;
 
-    private Object[] parameters;
 
-    public CollectionReaderDescription createDescription(Object... confData) throws ResourceInitializationException {
-        this.parameters = confData;
-        return CollectionReaderFactory.createReaderDescription(FileSystemCollectionReader.class, parameters);
-    }
-
+    /**
+     * Set raw document text as a Sofa string to the CAS object. This text will be then used from the other components of
+     * your pipeline in order to be processed.
+     *
+     * @param rawTextFile the file being read
+     * @param cas the new CAS object where the raw text is going to be set
+     */
     private void setDocumentText(Path rawTextFile, JCas cas) {
         String rawText = null;
         try {

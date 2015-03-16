@@ -36,7 +36,6 @@ import org.apache.uima.util.XMLSerializer;
 import org.xml.sax.SAXException;
 
 import java.io.*;
-import java.net.URL;
 
 /**
  * A simple CAS consumer that writes the CAS to XMI format.
@@ -51,8 +50,7 @@ import java.net.URL;
  * </ul>
  *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
- * <p/>
- * Date Added: 2015-02-19
+ * @since 2015-02-19
  */
 public class XmiWriterCasConsumer extends JCasConsumer_ImplBase {
 
@@ -66,7 +64,6 @@ public class XmiWriterCasConsumer extends JCasConsumer_ImplBase {
      * directory into which the output files will be written.
      */
     private boolean typeSystemWritten = false;
-
 
     @ConfigurationParameter(name = PARAM_OUTPUT_DIR, mandatory = true)
     private File outputDir;
@@ -106,7 +103,6 @@ public class XmiWriterCasConsumer extends JCasConsumer_ImplBase {
 
         File outFile = new File(getOutputDir(), String.format("doc_%05d.xml", docNum++));
 
-        // serialize XCAS and write to output file
         try {
             writeXmi(cas, outFile);
         } catch (IOException | SAXException | CASException e) {
@@ -162,9 +158,4 @@ public class XmiWriterCasConsumer extends JCasConsumer_ImplBase {
             TypeSystemUtil.typeSystem2TypeSystemDescription(cas.getTypeSystem()).toXML(typeOS);
         }
     }
-
-    public static URL getDescriptorURL() {
-        return XmiWriterCasConsumer.class.getResource("XmiWriterCasConsumer.xml");
-    }
-
 }
