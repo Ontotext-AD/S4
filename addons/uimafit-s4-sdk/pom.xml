@@ -8,6 +8,47 @@
     <artifactId>uimafit-s4-sdk</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <description>The Self-Service Semantic Suite (S4) provides a set of services for low-cost,
+        on-demand text analytics and metadata management on the cloud. This addon enables using
+        S4 services in uimaFIT pipelines.
+    </description>
+    <url>https://s4.ontotext.com</url>
+
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License, Version 3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Alex Simov</name>
+            <email>alex.simov@ontotext.com</email>
+            <organization>Ontotext</organization>
+            <organizationUrl>http://www.ontotext.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Tsvetan Dimitrov</name>
+            <email>tsvetan.dimitrov@ontotext.com</email>
+            <organization>Ontotext</organization>
+            <organizationUrl>http://www.ontotext.com/</organizationUrl>
+        </developer>
+        <developer>
+            <name>Yavor Petkov</name>
+            <email>yavor.petkov@ontotext.com</email>
+            <organization>Ontotext</organization>
+            <organizationUrl>http://www.ontotext.com/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:Ontotext-AD/S4.git</connection>
+        <developerConnection>scm:git:git@github.com:Ontotext-AD/S4.git</developerConnection>
+        <url>git@github.com:Ontotext-AD/S4.git</url>
+    </scm>
+
+
     <build>
         <plugins>
 
