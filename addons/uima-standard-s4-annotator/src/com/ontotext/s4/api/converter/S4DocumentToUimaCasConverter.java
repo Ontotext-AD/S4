@@ -27,10 +27,9 @@ import org.joor.ReflectException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Collection;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * A CAS converter transforming a S4 document into a UIMA CAS structure.
@@ -43,18 +42,17 @@ public class S4DocumentToUimaCasConverter {
     private static final Logger LOG = LoggerFactory
             .getLogger(S4DocumentToUimaCasConverter.class);
 
-    public static final String UIMA_ANNOTATION_TYPES_PACKAGE = "com.ontotext.s4.api.types.";
+    public static final String UIMA_ANNOTATION_TYPES_PACKAGE = "com.ontotext.s4.api.uima.types.";
 
 
     private AnnotatedDocument startDocument;
 
     private org.apache.uima.jcas.tcas.Annotation casAnnotation;
 
+    /**
+     * S4 Document structures with metadata.
+     */
     private Map<String, List<Annotation>> entities;
-
-    private Collection<List<Annotation>> documentAnnotations;
-
-    private Set<String> annotationTypes;
 
     public AnnotatedDocument getStartDocument() {
         return startDocument;
@@ -64,14 +62,18 @@ public class S4DocumentToUimaCasConverter {
     private S4DocumentToUimaCasConverter(AnnotatedDocument startDocument) {
         this.startDocument = startDocument;
         this.entities = startDocument.entities;
-        this.documentAnnotations = entities.values();
-        this.annotationTypes = entities.keySet();
     }
 
     public static S4DocumentToUimaCasConverter newInstance(AnnotatedDocument startDocument) {
         return new S4DocumentToUimaCasConverter(startDocument);
     }
 
+    /**
+     * Method implementing the whole S4-UIMA annotation conversion logic.
+     *
+     * @param cas the CAS object from the Annotator component
+     * @param serviceType type of the S4 service: sbt, news, twitie
+     */
     public void convertAnnotations(JCas cas, String serviceType) {
         for (Map.Entry<String, List<Annotation>> entityEntry : entities.entrySet()) {
             String annotationName = entityEntry.getKey();
@@ -92,6 +94,10 @@ public class S4DocumentToUimaCasConverter {
                 for (Map.Entry<String, Object> entry : features.entrySet()) {
                     String featureName = patchMatchingFeatureNamesWithUimaReservedKeywords(entry.getKey());
                     Feature feature = type.getFeatureByBaseName(featureName);
+                    if (feature == null) {
+                        continue;
+                    }
+
                     Object value = entry.getValue();
                     String stringValue;
                     if (value != null) {
@@ -100,9 +106,6 @@ public class S4DocumentToUimaCasConverter {
                         continue;
                     }
 
-                    if (feature == null) {
-                        continue;
-                    }
                     casAnnotation.setFeatureValueFromString(feature, stringValue);
                 }
                 cas.addFsToIndexes(casAnnotation);
@@ -110,19 +113,36 @@ public class S4DocumentToUimaCasConverter {
         }
     }
 
+    /**
+     * A method acquiring the corresponding annotation type from the JCasGen generated java classes using reflection.
+     *
+     * @param cas the CAS object from the Annotator component
+     * @param annotationName the class name of the JCasGen class
+     * @return class instance cast to org.apache.uima.jcas.tcas.Annotation
+     */
     private org.apache.uima.jcas.tcas.Annotation getFeatureStructureForS4Annotation(JCas cas, String annotationName) {
-        // use reflection to instantiate classes of the proper type in the type system
-        // usually jcas gen creates the constructor with jcas argument as the second one
         try {
             return (org.apache.uima.jcas.tcas.Annotation) Reflect.on(annotationName)
                     .create(cas)
                     .get();
         } catch (ReflectException e) {
-            LOG.error(e.getCause().toString(), e);
+            final Throwable cause = e.getCause();
+            LOG.error(cause.toString(), e);
+
+            //Expose real error if exception is InvocationTargetException because this exception is only a wrapper for the real one.
+            if (cause instanceof InvocationTargetException) {
+                LOG.error(((InvocationTargetException) cause).getTargetException().toString(), cause);
+            }
             return null;
         }
     }
 
+    /**
+     * A method fixing feature names matching UIMA reserved keywords like "class" or "type".
+     *
+     * @param feature the feature name to be patched
+     * @return the new pathched feature name
+     */
     private String patchMatchingFeatureNamesWithUimaReservedKeywords(String feature) {
         if (feature.equals("class")) {
             feature = "class_feature";
