@@ -19,11 +19,8 @@ package com.ontotext.s4.api.util;
 
 /**
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
- * <p/>
- * Date added: 2/20/15.
+ * @since  2015-02-20
  */
-
-
 public final class Preconditions {
 
     private Preconditions() {
