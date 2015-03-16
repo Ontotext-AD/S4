@@ -6,7 +6,6 @@ import com.ontotext.s4.api.util.Preconditions;
 import com.ontotext.s4.service.AnnotatedDocument;
 import com.ontotext.s4.service.S4ServiceClient;
 import com.ontotext.s4.service.SupportedMimeType;
-import org.apache.commons.lang.StringUtils;
 import org.apache.uima.UimaContext;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.component.JCasAnnotator_ImplBase;
@@ -116,7 +115,7 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
 
     private void transformFetchedDocument(JCas cas) {
         //Get the name of the service from the S4 endpoint url
-        final String serviceType = StringUtils.substringAfterLast(serviceEndpoint, "/");
+        final String serviceType = serviceEndpoint.substring(serviceEndpoint.lastIndexOf("/"));
 
         // Fetch and annotate the raw document and return the S4 document containing the annotations
         final AnnotatedDocument s4Document = fetchS4AnnotatedDocument(cas);
@@ -142,8 +141,11 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
      * @return document with S4 annotations
      */
     private AnnotatedDocument fetchS4AnnotatedDocument(JCas cas) {
-        //Get document text from the JCas object. NOTE: the text has to be set in a CollectionReader component
-        //used earlier in the pipeline. This is not a responsibility of the Annotator component.
+        /*
+         * Get document text from the JCas object.
+         * NOTE: the text has to be set in a CollectionReader component used earlier in the pipeline. This is not a
+         * responsibility of the Annotator component.
+         */
         String documentText = cas.getDocumentText();
         if (!Preconditions.isNullOrEmpty(documentText)) {
             //Fetch and annotate raw document text

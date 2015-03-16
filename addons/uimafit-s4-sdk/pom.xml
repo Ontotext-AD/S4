@@ -5,97 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>uima-s4-plugin</groupId>
-    <artifactId>uima-s4-plugin</artifactId>
+    <artifactId>uimafit-s4-sdk</artifactId>
     <version>1.0-SNAPSHOT</version>
-
-    <profiles>
-        <profile>
-            <id>pearPackaging</id>
-
-            <activation>
-                <property>
-                    <name>generatePear</name>
-                    <value>true</value>
-                </property>
-            </activation>
-
-            <build>
-                <directory>bin</directory>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.uima</groupId>
-                        <artifactId>uimafit-maven-plugin</artifactId>
-                        <version>2.1.0</version>
-                        <configuration>
-                            <encoding>UTF-8</encoding>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>default</id>
-                                <phase>process-classes</phase>
-                                <goals>
-                                    <goal>enhance</goal>
-                                    <goal>generate</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <version>2.6</version>
-                        <executions>
-                            <execution>
-                                <id>copy-resources</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>copy-resources</goal>
-                                </goals>
-                                <configuration>
-                                    <outputDirectory>${project.basedir}/desc</outputDirectory>
-                                    <resources>
-                                        <resource>
-                                            <directory>${project.build.directory}/com/ontotext/s4/api/components/uimafit</directory>
-                                            <filtering>true</filtering>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.uima</groupId>
-                        <artifactId>PearPackagingMavenPlugin</artifactId>
-                        <version>2.6.0</version>
-                        <extensions>true</extensions>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <configuration>
-                                    <!-- PEAR file component classpath settings -->
-                                    <classpath>$main_root/bin</classpath>
-                                    <!-- PEAR file main component descriptor -->
-                                    <mainComponentDesc>desc/S4DocumentUimaAnnotator.xml</mainComponentDesc>
-                                    <!-- PEAR file component ID -->
-                                    <componentId>S4DocumentAnnotator</componentId>
-                                    <!-- PEAR file UIMA datapath settings -->
-                                    <datapath>$main_root/resources</datapath>
-                                </configuration>
-                                <goals>
-                                    <goal>package</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <build>
         <plugins>
+
             <!--Compile project with Java 7-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -107,48 +22,7 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.ontotext.s4.api.example.S4UimaPipeline</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.uima</groupId>-->
-                <!--<artifactId>uimafit-maven-plugin</artifactId>-->
-                <!--<version>2.1.0</version>-->
-                <!--<configuration>-->
-                    <!--<encoding>UTF-8</encoding>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>default</id>-->
-                        <!--<phase>process-classes</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>enhance</goal>-->
-                            <!--<goal>generate</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-
+            <!--Move xml descriptors from desc folder to the package with the UIMA types-->
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.6</version>
@@ -172,31 +46,64 @@
                 </executions>
             </plugin>
 
-            <!--<plugin>-->
-                <!--<groupId>org.apache.uima</groupId>-->
-                <!--<artifactId>PearPackagingMavenPlugin</artifactId>-->
-                <!--<version>2.6.0</version>-->
-                <!--<extensions>true</extensions>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<configuration>-->
-                            <!--&lt;!&ndash; PEAR file component classpath settings &ndash;&gt;-->
-                            <!--<classpath>$main_root/bin</classpath>-->
-                            <!--&lt;!&ndash; PEAR file main component descriptor &ndash;&gt;-->
-                            <!--<mainComponentDesc>com.ontotext.s4.api.uima.types/${project.artifactId}.xml-->
-                            <!--</mainComponentDesc>-->
-                            <!--&lt;!&ndash; PEAR file component ID &ndash;&gt;-->
-                            <!--<componentId>${project.artifactId}</componentId>-->
-                            <!--&lt;!&ndash; PEAR file UIMA datapath settings &ndash;&gt;-->
-                            <!--<datapath>$main_root/resources</datapath>-->
-                        <!--</configuration>-->
-                        <!--<goals>-->
-                            <!--<goal>package</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
+            <!--
+                Build jar with dependencies for easy usage from the console tool s4pipeline and
+                for more portability in non-maven projects
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <id>enforce-banned-dependencies</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <!--We want to keep the project as clean as possible without any unwanted dependencies-->
+                                    <excludes>
+                                        <exclude>javax.xml.stream:stax-api</exclude>
+                                        <exclude>*jackson*:*</exclude>
+                                        <exclude>org.springframework:*</exclude>
+                                        <exclude>commons-lang:commons-lang</exclude>
+                                        <exclude>commons-io:commons-io</exclude>
+                                        <exclude>commons-logging:commons-logging-api</exclude>
+                                    </excludes>
+                                </bannedDependencies>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.ontotext.s4.api.example.S4UimaPipeline</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
         </plugins>
     </build>
@@ -212,11 +119,40 @@
             <groupId>org.apache.uima</groupId>
             <artifactId>uimafit-core</artifactId>
             <version>2.1.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.uima</groupId>
-            <artifactId>uimaj-document-annotation</artifactId>
-            <version>2.6.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-asm</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.uima</groupId>
@@ -227,6 +163,16 @@
             <groupId>com.ontotext.s4</groupId>
             <artifactId>s4-client</artifactId>
             <version>1.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-xml</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.beust</groupId>

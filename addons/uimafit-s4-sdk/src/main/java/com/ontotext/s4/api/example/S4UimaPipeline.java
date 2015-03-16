@@ -17,13 +17,13 @@
 
 package com.ontotext.s4.api.example;
 
+import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.ontotext.s4.api.annotator.uimafit.S4DocumentUimaFitAnnotator;
 import com.ontotext.s4.api.example.components.FileSystemCollectionReader;
 import com.ontotext.s4.api.example.components.XmiWriterCasConsumer;
 import com.ontotext.s4.api.restclient.S4Endpoints;
 import com.ontotext.s4.api.util.ComponentConfigurationParameters;
-import org.apache.commons.lang.StringUtils;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngine;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
@@ -92,25 +92,22 @@ public class S4UimaPipeline {
 
 
     public static void main(String[] args) throws Exception {
-//        CommandLineParams params = new CommandLineParams();
-//        JCommander commander = new JCommander(params, args);
-//        commander.setProgramName(S4UimaPipeline.class.getName());
-//        if (params.help) {
-//            System.out.println(USAGE_DESC);
-//            commander.usage();
-//            return;
-//        }
-//
-//        runPipeline(params.s4Endpoint,
-//                params.apiKey,
-//                params.apiPassword,
-//                params.inputDir,
-//                params.outputDir,
-//                params.descriptorDir,
-//                params.generateTypesystem);
+        CommandLineParams params = new CommandLineParams();
+        JCommander commander = new JCommander(params, args);
+        commander.setProgramName(S4UimaPipeline.class.getName());
+        if (params.help) {
+            System.out.println(USAGE_DESC);
+            commander.usage();
+            return;
+        }
 
-        runPipeline(S4Endpoints.NEWS, "s4nfnim4rnmt", "ukrb34e2feea31l", "/home/ceco/s4_stuff/iinput", "/home/ceco/s4_stuff/output", "desc", "");
-
+        runPipeline(params.s4Endpoint,
+                params.apiKey,
+                params.apiPassword,
+                params.inputDir,
+                params.outputDir,
+                params.descriptorDir,
+                params.generateTypesystem);
     }
 
     private static void runPipeline(S4Endpoints s4Endpoint, String apiKeyId, String apiPassword, String rawTextFilePath, String xmiDir, String descriptorDir, String generateTypeSystemFlag)
@@ -134,7 +131,7 @@ public class S4UimaPipeline {
                 .createEngineDescription(S4DocumentUimaFitAnnotator.class, annotatorParameters.getParametersArray());
 
         if (generateTypeSystemFlag.equals(S4DocumentUimaFitAnnotator.PARAM_GENERATE_TYPESYSTEM)) {
-            final String serviceType = StringUtils.substringAfterLast(s4Endpoint.toString(), "/");
+            final String serviceType = s4Endpoint.toString().substring(s4Endpoint.toString().lastIndexOf("/"));
             generateTypeSystemDynamically(descriptorDir, readerDesc, annotatorDesc, serviceType);
             return;
         }
