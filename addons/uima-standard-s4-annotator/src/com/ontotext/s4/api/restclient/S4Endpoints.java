@@ -20,6 +20,8 @@ package com.ontotext.s4.api.restclient;
 /**
  * A class that represents the S4 Rest Service Endpoints.
  *
+ * @author Tsvetan Dimitrov<tsvetan.dimitrov@ontotext.com>
+ * @since 2015-02-19
  */
 public enum S4Endpoints {
 
