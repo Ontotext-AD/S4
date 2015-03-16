@@ -18,12 +18,11 @@
 package com.ontotext.s4.api.util;
 
 /**
+ * A utility class expressing preconditions mostly for non nullness.
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
- * <p/>
- * Date added: 2/20/15.
+ * @since 2015-02-20
  */
-
-
 public final class Preconditions {
 
     private Preconditions() {

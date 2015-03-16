@@ -27,9 +27,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * A util class representing common file operations.
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
- * <p/>
- * Date added: 2/23/15.
+ * @since 2015-02-23
  */
 public class FileUtils {
 
@@ -59,14 +60,6 @@ public class FileUtils {
         }
     }
 
-//    public static void copy(String source, String target) throws IOException {
-//        Path destDir = Files.createDirectories(Paths.get(target));
-//        for (File sourceFile : listFiles(source)) {
-//            Path sourcePath = sourceFile.toPath();
-//            Files.copy(sourcePath, destDir.resolve(sourcePath.getFileName()));
-//        }
-//    }
-
     public static void copyDirectoryStructure(String source, String target) throws IOException {
         Files.walkFileTree(Paths.get(source), new CopyFileVisitor(Paths.get(target)));
     }
@@ -75,18 +68,6 @@ public class FileUtils {
         byte[] encoded = Files.readAllBytes(path);
         return new String(encoded, encoding);
     }
-
-//    public static List<File> listFiles(String filePath) {
-//        File sourceDir = new File(filePath);
-//        if (sourceDir.exists()) {
-//            final File[] fileArray = sourceDir.listFiles();
-//            if (fileArray != null) {
-//                return Arrays.asList(fileArray);
-//            }
-//        }
-//        return null;
-//    }
-
 
     public static List<Path> listFiles(Path path) throws IOException {
         Deque<Path> stack = new ArrayDeque<>();

@@ -23,9 +23,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Allows defining component parameters as key-value pairs using chained withConfigParameter(...) method calls
+ * and finally transforming those pairs to an object array that is accepted by the uimaFIT framework.
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
- * <p/>
- * Date added: 2/23/15.
+ * @since 2015-02-23
  */
 public class ComponentConfigurationParameters {
 
@@ -53,6 +55,11 @@ public class ComponentConfigurationParameters {
         return this;
     }
 
+    /**
+     * Method for ordering uimaFIT component parameters as an object array which is required by the framework.
+     *
+     * @return object array with parameter keys and parameter values ordered one after the other
+     */
     public Object[] getParametersArray() {
         Object[] arr = new Object[parameters.size() * 2];
         int idx = 0;

@@ -15,6 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * A standard UIMA annotator used with old UIMA GUI like CVD (CAS Visual Debugger)
+ * or could also be installed as a PEAR package through the GUI PEAR Installer.
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
  * @since 2015-03-12
  */
@@ -29,17 +32,37 @@ public class S4DocumentUimaAnnotator extends JCasAnnotator_ImplBase {
 
     public static final String PARAM_S4_API_PASSWORD = "API_PASSWORD";
 
-
+    /**
+     * S4 service url could be of type TWITIE, NEWS, SBT
+     */
     public String serviceEndpoint;
 
+    /**
+     * S4 services user api key
+     */
     public String apiKeyId;
 
+    /**
+     * S4 services api secret password
+     */
     public String apiPassword;
 
+    /**
+     * Converter class instance responsible for conversion logic between S4 Document responses and native UIMA types.
+     */
     private S4DocumentToUimaCasConverter s4CasConverter;
 
+    /**
+     * The S4 services RESTful client.
+     */
     private S4ServiceClient restClient;
 
+    /**
+     * Fetch S4 document.
+     *
+     * @param cas CAS document with set raw document text
+     * @return document with S4 annotations
+     */
     private AnnotatedDocument fetchS4AnnotatedDocument(JCas cas) {
         String documentText = cas.getDocumentText();
         if (!Preconditions.isNullOrEmpty(documentText)) {
@@ -50,18 +73,29 @@ public class S4DocumentUimaAnnotator extends JCasAnnotator_ImplBase {
 
     @Override
     public void process(JCas cas) throws AnalysisEngineProcessException {
-        final String serviceType = serviceEndpoint.substring(serviceEndpoint.lastIndexOf("/") + 1);
+        // Fetch and annotate the raw document and return the S4 document containing the annotations
         final AnnotatedDocument s4Document = fetchS4AnnotatedDocument(cas);
+
+        //Instantiate an annotation converter passing to it the S4 document
         this.s4CasConverter = S4DocumentToUimaCasConverter.newInstance(s4Document);
+
+        //Get the name of the service from the S4 endpoint url
+        final String serviceType = serviceEndpoint.substring(serviceEndpoint.lastIndexOf("/"));
+
+        //Convert S4 annotations to native UIMA types
         s4CasConverter.convertAnnotations(cas, serviceType);
     }
 
     @Override
     public void initialize(UimaContext context) throws ResourceInitializationException {
         super.initialize(context);
+
+        //Initialize component parameter values
         this.serviceEndpoint = (String) getContext().getConfigParameterValue(PARAM_S4_SERVICE_ENDPOINT);
         this.apiKeyId = (String) getContext().getConfigParameterValue(PARAM_S4_API_KEY_ID);
         this.apiPassword = (String) getContext().getConfigParameterValue(PARAM_S4_API_PASSWORD);
+
+        //Initialize S4 client
         this.restClient = S4ClientBuilder.newClientInstance()
                 .withS4Endpoint(serviceEndpoint)
                 .withApiKeyId(apiKeyId)
