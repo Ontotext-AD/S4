@@ -15,8 +15,8 @@
 
     <licenses>
         <license>
-            <name>GNU Lesser General Public License, Version 3.0</name>
-            <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+            <name>Apache License Version 2.0, January 2004</name>
+            <url>http://www.apache.org/licenses</url>
         </license>
     </licenses>
 
@@ -71,9 +71,12 @@
 
     <build>
         <plugins>
+
+            <!--Build sources jar-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -83,9 +86,15 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!--Generate javadoc html-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.1</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -95,6 +104,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!--Compile project with Java 7-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -113,14 +124,8 @@
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
+
+            <!--Enforce avoiding banned dependencies to keep the project more lightweight-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -144,6 +149,7 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -171,9 +177,12 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!--Build jar with dependency for usage in non-maven projects-->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4</version>
+                <version>2.5.3</version>
                 <configuration>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -189,6 +198,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
     </build>
 
