@@ -85,7 +85,7 @@ public class UserID extends Annotation {
    */
   public String getRule() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_rule == null)
-      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_rule);}
     
   /** setter for rule - sets Feature <rule> for type <UserID> 
@@ -94,7 +94,7 @@ public class UserID extends Annotation {
    */
   public void setRule(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_rule == null)
-      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_rule, v);}    
    
     
@@ -107,7 +107,7 @@ public class UserID extends Annotation {
    */
   public String getString() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_string);}
     
   /** setter for string - sets Feature <string> for type <UserID> 
@@ -116,7 +116,7 @@ public class UserID extends Annotation {
    */
   public void setString(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_string, v);}    
    
     
@@ -129,7 +129,7 @@ public class UserID extends Annotation {
    */
   public String getLength() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_length == null)
-      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_length);}
     
   /** setter for length - sets Feature <length> for type <UserID> 
@@ -138,7 +138,7 @@ public class UserID extends Annotation {
    */
   public void setLength(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_length == null)
-      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_length, v);}    
    
     
@@ -151,7 +151,7 @@ public class UserID extends Annotation {
    */
   public String getReplaced() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_replaced == null)
-      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_replaced);}
     
   /** setter for replaced - sets Feature <replaced> for type <UserID> 
@@ -160,7 +160,7 @@ public class UserID extends Annotation {
    */
   public void setReplaced(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_replaced == null)
-      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_replaced, v);}    
    
     
@@ -173,7 +173,7 @@ public class UserID extends Annotation {
    */
   public String getType_feature() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_type_feature);}
     
   /** setter for type_feature - sets Feature <type_feature> for type <UserID> 
@@ -182,7 +182,7 @@ public class UserID extends Annotation {
    */
   public void setType_feature(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_type_feature, v);}    
    
     
@@ -195,7 +195,7 @@ public class UserID extends Annotation {
    */
   public String getUser() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_user == null)
-      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_user);}
     
   /** setter for user - sets Feature <user> for type <UserID> 
@@ -204,7 +204,7 @@ public class UserID extends Annotation {
    */
   public void setUser(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_user == null)
-      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_user, v);}    
    
     
@@ -217,7 +217,7 @@ public class UserID extends Annotation {
    */
   public String getKind() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_kind == null)
-      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_kind);}
     
   /** setter for kind - sets Feature <kind> for type <UserID> 
@@ -226,7 +226,7 @@ public class UserID extends Annotation {
    */
   public void setKind(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_kind == null)
-      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_kind, v);}    
    
     
@@ -239,7 +239,7 @@ public class UserID extends Annotation {
    */
   public String getRule1() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_rule1 == null)
-      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_rule1);}
     
   /** setter for rule1 - sets Feature <rule1> for type <UserID> 
@@ -248,7 +248,7 @@ public class UserID extends Annotation {
    */
   public void setRule1(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_rule1 == null)
-      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_rule1, v);}    
    
     
@@ -261,7 +261,7 @@ public class UserID extends Annotation {
    */
   public String getRule2() {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_rule2 == null)
-      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     return jcasType.ll_cas.ll_getStringValue(addr, ((UserID_Type)jcasType).casFeatCode_rule2);}
     
   /** setter for rule2 - sets Feature <rule2> for type <UserID> 
@@ -270,7 +270,7 @@ public class UserID extends Annotation {
    */
   public void setRule2(String v) {
     if (UserID_Type.featOkTst && ((UserID_Type)jcasType).casFeat_rule2 == null)
-      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.uima.types.twitie.UserID");
+      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.UserID");
     jcasType.ll_cas.ll_setStringValue(addr, ((UserID_Type)jcasType).casFeatCode_rule2, v);}    
   }
 

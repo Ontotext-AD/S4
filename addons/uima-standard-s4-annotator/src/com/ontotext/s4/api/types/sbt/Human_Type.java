@@ -44,7 +44,7 @@ public class Human_Type extends Annotation_Type {
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.api.types.sbt.Human");
  
   /** @generated */
   final Feature casFeat_string;
@@ -56,7 +56,7 @@ public class Human_Type extends Annotation_Type {
    */ 
   public String getString(int addr) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.sbt.Human");
     return ll_cas.ll_getStringValue(addr, casFeatCode_string);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class Human_Type extends Annotation_Type {
    */    
   public void setString(int addr, String v) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.sbt.Human");
     ll_cas.ll_setStringValue(addr, casFeatCode_string, v);}
     
   
@@ -80,7 +80,7 @@ public class Human_Type extends Annotation_Type {
    */ 
   public String getClass_feature(int addr) {
         if (featOkTst && casFeat_class_feature == null)
-      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.sbt.Human");
     return ll_cas.ll_getStringValue(addr, casFeatCode_class_feature);
   }
   /** @generated
@@ -89,7 +89,7 @@ public class Human_Type extends Annotation_Type {
    */    
   public void setClass_feature(int addr, String v) {
         if (featOkTst && casFeat_class_feature == null)
-      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.sbt.Human");
     ll_cas.ll_setStringValue(addr, casFeatCode_class_feature, v);}
     
   
@@ -104,7 +104,7 @@ public class Human_Type extends Annotation_Type {
    */ 
   public String getInst(int addr) {
         if (featOkTst && casFeat_inst == null)
-      jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.sbt.Human");
     return ll_cas.ll_getStringValue(addr, casFeatCode_inst);
   }
   /** @generated
@@ -113,7 +113,7 @@ public class Human_Type extends Annotation_Type {
    */    
   public void setInst(int addr, String v) {
         if (featOkTst && casFeat_inst == null)
-      jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.sbt.Human");
     ll_cas.ll_setStringValue(addr, casFeatCode_inst, v);}
     
   
@@ -128,7 +128,7 @@ public class Human_Type extends Annotation_Type {
    */ 
   public String getType_feature(int addr) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.sbt.Human");
     return ll_cas.ll_getStringValue(addr, casFeatCode_type_feature);
   }
   /** @generated
@@ -137,7 +137,7 @@ public class Human_Type extends Annotation_Type {
    */    
   public void setType_feature(int addr, String v) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Human");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.sbt.Human");
     ll_cas.ll_setStringValue(addr, casFeatCode_type_feature, v);}
     
   

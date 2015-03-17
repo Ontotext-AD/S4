@@ -85,7 +85,7 @@ public class Emoticon extends Annotation {
    */
   public String getNormalized() {
     if (Emoticon_Type.featOkTst && ((Emoticon_Type)jcasType).casFeat_normalized == null)
-      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Emoticon");
+      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.api.types.twitie.Emoticon");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Emoticon_Type)jcasType).casFeatCode_normalized);}
     
   /** setter for normalized - sets Feature <normalized> for type <Emoticon> 
@@ -94,7 +94,7 @@ public class Emoticon extends Annotation {
    */
   public void setNormalized(String v) {
     if (Emoticon_Type.featOkTst && ((Emoticon_Type)jcasType).casFeat_normalized == null)
-      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Emoticon");
+      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.api.types.twitie.Emoticon");
     jcasType.ll_cas.ll_setStringValue(addr, ((Emoticon_Type)jcasType).casFeatCode_normalized, v);}    
    
     
@@ -107,7 +107,7 @@ public class Emoticon extends Annotation {
    */
   public String getType_feature() {
     if (Emoticon_Type.featOkTst && ((Emoticon_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Emoticon");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.twitie.Emoticon");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Emoticon_Type)jcasType).casFeatCode_type_feature);}
     
   /** setter for type_feature - sets Feature <type_feature> for type <Emoticon> 
@@ -116,7 +116,7 @@ public class Emoticon extends Annotation {
    */
   public void setType_feature(String v) {
     if (Emoticon_Type.featOkTst && ((Emoticon_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Emoticon");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.twitie.Emoticon");
     jcasType.ll_cas.ll_setStringValue(addr, ((Emoticon_Type)jcasType).casFeatCode_type_feature, v);}    
   }
 

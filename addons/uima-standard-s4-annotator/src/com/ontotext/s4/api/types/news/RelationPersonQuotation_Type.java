@@ -44,7 +44,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.api.types.news.RelationPersonQuotation");
  
   /** @generated */
   final Feature casFeat_organization1Str;
@@ -56,7 +56,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getOrganization1Str(int addr) {
         if (featOkTst && casFeat_organization1Str == null)
-      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organization1Str);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setOrganization1Str(int addr, String v) {
         if (featOkTst && casFeat_organization1Str == null)
-      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_organization1Str, v);}
     
   
@@ -80,7 +80,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getOrganizationUri(int addr) {
         if (featOkTst && casFeat_organizationUri == null)
-      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organizationUri);
   }
   /** @generated
@@ -89,7 +89,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setOrganizationUri(int addr, String v) {
         if (featOkTst && casFeat_organizationUri == null)
-      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_organizationUri, v);}
     
   
@@ -104,7 +104,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getOrganization1Uri(int addr) {
         if (featOkTst && casFeat_organization1Uri == null)
-      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organization1Uri);
   }
   /** @generated
@@ -113,7 +113,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setOrganization1Uri(int addr, String v) {
         if (featOkTst && casFeat_organization1Uri == null)
-      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_organization1Uri, v);}
     
   
@@ -128,7 +128,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getRelType(int addr) {
         if (featOkTst && casFeat_relType == null)
-      jcas.throwFeatMissing("relType", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("relType", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_relType);
   }
   /** @generated
@@ -137,7 +137,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setRelType(int addr, String v) {
         if (featOkTst && casFeat_relType == null)
-      jcas.throwFeatMissing("relType", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("relType", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_relType, v);}
     
   
@@ -152,7 +152,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getRule(int addr) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_rule);
   }
   /** @generated
@@ -161,7 +161,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setRule(int addr, String v) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_rule, v);}
     
   
@@ -176,7 +176,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getString(int addr) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_string);
   }
   /** @generated
@@ -185,7 +185,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setString(int addr, String v) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_string, v);}
     
   
@@ -200,7 +200,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getClass_feature(int addr) {
         if (featOkTst && casFeat_class_feature == null)
-      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_class_feature);
   }
   /** @generated
@@ -209,7 +209,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setClass_feature(int addr, String v) {
         if (featOkTst && casFeat_class_feature == null)
-      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_class_feature, v);}
     
   
@@ -224,7 +224,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getInst(int addr) {
         if (featOkTst && casFeat_inst == null)
-      jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_inst);
   }
   /** @generated
@@ -233,7 +233,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setInst(int addr, String v) {
         if (featOkTst && casFeat_inst == null)
-      jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_inst, v);}
     
   
@@ -248,7 +248,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getType_feature(int addr) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_type_feature);
   }
   /** @generated
@@ -257,7 +257,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setType_feature(int addr, String v) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_type_feature, v);}
     
   
@@ -272,7 +272,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getOrganizationStr(int addr) {
         if (featOkTst && casFeat_organizationStr == null)
-      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organizationStr);
   }
   /** @generated
@@ -281,7 +281,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setOrganizationStr(int addr, String v) {
         if (featOkTst && casFeat_organizationStr == null)
-      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_organizationStr, v);}
     
   
@@ -296,7 +296,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getQuotationStr(int addr) {
         if (featOkTst && casFeat_quotationStr == null)
-      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_quotationStr);
   }
   /** @generated
@@ -305,7 +305,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setQuotationStr(int addr, String v) {
         if (featOkTst && casFeat_quotationStr == null)
-      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_quotationStr, v);}
     
   
@@ -320,7 +320,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getAbbrevUri(int addr) {
         if (featOkTst && casFeat_abbrevUri == null)
-      jcas.throwFeatMissing("abbrevUri", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("abbrevUri", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_abbrevUri);
   }
   /** @generated
@@ -329,7 +329,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setAbbrevUri(int addr, String v) {
         if (featOkTst && casFeat_abbrevUri == null)
-      jcas.throwFeatMissing("abbrevUri", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("abbrevUri", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_abbrevUri, v);}
     
   
@@ -344,7 +344,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */ 
   public String getAbbrevStr(int addr) {
         if (featOkTst && casFeat_abbrevStr == null)
-      jcas.throwFeatMissing("abbrevStr", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("abbrevStr", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     return ll_cas.ll_getStringValue(addr, casFeatCode_abbrevStr);
   }
   /** @generated
@@ -353,7 +353,7 @@ public class RelationPersonQuotation_Type extends Annotation_Type {
    */    
   public void setAbbrevStr(int addr, String v) {
         if (featOkTst && casFeat_abbrevStr == null)
-      jcas.throwFeatMissing("abbrevStr", "com.ontotext.s4.com.ontotext.s4.api.types.news.RelationPersonQuotation");
+      jcas.throwFeatMissing("abbrevStr", "com.ontotext.s4.api.types.news.RelationPersonQuotation");
     ll_cas.ll_setStringValue(addr, casFeatCode_abbrevStr, v);}
     
   

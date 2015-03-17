@@ -44,7 +44,7 @@ public class Hashtag_Type extends Annotation_Type {
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.api.uima.types.twitie.Hashtag");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
  
   /** @generated */
   final Feature casFeat_rule;
@@ -56,7 +56,7 @@ public class Hashtag_Type extends Annotation_Type {
    */ 
   public String getRule(int addr) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     return ll_cas.ll_getStringValue(addr, casFeatCode_rule);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class Hashtag_Type extends Annotation_Type {
    */    
   public void setRule(int addr, String v) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     ll_cas.ll_setStringValue(addr, casFeatCode_rule, v);}
     
   
@@ -80,7 +80,7 @@ public class Hashtag_Type extends Annotation_Type {
    */ 
   public String getString(int addr) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     return ll_cas.ll_getStringValue(addr, casFeatCode_string);
   }
   /** @generated
@@ -89,7 +89,7 @@ public class Hashtag_Type extends Annotation_Type {
    */    
   public void setString(int addr, String v) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     ll_cas.ll_setStringValue(addr, casFeatCode_string, v);}
     
   
@@ -104,7 +104,7 @@ public class Hashtag_Type extends Annotation_Type {
    */ 
   public String getLength(int addr) {
         if (featOkTst && casFeat_length == null)
-      jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     return ll_cas.ll_getStringValue(addr, casFeatCode_length);
   }
   /** @generated
@@ -113,7 +113,7 @@ public class Hashtag_Type extends Annotation_Type {
    */    
   public void setLength(int addr, String v) {
         if (featOkTst && casFeat_length == null)
-      jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("length", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     ll_cas.ll_setStringValue(addr, casFeatCode_length, v);}
     
   
@@ -128,7 +128,7 @@ public class Hashtag_Type extends Annotation_Type {
    */ 
   public String getType_feature(int addr) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     return ll_cas.ll_getStringValue(addr, casFeatCode_type_feature);
   }
   /** @generated
@@ -137,7 +137,7 @@ public class Hashtag_Type extends Annotation_Type {
    */    
   public void setType_feature(int addr, String v) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     ll_cas.ll_setStringValue(addr, casFeatCode_type_feature, v);}
     
   
@@ -152,7 +152,7 @@ public class Hashtag_Type extends Annotation_Type {
    */ 
   public String getKind(int addr) {
         if (featOkTst && casFeat_kind == null)
-      jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     return ll_cas.ll_getStringValue(addr, casFeatCode_kind);
   }
   /** @generated
@@ -161,7 +161,7 @@ public class Hashtag_Type extends Annotation_Type {
    */    
   public void setKind(int addr, String v) {
         if (featOkTst && casFeat_kind == null)
-      jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.twitie.Hashtag");
+      jcas.throwFeatMissing("kind", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.twitie.Hashtag");
     ll_cas.ll_setStringValue(addr, casFeatCode_kind, v);}
     
   

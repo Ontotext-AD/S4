@@ -85,7 +85,7 @@ public class Person extends Annotation {
    */
   public String getRule1() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_rule1 == null)
-      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_rule1);}
     
   /** setter for rule1 - sets Feature <rule1> for type <Person> 
@@ -94,7 +94,7 @@ public class Person extends Annotation {
    */
   public void setRule1(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_rule1 == null)
-      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_rule1, v);}    
    
     
@@ -107,7 +107,7 @@ public class Person extends Annotation {
    */
   public String getRule2() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_rule2 == null)
-      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_rule2);}
     
   /** setter for rule2 - sets Feature <rule2> for type <Person> 
@@ -116,7 +116,7 @@ public class Person extends Annotation {
    */
   public void setRule2(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_rule2 == null)
-      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_rule2, v);}    
    
     
@@ -129,7 +129,7 @@ public class Person extends Annotation {
    */
   public String getType_feature() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_type_feature);}
     
   /** setter for type_feature - sets Feature <type_feature> for type <Person> 
@@ -138,7 +138,7 @@ public class Person extends Annotation {
    */
   public void setType_feature(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_type_feature, v);}    
    
     
@@ -151,7 +151,7 @@ public class Person extends Annotation {
    */
   public String getKind() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_kind == null)
-      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_kind);}
     
   /** setter for kind - sets Feature <kind> for type <Person> 
@@ -160,7 +160,7 @@ public class Person extends Annotation {
    */
   public void setKind(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_kind == null)
-      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("kind", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_kind, v);}    
    
     
@@ -173,7 +173,7 @@ public class Person extends Annotation {
    */
   public String getRule() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_rule == null)
-      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_rule);}
     
   /** setter for rule - sets Feature <rule> for type <Person> 
@@ -182,7 +182,7 @@ public class Person extends Annotation {
    */
   public void setRule(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_rule == null)
-      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_rule, v);}    
    
     
@@ -195,7 +195,7 @@ public class Person extends Annotation {
    */
   public String getString() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_string);}
     
   /** setter for string - sets Feature <string> for type <Person> 
@@ -204,7 +204,7 @@ public class Person extends Annotation {
    */
   public void setString(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_string, v);}    
    
     
@@ -217,7 +217,7 @@ public class Person extends Annotation {
    */
   public String getLength() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_length == null)
-      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_length);}
     
   /** setter for length - sets Feature <length> for type <Person> 
@@ -226,7 +226,7 @@ public class Person extends Annotation {
    */
   public void setLength(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_length == null)
-      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("length", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_length, v);}    
    
     
@@ -239,7 +239,7 @@ public class Person extends Annotation {
    */
   public String getReplaced() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_replaced == null)
-      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_replaced);}
     
   /** setter for replaced - sets Feature <replaced> for type <Person> 
@@ -248,7 +248,7 @@ public class Person extends Annotation {
    */
   public void setReplaced(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_replaced == null)
-      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_replaced, v);}    
    
     
@@ -261,7 +261,7 @@ public class Person extends Annotation {
    */
   public String getUser() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_user == null)
-      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_user);}
     
   /** setter for user - sets Feature <user> for type <Person> 
@@ -270,7 +270,7 @@ public class Person extends Annotation {
    */
   public void setUser(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_user == null)
-      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("user", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_user, v);}    
    
     
@@ -283,7 +283,7 @@ public class Person extends Annotation {
    */
   public String getNormalized() {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_normalized == null)
-      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.api.types.twitie.Person");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Person_Type)jcasType).casFeatCode_normalized);}
     
   /** setter for normalized - sets Feature <normalized> for type <Person> 
@@ -292,7 +292,7 @@ public class Person extends Annotation {
    */
   public void setNormalized(String v) {
     if (Person_Type.featOkTst && ((Person_Type)jcasType).casFeat_normalized == null)
-      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Person");
+      jcasType.jcas.throwFeatMissing("normalized", "com.ontotext.s4.api.types.twitie.Person");
     jcasType.ll_cas.ll_setStringValue(addr, ((Person_Type)jcasType).casFeatCode_normalized, v);}    
   }
 

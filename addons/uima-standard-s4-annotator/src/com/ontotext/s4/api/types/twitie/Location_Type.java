@@ -44,7 +44,7 @@ public class Location_Type extends Annotation_Type {
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.api.types.twitie.Location");
  
   /** @generated */
   final Feature casFeat_rule1;
@@ -56,7 +56,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getRule1(int addr) {
         if (featOkTst && casFeat_rule1 == null)
-      jcas.throwFeatMissing("rule1", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_rule1);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setRule1(int addr, String v) {
         if (featOkTst && casFeat_rule1 == null)
-      jcas.throwFeatMissing("rule1", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("rule1", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_rule1, v);}
     
   
@@ -80,7 +80,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getRule2(int addr) {
         if (featOkTst && casFeat_rule2 == null)
-      jcas.throwFeatMissing("rule2", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_rule2);
   }
   /** @generated
@@ -89,7 +89,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setRule2(int addr, String v) {
         if (featOkTst && casFeat_rule2 == null)
-      jcas.throwFeatMissing("rule2", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("rule2", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_rule2, v);}
     
   
@@ -104,7 +104,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getType_feature(int addr) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_type_feature);
   }
   /** @generated
@@ -113,7 +113,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setType_feature(int addr, String v) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_type_feature, v);}
     
   
@@ -128,7 +128,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getKind(int addr) {
         if (featOkTst && casFeat_kind == null)
-      jcas.throwFeatMissing("kind", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("kind", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_kind);
   }
   /** @generated
@@ -137,7 +137,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setKind(int addr, String v) {
         if (featOkTst && casFeat_kind == null)
-      jcas.throwFeatMissing("kind", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("kind", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_kind, v);}
     
   
@@ -152,7 +152,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getRule(int addr) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_rule);
   }
   /** @generated
@@ -161,7 +161,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setRule(int addr, String v) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_rule, v);}
     
   
@@ -176,7 +176,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getString(int addr) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_string);
   }
   /** @generated
@@ -185,7 +185,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setString(int addr, String v) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_string, v);}
     
   
@@ -200,7 +200,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getLength(int addr) {
         if (featOkTst && casFeat_length == null)
-      jcas.throwFeatMissing("length", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("length", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_length);
   }
   /** @generated
@@ -209,7 +209,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setLength(int addr, String v) {
         if (featOkTst && casFeat_length == null)
-      jcas.throwFeatMissing("length", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("length", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_length, v);}
     
   
@@ -224,7 +224,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getReplaced(int addr) {
         if (featOkTst && casFeat_replaced == null)
-      jcas.throwFeatMissing("replaced", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_replaced);
   }
   /** @generated
@@ -233,7 +233,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setReplaced(int addr, String v) {
         if (featOkTst && casFeat_replaced == null)
-      jcas.throwFeatMissing("replaced", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("replaced", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_replaced, v);}
     
   
@@ -248,7 +248,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getUser(int addr) {
         if (featOkTst && casFeat_user == null)
-      jcas.throwFeatMissing("user", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("user", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_user);
   }
   /** @generated
@@ -257,7 +257,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setUser(int addr, String v) {
         if (featOkTst && casFeat_user == null)
-      jcas.throwFeatMissing("user", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("user", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_user, v);}
     
   
@@ -272,7 +272,7 @@ public class Location_Type extends Annotation_Type {
    */ 
   public String getNormalized(int addr) {
         if (featOkTst && casFeat_normalized == null)
-      jcas.throwFeatMissing("normalized", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("normalized", "com.ontotext.s4.api.types.twitie.Location");
     return ll_cas.ll_getStringValue(addr, casFeatCode_normalized);
   }
   /** @generated
@@ -281,7 +281,7 @@ public class Location_Type extends Annotation_Type {
    */    
   public void setNormalized(int addr, String v) {
         if (featOkTst && casFeat_normalized == null)
-      jcas.throwFeatMissing("normalized", "com.ontotext.s4.com.ontotext.s4.api.types.twitie.Location");
+      jcas.throwFeatMissing("normalized", "com.ontotext.s4.api.types.twitie.Location");
     ll_cas.ll_setStringValue(addr, casFeatCode_normalized, v);}
     
   

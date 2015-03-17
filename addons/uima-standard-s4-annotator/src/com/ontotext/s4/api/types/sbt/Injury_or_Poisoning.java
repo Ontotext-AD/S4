@@ -85,7 +85,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public String getString() {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_string);}
     
   /** setter for string - sets Feature <string> for type <Injury_or_Poisoning> 
@@ -94,7 +94,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public void setString(String v) {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     jcasType.ll_cas.ll_setStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_string, v);}    
    
     
@@ -107,7 +107,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public String getClass_feature() {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_class_feature == null)
-      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_class_feature);}
     
   /** setter for class_feature - sets Feature <class_feature> for type <Injury_or_Poisoning> 
@@ -116,7 +116,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public void setClass_feature(String v) {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_class_feature == null)
-      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     jcasType.ll_cas.ll_setStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_class_feature, v);}    
    
     
@@ -129,7 +129,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public String getInst() {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_inst == null)
-      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_inst);}
     
   /** setter for inst - sets Feature <inst> for type <Injury_or_Poisoning> 
@@ -138,7 +138,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public void setInst(String v) {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_inst == null)
-      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     jcasType.ll_cas.ll_setStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_inst, v);}    
    
     
@@ -151,7 +151,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public String getType_feature() {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_type_feature);}
     
   /** setter for type_feature - sets Feature <type_feature> for type <Injury_or_Poisoning> 
@@ -160,7 +160,7 @@ public class Injury_or_Poisoning extends Annotation {
    */
   public void setType_feature(String v) {
     if (Injury_or_Poisoning_Type.featOkTst && ((Injury_or_Poisoning_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.sbt.Injury_or_Poisoning");
     jcasType.ll_cas.ll_setStringValue(addr, ((Injury_or_Poisoning_Type)jcasType).casFeatCode_type_feature, v);}    
   }
 

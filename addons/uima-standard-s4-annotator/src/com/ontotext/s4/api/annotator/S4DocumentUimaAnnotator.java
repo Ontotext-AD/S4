@@ -97,7 +97,7 @@ public class S4DocumentUimaAnnotator extends JCasAnnotator_ImplBase {
         this.s4CasConverter = S4DocumentToUimaCasConverter.newInstance(s4Document);
 
         //Get the name of the service from the S4 endpoint url
-        final String serviceType = serviceEndpoint.substring(serviceEndpoint.lastIndexOf("/"));
+        final String serviceType = serviceEndpoint.substring(serviceEndpoint.lastIndexOf("/") + 1);
 
         //Convert S4 annotations to native UIMA types
         s4CasConverter.convertAnnotations(cas, serviceType);

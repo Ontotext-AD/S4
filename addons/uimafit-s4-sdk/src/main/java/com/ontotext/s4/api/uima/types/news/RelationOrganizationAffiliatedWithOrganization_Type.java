@@ -44,7 +44,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
  
   /** @generated */
   final Feature casFeat_organization1Str;
@@ -56,7 +56,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getOrganization1Str(int addr) {
         if (featOkTst && casFeat_organization1Str == null)
-      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organization1Str);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setOrganization1Str(int addr, String v) {
         if (featOkTst && casFeat_organization1Str == null)
-      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_organization1Str, v);}
     
   
@@ -80,7 +80,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getOrganizationUri(int addr) {
         if (featOkTst && casFeat_organizationUri == null)
-      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organizationUri);
   }
   /** @generated
@@ -89,7 +89,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setOrganizationUri(int addr, String v) {
         if (featOkTst && casFeat_organizationUri == null)
-      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_organizationUri, v);}
     
   
@@ -104,7 +104,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getOrganization1Uri(int addr) {
         if (featOkTst && casFeat_organization1Uri == null)
-      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organization1Uri);
   }
   /** @generated
@@ -113,7 +113,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setOrganization1Uri(int addr, String v) {
         if (featOkTst && casFeat_organization1Uri == null)
-      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_organization1Uri, v);}
     
   
@@ -128,7 +128,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getRelType(int addr) {
         if (featOkTst && casFeat_relType == null)
-      jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_relType);
   }
   /** @generated
@@ -137,7 +137,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setRelType(int addr, String v) {
         if (featOkTst && casFeat_relType == null)
-      jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_relType, v);}
     
   
@@ -152,7 +152,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getRule(int addr) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_rule);
   }
   /** @generated
@@ -161,7 +161,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setRule(int addr, String v) {
         if (featOkTst && casFeat_rule == null)
-      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_rule, v);}
     
   
@@ -176,7 +176,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getString(int addr) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_string);
   }
   /** @generated
@@ -185,7 +185,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setString(int addr, String v) {
         if (featOkTst && casFeat_string == null)
-      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_string, v);}
     
   
@@ -200,7 +200,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getClass_feature(int addr) {
         if (featOkTst && casFeat_class_feature == null)
-      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_class_feature);
   }
   /** @generated
@@ -209,7 +209,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setClass_feature(int addr, String v) {
         if (featOkTst && casFeat_class_feature == null)
-      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_class_feature, v);}
     
   
@@ -224,7 +224,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getInst(int addr) {
         if (featOkTst && casFeat_inst == null)
-      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_inst);
   }
   /** @generated
@@ -233,7 +233,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setInst(int addr, String v) {
         if (featOkTst && casFeat_inst == null)
-      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_inst, v);}
     
   
@@ -248,7 +248,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getType_feature(int addr) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_type_feature);
   }
   /** @generated
@@ -257,7 +257,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setType_feature(int addr, String v) {
         if (featOkTst && casFeat_type_feature == null)
-      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_type_feature, v);}
     
   
@@ -272,7 +272,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getOrganizationStr(int addr) {
         if (featOkTst && casFeat_organizationStr == null)
-      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_organizationStr);
   }
   /** @generated
@@ -281,7 +281,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setOrganizationStr(int addr, String v) {
         if (featOkTst && casFeat_organizationStr == null)
-      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_organizationStr, v);}
     
   
@@ -296,7 +296,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */ 
   public String getQuotationStr(int addr) {
         if (featOkTst && casFeat_quotationStr == null)
-      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return ll_cas.ll_getStringValue(addr, casFeatCode_quotationStr);
   }
   /** @generated
@@ -305,7 +305,7 @@ public class RelationOrganizationAffiliatedWithOrganization_Type extends Annotat
    */    
   public void setQuotationStr(int addr, String v) {
         if (featOkTst && casFeat_quotationStr == null)
-      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     ll_cas.ll_setStringValue(addr, casFeatCode_quotationStr, v);}
     
   

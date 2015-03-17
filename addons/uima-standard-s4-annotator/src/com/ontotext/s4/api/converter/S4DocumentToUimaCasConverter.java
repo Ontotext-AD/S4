@@ -42,8 +42,7 @@ public class S4DocumentToUimaCasConverter {
     private static final Logger LOG = LoggerFactory
             .getLogger(S4DocumentToUimaCasConverter.class);
 
-    public static final String UIMA_ANNOTATION_TYPES_PACKAGE = "com.ontotext.s4.api.uima.types.";
-
+    private  static final String UIMA_ANNOTATION_PACKAGE_NAME = "com.ontotext.s4.api.types.";
 
     private AnnotatedDocument startDocument;
 
@@ -72,12 +71,12 @@ public class S4DocumentToUimaCasConverter {
      * Method implementing the whole S4-UIMA annotation conversion logic.
      *
      * @param cas the CAS object from the Annotator component
-     * @param serviceType type of the S4 service: sbt, news, twitie
+     * @param serviceType type of the S4 service: com.ontotext.s4.api.types.sbt, com.ontotext.s4.api.types.news, com.ontotext.s4.api.types.twitie
      */
     public void convertAnnotations(JCas cas, String serviceType) {
         for (Map.Entry<String, List<Annotation>> entityEntry : entities.entrySet()) {
             String annotationName = entityEntry.getKey();
-            annotationName = UIMA_ANNOTATION_TYPES_PACKAGE + serviceType + "." + removeDashes(annotationName);
+            annotationName = UIMA_ANNOTATION_PACKAGE_NAME + serviceType + "." + removeDashes(annotationName);
             List<Annotation> annotations = entityEntry.getValue();
             for (Annotation ann : annotations) {
                 casAnnotation = getFeatureStructureForS4Annotation(cas, annotationName);

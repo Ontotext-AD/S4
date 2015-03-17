@@ -85,7 +85,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getOrganization1Str() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organization1Str == null)
-      jcasType.jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organization1Str);}
     
   /** setter for organization1Str - sets Feature <organization1Str> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -94,7 +94,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setOrganization1Str(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organization1Str == null)
-      jcasType.jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organization1Str", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organization1Str, v);}    
    
     
@@ -107,7 +107,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getOrganizationUri() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organizationUri == null)
-      jcasType.jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organizationUri);}
     
   /** setter for organizationUri - sets Feature <organizationUri> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -116,7 +116,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setOrganizationUri(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organizationUri == null)
-      jcasType.jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organizationUri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organizationUri, v);}    
    
     
@@ -129,7 +129,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getOrganization1Uri() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organization1Uri == null)
-      jcasType.jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organization1Uri);}
     
   /** setter for organization1Uri - sets Feature <organization1Uri> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -138,7 +138,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setOrganization1Uri(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organization1Uri == null)
-      jcasType.jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organization1Uri", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organization1Uri, v);}    
    
     
@@ -151,7 +151,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getRelType() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_relType == null)
-      jcasType.jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_relType);}
     
   /** setter for relType - sets Feature <relType> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -160,7 +160,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setRelType(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_relType == null)
-      jcasType.jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("relType", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_relType, v);}    
    
     
@@ -173,7 +173,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getRule() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_rule == null)
-      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_rule);}
     
   /** setter for rule - sets Feature <rule> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -182,7 +182,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setRule(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_rule == null)
-      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("rule", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_rule, v);}    
    
     
@@ -195,7 +195,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getString() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_string);}
     
   /** setter for string - sets Feature <string> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -204,7 +204,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setString(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_string, v);}    
    
     
@@ -217,7 +217,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getClass_feature() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_class_feature == null)
-      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_class_feature);}
     
   /** setter for class_feature - sets Feature <class_feature> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -226,7 +226,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setClass_feature(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_class_feature == null)
-      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_class_feature, v);}    
    
     
@@ -239,7 +239,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getInst() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_inst == null)
-      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_inst);}
     
   /** setter for inst - sets Feature <inst> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -248,7 +248,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setInst(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_inst == null)
-      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_inst, v);}    
    
     
@@ -261,7 +261,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getType_feature() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_type_feature);}
     
   /** setter for type_feature - sets Feature <type_feature> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -270,7 +270,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setType_feature(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_type_feature, v);}    
    
     
@@ -283,7 +283,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getOrganizationStr() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organizationStr == null)
-      jcasType.jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organizationStr);}
     
   /** setter for organizationStr - sets Feature <organizationStr> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -292,7 +292,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setOrganizationStr(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_organizationStr == null)
-      jcasType.jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("organizationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_organizationStr, v);}    
    
     
@@ -305,7 +305,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public String getQuotationStr() {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_quotationStr == null)
-      jcasType.jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     return jcasType.ll_cas.ll_getStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_quotationStr);}
     
   /** setter for quotationStr - sets Feature <quotationStr> for type <RelationOrganizationAffiliatedWithOrganization> 
@@ -314,7 +314,7 @@ public class RelationOrganizationAffiliatedWithOrganization extends Annotation {
    */
   public void setQuotationStr(String v) {
     if (RelationOrganizationAffiliatedWithOrganization_Type.featOkTst && ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeat_quotationStr == null)
-      jcasType.jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.news.RelationOrganizationAffiliatedWithOrganization");
+      jcasType.jcas.throwFeatMissing("quotationStr", "com.ontotext.s4.api.uima.types.com.ontotext.s4.api.types.news.RelationOrganizationAffiliatedWithOrganization");
     jcasType.ll_cas.ll_setStringValue(addr, ((RelationOrganizationAffiliatedWithOrganization_Type)jcasType).casFeatCode_quotationStr, v);}    
   }
 

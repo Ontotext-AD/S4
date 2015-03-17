@@ -25,9 +25,9 @@ package com.ontotext.s4.api.restclient;
  */
 public enum S4Endpoints {
 
-    TWITIE("https://text.s4.ontotext.com/v1/twitie"),
-    NEWS("https://text.s4.ontotext.com/v1/news"),
-    SBT("https://text.s4.ontotext.com/v1/sbt");
+    TWITIE("https://text.s4.ontotext.com/v1/com.ontotext.s4.api.types.twitie"),
+    NEWS("https://text.s4.ontotext.com/v1/com.ontotext.s4.api.types.news"),
+    SBT("https://text.s4.ontotext.com/v1/com.ontotext.s4.api.types.sbt");
 
     private String value;
 

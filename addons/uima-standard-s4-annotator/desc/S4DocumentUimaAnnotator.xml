@@ -33,7 +33,7 @@
             <nameValuePair>
                 <name>S4_SERVICE_ENDPOINT</name>
                 <value>
-                    <string>https://text.s4.ontotext.com/v1/news</string>
+                    <string>https://text.s4.ontotext.com/v1/com.ontotext.s4.api.types.news</string>
                 </value>
             </nameValuePair>
             <nameValuePair>

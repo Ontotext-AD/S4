@@ -85,7 +85,7 @@ public class Body_System extends Annotation {
    */
   public String getString() {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.sbt.Body_System");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_string);}
     
   /** setter for string - sets Feature <string> for type <Body_System> 
@@ -94,7 +94,7 @@ public class Body_System extends Annotation {
    */
   public void setString(String v) {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_string == null)
-      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("string", "com.ontotext.s4.api.types.sbt.Body_System");
     jcasType.ll_cas.ll_setStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_string, v);}    
    
     
@@ -107,7 +107,7 @@ public class Body_System extends Annotation {
    */
   public String getClass_feature() {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_class_feature == null)
-      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.sbt.Body_System");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_class_feature);}
     
   /** setter for class_feature - sets Feature <class_feature> for type <Body_System> 
@@ -116,7 +116,7 @@ public class Body_System extends Annotation {
    */
   public void setClass_feature(String v) {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_class_feature == null)
-      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("class_feature", "com.ontotext.s4.api.types.sbt.Body_System");
     jcasType.ll_cas.ll_setStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_class_feature, v);}    
    
     
@@ -129,7 +129,7 @@ public class Body_System extends Annotation {
    */
   public String getInst() {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_inst == null)
-      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.sbt.Body_System");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_inst);}
     
   /** setter for inst - sets Feature <inst> for type <Body_System> 
@@ -138,7 +138,7 @@ public class Body_System extends Annotation {
    */
   public void setInst(String v) {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_inst == null)
-      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("inst", "com.ontotext.s4.api.types.sbt.Body_System");
     jcasType.ll_cas.ll_setStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_inst, v);}    
    
     
@@ -151,7 +151,7 @@ public class Body_System extends Annotation {
    */
   public String getType_feature() {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.sbt.Body_System");
     return jcasType.ll_cas.ll_getStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_type_feature);}
     
   /** setter for type_feature - sets Feature <type_feature> for type <Body_System> 
@@ -160,7 +160,7 @@ public class Body_System extends Annotation {
    */
   public void setType_feature(String v) {
     if (Body_System_Type.featOkTst && ((Body_System_Type)jcasType).casFeat_type_feature == null)
-      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.com.ontotext.s4.api.types.sbt.Body_System");
+      jcasType.jcas.throwFeatMissing("type_feature", "com.ontotext.s4.api.types.sbt.Body_System");
     jcasType.ll_cas.ll_setStringValue(addr, ((Body_System_Type)jcasType).casFeatCode_type_feature, v);}    
   }
 

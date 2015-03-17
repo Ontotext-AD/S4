@@ -97,7 +97,7 @@ public class S4DocumentToUimaCasConverter {
      * Method implementing the whole S4-UIMA annotation conversion logic.
      *
      * @param cas the CAS object from the Annotator component
-     * @param serviceType type of the S4 service: sbt, news, twitie
+     * @param serviceType type of the S4 service: com.ontotext.s4.api.types.sbt, com.ontotext.s4.api.types.news, com.ontotext.s4.api.types.twitie
      */
     public void convertAnnotations(JCas cas, String serviceType) {
         for (Map.Entry<String, List<Annotation>> entityEntry : entities.entrySet()) {
@@ -167,7 +167,7 @@ public class S4DocumentToUimaCasConverter {
      * Used for dynamic type system generation or generation of such from external sources like files with the annotations
      * and their features or something else.
      *
-     * @param serviceType type of the S4 service: sbt, news, twitie
+     * @param serviceType type of the S4 service: com.ontotext.s4.api.types.sbt, com.ontotext.s4.api.types.news, com.ontotext.s4.api.types.twitie
      * @return a TypeSystemDescription used for generation of a real CAS type system
      */
     public TypeSystemDescription inferCasTypeSystem(String serviceType) {
