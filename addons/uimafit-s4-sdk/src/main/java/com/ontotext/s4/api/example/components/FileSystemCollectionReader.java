@@ -42,7 +42,7 @@ import java.util.List;
  * NOTE: This component is implemented only for the purpose of running the example pipeline. Though it
  * could still be used as a regular component in any uimaFIT pipeline.
  *
- * @author Tsvetan Dimitrov <tsvetan.dimitrov23@gmail.com>
+ * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
  * @since 2015-03-05
  */
 public class FileSystemCollectionReader extends JCasCollectionReader_ImplBase {
