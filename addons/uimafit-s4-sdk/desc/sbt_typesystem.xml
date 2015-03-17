@@ -2,7 +2,7 @@
 <typeSystemDescription xmlns="http://uima.apache.org/resourceSpecifier">
     <types>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Acquired_Abnormality</name>
+            <name>com.ontotext.s4.api.types.sbt.Acquired_Abnormality</name>
             <description>Automatically generated type for Acquired_Abnormality</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -29,7 +29,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Activity</name>
             <description>Automatically generated type for Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -56,7 +56,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Age_Group</name>
+            <name>com.ontotext.s4.api.types.sbt.Age_Group</name>
             <description>Automatically generated type for Age_Group</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -83,7 +83,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Amino_Acid_Peptide_or_Protein</name>
+            <name>com.ontotext.s4.api.types.sbt.Amino_Acid_Peptide_or_Protein</name>
             <description>Automatically generated type for Amino_Acid_Peptide_or_Protein</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -110,7 +110,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Anatomical_Abnormality</name>
+            <name>com.ontotext.s4.api.types.sbt.Anatomical_Abnormality</name>
             <description>Automatically generated type for Anatomical_Abnormality</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -137,7 +137,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Anatomical_Structure</name>
+            <name>com.ontotext.s4.api.types.sbt.Anatomical_Structure</name>
             <description>Automatically generated type for Anatomical_Structure</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -164,7 +164,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Animal</name>
+            <name>com.ontotext.s4.api.types.sbt.Animal</name>
             <description>Automatically generated type for Animal</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -191,7 +191,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Antibiotic</name>
+            <name>com.ontotext.s4.api.types.sbt.Antibiotic</name>
             <description>Automatically generated type for Antibiotic</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -218,7 +218,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Bacterium</name>
+            <name>com.ontotext.s4.api.types.sbt.Bacterium</name>
             <description>Automatically generated type for Bacterium</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -245,7 +245,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Behavior</name>
+            <name>com.ontotext.s4.api.types.sbt.Behavior</name>
             <description>Automatically generated type for Behavior</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -272,7 +272,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Biologic_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Biologic_Function</name>
             <description>Automatically generated type for Biologic_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -299,7 +299,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Biologically_Active_Substance</name>
+            <name>com.ontotext.s4.api.types.sbt.Biologically_Active_Substance</name>
             <description>Automatically generated type for Biologically_Active_Substance</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -326,7 +326,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Biomedical_Occupation_or_Discipline</name>
+            <name>com.ontotext.s4.api.types.sbt.Biomedical_Occupation_or_Discipline</name>
             <description>Automatically generated type for Biomedical_Occupation_or_Discipline</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -353,7 +353,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Biomedical_or_Dental_Material</name>
+            <name>com.ontotext.s4.api.types.sbt.Biomedical_or_Dental_Material</name>
             <description>Automatically generated type for Biomedical_or_Dental_Material</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -380,7 +380,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Bird</name>
+            <name>com.ontotext.s4.api.types.sbt.Bird</name>
             <description>Automatically generated type for Bird</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -407,7 +407,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Body_Location_or_Region</name>
+            <name>com.ontotext.s4.api.types.sbt.Body_Location_or_Region</name>
             <description>Automatically generated type for Body_Location_or_Region</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -434,7 +434,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Body_Part_Organ_or_Organ_Component</name>
+            <name>com.ontotext.s4.api.types.sbt.Body_Part_Organ_or_Organ_Component</name>
             <description>Automatically generated type for Body_Part_Organ_or_Organ_Component</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -461,7 +461,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Body_Space_or_Junction</name>
+            <name>com.ontotext.s4.api.types.sbt.Body_Space_or_Junction</name>
             <description>Automatically generated type for Body_Space_or_Junction</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -488,7 +488,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Body_Substance</name>
+            <name>com.ontotext.s4.api.types.sbt.Body_Substance</name>
             <description>Automatically generated type for Body_Substance</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -515,7 +515,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Body_System</name>
+            <name>com.ontotext.s4.api.types.sbt.Body_System</name>
             <description>Automatically generated type for Body_System</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -542,7 +542,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Carbohydrate</name>
+            <name>com.ontotext.s4.api.types.sbt.Carbohydrate</name>
             <description>Automatically generated type for Carbohydrate</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -569,7 +569,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Cell</name>
+            <name>com.ontotext.s4.api.types.sbt.Cell</name>
             <description>Automatically generated type for Cell</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -596,7 +596,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Cell_Component</name>
+            <name>com.ontotext.s4.api.types.sbt.Cell_Component</name>
             <description>Automatically generated type for Cell_Component</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -623,7 +623,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Cell_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Cell_Function</name>
             <description>Automatically generated type for Cell_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -650,7 +650,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Cell_or_Molecular_Dysfunction</name>
+            <name>com.ontotext.s4.api.types.sbt.Cell_or_Molecular_Dysfunction</name>
             <description>Automatically generated type for Cell_or_Molecular_Dysfunction</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -677,7 +677,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Chemical</name>
+            <name>com.ontotext.s4.api.types.sbt.Chemical</name>
             <description>Automatically generated type for Chemical</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -704,7 +704,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Chemical_Viewed_Functionally</name>
+            <name>com.ontotext.s4.api.types.sbt.Chemical_Viewed_Functionally</name>
             <description>Automatically generated type for Chemical_Viewed_Functionally</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -731,7 +731,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Chemical_Viewed_Structurally</name>
+            <name>com.ontotext.s4.api.types.sbt.Chemical_Viewed_Structurally</name>
             <description>Automatically generated type for Chemical_Viewed_Structurally</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -758,7 +758,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Classification</name>
+            <name>com.ontotext.s4.api.types.sbt.Classification</name>
             <description>Automatically generated type for Classification</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -785,7 +785,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Clinical_Attribute</name>
+            <name>com.ontotext.s4.api.types.sbt.Clinical_Attribute</name>
             <description>Automatically generated type for Clinical_Attribute</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -812,7 +812,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Conceptual_Entity</name>
+            <name>com.ontotext.s4.api.types.sbt.Conceptual_Entity</name>
             <description>Automatically generated type for Conceptual_Entity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -839,7 +839,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Congenital_Abnormality</name>
+            <name>com.ontotext.s4.api.types.sbt.Congenital_Abnormality</name>
             <description>Automatically generated type for Congenital_Abnormality</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -866,7 +866,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Daily_or_Recreational_Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Daily_or_Recreational_Activity</name>
             <description>Automatically generated type for Daily_or_Recreational_Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -893,7 +893,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Diagnostic_Procedure</name>
+            <name>com.ontotext.s4.api.types.sbt.Diagnostic_Procedure</name>
             <description>Automatically generated type for Diagnostic_Procedure</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -920,7 +920,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Disease_or_Syndrome</name>
+            <name>com.ontotext.s4.api.types.sbt.Disease_or_Syndrome</name>
             <description>Automatically generated type for Disease_or_Syndrome</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -947,7 +947,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Drug_Delivery_Device</name>
+            <name>com.ontotext.s4.api.types.sbt.Drug_Delivery_Device</name>
             <description>Automatically generated type for Drug_Delivery_Device</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -974,7 +974,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Educational_Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Educational_Activity</name>
             <description>Automatically generated type for Educational_Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1001,7 +1001,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Eicosanoid</name>
+            <name>com.ontotext.s4.api.types.sbt.Eicosanoid</name>
             <description>Automatically generated type for Eicosanoid</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1028,7 +1028,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Element_Ion_or_Isotope</name>
+            <name>com.ontotext.s4.api.types.sbt.Element_Ion_or_Isotope</name>
             <description>Automatically generated type for Element_Ion_or_Isotope</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1055,7 +1055,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Entity</name>
+            <name>com.ontotext.s4.api.types.sbt.Entity</name>
             <description>Automatically generated type for Entity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1082,7 +1082,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Environmental_Effect_of_Humans</name>
+            <name>com.ontotext.s4.api.types.sbt.Environmental_Effect_of_Humans</name>
             <description>Automatically generated type for Environmental_Effect_of_Humans</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1109,7 +1109,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Enzyme</name>
+            <name>com.ontotext.s4.api.types.sbt.Enzyme</name>
             <description>Automatically generated type for Enzyme</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1136,7 +1136,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Eukaryote</name>
+            <name>com.ontotext.s4.api.types.sbt.Eukaryote</name>
             <description>Automatically generated type for Eukaryote</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1163,7 +1163,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Event</name>
+            <name>com.ontotext.s4.api.types.sbt.Event</name>
             <description>Automatically generated type for Event</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1190,7 +1190,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Family_Group</name>
+            <name>com.ontotext.s4.api.types.sbt.Family_Group</name>
             <description>Automatically generated type for Family_Group</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1217,7 +1217,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Finding</name>
+            <name>com.ontotext.s4.api.types.sbt.Finding</name>
             <description>Automatically generated type for Finding</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1244,7 +1244,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Fish</name>
+            <name>com.ontotext.s4.api.types.sbt.Fish</name>
             <description>Automatically generated type for Fish</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1271,7 +1271,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Food</name>
+            <name>com.ontotext.s4.api.types.sbt.Food</name>
             <description>Automatically generated type for Food</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1298,7 +1298,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Functional_Concept</name>
+            <name>com.ontotext.s4.api.types.sbt.Functional_Concept</name>
             <description>Automatically generated type for Functional_Concept</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1325,7 +1325,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Fungus</name>
+            <name>com.ontotext.s4.api.types.sbt.Fungus</name>
             <description>Automatically generated type for Fungus</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1352,7 +1352,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Gene_or_Genome</name>
+            <name>com.ontotext.s4.api.types.sbt.Gene_or_Genome</name>
             <description>Automatically generated type for Gene_or_Genome</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1379,7 +1379,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Genetic_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Genetic_Function</name>
             <description>Automatically generated type for Genetic_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1406,7 +1406,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Geographic_Area</name>
+            <name>com.ontotext.s4.api.types.sbt.Geographic_Area</name>
             <description>Automatically generated type for Geographic_Area</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1433,7 +1433,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Governmental_or_Regulatory_Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Governmental_or_Regulatory_Activity</name>
             <description>Automatically generated type for Governmental_or_Regulatory_Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1460,7 +1460,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Group</name>
+            <name>com.ontotext.s4.api.types.sbt.Group</name>
             <description>Automatically generated type for Group</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1487,7 +1487,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Group_Attribute</name>
+            <name>com.ontotext.s4.api.types.sbt.Group_Attribute</name>
             <description>Automatically generated type for Group_Attribute</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1514,7 +1514,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Hazardous_or_Poisonous_Substance</name>
+            <name>com.ontotext.s4.api.types.sbt.Hazardous_or_Poisonous_Substance</name>
             <description>Automatically generated type for Hazardous_or_Poisonous_Substance</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1541,7 +1541,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Health_Care_Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Health_Care_Activity</name>
             <description>Automatically generated type for Health_Care_Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1568,7 +1568,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Health_Care_Related_Organization</name>
+            <name>com.ontotext.s4.api.types.sbt.Health_Care_Related_Organization</name>
             <description>Automatically generated type for Health_Care_Related_Organization</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1595,7 +1595,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Hormone</name>
+            <name>com.ontotext.s4.api.types.sbt.Hormone</name>
             <description>Automatically generated type for Hormone</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1622,7 +1622,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Human</name>
+            <name>com.ontotext.s4.api.types.sbt.Human</name>
             <description>Automatically generated type for Human</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1649,7 +1649,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Human_caused_Phenomenon_or_Process</name>
+            <name>com.ontotext.s4.api.types.sbt.Human_caused_Phenomenon_or_Process</name>
             <description>Automatically generated type for Human_caused_Phenomenon_or_Process</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1676,7 +1676,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Idea_or_Concept</name>
+            <name>com.ontotext.s4.api.types.sbt.Idea_or_Concept</name>
             <description>Automatically generated type for Idea_or_Concept</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1703,7 +1703,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Immunologic_Factor</name>
+            <name>com.ontotext.s4.api.types.sbt.Immunologic_Factor</name>
             <description>Automatically generated type for Immunologic_Factor</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1730,7 +1730,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Indicator_Reagent_or_Diagnostic_Aid</name>
+            <name>com.ontotext.s4.api.types.sbt.Indicator_Reagent_or_Diagnostic_Aid</name>
             <description>Automatically generated type for Indicator_Reagent_or_Diagnostic_Aid</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1757,7 +1757,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Individual_Behavior</name>
+            <name>com.ontotext.s4.api.types.sbt.Individual_Behavior</name>
             <description>Automatically generated type for Individual_Behavior</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1784,7 +1784,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Injury_or_Poisoning</name>
+            <name>com.ontotext.s4.api.types.sbt.Injury_or_Poisoning</name>
             <description>Automatically generated type for Injury_or_Poisoning</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1811,7 +1811,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Inorganic_Chemical</name>
+            <name>com.ontotext.s4.api.types.sbt.Inorganic_Chemical</name>
             <description>Automatically generated type for Inorganic_Chemical</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1838,7 +1838,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Intellectual_Product</name>
+            <name>com.ontotext.s4.api.types.sbt.Intellectual_Product</name>
             <description>Automatically generated type for Intellectual_Product</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1865,7 +1865,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Laboratory_Procedure</name>
+            <name>com.ontotext.s4.api.types.sbt.Laboratory_Procedure</name>
             <description>Automatically generated type for Laboratory_Procedure</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1892,7 +1892,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Language</name>
+            <name>com.ontotext.s4.api.types.sbt.Language</name>
             <description>Automatically generated type for Language</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1919,7 +1919,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Lipid</name>
+            <name>com.ontotext.s4.api.types.sbt.Lipid</name>
             <description>Automatically generated type for Lipid</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1946,7 +1946,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Machine_Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Machine_Activity</name>
             <description>Automatically generated type for Machine_Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -1973,7 +1973,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Mammal</name>
+            <name>com.ontotext.s4.api.types.sbt.Mammal</name>
             <description>Automatically generated type for Mammal</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2000,7 +2000,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Manufactured_Object</name>
+            <name>com.ontotext.s4.api.types.sbt.Manufactured_Object</name>
             <description>Automatically generated type for Manufactured_Object</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2027,7 +2027,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Medical_Device</name>
+            <name>com.ontotext.s4.api.types.sbt.Medical_Device</name>
             <description>Automatically generated type for Medical_Device</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2054,7 +2054,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Mental_Process</name>
+            <name>com.ontotext.s4.api.types.sbt.Mental_Process</name>
             <description>Automatically generated type for Mental_Process</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2081,7 +2081,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Mental_or_Behavioral_Dysfunction</name>
+            <name>com.ontotext.s4.api.types.sbt.Mental_or_Behavioral_Dysfunction</name>
             <description>Automatically generated type for Mental_or_Behavioral_Dysfunction</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2108,7 +2108,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Molecular_Biology_Research_Technique</name>
+            <name>com.ontotext.s4.api.types.sbt.Molecular_Biology_Research_Technique</name>
             <description>Automatically generated type for Molecular_Biology_Research_Technique</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2135,7 +2135,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Molecular_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Molecular_Function</name>
             <description>Automatically generated type for Molecular_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2162,7 +2162,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Natural_Phenomenon_or_Process</name>
+            <name>com.ontotext.s4.api.types.sbt.Natural_Phenomenon_or_Process</name>
             <description>Automatically generated type for Natural_Phenomenon_or_Process</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2189,7 +2189,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Neoplastic_Process</name>
+            <name>com.ontotext.s4.api.types.sbt.Neoplastic_Process</name>
             <description>Automatically generated type for Neoplastic_Process</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2216,7 +2216,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Neuroreactive_Substance_or_Biogenic_Amine</name>
+            <name>com.ontotext.s4.api.types.sbt.Neuroreactive_Substance_or_Biogenic_Amine</name>
             <description>Automatically generated type for Neuroreactive_Substance_or_Biogenic_Amine</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2243,7 +2243,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Nucleic_Acid_Nucleoside_or_Nucleotide</name>
+            <name>com.ontotext.s4.api.types.sbt.Nucleic_Acid_Nucleoside_or_Nucleotide</name>
             <description>Automatically generated type for Nucleic_Acid_Nucleoside_or_Nucleotide</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2270,7 +2270,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Occupation_or_Discipline</name>
+            <name>com.ontotext.s4.api.types.sbt.Occupation_or_Discipline</name>
             <description>Automatically generated type for Occupation_or_Discipline</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2297,7 +2297,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Occupational_Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Occupational_Activity</name>
             <description>Automatically generated type for Occupational_Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2324,7 +2324,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Organ_or_Tissue_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Organ_or_Tissue_Function</name>
             <description>Automatically generated type for Organ_or_Tissue_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2351,7 +2351,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Organic_Chemical</name>
+            <name>com.ontotext.s4.api.types.sbt.Organic_Chemical</name>
             <description>Automatically generated type for Organic_Chemical</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2378,7 +2378,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Organism</name>
+            <name>com.ontotext.s4.api.types.sbt.Organism</name>
             <description>Automatically generated type for Organism</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2405,7 +2405,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Organism_Attribute</name>
+            <name>com.ontotext.s4.api.types.sbt.Organism_Attribute</name>
             <description>Automatically generated type for Organism_Attribute</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2432,7 +2432,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Organism_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Organism_Function</name>
             <description>Automatically generated type for Organism_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2459,7 +2459,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Organization</name>
+            <name>com.ontotext.s4.api.types.sbt.Organization</name>
             <description>Automatically generated type for Organization</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2486,7 +2486,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Organophosphorus_Compound</name>
+            <name>com.ontotext.s4.api.types.sbt.Organophosphorus_Compound</name>
             <description>Automatically generated type for Organophosphorus_Compound</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2513,7 +2513,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Pathologic_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Pathologic_Function</name>
             <description>Automatically generated type for Pathologic_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2540,7 +2540,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Patient_or_Disabled_Group</name>
+            <name>com.ontotext.s4.api.types.sbt.Patient_or_Disabled_Group</name>
             <description>Automatically generated type for Patient_or_Disabled_Group</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2567,7 +2567,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Pharmacologic_Substance</name>
+            <name>com.ontotext.s4.api.types.sbt.Pharmacologic_Substance</name>
             <description>Automatically generated type for Pharmacologic_Substance</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2594,7 +2594,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Phenomenon_or_Process</name>
+            <name>com.ontotext.s4.api.types.sbt.Phenomenon_or_Process</name>
             <description>Automatically generated type for Phenomenon_or_Process</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2621,7 +2621,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Physical_Object</name>
+            <name>com.ontotext.s4.api.types.sbt.Physical_Object</name>
             <description>Automatically generated type for Physical_Object</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2648,7 +2648,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Physiologic_Function</name>
+            <name>com.ontotext.s4.api.types.sbt.Physiologic_Function</name>
             <description>Automatically generated type for Physiologic_Function</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2675,7 +2675,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Plant</name>
+            <name>com.ontotext.s4.api.types.sbt.Plant</name>
             <description>Automatically generated type for Plant</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2702,7 +2702,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Population_Group</name>
+            <name>com.ontotext.s4.api.types.sbt.Population_Group</name>
             <description>Automatically generated type for Population_Group</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2729,7 +2729,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Professional_Society</name>
+            <name>com.ontotext.s4.api.types.sbt.Professional_Society</name>
             <description>Automatically generated type for Professional_Society</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2756,7 +2756,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Professional_or_Occupational_Group</name>
+            <name>com.ontotext.s4.api.types.sbt.Professional_or_Occupational_Group</name>
             <description>Automatically generated type for Professional_or_Occupational_Group</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2783,7 +2783,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Qualitative_Concept</name>
+            <name>com.ontotext.s4.api.types.sbt.Qualitative_Concept</name>
             <description>Automatically generated type for Qualitative_Concept</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2810,7 +2810,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Quantitative_Concept</name>
+            <name>com.ontotext.s4.api.types.sbt.Quantitative_Concept</name>
             <description>Automatically generated type for Quantitative_Concept</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2837,7 +2837,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Regulation_or_Law</name>
+            <name>com.ontotext.s4.api.types.sbt.Regulation_or_Law</name>
             <description>Automatically generated type for Regulation_or_Law</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2864,7 +2864,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Reptile</name>
+            <name>com.ontotext.s4.api.types.sbt.Reptile</name>
             <description>Automatically generated type for Reptile</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2891,7 +2891,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Research_Activity</name>
+            <name>com.ontotext.s4.api.types.sbt.Research_Activity</name>
             <description>Automatically generated type for Research_Activity</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2918,7 +2918,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Research_Device</name>
+            <name>com.ontotext.s4.api.types.sbt.Research_Device</name>
             <description>Automatically generated type for Research_Device</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2945,7 +2945,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Self_help_or_Relief_Organization</name>
+            <name>com.ontotext.s4.api.types.sbt.Self_help_or_Relief_Organization</name>
             <description>Automatically generated type for Self_help_or_Relief_Organization</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2972,7 +2972,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Sentence</name>
+            <name>com.ontotext.s4.api.types.sbt.Sentence</name>
             <description>Automatically generated type for Sentence</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -2999,7 +2999,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Sign_or_Symptom</name>
+            <name>com.ontotext.s4.api.types.sbt.Sign_or_Symptom</name>
             <description>Automatically generated type for Sign_or_Symptom</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3026,7 +3026,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Social_Behavior</name>
+            <name>com.ontotext.s4.api.types.sbt.Social_Behavior</name>
             <description>Automatically generated type for Social_Behavior</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3053,7 +3053,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Spatial_Concept</name>
+            <name>com.ontotext.s4.api.types.sbt.Spatial_Concept</name>
             <description>Automatically generated type for Spatial_Concept</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3080,7 +3080,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Steroid</name>
+            <name>com.ontotext.s4.api.types.sbt.Steroid</name>
             <description>Automatically generated type for Steroid</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3107,7 +3107,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Substance</name>
+            <name>com.ontotext.s4.api.types.sbt.Substance</name>
             <description>Automatically generated type for Substance</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3134,7 +3134,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Temporal_Concept</name>
+            <name>com.ontotext.s4.api.types.sbt.Temporal_Concept</name>
             <description>Automatically generated type for Temporal_Concept</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3161,7 +3161,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Therapeutic_or_Preventive_Procedure</name>
+            <name>com.ontotext.s4.api.types.sbt.Therapeutic_or_Preventive_Procedure</name>
             <description>Automatically generated type for Therapeutic_or_Preventive_Procedure</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3188,7 +3188,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Tissue</name>
+            <name>com.ontotext.s4.api.types.sbt.Tissue</name>
             <description>Automatically generated type for Tissue</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3215,7 +3215,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Virus</name>
+            <name>com.ontotext.s4.api.types.sbt.Virus</name>
             <description>Automatically generated type for Virus</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
@@ -3242,7 +3242,7 @@
             </features>
         </typeDescription>
         <typeDescription>
-            <name>com.ontotext.s4.api.uima.types.sbt.Vitamin</name>
+            <name>com.ontotext.s4.api.types.sbt.Vitamin</name>
             <description>Automatically generated type for Vitamin</description>
             <supertypeName>uima.tcas.Annotation</supertypeName>
             <features>
