@@ -63,11 +63,11 @@ public class S4UimaPipeline {
                 description = "API password for for your user account, obtainable from the web interface")
         private String apiPassword;
 
-        @Parameter(names = {"-i", "--source-documents-dir"}, required = true,
+        @Parameter(names = {"-i", "--input-dir"}, required = true,
                 description = "File path with the raw text documents to be processed")
         private String inputDir;
 
-        @Parameter(names = {"-o", "--xmi-output-dir"}, required = true,
+        @Parameter(names = {"-o", "--output-dir"}, required = true,
                 description = "The directory where the XMI files produced will be written")
         private String outputDir;
 
@@ -83,12 +83,12 @@ public class S4UimaPipeline {
         private boolean help;
     }
 
-    private static final String USAGE_DESC = String.format(
+    private static final String USAGE_DESC =
             "Instantiate a basic pipeline using uimaFIT which calls S4 text analytics services\n" +
-                    "and translates their output to native UIMA  datastructures.Then it serializes the UIMA components\n" +
-                    "and the document annotations as XMI files in the requested directory. If --descriptor-dir \n" +
-                    "is set, the descriptors for the collection reader, analysis engine \n" +
-                    "and type system will be written to that directory.");
+            "and translates their output to native UIMA  datastructures. Then it serializes the UIMA components\n" +
+            "and the document annotations as XMI files in the requested directory. If --descriptor-dir \n" +
+            "is set, the descriptors for the collection reader, analysis engines \n" +
+            "and type systems will be written to that directory.\n";
 
 
     public static void main(String[] args) throws Exception {
