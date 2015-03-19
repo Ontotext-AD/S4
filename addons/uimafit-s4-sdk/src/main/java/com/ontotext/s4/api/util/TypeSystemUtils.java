@@ -40,7 +40,8 @@ import java.io.*;
 import java.util.List;
 
 /**
- *
+ * A utilities class giving functionality for generating and regenerating UIMA type system components as java classes and xml
+ * descriptors.
  *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
  * @since 2015-03-18
@@ -53,8 +54,15 @@ public class TypeSystemUtils {
 
     public static final String UIMA_ANNOTATION_TYPES_PACKAGE = "com.ontotext.s4.api.types.";
 
-
-    public static String generateTypeSystemFile(String descriptorDir, AnalysisEngineDescription annotatorDesc, String serviceType) {
+    /**
+     * Generate type system description file.
+     *
+     * @param descriptorDir output directory of the file
+     * @param analysisEngineDesc analysis engine descritor object used for serializing its in-memory type system to xml
+     * @param serviceType S4 service type: sbt, news, twitie
+     * @return path to type system descriptor file
+     */
+    public static String generateTypeSystemFile(String descriptorDir, AnalysisEngineDescription analysisEngineDesc, String serviceType) {
         String typeSystemFilePath = descriptorDir + File.separator + serviceType + "_typesystem.xml";
         OutputStream typeSystemOs = null;
         try {
@@ -66,7 +74,7 @@ public class TypeSystemUtils {
 
         LOG.info("Creating typesystem file at -> " + typeSystemFilePath);
         try {
-            annotatorDesc.getAnalysisEngineMetaData().getTypeSystem().toXML(typeSystemOs);
+            analysisEngineDesc.getAnalysisEngineMetaData().getTypeSystem().toXML(typeSystemOs);
         } catch (SAXException | IOException e) {
             LOG.error("Cannot serialize type system to XML", e);
         }
@@ -75,6 +83,12 @@ public class TypeSystemUtils {
         return typeSystemFilePath;
     }
 
+    /**
+     * Generate UIMA type system classes using jcasgen tool.
+     *
+     * @param typeSystemFilePath path to type system xml descriptor
+     * @param outputDir output directory for the java classes
+     */
     public static void generateJCasGenClasses(String typeSystemFilePath, String... outputDir) {
         String srcDir = Preconditions.isNullOrEmpty(outputDir[0]) ? outputDir[0] : SOURCES_DIR;
         Jg jCasGen = new Jg();
@@ -83,6 +97,15 @@ public class TypeSystemUtils {
         LOG.info("Type system classes are generated!!!");
     }
 
+    /**
+     * Read csv file.
+     *
+     * @param input file content
+     * @param fieldSeparator separator of the csv fields
+     * @param fieldEnclosedBy enclosing field character
+     * @return a list of csv rows
+     * @throws IOException
+     */
     public static List<String[]> readCsv(String input, char fieldSeparator, char fieldEnclosedBy) throws IOException {
         if (!Preconditions.isNullOrEmpty(input)) {
             List<String[]> csvRow;
@@ -95,6 +118,12 @@ public class TypeSystemUtils {
         return null;
     }
 
+    /**
+     * Create a {@code TypeSystemDescription} object used for setting a type system to an {@code AnalysisEngineDescription}
+     * @param annotationTypes list of table rows containing the annotation name and annotation features
+     * @param serviceType S4 service type: sbt, news, twitie
+     * @return {@code TypeSystemDescription} object used for setting a type system to an {@code AnalysisEngineDescription}
+     */
     public static TypeSystemDescription createTypeSystemDescription(List<String[]> annotationTypes, String serviceType) {
         TypeSystemDescription typeSystemDescription;
         try {
@@ -112,7 +141,7 @@ public class TypeSystemUtils {
             LOG.info(">>>>>>>> Inserted new type -> " + typeName);
             for (int i = 1; i < typeData.length ; i++) {
                 String feature = typeData[i];
-                if (Preconditions.isNullOrEmpty(feature)) {
+                if (!Preconditions.isNullOrEmpty(feature)) {
                     feature = patchMatchingFeatureNamesWithUimaReservedKeywords(feature);
                     typeDescription.addFeature(feature, String.format("Feature <%s> for type <%s>", feature, typeName), "uima.cas.String");
                     LOG.info("\t\tInserted feature <{}> for type -> {}", feature, typeName);
@@ -123,6 +152,19 @@ public class TypeSystemUtils {
         return typeSystemDescription;
     }
 
+    /**
+     * Generate type system dynamically based on raw documents that you feed it.
+     *
+     * @param descriptorDir type system descriptor xml file output directory
+     * @param readerDesc {@code CollectionReaderDescription} object
+     * @param annotatorDesc {@code AnalysisEngineDescription} object
+     * @param serviceType S4 service type: sbt, news, twitie
+     * @param cachedTypeSystemDescriptions list of aggregated {@code TypeSystemDescription}s which are later merged into
+     *                                     one in order to get one {@code TypeSystemDescription} with aggregated types
+     * @throws UIMAException
+     * @throws IOException
+     * @throws SAXException
+     */
     public static void generateTypeSystemDynamically(String descriptorDir, CollectionReaderDescription readerDesc,
                                                      AnalysisEngineDescription annotatorDesc, String serviceType, List<TypeSystemDescription> cachedTypeSystemDescriptions)
             throws UIMAException, IOException, SAXException {

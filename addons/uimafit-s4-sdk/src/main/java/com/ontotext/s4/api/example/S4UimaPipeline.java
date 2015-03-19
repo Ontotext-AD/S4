@@ -153,7 +153,7 @@ public class S4UimaPipeline {
         builder.add(casWriter);
 
         OutputStream annotatorOs = new FileOutputStream(
-                new File(descriptorDir, S4DocumentUimaFitAnnotator.class.getName() + ".xml"));
+                new File(descriptorDir, S4DocumentUimaFitAnnotator.class.getSimpleName() + ".xml"));
         annotatorDesc.getAnalysisEngineMetaData().toXML(annotatorOs);
 
         SimplePipeline.runPipeline(readerDesc, builder.createAggregateDescription());
