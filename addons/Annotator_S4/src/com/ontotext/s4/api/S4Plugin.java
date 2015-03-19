@@ -28,6 +28,9 @@ import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ontotext.s4.classifier.ClassifierDataModel;
 import com.ontotext.s4.service.ResponseFormat;
 import com.ontotext.s4.service.S4ServiceClient;
 import com.ontotext.s4.service.SupportedMimeType;
@@ -105,7 +108,7 @@ public class S4Plugin extends AbstractLanguageAnalyser implements
 		} catch (Exception e) {
 			throw new ResourceInstantiationException(
 					"Configuration file not found (default \"S4.config\")", e);
-		}		
+		}
 		return this;
 	}
 
@@ -151,6 +154,15 @@ public class S4Plugin extends AbstractLanguageAnalyser implements
 		} catch (IOException e) {
 			throw new ExecutionException(e);
 		}
+
+		try {
+			parseJSON(response, document);
+			return;
+		} catch (Exception e) {
+			if(getDebug()==true){
+				System.out.println(e);
+			}
+		}
 		// debug
 		if (getDebug() == true) {
 			System.out.println("Response " + response);
@@ -163,6 +175,19 @@ public class S4Plugin extends AbstractLanguageAnalyser implements
 			copyAnnotations(response, document);
 		} catch (ResourceInstantiationException e) {
 			throw new ExecutionException(e);
+		}
+	}
+
+	private void parseJSON(String response, Document document) throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+		ClassifierDataModel classifer = mapper.readValue(response.getBytes(),
+				new TypeReference<ClassifierDataModel>() {
+				});
+		document.getFeatures().put("CATEGORY", classifer.getCategory());
+		document.getFeatures().put("allCategoryScores", classifer.getScoreAsMap());
+		
+		if (debug == true) {
+			System.out.println(classifer.getAllScores());
 		}
 	}
 
@@ -196,6 +221,8 @@ public class S4Plugin extends AbstractLanguageAnalyser implements
 		// copy 'default' annotations
 		document.getAnnotations().addAll(tempDoc.getAnnotations());
 
+		document.getFeatures().putAll(tempDoc.getFeatures());
+
 		for (String annotationSetName : annotationSetNames) {
 			// check Annotations set already exists
 			if (document.getNamedAnnotationSets()
@@ -223,8 +250,8 @@ public class S4Plugin extends AbstractLanguageAnalyser implements
 	 * @throws MalformedURLException
 	 */
 	private URL getServiceURL() throws MalformedURLException {
-		return getCustomUrl() != null ? new URL(
-				getCustomUrl()) : new URL(getUrl().toString());
+		return getCustomUrl() != null ? new URL(getCustomUrl()) : new URL(
+				getUrl().toString());
 	}
 
 	/**

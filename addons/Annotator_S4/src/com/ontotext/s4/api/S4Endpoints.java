@@ -24,7 +24,9 @@ package com.ontotext.s4.api;
 public enum S4Endpoints {
 	TWITIE("https://text.s4.ontotext.com/v1/twitie"), 
 	NEWS("https://text.s4.ontotext.com/v1/news"), 
-	SBT("https://text.s4.ontotext.com/v1/sbt");
+	SBT("https://text.s4.ontotext.com/v1/sbt"),
+	NEWS_CLASSIFIER("https://text.s4.ontotext.com/v1/news-classifier");
+	
 
 	private String value;
 
