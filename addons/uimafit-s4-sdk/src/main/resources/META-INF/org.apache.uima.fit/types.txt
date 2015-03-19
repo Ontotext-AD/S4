@@ -1,1 +1,1 @@
-classpath*:com/ontotext/s4/api/uima/types/*.xml
+classpath*:com/ontotext/s4/api/types/*.xml

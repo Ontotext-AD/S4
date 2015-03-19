@@ -75,7 +75,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.outputDirectory}/com/ontotext/s4/api/uima/types</outputDirectory>
+                            <outputDirectory>${project.build.outputDirectory}/com/ontotext/s4/api/types</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>desc</directory>
@@ -104,11 +104,11 @@
                                     <!--We want to keep the project as clean as possible without any unwanted dependencies-->
                                     <excludes>
                                         <exclude>javax.xml.stream:stax-api</exclude>
-                                        <exclude>*jackson*:*</exclude>
-                                        <exclude>org.springframework:*</exclude>
-                                        <exclude>commons-lang:commons-lang</exclude>
-                                        <exclude>commons-io:commons-io</exclude>
-                                        <exclude>commons-logging:commons-logging-api</exclude>
+                                        <!--<exclude>*jackson*:*</exclude>-->
+                                        <!--<exclude>org.springframework:*</exclude>-->
+                                        <!--<exclude>commons-lang:commons-lang</exclude>-->
+                                        <!--<exclude>commons-io:commons-io</exclude>-->
+                                        <!--<exclude>commons-logging:commons-logging-api</exclude>-->
                                     </excludes>
                                 </bannedDependencies>
                             </rules>
@@ -191,40 +191,6 @@
             <groupId>org.apache.uima</groupId>
             <artifactId>uimafit-core</artifactId>
             <version>2.1.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-aop</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-context</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-beans</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-asm</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-lang</groupId>
-                    <artifactId>commons-lang</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-io</groupId>
-                    <artifactId>commons-io</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.uima</groupId>
@@ -237,12 +203,8 @@
             <version>1.0.1</version>
             <exclusions>
                 <exclusion>
-                    <groupId>com.fasterxml.jackson.dataformat</groupId>
-                    <artifactId>jackson-dataformat-xml</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>commons-io</groupId>
-                    <artifactId>commons-io</artifactId>
+                    <groupId>javax.xml.stream</groupId>
+                    <artifactId>stax-api</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -255,6 +217,11 @@
             <groupId>org.jooq</groupId>
             <artifactId>joor</artifactId>
             <version>0.9.5</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>2.3</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

@@ -17,6 +17,7 @@
 
 package com.ontotext.s4.api.converter;
 
+import com.ontotext.s4.api.util.TypeSystemUtils;
 import com.ontotext.s4.service.AnnotatedDocument;
 import com.ontotext.s4.service.Annotation;
 import org.apache.uima.cas.Feature;
@@ -47,8 +48,6 @@ public class S4DocumentToUimaCasConverter {
 
     private static final Logger LOG = LoggerFactory
             .getLogger(S4DocumentToUimaCasConverter.class);
-
-    public static final String UIMA_ANNOTATION_TYPES_PACKAGE = "com.ontotext.s4.api.uima.types.";
 
     private TypeSystemDescription tsd;
 
@@ -102,7 +101,7 @@ public class S4DocumentToUimaCasConverter {
     public void convertAnnotations(JCas cas, String serviceType) {
         for (Map.Entry<String, List<Annotation>> entityEntry : entities.entrySet()) {
             String annotationName = entityEntry.getKey();
-            annotationName = UIMA_ANNOTATION_TYPES_PACKAGE + serviceType + "." + removeDashes(annotationName);
+            annotationName = TypeSystemUtils.UIMA_ANNOTATION_TYPES_PACKAGE + serviceType + "." + TypeSystemUtils.removeDashes(annotationName);
             List<Annotation> annotations = entityEntry.getValue();
             for (Annotation ann : annotations) {
                 casAnnotation = getFeatureStructureForS4Annotation(cas, annotationName);
@@ -117,7 +116,7 @@ public class S4DocumentToUimaCasConverter {
                 casAnnotation.setEnd((int) ann.endOffset);
                 Map<String, Object> features = ann.features;
                 for (Map.Entry<String, Object> entry : features.entrySet()) {
-                    String featureName = patchMatchingFeatureNamesWithUimaReservedKeywords(entry.getKey());
+                    String featureName = TypeSystemUtils.patchMatchingFeatureNamesWithUimaReservedKeywords(entry.getKey());
                     Feature feature = type.getFeatureByBaseName(featureName);
                     if (feature == null) {
                         continue;
@@ -173,15 +172,15 @@ public class S4DocumentToUimaCasConverter {
     public TypeSystemDescription inferCasTypeSystem(String serviceType) {
         for (String typeName : annotationTypes) {
             //UIMA Annotations are not allowed to contain dashes
-            typeName = removeDashes(typeName);
-            TypeDescription typeDescription = tsd.addType(UIMA_ANNOTATION_TYPES_PACKAGE + serviceType + "."  + typeName,
+            typeName = TypeSystemUtils.removeDashes(typeName);
+            TypeDescription typeDescription = tsd.addType(TypeSystemUtils.UIMA_ANNOTATION_TYPES_PACKAGE + serviceType + "."  + typeName,
                     "Automatically generated type for " + typeName, "uima.tcas.Annotation");
             LOG.info(">>>>>>>> Inserted new type -> " + typeName);
             for (List<Annotation> annList : documentAnnotations) {
                 Map<String, Object> features = annList.get(0).features;
                 Set<String> featureNames = features.keySet();
                 for (String feature : featureNames) {
-                    feature = patchMatchingFeatureNamesWithUimaReservedKeywords(feature);
+                    feature = TypeSystemUtils.patchMatchingFeatureNamesWithUimaReservedKeywords(feature);
                     typeDescription.addFeature(feature, String.format("Feature <%s> for type <%s>", feature, typeName), "uima.cas.String");
                     LOG.info("\t\tInserted feature <{}> for type -> {}", feature, typeName);
                 }
@@ -189,33 +188,5 @@ public class S4DocumentToUimaCasConverter {
             }
         }
         return tsd;
-    }
-
-    /**
-     * A method fixing feature names matching UIMA reserved keywords like "class" or "type".
-     *
-     * @param feature the feature name to be patched
-     * @return the new pathched feature name
-     */
-    private String patchMatchingFeatureNamesWithUimaReservedKeywords(String feature) {
-        if (feature.equals("class")) {
-            feature = "class_feature";
-        } else if (feature.equals("type")) {
-            feature = "type_feature";
-        }
-        return feature;
-    }
-
-    /**
-     * Removes dashes from UIMA Annotations because they are not allowed to contain dashes.
-     *
-     * @param typeName the annotation name of the current annotation of the source document
-     * @return the transformed annotation name suited for the UIMA typesystem
-     */
-    private String removeDashes(String typeName) {
-        if (typeName.contains("-")) {
-            typeName = typeName.replaceAll("-", "_");
-        }
-        return typeName;
     }
 }

@@ -42,6 +42,11 @@ import java.util.List;
  * NOTE: This component is implemented only for the purpose of running the example pipeline. Though it
  * could still be used as a regular component in any uimaFIT pipeline.
  *
+ * Component parameters:
+ * <ul>
+ *      <li><code>SOURCE_TEXT_FILE_PATH</code> - The file path leading to the source text files to be processed.</li>
+ * </ul>
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
  * @since 2015-03-05
  */
@@ -54,7 +59,7 @@ public class FileSystemCollectionReader extends JCasCollectionReader_ImplBase {
 
     @ConfigurationParameter(name = PARAM_SOURCE_TEXT_FILE_PATH,
             mandatory = true,
-            description = "The file path leading to the source text files to be processed")
+            description = "The file path leading to the source text files to be processed.")
     public String rawTextFilePath;
 
     /**

@@ -42,6 +42,15 @@ import java.util.List;
  * java code.
  * @see com.ontotext.s4.api.example.S4UimaPipeline
  *
+ * Component parameters:
+ * <ul>
+ *      <li><code>S4_SERVICE_ENDPOINT</code> - The type of service called to annotate your document,</li>
+ *      <li><code>API_KEY_ID</code> - The api key id to access the service.</li>
+ *      <li><code>API_PASSWORD</code> - The api password to access the service.</li>
+ *      <li><code>GENERATE_TYPESYSTEM</code> - When set to "true" dynamically generates type system as xml descriptors and java classes for the types that are included
+ *      after the S4 service has done its job. WARNING: This parameter should be avoided it most cases. Use only if you think your type system is not up to date.</li>
+ * </ul>
+ *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
  * @since 2015-03-04
  */
@@ -77,7 +86,7 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
     @ConfigurationParameter(name = PARAM_GENERATE_TYPESYSTEM,
             mandatory = false,
             description = "Dynamically generate type system as xml descriptors and java classes for the types.")
-    public String generateTypeSystemFlag;
+    public String generateTypeSystemFlag = "false";
 
     /**
      * Converter class instance responsible for conversion logic between S4 Document responses and native UIMA types.
@@ -132,7 +141,7 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
 
     private void transformFetchedDocument(JCas cas) {
         //Get the name of the service from the S4 endpoint url
-        final String serviceType = serviceEndpoint.substring(serviceEndpoint.lastIndexOf("/"));
+        final String serviceType = serviceEndpoint.substring(serviceEndpoint.lastIndexOf("/") + 1);
 
         // Fetch and annotate the raw document and return the S4 document containing the annotations
         final AnnotatedDocument s4Document = fetchS4AnnotatedDocument(cas);
@@ -141,7 +150,7 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
         this.s4CasConverter = S4DocumentToUimaCasConverter.newInstance(s4Document);
 
         //If the PARAM_GENERATE_TYPESYSTEM is set tell the annotator to regenerate the UIMA type system
-        if (generateTypeSystemFlag.equals(PARAM_GENERATE_TYPESYSTEM)) {
+        if (generateTypeSystemFlag.equals("true")) {
             TypeSystemDescription typeSystemDescription = s4CasConverter.inferCasTypeSystem(serviceType);
             cachedTypeSystemDescriptions.add(typeSystemDescription);
             return;

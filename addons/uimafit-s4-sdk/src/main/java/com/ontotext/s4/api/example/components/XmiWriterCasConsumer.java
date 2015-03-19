@@ -40,13 +40,10 @@ import java.io.*;
 /**
  * A simple CAS consumer that writes the CAS to XMI format.
  * 
- * UIMAfit compatible
- * 
  * <p>
- * This CAS Consumer takes one parameter:
+ * Component parameters:
  * <ul>
- * <li><code>OUTPUT_DIR</code> - path to directory into which output files
- * will be written</li>
+ *      <li><code>OUTPUT_DIR</code> - path to directory into which output files will be written</li>
  * </ul>
  *
  * @author Tsvetan Dimitrov <tsvetan.dimitrov@ontotext.com>
