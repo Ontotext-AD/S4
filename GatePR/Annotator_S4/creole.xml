@@ -1,12 +1,12 @@
 <!-- creole.xml for S4 PR -->
-<CREOLE-DIRECTORY ID="Annotator S4" VERSION="1.0">
+<CREOLE-DIRECTORY ID="Annotator S4" VERSION="1.1">
 	<CREOLE>
 		<RESOURCE>
 			<NAME>Annotator_S4</NAME>
 			<COMMENT>The Self-Service Semantic Suite (S4) plugin</COMMENT>
 			<HELPURL>http://docs.s4.ontotext.com/display/S4docs/Home</HELPURL>
 			<ICON>/com/ontotext/s4/api/s4Logo32x32.png</ICON>
-			<JAR>Annotator_S4-1.0.jar</JAR>
+			<JAR>Annotator_S4-1.1.jar</JAR>
 			<JAR>lib/httpclient-4.3.5.jar</JAR>
 			<JAR>lib/httpcore-4.3.2.jar</JAR>
 			<JAR>lib/jackson-dataformat-xml-2.3.0.jar</JAR>
