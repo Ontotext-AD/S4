@@ -1,0 +1,9 @@
+com.ontotext.s4.api.annotator.uimafit
+com.ontotext.s4.api.converter
+com.ontotext.s4.api.example
+com.ontotext.s4.api.example.components
+com.ontotext.s4.api.restclient
+com.ontotext.s4.api.types.news
+com.ontotext.s4.api.types.sbt
+com.ontotext.s4.api.types.twitie
+com.ontotext.s4.api.util
