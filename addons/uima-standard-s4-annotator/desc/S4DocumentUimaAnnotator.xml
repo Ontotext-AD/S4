@@ -33,19 +33,25 @@
             <nameValuePair>
                 <name>S4_SERVICE_ENDPOINT</name>
                 <value>
-                    <string>https://text.s4.ontotext.com/v1/news</string>
+                    <!-- 
+                         Insert S4 service you want to call at the end of the url.
+                         Possible options: news, sbt, twitie
+                    -->
+                    <string>https://text.s4.ontotext.com/v1/</string>
                 </value>
             </nameValuePair>
             <nameValuePair>
                 <name>API_KEY_ID</name>
                 <value>
-                    <string>s4nfnim4rnmt</string>
+                    <!-- Insert your S4 API key ID here -->
+                    <string></string>
                 </value>
             </nameValuePair>
             <nameValuePair>
                 <name>API_PASSWORD</name>
                 <value>
-                    <string>ukrb34e2feea31l</string>
+                    <!-- Insert your S4 API password here -->
+                    <string></string>
                 </value>
             </nameValuePair>
         </configurationParameterSettings>
