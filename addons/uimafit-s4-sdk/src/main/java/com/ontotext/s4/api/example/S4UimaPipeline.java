@@ -34,10 +34,6 @@ import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-
 /**
  *
  * An example pipeline representing a typical processing scenario of having the following components:
@@ -83,7 +79,7 @@ public class S4UimaPipeline {
 
         @Parameter(names = {"--generate-typesystem"}, required = false,
                 description = "Dynamically generate type system as xml descriptors and java classes for the types.\n" +
-                        "\tWARNING: Use only if you think the current type system is not up \tcd to date with the S4 services.")
+                        "\tWARNING: Use only if you think the current type system is not up \t to date with the S4 services.")
         private String generateTypesystem = "false";
 
         @Parameter(names = {"-h", "--help"}, help = true, description = "Display this help text")
@@ -151,10 +147,6 @@ public class S4UimaPipeline {
         AggregateBuilder builder = new AggregateBuilder();
         builder.add(annotatorDesc);
         builder.add(casWriter);
-
-        OutputStream annotatorOs = new FileOutputStream(
-                new File(descriptorDir, S4DocumentUimaFitAnnotator.class.getSimpleName() + ".xml"));
-        annotatorDesc.getAnalysisEngineMetaData().toXML(annotatorOs);
 
         SimplePipeline.runPipeline(readerDesc, builder.createAggregateDescription());
     }
