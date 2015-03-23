@@ -74,7 +74,7 @@ public class S4UimaPipeline {
         private String outputDir;
 
         @Parameter(names = {"--descriptor-dir"}, required = false,
-                description = "If provided, a directory where component or type system descriptors will be written." +
+                description = "If provided, a directory where component or type system descriptors will be written.\n" +
                         "\tNOTE: Used only with the option --generate-typesystem")
         private String descriptorDir = "desc";
 
