@@ -12,7 +12,10 @@ Processing Engine (CPE)][2] pipeline.
 ## Documentation
 - [Users guide][1]
 
+[PEAR package download][5]
+
 [1]: http://docs.s4.ontotext.com/display/S4docs/UIMA+Annotator
 [2]: http://uima.apache.org/downloads/releaseDocs/2.3.0-incubating/docs/html/tutorials_and_users_guides/tutorials_and_users_guides.html#ugr.tug.cpe
 [3]: http://s4.ontotext.com/
 [4]: http://docs.s4.ontotext.com/display/S4docs/Service+Endpoints
+[5]: http://ontotext-ad.github.io/S4/uima-standard-s4-annotator/binary/S4DocumentAnnotator.pear
