@@ -25,7 +25,11 @@ s4App.directive("visualizePipeLineResult", ['createHighlightedArea', function(cr
 		link: function(scope, iElement, iAttrs, ctrl) {
 			scope.$watch('ngModel', function(newVal) {
 				if(newVal) {
-                    scope.$parent.colorLegend  = createHighlightedArea(iElement, newVal);
+					if (newVal.allScores && newVal.allScores.length > 0) {
+						scope.$parent.allScores = newVal.allScores;
+					} else {
+						scope.$parent.colorLegend  = createHighlightedArea(iElement, newVal);
+					}
 				}
 			});
 		}

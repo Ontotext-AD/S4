@@ -35,6 +35,24 @@
               </table>
             <hr data-ng-show="colorLegend"/>
         </div>
+		
+		<div class="control-group" data-ng-show="allScores">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Confidence</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="score in allScores"> 
+						<td>{{score.label}}</td>
+						<td>{{score.score}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
         <div class="control-group" id="visualisationResult" data-visualize-pipe-line-result
              data-ng-model="$parent.resultFromResponse">
         </div>
