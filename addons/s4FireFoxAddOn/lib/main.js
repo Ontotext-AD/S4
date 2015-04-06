@@ -15,7 +15,7 @@
  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-var widgets = require("sdk/widget");
+var buttons = require('sdk/ui/button/action');
 var self = require("sdk/self");
 var windows = require("sdk/windows").browserWindows;
 var ss = require("sdk/simple-storage");
@@ -54,6 +54,17 @@ var s4Popup = require("sdk/panel").Panel({
     ]
 });
 
+var button = buttons.ActionButton({
+    id: "s4-interface",
+    label: "S4 interface",
+    icon: self.data.url("s4Logo.png"),
+    onClick: function (view) {
+		s4Popup.show({
+            position: button
+        });
+    }
+});
+
 var menuItem = contextMenu.Item({
     label: "Annotate Selection with S4",
     context: contextMenu.SelectionContext(),
@@ -81,20 +92,8 @@ var menuItem = contextMenu.Item({
         }
 
         s4Popup.show({
-            position: {
-                right: 0,
-                top: 0
-            }
+            position: button
         });
-    }
-});
-
-var widget = widgets.Widget({
-    id: "s4-interface",
-    label: "S4 interface",
-    contentURL: self.data.url("s4Logo.png"),
-    onClick: function (view) {
-        view.panel = s4Popup;
     }
 });
 
