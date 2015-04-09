@@ -1,10 +1,10 @@
 {
-  "name": "s4firefoxaddon",
-  "title": "S4 FireFox Add-on",
-  "id": "jid1-VSGQHDHEjSxQMQ",
-  "description": "This add-on can be used to send parts of current page to S4 pipelines.",
+  "name": "ontotexts4",
+  "title": "Ontotext S4",
+  "id": "jid1-d3fVAqUZGlJ2gQ",
+  "description": "This add-on can be used to annotate text content from the browser with the S4 text analytics services",
   "author": "",
   "license": "MPL 2.0",
-  "version": "0.2",
+  "version": "1.0.1",
   "icon": "data/s4Logo.png"
 }
