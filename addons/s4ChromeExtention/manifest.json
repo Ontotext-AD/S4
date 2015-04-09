@@ -1,0 +1,23 @@
+{
+	"name": "S4 Chrome Extention",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"description": "This extention can be used to send parts of current page to S4 pipelines.",
+	"icons": {
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+	"browser_action": {
+		"default_icon": "data/s4Logo.png",
+		"default_title": "S4 Chrome Extention"
+	},
+	"permissions": ["contextMenus", "storage", "tabs", "activeTab"],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+	"web_accessible_resources": [
+		"data/*"
+	],
+    "background": {
+		"scripts": ["main.js"]
+    }
+}

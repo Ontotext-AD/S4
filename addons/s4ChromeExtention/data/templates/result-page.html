@@ -1,0 +1,63 @@
+<!--
+ S4 Web Page Annotation Browser Plugin
+ Copyright  2013, 2014, Ontotext AD
+
+ This file is free software; you can redistribute it and/or modify it under
+ the terms of the GNU Lesser General Public License as published by the Free
+ Software Foundation; either version 2.1 of the License, or (at your option)
+ any later version.
+ This library is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ details.
+ You should have received a copy of the GNU Lesser General Public License along
+ with this library; if not, write to the Free Software Foundation, Inc.,
+ 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+-->
+<fieldset>
+	<legend>Results</legend>
+	 <div style="height: 300px; overflow: auto;">
+        <div class="control-group" data-ng-show="colorLegend">
+            <hr data-ng-show="colorLegend"/>
+              <table style="width: 390px;">
+                  <tr>
+                      <td style="padding: 0px !important;">
+                          Annotation colors
+                      </td>
+                  </tr>
+                  <tr data-ng-repeat="colorElement in colorLegend">
+                      <td style="padding: 0px !important; position: relative;" data-ng-style="$parent.setBackgroundColor(colorElement.1.0)">
+                          {{colorElement.0}}
+                          <input style="display: inline; border: 0; margin: 0; position: absolute; right: 1px; top: 4px;" type="checkbox" data-ng-if="colorElement.1.0.s4HideItem" data-ng-click="$parent.showS4Type(colorElement.0)"/>
+                          <input style="display: inline; border: 0; margin: 0; position: absolute; right: 1px; top: 4px;" type="checkbox" data-ng-if="!colorElement.1.0.s4HideItem" data-ng-click="$parent.removeS4Type(colorElement.0)" checked="checked"/>
+                      </td>
+                  </tr>
+              </table>
+            <hr data-ng-show="colorLegend"/>
+        </div>
+		
+		<div class="control-group" data-ng-show="allScores">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Category</th>
+						<th>Confidence</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="score in allScores"> 
+						<td>{{score.label}}</td>
+						<td>{{score.score}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+        <div class="control-group" id="visualisationResult" data-visualize-pipe-line-result
+             data-ng-model="$parent.resultFromResponse">
+        </div>
+	 </div>
+     <div>
+         <input class="btn-primary" type="button"  value="Settings" data-ng-click="$parent.cancelMethod()"/>
+     </div>
+ </fieldset>
