@@ -40,7 +40,6 @@ var s4Popup = require("sdk/panel").Panel({
     height: 400,
     contentURL: self.data.url("./templates/popup.html"),
     contentScriptFile: [
-        self.data.url("jquery-1.11.1.min.js"),
         self.data.url("angular.min.js"),
         self.data.url("s4App.js"),
         self.data.url("constants.js"),

@@ -139,8 +139,8 @@
                 highlight(color, toolTipObj);
             }
 
-                var inputObj = inputDomObject.find(".textContainer");
-                inputObj.html(data.text);
+                var inputObj = inputDomObject[0].querySelector(".textContainer");
+                inputObj.textContent = data.text;
                 var stringToHexNumberHandler = stringHexNumber();
                 				
                 for (var i in data['entities']) {
@@ -172,7 +172,7 @@
                         delete tooltipObject['indices'];
 
                         if(typeof colorLegend[i][1][0]['s4HideItem'] == 'undefined') {
-                            selectAndHighlightRange(inputObj.get(0),
+                            selectAndHighlightRange(inputObj,
                                 currentObject['indices'][0],
                                 currentObject['indices'][1],
                                 currentColor,
