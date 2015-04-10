@@ -15,7 +15,7 @@
  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
- var togglePopup = function(needToShow) {
+var togglePopup = function(needToShow) {
 	chrome.tabs.executeScript(null, {file: "data/popup/initPopup.js"}); //init if it not exist
 	
 	if (needToShow === false) {
@@ -25,9 +25,7 @@
 	} else {
 		chrome.tabs.executeScript(null, {file: "data/popup/togglePopup.js"}); //toggle if there are no params
 	}
- };
- 
-chrome.storage.local.set({'S4AdminData': {}}, function() { });
+};
 
 chrome.browserAction.onClicked.addListener(function(tab) {
 	togglePopup();
