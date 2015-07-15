@@ -1,6 +1,5 @@
 /*
- Copyright  2013, 2014, Ontotext AD
-
+Copyright  2013, 2014, Ontotext AD
  This file is free software; you can redistribute it and/or modify it under
  the terms of the GNU Lesser General Public License as published by the Free
  Software Foundation; either version 2.1 of the License, or (at your option)
@@ -13,7 +12,6 @@
  with this library; if not, write to the Free Software Foundation, Inc.,
  59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 var https = require('https');
 
 var inputString = "London";
@@ -22,12 +20,12 @@ var postData = {
     "document": inputString,
     "documentType": "text/plain"
 };
-
 var dataString = JSON.stringify(postData);
 
+
 var headers = {
-    'Content-Type': 'application/json',
-    'Content-Length': dataString.length
+    'Content-Type': 'application/json;charset=utf-8',
+    'Accept':'application/json;charset=utf-8'
 };
 
 var options = {
@@ -35,7 +33,8 @@ var options = {
     path: '/v1/twitie',
     method: 'POST',
     auth: '<keyId>:<password>',
-    headers: headers
+    headers: headers,
+    encoding: 'utf-8'
 };
 
 // Setup the request.  The options parameter is
@@ -50,9 +49,9 @@ var req = https.request(options, function (res) {
     });
 
     res.on('end', function () {
-        console.log("statusCode: ", res.statusCode);
-        console.log("headers: ", res.headers);
-        process.stdout.write(responseString);
+       console.log("statusCode: ", res.statusCode);
+       console.log("headers: ", res.headers);
+       process.stdout.write(responseString);
     });
 });
 
@@ -60,5 +59,5 @@ req.on('error', function (e) {
     console.log(e);
 });
 
-req.write(dataString);
+req.write(dataString,'utf-8');
 req.end();

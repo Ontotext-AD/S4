@@ -26,8 +26,7 @@ var postData = {
 var dataString = JSON.stringify(postData);
 
 var headers = {
-    'Content-Type': 'application/json',
-    'Content-Length': dataString.length
+    'Content-Type': 'application/json'
 };
 
 var options = {
@@ -35,7 +34,8 @@ var options = {
     path: '/v1/twitie',
     method: 'POST',
     auth: '<keyId>:<password>',
-    headers: headers
+    headers: headers,
+    encoding: 'utf-8'
 };
 
 // Setup the request.  The options parameter is
@@ -60,5 +60,5 @@ req.on('error', function (e) {
     console.log(e);
 });
 
-req.write(dataString);
+req.write(dataString,'utf-8');
 req.end();
