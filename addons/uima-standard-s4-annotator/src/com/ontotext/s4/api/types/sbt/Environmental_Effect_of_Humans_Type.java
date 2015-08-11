@@ -1,5 +1,4 @@
-
-/* First created by JCasGen Tue Mar 10 17:57:37 EET 2015 */
+https://github.com/sslavov93/S4.git/* First created by JCasGen Tue Mar 10 17:57:37 EET 2015 */
 package com.ontotext.s4.api.types.sbt;
 
 import org.apache.uima.jcas.JCas;
