@@ -1,4 +1,4 @@
-#opyright  2013, 2014, Ontotext AD
+# Copyright  2013, 2014, Ontotext AD
 #
 # This file is free software; you can redistribute it and/or modify it under
 # the terms of the GNU Lesser General Public License as published by the Free
