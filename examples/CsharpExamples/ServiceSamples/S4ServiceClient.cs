@@ -108,8 +108,12 @@ namespace ServiceSamples
         * @param pr the processing request to send
         * @param acceptType the type of output we want to produce
         */
-        public String processRequest(String body, string acceptType,String contentType)
+        public String processRequest(String body, string acceptType, String contentType)
         {
+            return processRequest(body, acceptType, contentType, "POST");
+        }
+
+        public String processRequest(String body,String acceptType, String contentType,String method) { 
 
             // Create a WebRequest with the specified URL. 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endpointUrl);
@@ -126,7 +130,7 @@ namespace ServiceSamples
             request.Headers.Set("Accept-Encoding", "gzip");
 
             // Set the 'Method' property of the 'HttpWebRequest' to 'POST'.
-            request.Method = "POST";
+            request.Method = method;
 
             String postData = body;
             UTF8Encoding encoding = new UTF8Encoding();
@@ -145,7 +149,11 @@ namespace ServiceSamples
             // Close the Stream object.
             RequestStream.Close();
             // Send the request and wait for a response.
+
+           
+            Console.WriteLine(request);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+           
             //Console.WriteLine(getContent(myHttpWebResponse));
 
             int statusCode = (int)response.StatusCode;

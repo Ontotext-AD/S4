@@ -65,6 +65,10 @@ namespace ServiceSamples
 
             processSparql();
 
+            uploadDataToGDBaaS();
+
+            processGDBaaSRequest();
+
             Console.Read();
         }
 
@@ -149,6 +153,32 @@ namespace ServiceSamples
            + "    ?o geo-ont:parentCountry dbpedia:United_States .\n} limit 5";
             query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
             return apiExecutor.processRequest("query=" + query, S4ServiceClient.SPARQL_ACCEPT_HEADER, S4ServiceClient.SPARQL_CONTENT_TYPE);
+        }
+
+        /**
+        * Execute one SPARQL query over GDBaaS
+        */
+        private static String processGDBaaSRequest()
+        {
+
+            apiExecutor = new S4ServiceClient("https://rdf.s4.ontotext.com/{userId}/{databaseName}/repositories/{repositoryName}", keyId, password);
+            String query = "Select * {?s ?p ?o} limit 5";
+            query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
+            return apiExecutor.processRequest("query=" + query, S4ServiceClient.SPARQL_ACCEPT_HEADER, S4ServiceClient.SPARQL_CONTENT_TYPE);
+
+        }
+
+        /**
+        * Execute one SPARQL query over GDBaaS
+        */
+        private static String uploadDataToGDBaaS()
+        {
+
+            apiExecutor = new S4ServiceClient("https://rdf.s4.ontotext.com/{userId}/{databaseName}/repositories/{repositoryName}/statements", keyId, password);
+            String query = "INSERT DATA ...";
+            query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
+            return apiExecutor.processRequest("update=" + query, S4ServiceClient.SPARQL_ACCEPT_HEADER, S4ServiceClient.SPARQL_CONTENT_TYPE);
+
         }
     }
 }
