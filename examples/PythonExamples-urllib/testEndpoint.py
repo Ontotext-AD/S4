@@ -8,24 +8,21 @@
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 # FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
 # details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with this library; if not, write to the Free Software Foundation, Inc.,
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import urllib2
-from StringIO import StringIO
-import gzip
-import json
 
-endpointUrl = "https://rdf.s4.ontotext.com/<user-id>/<db>/repositories/<repsitory>"
-keyId = "<api-key>"
-password = "<api-secret>"
+endpointUrl = "https://text.s4.ontotext.com/v1/"
+keyId = "<your-credentials-here>"
+password = "<your-credentials-here>"
 
 # create a password manager
 password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
 
 # Add the username and password.
-password_mgr.add_password(None, endpointUrl, keyId ,password)
+password_mgr.add_password(None, endpointUrl, keyId, password)
 handler = urllib2.HTTPBasicAuthHandler(password_mgr)
 
 # create "opener" (OpenerDirector instance)
@@ -35,29 +32,15 @@ opener = urllib2.build_opener(handler)
 # Now all calls to urllib2.urlopen use our opener.
 urllib2.install_opener(opener)
 
-data = ("Select * {?s ?p ?o} limit 50");
+# Prepare request
+request = urllib2.Request(endpointUrl)
 
-data=urllib2.quote(data);
-data="query="+data;
+response = urllib2.urlopen(request)
 
-print data;
-
-headers = {
-                'Accept' : "application/sparql-results+xml",
-		'Content-type': "application/x-www-form-urlencoded"
-}
-
-#Prepare request
-request = urllib2.Request(endpointUrl,data,headers)
-
-response=urllib2.urlopen(request)
-
-# Getting response
-print response.read();
-
+print response.read()
 
 # Getting the code
-print "\n\n\nThis gets the code: ", response.code  
+print "\n\n\nThis gets the code: ", response.code
 
-# Get the Headers. 
+# Get the Headers.
 print "The Headers are: ", response.info()

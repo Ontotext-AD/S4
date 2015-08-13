@@ -11,9 +11,10 @@
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 # FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
 # details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with this library; if not, write to the Free Software Foundation, Inc.,
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
 
 import urllib2
 import json
@@ -22,7 +23,7 @@ import gzip
 from array import *
 
 endpointUrl = "https://text.s4.ontotext.com/v1/"
-serviceId = "twitie"
+ItemId = "twitie"
 keyId = "<your-credentials-here>"
 password = "<your-credentials-here>"
 
@@ -30,7 +31,7 @@ password = "<your-credentials-here>"
 password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
 
 # Add the username and password.
-password_mgr.add_password(None, endpointUrl, keyId ,password)
+password_mgr.add_password(None, endpointUrl, keyId, password)
 handler = urllib2.HTTPBasicAuthHandler(password_mgr)
 
 # create "opener" (OpenerDirector instance)
@@ -40,29 +41,40 @@ opener = urllib2.build_opener(handler)
 # Now all calls to urllib2.urlopen use our opener.
 urllib2.install_opener(opener)
 
+annotationSelectorsArray = [":", "Original markups:"]
 
 data = {
-	"documentUrl" : "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
-	"documentType" : "text/html",
+    "document": "{\"text\":\"Nearly 200,000 people have been killed in #Syria since the start of the conflict in 2011, according to the U.N. http://t.co/pK7t8AD7Xf\","
+    + "\"lang\":\"en\",\"entities\":{\"symbols\":[],"
+    +
+    "\"urls\":[{\"expanded_url\":\"http://on.wsj.com/1pZmkY9\",\"indices\":[112,134],\"display_url\":\"on.wsj.com/1pZmkY9\",\"url\":\"http://t.co/pK7t8AD7Xf\"}],"
+    + "\"hashtags\":[{\"text\":\"Syria\",\"indices\":[42,48]}],"
+    + "\"user_mentions\":[]},"
+    + "\"id\":502743846716207104,"
+    + "\"created_at\":\"Fri Aug 22 09:07:28 +0000 2014\","
+    + "\"id_str\":\"502743846716207104\"}",
+    "documentType": "text/x-json-twitter",
+    "annotationSelectors": annotationSelectorsArray
 }
 
-#json serialize
+# json serialize
 jsonData = json.dumps(data)
 print(jsonData)
 
+# prepare headers
 headers = {
-                'Accept' : "application/json",
-				'Content-type': "application/json",
-				'Accept-Encoding':"gzip",
+    'Accept': "application/json",
+    'Content-type': "application/json",
+    'Accept-Encoding': "gzip"
 }
 
-#Prepare request
-request = urllib2.Request(endpointUrl+serviceId,jsonData,headers)
+# Prepare request
+request = urllib2.Request(endpointUrl + ItemId, jsonData, headers)
 
-response=urllib2.urlopen(request)
+response = urllib2.urlopen(request)
 
 if response.info().get('Content-Encoding') == 'gzip':
-    buf = StringIO( response.read())
+    buf = StringIO(response.read())
     f = gzip.GzipFile(fileobj=buf)
     data = f.read()
 else:
@@ -71,9 +83,8 @@ else:
 # Getting response
 print data
 
-
 # Getting the code
 print "\n\n\nThis gets the code: ", response.code
 
-# Get the Headers. 
+# Get the Headers.
 print "The Headers are: ", response.info()

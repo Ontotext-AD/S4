@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # Copyright  2013, 2014, Ontotext AD
 #
 # This file is free software; you can redistribute it and/or modify it under
@@ -8,24 +11,26 @@
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 # FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
 # details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with this library; if not, write to the Free Software Foundation, Inc.,
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import urllib2
+import json
 from StringIO import StringIO
 import gzip
-import json
+from array import *
 
-endpointUrl = "https://rdf.s4.ontotext.com/<user-id>/<db>/repositories/<repository>/statements"
-keyId = "<api-key>"
-password = "<api-secret>"
+endpointUrl = "https://text.s4.ontotext.com/v1/"
+serviceId = "twitie"
+keyId = "<your-credentials-here>"
+password = "<your-credentials-here>"
 
 # create a password manager
 password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
 
 # Add the username and password.
-password_mgr.add_password(None, endpointUrl, keyId ,password)
+password_mgr.add_password(None, endpointUrl, keyId, password)
 handler = urllib2.HTTPBasicAuthHandler(password_mgr)
 
 # create "opener" (OpenerDirector instance)
@@ -35,25 +40,36 @@ opener = urllib2.build_opener(handler)
 # Now all calls to urllib2.urlopen use our opener.
 urllib2.install_opener(opener)
 
-data = ("PREFIX dc: <http://purl.org/dc/elements/1.1/>\n"+
-"INSERT Data{ <http://example/egbook> dc:title  \"This is an example title\" }");
 
-data=urllib2.quote(data);
-data="update="+data;
-
-print data;
-
-headers = {
-                'Content-type': "application/x-www-form-urlencoded"
+data = {
+    "documentUrl": "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
+    "documentType": "text/html",
 }
 
-#Prepare request
-request = urllib2.Request(endpointUrl,data,headers)
+# json serialize
+jsonData = json.dumps(data)
+print(jsonData)
 
-response=urllib2.urlopen(request)
+headers = {
+    'Accept': "application/json",
+    'Content-type': "application/json",
+    'Accept-Encoding': "gzip",
+}
+
+# Prepare request
+request = urllib2.Request(endpointUrl+serviceId, jsonData, headers)
+
+response = urllib2.urlopen(request)
+
+if response.info().get('Content-Encoding') == 'gzip':
+    buf = StringIO(response.read())
+    f = gzip.GzipFile(fileobj=buf)
+    data = f.read()
+else:
+    data = response.read()
 
 # Getting response
-print response.read();
+print data
 
 
 # Getting the code
@@ -61,4 +77,3 @@ print "\n\n\nThis gets the code: ", response.code
 
 # Get the Headers.
 print "The Headers are: ", response.info()
-
