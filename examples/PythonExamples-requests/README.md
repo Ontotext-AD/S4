@@ -5,4 +5,4 @@ Python examples for the S4 service. Please install external modules and packages
 Used request library: requests
 
 #### Note:
-##### These examples work only with Python2
+##### These examples work both with Python2 and Python3
