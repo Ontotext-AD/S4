@@ -11,8 +11,8 @@
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 # FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
 # details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with this library; if not, write to the Free Software Foundation, Inc.,
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import urllib2
@@ -30,7 +30,7 @@ password = "<your-credentials-here>"
 password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
 
 # Add the username and password.
-password_mgr.add_password(None, endpointUrl, keyId ,password)
+password_mgr.add_password(None, endpointUrl, keyId, password)
 handler = urllib2.HTTPBasicAuthHandler(password_mgr)
 
 # create "opener" (OpenerDirector instance)
@@ -42,27 +42,27 @@ urllib2.install_opener(opener)
 
 
 data = {
-	"documentUrl" : "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
-	"documentType" : "text/html",
+    "documentUrl": "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
+    "documentType": "text/html",
 }
 
-#json serialize
+# json serialize
 jsonData = json.dumps(data)
 print(jsonData)
 
 headers = {
-                'Accept' : "application/json",
-				'Content-type': "application/json",
-				'Accept-Encoding':"gzip",
+    'Accept': "application/json",
+    'Content-type': "application/json",
+    'Accept-Encoding': "gzip",
 }
 
-#Prepare request
-request = urllib2.Request(endpointUrl+serviceId,jsonData,headers)
+# Prepare request
+request = urllib2.Request(endpointUrl+serviceId, jsonData, headers)
 
-response=urllib2.urlopen(request)
+response = urllib2.urlopen(request)
 
 if response.info().get('Content-Encoding') == 'gzip':
-    buf = StringIO( response.read())
+    buf = StringIO(response.read())
     f = gzip.GzipFile(fileobj=buf)
     data = f.read()
 else:
@@ -75,5 +75,5 @@ print data
 # Getting the code
 print "\n\n\nThis gets the code: ", response.code
 
-# Get the Headers. 
+# Get the Headers.
 print "The Headers are: ", response.info()

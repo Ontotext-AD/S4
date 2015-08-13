@@ -11,8 +11,8 @@
 # ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 # FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
 # details.
-# You should have received a copy of the GNU Lesser General Public License along
-# with this library; if not, write to the Free Software Foundation, Inc.,
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 import urllib2
@@ -28,7 +28,7 @@ password = "<your-credentials-here>"
 password_mgr = urllib2.HTTPPasswordMgrWithDefaultRealm()
 
 # Add the username and password.
-password_mgr.add_password(None, endpointUrl, keyId ,password)
+password_mgr.add_password(None, endpointUrl, keyId, password)
 handler = urllib2.HTTPBasicAuthHandler(password_mgr)
 
 # create "opener" (OpenerDirector instance)
@@ -39,38 +39,38 @@ opener = urllib2.build_opener(handler)
 urllib2.install_opener(opener)
 
 data = ("PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-				+ "PREFIX dbpedia: <http://dbpedia.org/resource/>\n"
-				+ "PREFIX dbp-ont: <http://dbpedia.org/ontology/>\n"
-				+ "PREFIX geo-ont: <http://www.geonames.org/ontology#>\n"
-				+ "PREFIX umbel-sc: <http://umbel.org/umbel/sc/>\n\n"
-				+ "SELECT DISTINCT ?Company ?Location\nWHERE {\n"
-				+ "    ?Company rdf:type dbp-ont:Company ;\n"
-				+ "             dbp-ont:industry dbpedia:Computer_software ;\n"
-				+ "             dbp-ont:foundationPlace ?Location .\n"
-				+ "    ?Location geo-ont:parentFeature ?o.\n"
-				+ "    ?o geo-ont:parentCountry dbpedia:United_States .\n} limit 5");
+        + "PREFIX dbpedia: <http://dbpedia.org/resource/>\n"
+        + "PREFIX dbp-ont: <http://dbpedia.org/ontology/>\n"
+        + "PREFIX geo-ont: <http://www.geonames.org/ontology#>\n"
+        + "PREFIX umbel-sc: <http://umbel.org/umbel/sc/>\n\n"
+        + "SELECT DISTINCT ?Company ?Location\nWHERE {\n"
+        + "    ?Company rdf:type dbp-ont:Company ;\n"
+        + "             dbp-ont:industry dbpedia:Computer_software ;\n"
+        + "             dbp-ont:foundationPlace ?Location .\n"
+        + "    ?Location geo-ont:parentFeature ?o.\n"
+        + "    ?o geo-ont:parentCountry dbpedia:United_States .\n} limit 5")
 
-data=urllib2.quote(data);
-data="query="+data;
+data = urllib2.quote(data)
+data = "query=" + data
 
-print data;
+print data
 
 headers = {
-                'Accept' : "application/sparql-results+xml",
-		'Content-type': "application/x-www-form-urlencoded"
+    'Accept': "application/sparql-results+xml",
+    'Content-type': "application/x-www-form-urlencoded"
 }
 
-#Prepare request
-request = urllib2.Request(endpointUrl,data,headers)
+# Prepare request
+request = urllib2.Request(endpointUrl, data, headers)
 
-response=urllib2.urlopen(request)
+response = urllib2.urlopen(request)
 
 # Getting response
-print response.read();
+print response.read()
 
 
 # Getting the code
-print "\n\n\nThis gets the code: ", response.code  
+print "\n\n\nThis gets the code: ", response.code
 
-# Get the Headers. 
+# Get the Headers.
 print "The Headers are: ", response.info()
