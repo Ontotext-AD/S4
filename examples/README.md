@@ -1,7 +1,7 @@
 Example clients
 ==============
 
-Sample code for accessing the S4 text analytics API. More infomration is available on the [S4 wiki][1].
+Sample code for accessing the S4 text analytics API. More information is available on the [S4 wiki][1].
 
 
 
