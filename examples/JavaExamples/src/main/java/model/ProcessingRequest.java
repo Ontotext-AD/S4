@@ -16,11 +16,11 @@
  */
 package model;
 
-import java.io.IOException;
-
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+
+import java.io.IOException;
 
 /**
  * A bean class which wraps the parameters sent to the Self Service Semantic Suite API endpoint
@@ -36,6 +36,8 @@ public class ProcessingRequest {
 	private String documentUrl;
 	private String documentType;
 	private String[] annotationSelectors;
+	private Boolean imageTagging;
+	private Boolean imageCategorization;
 	
 	public String toJSON() throws JsonGenerationException, JsonMappingException, IOException {
 		return mapper.writeValueAsString(this);
@@ -65,4 +67,20 @@ public class ProcessingRequest {
 	public void setAnnotationSelectors(String[] annotationSelectors) {
 		this.annotationSelectors = annotationSelectors;
 	}
+
+    public Boolean getImageTagging() {
+        return imageTagging;
+    }
+
+    public void setImageTagging(Boolean imageTagging) {
+        this.imageTagging = imageTagging;
+    }
+
+    public Boolean getImageCategorization() {
+        return imageCategorization;
+    }
+
+    public void setImageCategorization(Boolean imageCategorization) {
+        this.imageCategorization = imageCategorization;
+    }
 }
