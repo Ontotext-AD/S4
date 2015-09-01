@@ -21,15 +21,15 @@ require "stringio"
 
 endpoint = "https://text.s4.ontotext.com/v1"
 service = "/twitie"
-key = "<api-key>"
-secret = "<api-secret>"
+key = "s4ts9m036a8b"
+secret = "6lucecm2t73558v"
 img_tag = true
 img_cat = true
 
 headers = {'Accept' => "application/json",
                 'Content-Type'=> "application/json"}
 data = {
-    "document" => "text goes here",
+    "documentUrl" => "text goes here",
     "documentType" => "text/html",
     "imageTagging" => img_tag,
     "imageCategorization" => img_cat

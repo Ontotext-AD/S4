@@ -25,8 +25,8 @@ img_tag = True
 img_cat = True
 
 data = {
-    "document": "<text goes here>",
-    "documentType": "text/plain",
+    "documentUrl": "<text goes here>",
+    "documentType": "text/html",
     "imageTagging": img_tag,
     "imageCategorization": img_cat
 }
