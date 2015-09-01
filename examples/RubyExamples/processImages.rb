@@ -21,8 +21,8 @@ require "stringio"
 
 endpoint = "https://text.s4.ontotext.com/v1"
 service = "/twitie"
-key = "s4ts9m036a8b"
-secret = "6lucecm2t73558v"
+key = "<api-key>"
+secret = "<api-secret>"
 img_tag = true
 img_cat = true
 
