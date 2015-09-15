@@ -19,8 +19,6 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 # import os
 
 from models import *
-from swagger import ApiClient
-import json
 import requests
 
 
@@ -134,7 +132,7 @@ class TextanalyticsApi(object):
                                           postData, headerParams)
         return response
 
-    def process_multipart_request(self, url, service, **kwargs):
+    def process_multipart_request(self, url, service, data, **kwargs):
         """Processes multipart and/or mixed data. / Returns:
 
         Args:
@@ -167,8 +165,7 @@ class TextanalyticsApi(object):
         response = requests.post(
             resourcePath,
             auth=(self.apiClient.apiKey, self.apiClient.apiSecret),
-            headers={"Content-Type": "multipart/form-data"},
-            files=files)
+            files=data)
 
         return response.content
 
