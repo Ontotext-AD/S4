@@ -18,7 +18,7 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 # import sys
 # import os
 
-#sfrom models.attachment import Attachment
+from models import *
 from swagger import ApiClient
 
 
@@ -87,7 +87,8 @@ class TextanalyticsApi(object):
         method = 'POST'
 
         queryParams = {}
-        headerParams = {"Accept": "application/gate+xml"}
+        headerParams = {"Accept": "application/gate+xml",
+                        "Content-Type": "application/json"}
 
         postData = (params['body'] if 'body' in params else None)
 
@@ -162,25 +163,25 @@ class TextanalyticsApi(object):
                                           postData, headerParams)
 
 
-# # SAMPLE CODE USAGE
+# SAMPLE CODE USAGE
 client = ApiClient(
     apiKey="s4ts9m036a8b", apiSecret="6lucecm2t73558v")
 accessor = TextanalyticsApi(client)
 
-# # TEST
-# print(accessor.test("https://text.s4.ontotext.com/v1"))
+# TEST
+print(accessor.test("https://text.s4.ontotext.com/v1"))
 
-# # # PROCESS JSON
-# payload = {"document": "sample text here", "documentType": "text/plain"}
-# print(accessor.process_json(
-#     "https://text.s4.ontotext.com/v1", "twitie",
-#     body=payload))
+# PROCESS JSON
+payload = {"document": "sample text here", "documentType": "text/plain"}
+print(accessor.process_json(
+    "https://text.s4.ontotext.com/v1", "twitie",
+    body=payload))
 
-# # PROCESS FOR XML OUTPUT
-# payload2 = {"document": "sample text here", "documentType": "text/plain"}
-# print(accessor.process_for_xml_output(
-#     "https://text.s4.ontotext.com/v1", "twitie",
-#     body=payload2))
+# PROCESS FOR XML OUTPUT
+payload2 = {"document": "sample text here", "documentType": "text/plain"}
+print(accessor.process_for_xml_output(
+    "https://text.s4.ontotext.com/v1", "twitie",
+    body=payload2))
 
 with open("sample.docx", 'rb') as f:
     content = f.read()
