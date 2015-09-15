@@ -25,3 +25,5 @@ hs_err_pid*
 
 examples/CsharpExamples/.vs/ServiceSamples/v14/.suo
 Python-client/__pycache__
+examples.py
+sample.docx

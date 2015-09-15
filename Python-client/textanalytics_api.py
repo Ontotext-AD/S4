@@ -20,12 +20,50 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 
 from models import *
 from swagger import ApiClient
+import json
+import requests
 
 
 class TextanalyticsApi(object):
 
     def __init__(self, apiClient):
         self.apiClient = apiClient
+
+    def test(self, url, **kwargs):
+        """Tests whether procesing endpoint is functional. / Returns: String
+
+        Args:
+        url - Processing endpoint
+
+        """
+
+        allParams = []
+
+        params = locals()
+        for (key, val) in params['kwargs'].items():
+            if key not in allParams:
+                raise TypeError(
+                    "Got an unexpected keyword argument" +
+                    "{} to method test".format(key))
+            params[key] = val
+        del params['kwargs']
+
+        resourcePath = url
+        method = 'GET'
+
+        queryParams = {}
+        headerParams = {}
+
+        postData = (params['body'] if 'body' in params else None)
+
+        response = self.apiClient.callAPI(resourcePath, method, queryParams,
+                                          postData, headerParams)
+
+        if not response:
+            return None
+
+        responseObject = self.apiClient.deserialize(response, 'str')
+        return response
 
     def process_json(self, url, service, **kwargs):
         """Processes JSON notation / Returns JSON
@@ -96,42 +134,6 @@ class TextanalyticsApi(object):
                                           postData, headerParams)
         return response
 
-    def test(self, url, **kwargs):
-        """Tests whether procesing endpoint is functional. / Returns: String
-
-        Args:
-        url - Processing endpoint
-
-        """
-
-        allParams = []
-
-        params = locals()
-        for (key, val) in params['kwargs'].items():
-            if key not in allParams:
-                raise TypeError(
-                    "Got an unexpected keyword argument" +
-                    "{} to method test".format(key))
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = url
-        method = 'GET'
-
-        queryParams = {}
-        headerParams = {}
-
-        postData = (params['body'] if 'body' in params else None)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-
-        if not response:
-            return None
-
-        responseObject = self.apiClient.deserialize(response, 'str')
-        return response
-
     def process_multipart_request(self, url, service, **kwargs):
         """Processes multipart and/or mixed data. / Returns:
 
@@ -156,8 +158,19 @@ class TextanalyticsApi(object):
         method = 'POST'
 
         queryParams = {}
-        headerParams = {"Content-Type": "application/octet-stream"}
+        headerParams = {"Content-Type": "multipart/form-data",
+                        "Accept": "application/gate+xml"}
         postData = (params['body'] if 'body' in params else None)
 
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
+        # Unfortunately there is no easy way to perform a multipart request
+        # with urllib, so we're using python-requests instead
+        response = requests.post(
+            resourcePath,
+            auth=(self.apiClient.apiKey, self.apiClient.apiSecret),
+            headers={"Content-Type": "multipart/form-data"},
+            files=files)
+
+        return response.content
+
+        # response = self.apiClient.callAPI(resourcePath, method, queryParams,
+        #                                   postData, headerParams)
