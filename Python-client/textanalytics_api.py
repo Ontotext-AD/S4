@@ -161,31 +161,3 @@ class TextanalyticsApi(object):
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams)
-
-
-# SAMPLE CODE USAGE
-client = ApiClient(
-    apiKey="s4ts9m036a8b", apiSecret="6lucecm2t73558v")
-accessor = TextanalyticsApi(client)
-
-# TEST
-print(accessor.test("https://text.s4.ontotext.com/v1"))
-
-# PROCESS JSON
-payload = {"document": "sample text here", "documentType": "text/plain"}
-print(accessor.process_json(
-    "https://text.s4.ontotext.com/v1", "twitie",
-    body=payload))
-
-# PROCESS FOR XML OUTPUT
-payload2 = {"document": "sample text here", "documentType": "text/plain"}
-print(accessor.process_for_xml_output(
-    "https://text.s4.ontotext.com/v1", "twitie",
-    body=payload2))
-
-with open("sample.docx", 'rb') as f:
-    content = f.read()
-payload3 = {"documentType": "application/msword", "file": content}
-print(accessor.process_multipart_request(
-    "https://text.s4.ontotext.com/v1", "twitie",
-    body=payload3))
