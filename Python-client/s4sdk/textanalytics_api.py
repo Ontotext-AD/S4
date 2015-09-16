@@ -18,8 +18,12 @@ along with this library; if not, write to the Free Software Foundation, Inc.,
 # import sys
 # import os
 
-from models import *
+from .models import *
+
 import requests
+
+
+TEXT_ENDPOINT = "https://text.s4.ontotext.com/v1"
 
 
 class TextanalyticsApi(object):
@@ -27,11 +31,11 @@ class TextanalyticsApi(object):
     def __init__(self, apiClient):
         self.apiClient = apiClient
 
-    def test(self, url, **kwargs):
+    def test(self, **kwargs):
         """Tests whether procesing endpoint is functional. / Returns: String
 
         Args:
-        url - Processing endpoint
+        url - Processing endpoint (https://text.s4.ontotext.com/v1)
 
         """
 
@@ -46,7 +50,7 @@ class TextanalyticsApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = url
+        resourcePath = TEXT_ENDPOINT
         method = 'GET'
 
         queryParams = {}
@@ -63,11 +67,11 @@ class TextanalyticsApi(object):
         responseObject = self.apiClient.deserialize(response, 'str')
         return response
 
-    def process_json(self, url, service, **kwargs):
+    def process_json(self, service, **kwargs):
         """Processes JSON notation / Returns JSON
 
         Args:
-        url - Processing endpoint
+        url - Processing endpoint (https://text.s4.ontotext.com/v1)
         service - Text processing service (twitie, news or sbt)
 
         """
@@ -82,7 +86,7 @@ class TextanalyticsApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = url + "/" + service
+        resourcePath = TEXT_ENDPOINT + "/" + service
 
         method = 'POST'
 
@@ -99,11 +103,11 @@ class TextanalyticsApi(object):
                                           postData, headerParams)
         return response
 
-    def process_for_xml_output(self, url, service, **kwargs):
+    def process_for_xml_output(self, service, **kwargs):
         """Processes JSON notation / Returns XML structure
 
         Args:
-        url - Processing endpoint
+        url - Processing endpoint (https://text.s4.ontotext.com/v1)
         service - Text processing service (twitie, news or sbt)
 
         """
@@ -119,7 +123,7 @@ class TextanalyticsApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = url + "/" + service
+        resourcePath = TEXT_ENDPOINT + "/" + service
         method = 'POST'
 
         queryParams = {}
@@ -132,11 +136,11 @@ class TextanalyticsApi(object):
                                           postData, headerParams)
         return response
 
-    def process_multipart_request(self, url, service, data, **kwargs):
+    def process_multipart_request(self, service, data, **kwargs):
         """Processes multipart and/or mixed data. / Returns:
 
         Args:
-        url - Processing endpoint
+        url - Processing endpoint (https://text.s4.ontotext.com/v1)
         service - Text processing service (twitie, news or sbt)
 
         """
@@ -152,7 +156,7 @@ class TextanalyticsApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = url + "/" + service
+        resourcePath = TEXT_ENDPOINT + "/" + service
         method = 'POST'
 
         queryParams = {}

@@ -26,7 +26,6 @@ class ContentDisposition:
         self.swaggerTypes = {
             'type': 'str',
             'parameters': 'Map[string,string]'
-
         }
 
         self.type = None  # str

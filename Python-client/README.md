@@ -1,6 +1,7 @@
 # S4 Python client library
-
-A Python3 client library for the [S4 REST Api](http://docs.s4.ontotext.com/display/S4docs/REST+APIs).
+A Python3 client library for the S4 REST Api.
 
 # Documentation
-Documentation can be found on [the S4 wiki](http://docs.s4.ontotext.com/display/S4docs/Home).
+Work in progress. 
+
+Please check the [S4 documentation](http://docs.s4.ontotext.com/display/S4docs/Home) for more information.

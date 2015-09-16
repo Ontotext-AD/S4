@@ -26,7 +26,7 @@ import http.client
 import json
 import datetime
 
-from models import *
+from .models import *
 
 
 class ApiClient:
