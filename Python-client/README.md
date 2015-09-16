@@ -1,6 +1,20 @@
-# S4 Python client library
+# S4 Python3 SDK
 A Python3 client library for the S4 REST Api.
 
+This is the S4 SDK for Python3. At the moment only methods for the [Text-Annotation Service]
+(http://docs.s4.ontotext.com/display/S4docs/Text+Analytics) are available, but this package is constantly expanding.
+
+# Installation
+
+### Easiest method
+    $ (sudo) pip3 install s4sdk
+### Alternate methods
+Download the project's source code from [GitHub](https://github.com/Ontotext-AD/S4/tree/master/Python-client) and run 
+    
+    $ python3 setup.py install
+#### or
+
+Download the package directly from [PyPI](https://pypi.python.org/pypi/s4sdk).
 # Documentation
 Work in progress. 
 
