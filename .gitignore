@@ -29,5 +29,3 @@ __pycache__
 examples.py
 sample.docx
 MANIFEST
-./Python-client/README.rst
-./Python-client/s4asd/*.pyc
