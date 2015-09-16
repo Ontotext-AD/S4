@@ -24,8 +24,10 @@ log
 hs_err_pid*
 
 examples/CsharpExamples/.vs/ServiceSamples/v14/.suo
+
 __pycache__
 examples.py
 sample.docx
 MANIFEST
-README.rst
+Python-client/README.rst
+*.pyc
