@@ -137,7 +137,7 @@ class TextanalyticsApi(object):
         return response
 
     def process_multipart_request(self, service, data, **kwargs):
-        """Processes multipart and/or mixed data. / Returns:
+        """Processes multipart and/or mixed data. / Returns: XML structure
 
         Args:
         url - Processing endpoint (https://text.s4.ontotext.com/v1)

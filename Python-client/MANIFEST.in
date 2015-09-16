@@ -1,1 +1,2 @@
+inclide README.rst
 recursive-include s4sdk/models *
