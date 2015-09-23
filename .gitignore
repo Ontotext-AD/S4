@@ -29,3 +29,10 @@ __pycache__
 examples.py
 sample.docx
 MANIFEST
+dist/
+s4sdk.egg-info/
+make.bat
+conf.py
+index.rst
+Makefile
+doctrees/
