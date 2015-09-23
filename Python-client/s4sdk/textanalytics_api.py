@@ -67,7 +67,10 @@ class TextanalyticsApi(object):
         Processes JSON notation / Returns JSON
 
         Args:
-        service - Text processing service (twitie, news or sbt)
+        service - String. Text processing service (twitie, news or sbt)
+
+        Kwargs:
+        body - Dictionary. Data, passed with request body
 
         """
 
@@ -106,6 +109,9 @@ class TextanalyticsApi(object):
 
         Args:
         service - Text processing service (twitie, news or sbt)
+
+        Kwargs:
+        body - Dictionary. Data, passed with request body
 
         """
 
