@@ -1,20 +1,18 @@
-"""
-TextanalyticsApi.py
-Copyright 2014, Ontotext AD
+# Copyright 2014, Ontotext AD
 
-This file is free software; you can redistribute it and/or modify it under
-the terms of the GNU Lesser General Public License as published by the Free
-Software Foundation; either version 2.1 of the License, or (at your option)
-any later version.
-This library is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
-details.
-You should have received a copy of the GNU Lesser General Public License
-along with this library; if not, write to the Free Software Foundation, Inc.,
-59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+# This file is free software; you can redistribute it and/or modify it under
+# the terms of the GNU Lesser General Public License as published by the Free
+# Software Foundation; either version 2.1 of the License, or (at your option)
+# any later version.
+# This library is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+# details.
+# You should have received a copy of the GNU Lesser General Public License
+# along with this library; if not, write to the Free Software Foundation, Inc.,
+# 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
-"""
+
 # import sys
 # import os
 
@@ -32,12 +30,8 @@ class TextanalyticsApi(object):
         self.apiClient = apiClient
 
     def test(self, **kwargs):
-        """Tests whether procesing endpoint is functional. / Returns: String
 
-        Args:
-        url - Processing endpoint (https://text.s4.ontotext.com/v1)
-
-        """
+        """Tests whether procesing endpoint is functional. / Returns: String"""
 
         allParams = []
 
@@ -68,13 +62,15 @@ class TextanalyticsApi(object):
         return response
 
     def process_json(self, service, **kwargs):
-        """Processes JSON notation / Returns JSON
+
+        """
+        Processes JSON notation / Returns JSON
 
         Args:
-        url - Processing endpoint (https://text.s4.ontotext.com/v1)
         service - Text processing service (twitie, news or sbt)
 
         """
+
         allParams = ['json_shop_item_id', 'body', 'accept_encoding']
 
         params = locals()
@@ -104,10 +100,11 @@ class TextanalyticsApi(object):
         return response
 
     def process_for_xml_output(self, service, **kwargs):
-        """Processes JSON notation / Returns XML structure
+
+        """
+        Processes JSON notation / Returns XML structure
 
         Args:
-        url - Processing endpoint (https://text.s4.ontotext.com/v1)
         service - Text processing service (twitie, news or sbt)
 
         """
@@ -137,11 +134,14 @@ class TextanalyticsApi(object):
         return response
 
     def process_multipart_request(self, service, data, **kwargs):
-        """Processes multipart and/or mixed data. / Returns: XML structure
+
+        """
+        Processes multipart and/or mixed data. / Returns: XML structure
 
         Args:
-        url - Processing endpoint (https://text.s4.ontotext.com/v1)
         service - Text processing service (twitie, news or sbt)
+
+        data - Dictionary with binary file contents and metadata
 
         """
 
@@ -160,7 +160,7 @@ class TextanalyticsApi(object):
         method = 'POST'
 
         queryParams = {}
-        headerParams = {"Content-Type": "multipart/form-data",
+        headerParams = {"Content-Type": "multipart/mixed",
                         "Accept": "application/gate+xml"}
         postData = (params['body'] if 'body' in params else None)
 
