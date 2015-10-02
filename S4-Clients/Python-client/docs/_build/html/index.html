@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to s4sdk’s documentation! &mdash; s4sdk 1.1.2 documentation</title>
+    <title>Welcome to s4sdk’s documentation! &mdash; s4sdk 1.4.0 documentation</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.2',
+        VERSION:     '1.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="s4sdk 1.1.2 documentation" href="#" />
+    <link rel="top" title="s4sdk 1.4.0 documentation" href="#" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -43,55 +43,32 @@
 <ul class="simple">
 </ul>
 </div>
-<span class="target" id="module-s4sdk.textanalytics_api"></span><p>TextanalyticsApi.py
-Copyright 2014, Ontotext AD</p>
-<p>This file is free software; you can redistribute it and/or modify it under
-the terms of the GNU Lesser General Public License as published by the Free
-Software Foundation; either version 2.1 of the License, or (at your option)
-any later version.
-This library is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
-details.
-You should have received a copy of the GNU Lesser General Public License
-along with this library; if not, write to the Free Software Foundation, Inc.,
-59 Temple Place, Suite 330, Boston, MA 02111-1307 USA</p>
-<dl class="class">
+<span class="target" id="module-s4sdk.textanalytics_api"></span><dl class="class">
 <dt id="s4sdk.textanalytics_api.TextanalyticsApi">
 <em class="property">class </em><code class="descclassname">s4sdk.textanalytics_api.</code><code class="descname">TextanalyticsApi</code><span class="sig-paren">(</span><em>apiClient</em><span class="sig-paren">)</span><a class="headerlink" href="#s4sdk.textanalytics_api.TextanalyticsApi" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="s4sdk.textanalytics_api.TextanalyticsApi.process_for_xml_output">
-<code class="descname">process_for_xml_output</code><span class="sig-paren">(</span><em>service</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#s4sdk.textanalytics_api.TextanalyticsApi.process_for_xml_output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Processes JSON notation / Returns XML structure</p>
+<dt id="s4sdk.textanalytics_api.TextanalyticsApi.process">
+<code class="descname">process</code><span class="sig-paren">(</span><em>output_type</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#s4sdk.textanalytics_api.TextanalyticsApi.process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes JSON notation</p>
 <p>Args:
-url - Processing endpoint (<a class="reference external" href="https://text.s4.ontotext.com/v1">https://text.s4.ontotext.com/v1</a>)
-service - Text processing service (twitie, news or sbt)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="s4sdk.textanalytics_api.TextanalyticsApi.process_json">
-<code class="descname">process_json</code><span class="sig-paren">(</span><em>service</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#s4sdk.textanalytics_api.TextanalyticsApi.process_json" title="Permalink to this definition">¶</a></dt>
-<dd><p>Processes JSON notation / Returns JSON</p>
-<p>Args:
-url - Processing endpoint (<a class="reference external" href="https://text.s4.ontotext.com/v1">https://text.s4.ontotext.com/v1</a>)
-service - Text processing service (twitie, news or sbt)</p>
+output_type - &#8216;json&#8217; or &#8216;xml&#8217;. The output format of the results.</p>
+<p>Kwargs:
+body - Dictionary. Data, passed with request body</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="s4sdk.textanalytics_api.TextanalyticsApi.process_multipart_request">
-<code class="descname">process_multipart_request</code><span class="sig-paren">(</span><em>service</em>, <em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#s4sdk.textanalytics_api.TextanalyticsApi.process_multipart_request" title="Permalink to this definition">¶</a></dt>
+<code class="descname">process_multipart_request</code><span class="sig-paren">(</span><em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#s4sdk.textanalytics_api.TextanalyticsApi.process_multipart_request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Processes multipart and/or mixed data. / Returns: XML structure</p>
 <p>Args:
-url - Processing endpoint (<a class="reference external" href="https://text.s4.ontotext.com/v1">https://text.s4.ontotext.com/v1</a>)
 service - Text processing service (twitie, news or sbt)</p>
+<p>data - Dictionary with binary file contents and metadata</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="s4sdk.textanalytics_api.TextanalyticsApi.test">
 <code class="descname">test</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#s4sdk.textanalytics_api.TextanalyticsApi.test" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tests whether procesing endpoint is functional. / Returns: String</p>
-<p>Args:
-url - Processing endpoint (<a class="reference external" href="https://text.s4.ontotext.com/v1">https://text.s4.ontotext.com/v1</a>)</p>
 </dd></dl>
 
 </dd></dl>

@@ -19,9 +19,7 @@
 from .models import *
 
 import requests
-
-
-TEXT_ENDPOINT = "https://text.s4.ontotext.com/v1"
+import json
 
 
 class TextanalyticsApi(object):
@@ -44,7 +42,12 @@ class TextanalyticsApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = TEXT_ENDPOINT
+        services = ["/twitie", "/sbt", "/news"]
+        test_endpoint = self.apiClient.endpoint
+        for each in services:
+            if each in test_endpoint:
+                test_endpoint = test_endpoint[:len(test_endpoint)-len(each)]
+        resourcePath = test_endpoint
         method = 'GET'
 
         queryParams = {}
@@ -58,16 +61,16 @@ class TextanalyticsApi(object):
         if not response:
             return None
 
-        responseObject = self.apiClient.deserialize(response, 'str')
+        # responseObject = self.apiClient.deserialize(response, 'str')
         return response
 
-    def process_json(self, service, **kwargs):
+    def process(self, output_type, **kwargs):
 
         """
-        Processes JSON notation / Returns JSON
+        Processes JSON notation
 
         Args:
-        service - String. Text processing service (twitie, news or sbt)
+        output_type - 'json' or 'xml'. The output format of the results.
 
         Kwargs:
         body - Dictionary. Data, passed with request body
@@ -85,13 +88,21 @@ class TextanalyticsApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = TEXT_ENDPOINT + "/" + service
+        resourcePath = self.apiClient.endpoint
 
         method = 'POST'
 
         queryParams = {}
-        headerParams = {"Accept": "application/json",
-                        "Content-type": "application/json"}
+        json_head = {"Accept": "application/json",
+                     "Content-type": "application/json"}
+        xml_head = {"Accept": "application/gate+xml",
+                    "Content-type": "application/json"}
+        if output_type == "json":
+            headerParams = json_head
+        elif output_type == "xml":
+            headerParams = xml_head
+        else:
+            raise ValueError("Please enter a valid output type.")
 
         if ('accept_encoding' in params):
             headerParams['accept_encoding'] = params['accept_encoding']
@@ -102,44 +113,7 @@ class TextanalyticsApi(object):
                                           postData, headerParams)
         return response
 
-    def process_for_xml_output(self, service, **kwargs):
-
-        """
-        Processes JSON notation / Returns XML structure
-
-        Args:
-        service - Text processing service (twitie, news or sbt)
-
-        Kwargs:
-        body - Dictionary. Data, passed with request body
-
-        """
-
-        allParams = ['xml_shop_item_id', 'body', 'accept_encoding']
-
-        params = locals()
-        for (key, val) in params['kwargs'].items():
-            if key not in allParams:
-                raise TypeError(
-                    "Got an unexpected keyword argument {} " +
-                    "to method process_for_xml_output".format(key))
-            params[key] = val
-        del params['kwargs']
-
-        resourcePath = TEXT_ENDPOINT + "/" + service
-        method = 'POST'
-
-        queryParams = {}
-        headerParams = {"Accept": "application/gate+xml",
-                        "Content-Type": "application/json"}
-
-        postData = (params['body'] if 'body' in params else None)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-        return response
-
-    def process_multipart_request(self, service, data, **kwargs):
+    def process_multipart_request(self, data, **kwargs):
 
         """
         Processes multipart and/or mixed data. / Returns: XML structure
@@ -162,7 +136,7 @@ class TextanalyticsApi(object):
             params[key] = val
         del params['kwargs']
 
-        resourcePath = TEXT_ENDPOINT + "/" + service
+        resourcePath = self.apiClient.endpoint
         method = 'POST'
 
         queryParams = {}

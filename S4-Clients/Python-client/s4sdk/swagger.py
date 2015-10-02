@@ -30,12 +30,13 @@ class ApiClient:
 
     """Generic API client for Swagger client library builds"""
 
-    def __init__(self, apiKey=None, apiSecret=None, cookie=None):
+    def __init__(self, apiKey=None, apiSecret=None, endpoint=None, cookie=None):
         if type(apiKey) is None:
             raise Exception('You must pass an apiKey when instantiating the '
                             'APIClient')
         self.apiKey = apiKey
         self.apiSecret = apiSecret
+        self.endpoint = endpoint
         self.cookie = cookie
 
     def callAPI(self, resourcePath, method, queryParams, postData,

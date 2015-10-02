@@ -13,7 +13,7 @@ description = ("Ontotext Self-Service Semantic Suite's text annotation SDK for"
 
 setup(
     name="s4sdk",
-    version="1.2.1",
+    version="1.4.0",
     author="Svetlin Slavov",
     author_email="svetlin.slavov@ontotext.com",
 
