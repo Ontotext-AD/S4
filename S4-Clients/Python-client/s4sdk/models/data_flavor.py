@@ -14,6 +14,9 @@
 
 
 class DataFlavor:
+    """
+    Swagger-codegen - generated model class DataFlavor
+    """
     def __init__(self):
         self.swaggerTypes = {
             'human_presentable_name': 'str',

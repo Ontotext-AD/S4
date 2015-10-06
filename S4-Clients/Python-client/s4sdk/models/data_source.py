@@ -14,6 +14,9 @@
 
 
 class DataSource:
+    """
+    Swagger-codegen - generated model class DataSource
+    """
     def __init__(self):
         self.swaggerTypes = {
             'name': 'str',

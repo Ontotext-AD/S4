@@ -14,6 +14,9 @@
 
 
 class Attachment:
+    """
+    Swagger-codegen - generated model class Attachment
+    """
     def __init__(self):
         self.swaggerTypes = {
             'headers': 'javax.ws.rs.core.MultivaluedMap<java.lang.String, ' +

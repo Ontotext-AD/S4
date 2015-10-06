@@ -14,6 +14,9 @@
 
 
 class CommandInfo:
+    """
+    Swagger-codegen - generated model class CommandInfo
+    """
     def __init__(self):
         self.swaggerTypes = {
             'command_class': 'str',

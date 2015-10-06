@@ -14,6 +14,9 @@
 
 
 class DataHandler:
+    """
+    Swagger-codegen - generated model class DataHandler
+    """
     def __init__(self):
         self.swaggerTypes = {
             'data_source': 'DataSource',

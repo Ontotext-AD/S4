@@ -14,6 +14,9 @@
 
 
 class ContentDisposition:
+    """
+    Swagger-codegen - generated model class ContentDisposition
+    """
     def __init__(self):
         self.swaggerTypes = {
             'type': 'str',
