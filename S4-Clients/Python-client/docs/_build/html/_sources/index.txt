@@ -4,14 +4,11 @@ Welcome to s4sdk's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-.. automodule:: s4sdk.textanalytics_api
-    :members:
-
-.. autoclass:: TextanalyticsApi
-    :members:
-
+modules
+s4sdk.models
+s4sdk
 
 Indices and tables
 ==================

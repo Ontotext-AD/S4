@@ -1,0 +1,37 @@
+s4sdk package
+=============
+
+Subpackages
+-----------
+
+.. toctree::
+
+    s4sdk.models
+
+Submodules
+----------
+
+s4sdk.swagger module
+--------------------
+
+.. automodule:: s4sdk.swagger
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+s4sdk.textanalytics_api module
+------------------------------
+
+.. automodule:: s4sdk.textanalytics_api
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: s4sdk
+    :members:
+    :undoc-members:
+    :show-inheritance:
