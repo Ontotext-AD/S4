@@ -24,14 +24,18 @@ import json
 
 class TextanalyticsApi(object):
 
-    """"""
+    """
+    Self-Service Semantic Suite (S4) Text-Annotation Api
+    """
 
     def __init__(self, apiClient):
         self.apiClient = apiClient
 
     def test(self, **kwargs):
 
-        """Tests whether procesing endpoint is functional. / Returns: String"""
+        """
+        Tests whether procesing endpoint is functional. / Returns: String
+        """
 
         allParams = []
 
@@ -106,9 +110,6 @@ class TextanalyticsApi(object):
         else:
             raise ValueError("Please enter a valid output type.")
 
-        if ('accept_encoding' in params):
-            headerParams['accept_encoding'] = params['accept_encoding']
-
         postData = (params['body'] if 'body' in params else None)
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
@@ -146,8 +147,6 @@ class TextanalyticsApi(object):
                         "Accept": "application/gate+xml"}
         postData = (params['body'] if 'body' in params else None)
 
-        # Unfortunately there is no easy way to perform a multipart request
-        # with urllib, so we're using python-requests instead
         response = requests.post(
             resourcePath,
             auth=(self.apiClient.apiKey, self.apiClient.apiSecret),

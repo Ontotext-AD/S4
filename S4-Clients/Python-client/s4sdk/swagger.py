@@ -28,9 +28,12 @@ from .models import *
 
 class ApiClient:
 
-    """Generic API client for Swagger client library builds"""
+    """
+    Generic API client for Swagger client library builds
+    """
 
-    def __init__(self, apiKey=None, apiSecret=None, endpoint=None, cookie=None):
+    def __init__(self, apiKey=None, apiSecret=None,
+                 endpoint=None, cookie=None):
         if type(apiKey) is None:
             raise Exception('You must pass an apiKey when instantiating the '
                             'APIClient')
@@ -42,7 +45,9 @@ class ApiClient:
     def callAPI(self, resourcePath, method, queryParams, postData,
                 headerParams=None):
 
-        """Makes the appropriate request with specific parameters"""
+        """
+        Makes the appropriate request with specific parameters
+        """
 
         url = resourcePath
         headers = {}
@@ -106,7 +111,8 @@ class ApiClient:
         return response
 
     def toPathValue(self, obj):
-        """Convert a string or object to a path-friendly value
+        """
+        Convert a string or object to a path-friendly value
         Args:
             obj -- object or string value
         Returns:
@@ -118,7 +124,9 @@ class ApiClient:
             return urllib.parse.quote(str(obj))
 
     def sanitizeForSerialization(self, obj):
-        """Dump an object into JSON for POSTing."""
+        """
+        Dump an object into JSON for POSTing.
+        """
 
         if type(obj) is None:
             return None
@@ -138,7 +146,8 @@ class ApiClient:
                     if key != 'swaggerTypes'}
 
     def _iso8601Format(self, timesep, microsecond, offset, zulu):
-        """Format for parsing a datetime string with given properties.
+        """
+        Format for parsing a datetime string with given properties.
 
         Args:
             timesep -- string separating time from date ('T' or 't')
@@ -147,7 +156,8 @@ class ApiClient:
             zulu -- 'Z' or 'z' for UTC, or None for time offset (+/-XX:XX)
 
         Returns:
-            str - format string for datetime.strptime"""
+            str - format string for datetime.strptime
+        """
 
         return '%Y-%m-%d{}%H:%M:%S{}{}'.format(
             timesep,
@@ -172,14 +182,16 @@ class ApiClient:
         return datetime.datetime.strptime(d, format)
 
     def deserialize(self, obj, objClass):
-        """Derialize a JSON string into an object.
+        """
+        Derialize a JSON string into an object.
 
         Args:
             obj -- string or object to be deserialized
             objClass -- class literal for deserialzied object, or string
                 of class name
         Returns:
-            object -- deserialized object"""
+            object -- deserialized object
+        """
 
         # Have to accept objClass as string or actual type. Type could be a
         # native Python type, or one of the model classes.
