@@ -26,13 +26,16 @@ hs_err_pid*
 examples/CsharpExamples/.vs/ServiceSamples/v14/.suo
 
 __pycache__
-examples.py
-sample.docx
-MANIFEST
-dist/
 s4sdk.egg-info/
-make.bat
-conf.py
-index.rst
-Makefile
 doctrees/
+dist/
+index.rst
+modules.rst
+s4sdk.rst
+s4sdk.models.rst
+examples.py
+conf.py
+make.bat
+Makefile
+MANIFEST
+sample.docx
