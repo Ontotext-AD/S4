@@ -14,9 +14,6 @@
 
 
 class ServiceRequest:
-    """
-    Swagger-codegen - generated model class ServiceRequest
-    """
     def __init__(self):
         self.swaggerTypes = {
             'image_tagging': 'bool',

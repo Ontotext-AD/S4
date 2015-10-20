@@ -19,7 +19,6 @@
 from .models import *
 
 import requests
-import json
 
 
 class TextanalyticsApi(object):
@@ -32,9 +31,10 @@ class TextanalyticsApi(object):
         self.apiClient = apiClient
 
     def test(self, **kwargs):
-
         """
-        Tests whether procesing endpoint is functional. / Returns: String
+        Tests whether processing endpoint is functional.
+
+        Returns: String
         """
 
         allParams = []
@@ -71,26 +71,35 @@ class TextanalyticsApi(object):
         return response
 
     def process(self, output_type, **kwargs):
-
         """
         Processes JSON notation
 
         Args:
-        output_type - 'json' or 'xml'. The output format of the results.
+            output_type - String. The output format of the results
+
+            Example template: "json"
 
         Kwargs:
-        body - Dictionary. Data, passed with request body
+            body - Dictionary. Data, passed with request body
 
+            Example template:
+            {
+                "document": "your text here",
+                "documentType": "text/plain"
+            }
+
+        Returns:
+            JSON structure with annotated text
         """
 
-        allParams = ['json_shop_item_id', 'body', 'accept_encoding']
+        allParams = ['body']
 
         params = locals()
         for (key, val) in params['kwargs'].items():
             if key not in allParams:
                 raise TypeError(
                     "Got an unexpected keyword argument" +
-                    " {} to method process_json".format(key))
+                    " {} to method process".format(key))
             params[key] = val
         del params['kwargs']
 
@@ -117,18 +126,23 @@ class TextanalyticsApi(object):
         return response
 
     def process_multipart_request(self, data, **kwargs):
-
         """
-        Processes multipart and/or mixed data. / Returns: XML structure
+        Processes multipart data.
 
         Args:
-        service - Text processing service (twitie, news or sbt)
+            data - Dictionary. Contains binary file data and metadata
 
-        data - Dictionary with binary file contents and metadata
+            Example template:
 
+            {
+                "meta": ('', {\"documentType\": "application/msword"}, "application/json"),
+                "data": ("name of MSWORD file", binary-content, "application/octet-stream")
+            }
+
+        Returns: XML structure with annotated text from file
         """
 
-        allParams = ['mix_shop_item_id', 'body', 'accept_encoding', 'accept']
+        allParams = []
 
         params = locals()
         for (key, val) in params['kwargs'].items():
@@ -153,6 +167,3 @@ class TextanalyticsApi(object):
             files=data)
 
         return response.content
-
-        # response = self.apiClient.callAPI(resourcePath, method, queryParams,
-        #                                   postData, headerParams)

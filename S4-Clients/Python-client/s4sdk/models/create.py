@@ -13,12 +13,14 @@
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
-class CommandInfo:
+class Create:
     def __init__(self):
         self.swaggerTypes = {
-            'command_class': 'str',
-            'command_name': 'str'
+            'repository_id': 'str',
+            'label': 'str',
+            'ruleset': 'str'
         }
 
-        self.command_class = None  # str
-        self.command_name = None  # str
+        self.repository_id = None  # str
+        self.label = None  # str
+        self.ruleset = None  # str

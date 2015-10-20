@@ -14,9 +14,6 @@
 
 
 class MediaType:
-    """
-    Swagger-codegen - generated model class MediaType
-    """
     def __init__(self):
         self.swaggerTypes = {
             'type': 'str',

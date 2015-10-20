@@ -20,10 +20,26 @@ s4sdk.models.command_info module
     :undoc-members:
     :show-inheritance:
 
+s4sdk.models.config module
+--------------------------
+
+.. automodule:: s4sdk.models.config
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 s4sdk.models.content_disposition module
 ---------------------------------------
 
 .. automodule:: s4sdk.models.content_disposition
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+s4sdk.models.create module
+--------------------------
+
+.. automodule:: s4sdk.models.create
     :members:
     :undoc-members:
     :show-inheritance:

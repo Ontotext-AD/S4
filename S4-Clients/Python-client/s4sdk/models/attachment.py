@@ -14,9 +14,6 @@
 
 
 class Attachment:
-    """
-    Swagger-codegen - generated model class Attachment
-    """
     def __init__(self):
         self.swaggerTypes = {
             'headers': 'javax.ws.rs.core.MultivaluedMap<java.lang.String, ' +
@@ -28,7 +25,6 @@ class Attachment:
             'content_disposition': 'ContentDisposition'
         }
 
-        # javax.ws.rs.core.MultivaluedMap<java.lang.String, java.lang.String>
         self.headers = None
         self.object = None  # Object
         self.content_type = None  # MediaType

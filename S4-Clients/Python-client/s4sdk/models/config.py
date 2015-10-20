@@ -13,12 +13,10 @@
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 
-class CommandInfo:
+class Config:
     def __init__(self):
         self.swaggerTypes = {
-            'command_class': 'str',
-            'command_name': 'str'
+            'proportions': 'list[null]'
         }
 
-        self.command_class = None  # str
-        self.command_name = None  # str
+        self.proportions = None

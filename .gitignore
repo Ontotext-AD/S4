@@ -34,6 +34,8 @@ modules.rst
 s4sdk.rst
 s4sdk.models.rst
 examples.py
+examples_ta.py
+examples_gdb.py
 conf.py
 make.bat
 Makefile
