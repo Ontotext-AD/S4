@@ -4,6 +4,7 @@
 [![S4](http://s8.postimg.org/4v1617ld1/S4_semanticsuite_png_w_640_h_auto_zc_0.png)](http://console.s4.ontotext.com/)
 
 This is the S4 SDK for Python3. Available APIs:
+
 1. [Text-Analytics Service](http://docs.s4.ontotext.com/display/S4docs/Text+Analytics)
 2. [Fully-Managed GraphDB in the Cloud](http://docs.s4.ontotext.com/display/S4docs/Fully+Managed+Database)
 
