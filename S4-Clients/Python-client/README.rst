@@ -13,7 +13,7 @@ A Python3 client library for the S4 REST Api.
 
 This is the S4 SDK for Python3. Available APIs:
 
-1. `Text-Annotation Service
+1. `Text-Analytics Service
 <http://docs.s4.ontotext.com/display/S4docs/Text+Analytics>`_ 
 
 2. `Fully-Managed GraphDB in the Cloud
