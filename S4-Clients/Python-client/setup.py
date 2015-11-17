@@ -9,11 +9,11 @@ with open('README.rst', 'r') as f:
 
 description = ("Ontotext Self-Service Semantic Suite's text annotation SDK for"
                + " Python3. Easily process your text and documents. For more"
-               + " information, visit https://console.s4.ontotext.com/")
+               + " information, visit http://s4.ontotext.com")
 
 setup(
     name="s4sdk",
-    version="2.1.1",
+    version="2.1.2",
     author="Svetlin Slavov",
     author_email="svetlin.slavov@ontotext.com",
 
@@ -21,7 +21,7 @@ setup(
     include_package_data=True,
 
     url="https://pypi.python.org/pypi/s4sdk",
-    license="GNU Lesser GPL 2.1",
+    license="Apache License 2.0",
     description=description,
 
     long_description=readme,
