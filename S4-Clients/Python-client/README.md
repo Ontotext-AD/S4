@@ -1,7 +1,6 @@
 # S4 Python3 SDK
 ##### A Python3 client library for the S4 REST Api.
-[![Ontotext](http://s12.postimg.org/s65k2rhgt/asd.jpg)](http://ontotext.com/)
-[![S4](http://s8.postimg.org/4v1617ld1/S4_semanticsuite_png_w_640_h_auto_zc_0.png)](http://console.s4.ontotext.com/)
+[![S4](http://s7.postimg.org/gvxtqu63r/S4logo.png)](http://console.s4.ontotext.com/)
 
 This is the S4 SDK for Python3. Available APIs:
 
