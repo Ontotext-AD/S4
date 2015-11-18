@@ -19,24 +19,24 @@ require "zlib"
 require "stringio"
 
 
-endpoint = "https://rdf.s4.ontotext.com/<user-id>/<database>/repositories/<reponame>/statements"
+endpoint = "https://rdf.s4.ontotext.com/<user-id>/<databaseName>/repositories/<repoName>/statements"
 data = "update=PREFIX dc: <http://purl.org/dc/elements/1.1/>\n" +
 "INSERT Data{ <http://example/egbook> dc:title  \"This is an example title\" }"
-key = "<api-key>"
-secret = "<api-secret>"
-headers = {'Content-type'=> "application/x-www-form-urlencoded"}
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
+headers = {"Content-Type"=> "application/x-www-form-urlencoded"}
 
 hydra = Typhoeus::Hydra.hydra
 req = Typhoeus::Request.new(endpoint,
     method: :post,
-    userpwd: key + ":" + secret, 
+    userpwd: api_key + ":" + key_secret, 
     body: data,
     headers: headers)
 hydra.queue(req)
 hydra.run
 response = req.response
 
-if response.headers['Content-Encoding'] == 'gzip'
+if response.headers["Content-Encoding"] == "gzip"
     gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))    
     puts gz.read, "\n"
 else
@@ -44,10 +44,10 @@ else
 end
 
 # Response Code
-print 'Status Code: ', response.code, "\n\n"
+print "Status Code: ", response.code, "\n\n"
 
 # Response Headers
-puts 'Headers: '
+puts "Headers: "
 response.headers.each do |type, header|
-    print type, ': ', header, "\n"
+    print type, ": ", header, "\n"
 end

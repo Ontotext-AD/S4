@@ -19,24 +19,24 @@ require "zlib"
 require "stringio"
 
 
-endpoint = "https://rdf.s4.ontotext.com/<user-id>/<database>/repositories/<reponame>/"
-data = "query=Select * {?s ?p ?o} limit 50"
-key = "<api-key>"
-secret = "<api-secret>"
-headers = {'Accept' => "application/sparql-results+xml",
-        'Content-type'=> "application/x-www-form-urlencoded"}
+endpoint = "https://rdf.s4.ontotext.com/<userID>/<databaseName>/repositories/<repoName>"
+data = "query=SELECT * WHERE {?s ?p ?o} limit 50"
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
+headers = {"Accept" => "application/sparql-results+json",
+        "Content-Type" => "application/x-www-form-urlencoded"}
 
 hydra = Typhoeus::Hydra.hydra
 req = Typhoeus::Request.new(endpoint,
     method: :post,
-    userpwd: key + ":" + secret, 
+    userpwd: api_key + ":" + key_secret, 
     body: data,
     headers: headers)
 hydra.queue(req)
 hydra.run
 response = req.response
 
-if response.headers['Content-Encoding'] == 'gzip'
+if response.headers["Content-Encoding"] == "gzip"
     gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))    
     puts gz.read, "\n"
 else
@@ -44,10 +44,10 @@ else
 end
 
 # Response Code
-print 'Status Code: ', response.code, "\n\n"
+print "Status Code: ", response.code, "\n\n"
 
 # Response Headers
-puts 'Headers: '
+puts "Headers: "
 response.headers.each do |type, header|
-    print type, ': ', header, "\n"
+    print type, ": ", header, "\n"
 end
