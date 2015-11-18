@@ -18,7 +18,7 @@ import requests
 import json
 from array import *
 
-endpoint = "https://text.s4.ontotext.com/v1/news"
+endpoint = "https://text.s4.ontotext.com/v1/twitie"
 api_key = "<your-credentials-here>"
 key_secret = "<your-credentials-here>"
 
