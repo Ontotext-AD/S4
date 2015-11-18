@@ -16,17 +16,17 @@
 
 import requests
 
-endpointUrl = "https://text.s4.ontotext.com/v1"
-key = '<api-key>'
-secret = '<api-secret>'
+endpoint = "https://text.s4.ontotext.com/v1"
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
 
-req = requests.get(endpointUrl, auth=(key, secret))
+req = requests.get(endpoint, auth=(api_key, key_secret))
 
-print (req.content.decode('utf-8'), '\n')
+print (req.content.decode("utf-8"), "\n")
 
-print ('Request Code: {}\n'.format(req.status_code))
+print ("Request Code: {}\n".format(req.status_code))
 
 head = dict(req.headers)
-print ('Headers: ')
+print ("Headers: ")
 for each in head:
     print (each.capitalize(), ": ", head[each])

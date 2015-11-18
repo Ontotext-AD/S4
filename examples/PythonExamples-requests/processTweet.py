@@ -18,11 +18,9 @@ import requests
 import json
 from array import *
 
-endpoint = "https://text.s4.ontotext.com/v1"
-service = "/twitie"
-key = 's4ts9m036a8b'
-secret = '6lucecm2t73558v'
-annotationSelectorsArray = [":", "Original markups:"]
+endpoint = "https://text.s4.ontotext.com/v1/news"
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
 
 document = ("{\"text\":\"Nearly 200,000 people have been killed in #Syria "
             + "since the start of the conflict in 2011, according to "
@@ -38,27 +36,26 @@ document = ("{\"text\":\"Nearly 200,000 people have been killed in #Syria "
             + "\"id_str\":\"502743846716207104\"}")
 data = {
     "document": document,
-    "documentType": "text/x-json-twitter",
-    "annotationSelectors": annotationSelectorsArray
+    "documentType": "text/x-json-twitter"
 }
 json_data = json.dumps(data)
 headers = {
-    'Accept': "application/json",
-    'Content-type': "application/json",
-    'Accept-Encoding': "gzip"
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+    "Accept-Encoding": "gzip"
 }
 
 req = requests.post(
-    endpoint + service, auth=(key, secret),
+    endpoint, auth=(api_key, key_secret),
     data=json_data, headers=headers)
 
-print (req.content)
+print (req.content, "\n")
 
 # Response status code
-print ('Request Code: {}\n'.format(req.status_code))
+print ("Request Code: {}\n".format(req.status_code))
 
 # Response Headers
 head = dict(req.headers)
-print ('Headers: ')
+print ("Headers: ")
 for each in head:
     print (each.capitalize(), ": ", head[each])

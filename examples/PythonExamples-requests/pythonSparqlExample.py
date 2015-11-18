@@ -18,8 +18,8 @@ import requests
 
 
 endpoint = "https://lod.s4.ontotext.com/v1/FactForge/sparql"
-key = '<api-key>'
-secret = '<api-secret>'
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
 query = """PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX dbpedia: <http://dbpedia.org/resource/>
 PREFIX dbp-ont: <http://dbpedia.org/ontology/>
@@ -36,22 +36,22 @@ WHERE {
 } limit 5"""
 
 headers = {
-    'Accept': "application/sparql-results+xml",
-    'Content-type': "application/x-www-form-urlencoded"
+    "Accept": "application/sparql-results+json",
+    "Content-Type": "application/x-www-form-urlencoded"
 }
 
 req = requests.post(
     endpoint, headers=headers,
-    data='query='+query, auth=(key, secret))
+    data="query="+query, auth=(api_key, key_secret))
 
-response = req.content.decode('utf-8')
-print (response, '\n')
+response = req.content.decode("utf-8")
+print (response, "\n")
 
 # Response status code
-print ('Request Code: {}\n'.format(req.status_code))
+print ("Request Code: {}\n".format(req.status_code))
 
 # Response Headers
 head = dict(req.headers)
-print ('Headers: ')
+print ("Headers: ")
 for each in head:
     print (each.capitalize(), ": ", head[each])
