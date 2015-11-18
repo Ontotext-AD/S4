@@ -18,11 +18,11 @@ require "json"
 
 
 endpoint = "https://text.s4.ontotext.com/v1/"
-key = "<api-key>"
-secret = "<api-secret>"
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
 
 hydra = Typhoeus::Hydra.hydra
-req = Typhoeus::Request.new(endpoint, userpwd: key+":"+secret)
+req = Typhoeus::Request.new(endpoint, userpwd: api_key + ":" + key_secret)
 hydra.queue(req)
 hydra.run
 response = req.response
@@ -30,10 +30,10 @@ response = req.response
 puts response.body, "\n"
 
 # Response Code
-print 'Status Code: ', response.code, "\n\n"
+print "Status Code: ", response.code, "\n\n"
 
 # Response Headers
-puts 'Headers: '
+puts "Headers: "
 response.headers.each do |type, header|
-    print type, ': ', header, "\n"
+    print type, ": ", header, "\n"
 end

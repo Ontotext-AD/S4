@@ -20,10 +20,10 @@ require "stringio"
 
 
 endpoint = "https://lod.s4.ontotext.com/v1/FactForge/sparql"
-key = "<api-key>"
-secret = "<api-secret>"
-headers = {'Accept' => "application/sparql-results+xml",
-           'Content-Type'=> "application/x-www-form-urlencoded"}
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
+headers = {"Accept" => "application/sparql-results+json",
+           "Content-Type" => "application/x-www-form-urlencoded"}
 
 data = "query=PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
     "PREFIX dbpedia: <http://dbpedia.org/resource/>\n" +
@@ -40,14 +40,14 @@ data = "query=PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
 hydra = Typhoeus::Hydra.hydra
 req = Typhoeus::Request.new(endpoint,
     method: :post,
-    userpwd: key+":"+secret, 
+    userpwd: api_key + ":" + key_secret, 
     body: data,
     headers: headers)
 hydra.queue(req)
 hydra.run
 response = req.response
 
-if response.headers['Content-Encoding'] == 'gzip'
+if response.headers["Content-Encoding"] == "gzip"
     gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))    
     puts gz.read, "\n"
 else
@@ -55,10 +55,10 @@ else
 end
 
 # Response Code
-print 'Status Code: ', response.code, "\n\n"
+print "Status Code: ", response.code, "\n\n"
 
 # Response Headers
-puts 'Headers: '
+puts "Headers: "
 response.headers.each do |type, header|
-    print type, ': ', header, "\n"
+    print type, ": ", header, "\n"
 end

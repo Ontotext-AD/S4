@@ -19,14 +19,12 @@ require "zlib"
 require "stringio"
 
 
-endpoint = "https://text.s4.ontotext.com/v1"
-service = "/twitie"
-key = "<api-key>"
-secret = "<api-secret>"
-headers = {'Accept' => "application/json",
-           'Content-Type'=> "application/json",
-           'Accept-Encoding'=>"gzip"}
-annotationSelectorsArray = [":", "Original markups:"]
+endpoint = "https://text.s4.ontotext.com/v1/twitie"
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
+headers = {"Accept" => "application/json",
+           "Content-Type" => "application/json",
+           "Accept-Encoding" => "gzip"}
 
 document = "{\"text\":\"Nearly 200,000 people have been killed in #Syria since the start of the conflict in 2011, according to the U.N. http://t.co/pK7t8AD7Xf\"," +
 "\"lang\":\"en\",\"entities\":{\"symbols\":[]," +
@@ -38,22 +36,21 @@ document = "{\"text\":\"Nearly 200,000 people have been killed in #Syria since t
 
 data = {
     "document" => document,
-    "documentType" => "text/x-json-twitter",
-    "annotationSelectors" => annotationSelectorsArray
+    "documentType" => "text/x-json-twitter"
 }
 jsonData = data.to_json
 
 hydra = Typhoeus::Hydra.hydra
-req = Typhoeus::Request.new(endpoint+service,
+req = Typhoeus::Request.new(endpoint,
     method: :post,
-    userpwd: key+":"+secret, 
+    userpwd: api_key + ":" + key_secret, 
     body: jsonData,
     headers: headers)
 hydra.queue(req)
 hydra.run
 response = req.response
 
-if response.headers['Content-Encoding'] == 'gzip'
+if response.headers["Content-Encoding"] == "gzip"
     gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))    
     puts gz.read, "\n"
 else
@@ -61,10 +58,10 @@ else
 end
 
 # Response Code
-print 'Status Code: ', response.code, "\n\n"
+print "Status Code: ", response.code, "\n\n"
 
 # Response Headers
-puts 'Headers: '
+puts "Headers: "
 response.headers.each do |type, header|
-    print type, ': ', header, "\n"
+    print type, ": ", header, "\n"
 end

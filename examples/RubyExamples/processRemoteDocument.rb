@@ -19,13 +19,12 @@ require "zlib"
 require "stringio"
 
 
-endpoint = "https://text.s4.ontotext.com/v1"
-service = "/twitie"
-key = "<api-key>"
-secret = "<api-secret>"
-headers = {'Accept' => "application/json",
-                'Content-Type'=> "application/json",
-                'Accept-Encoding'=>"gzip"}
+endpoint = "https://text.s4.ontotext.com/v1/news"
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
+headers = {"Accept" => "application/json",
+                "Content-Type" => "application/json",
+                "Accept-Encoding" => "gzip"}
 data = {
     "documentUrl" => "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
     "documentType" => "text/html",
@@ -33,16 +32,16 @@ data = {
 jsonData = data.to_json
 
 hydra = Typhoeus::Hydra.hydra
-req = Typhoeus::Request.new(endpoint+service,
+req = Typhoeus::Request.new(endpoint,
     method: :post,
-    userpwd: key + ":" + secret, 
+    userpwd: api_key + ":" + key_secret, 
     body: jsonData,
     headers: headers)
 hydra.queue(req)
 hydra.run
 response = req.response
 
-if response.headers['Content-Encoding'] == 'gzip'
+if response.headers["Content-Encoding"] == "gzip"
     gz = Zlib::GzipReader.new(StringIO.new(response.body.to_s))    
     puts gz.read, "\n"
 else
@@ -50,10 +49,10 @@ else
 end
 
 # Response Code
-print 'Status Code: ', response.code, "\n\n"
+print "Status Code: ", response.code, "\n\n"
 
 # Response Headers
-puts 'Headers: '
+puts "Headers: "
 response.headers.each do |type, header|
-    print type, ': ', header, "\n"
+    print type, ": ", header, "\n"
 end
