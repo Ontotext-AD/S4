@@ -21,26 +21,25 @@
 import requests
 
 
-endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<database>/"
-            + "repositories/<repo-id>/statements")
-key = '<api-key>'
-secret = '<api-secret>'
-query = "Select * {?s ?p ?o} limit 50"
+endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<databaseName>/"
+            + "repositories/<repo-name>/statements")
+api_key = "<your-credentials-here>"
+key_secret = "<your-credentials-here>"
 
-headers = {'Content-Type': 'application/rdf+xml;charset=UTF-8'}
+headers = {"Content-Type": "application/rdf+xml;charset=UTF-8"}
 
-with open('example.rdf', 'rb') as data_file:
+with open("example.rdf", "rb") as data_file:
     req = requests.post(
-        endpoint, headers=headers, data=data_file, auth=(key, secret))
+        endpoint, headers=headers, data=data_file, auth=(api_key, key_secret))
 
-response = req.content.decode('utf-8')
-print (response, '\n')
+response = req.content.decode("utf-8")
+print (response, "\n")
 
 # Response status code
-print ('Request Code: {}\n'.format(req.status_code))
+print ("Request Code: {}\n".format(req.status_code))
 
 # Response Headers
 head = dict(req.headers)
-print ('Headers: ')
+print ("Headers: ")
 for each in head:
     print (each.capitalize(), ": ", head[each])
