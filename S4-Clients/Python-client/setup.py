@@ -7,13 +7,13 @@ except ImportError:
 with open('README.rst', 'r') as f:
     readme = f.read()
 
-description = ("Ontotext Self-Service Semantic Suite's text annotation SDK for"
-               + " Python3. Easily process your text and documents. For more"
-               + " information, visit http://s4.ontotext.com")
+description = ("Ontotext Self-Service Semantic Suite's SDK " +
+               "for Python3. For more information, " +
+               "visit http://s4.ontotext.com")
 
 setup(
     name="s4sdk",
-    version="2.1.2",
+    version="3.0.1",
     author="Svetlin Slavov",
     author_email="svetlin.slavov@ontotext.com",
 
