@@ -32,12 +32,20 @@ class ApiClient:
     Generic API client for Swagger client library builds
     """
 
-    def __init__(self, apiKey=None, apiSecret=None, endpoint=None):
-        if type(apiKey) is None:
-            raise Exception('You must pass an apiKey when instantiating the '
-                            'APIClient')
-        self.apiKey = apiKey
-        self.apiSecret = apiSecret
+    def __init__(self, api_key=None, key_secret=None, endpoint=None):
+        """
+        Init method.
+
+        Kwargs:
+            api_key, str: Your generated S4 Api Key (required)
+            key_secret, str: Your generated S4 Secret (required)
+            endpoint, str: The service endpoint (required)
+        """
+        if type(api_key) is None and type(key_secret) is None:
+            raise Exception("You must pass valid 'api_key' and 'key_secret' +"
+                            " when instantiating the APIClient")
+        self.api_key = api_key
+        self.key_secret = key_secret
         self.endpoint = endpoint
 
     def callAPI(self, resourcePath, method, queryParams, postData,
@@ -55,7 +63,7 @@ class ApiClient:
 
         password_mgr = urllib.request.HTTPPasswordMgrWithDefaultRealm()
         password_mgr.add_password(
-            None, resourcePath, self.apiKey, self.apiSecret)
+            None, resourcePath, self.api_key, self.key_secret)
         handler = urllib.request.HTTPBasicAuthHandler(password_mgr)
         opener = urllib.request.build_opener(handler)
         urllib.request.install_opener(opener)
@@ -70,7 +78,7 @@ class ApiClient:
             url = url + '?' + urllib.parse.urlencode(sentQueryParams)
 
         if method in ['GET']:
-            headers = {}
+            headers = headerParams
             data = None
             postData = None
             requestParams = MethodRequest(method=method, url=url)

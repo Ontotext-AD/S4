@@ -44,23 +44,23 @@ class GraphDBApi(object):
             }
         """
 
-        allParams = ['body']
+        allParams = ["body"]
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError("Got an unexpected keyword argument {}" +
                                 " to method create_repository".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         resourcePath = self.apiClient.endpoint + "/repositories"
-        method = 'PUT'
+        method = "PUT"
 
         queryParams = {}
         headerParams = {"Content-Type": "application/json"}
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams)
@@ -77,20 +77,20 @@ class GraphDBApi(object):
         allParams = []
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError("Got an unexpected keyword argument {}" +
                                 " to method get_repo_config".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         resourcePath = self.apiClient.endpoint + "/settings/cache"
-        method = 'GET'
+        method = "GET"
 
         queryParams = {}
         headerParams = {"Content-Type": "application/json"}
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams)
@@ -116,23 +116,23 @@ class GraphDBApi(object):
             }
         """
 
-        allParams = ['body']
+        allParams = ["body"]
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError("Got an unexpected keyword argument {}" +
                                 " to method update_repo_config".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         resourcePath = self.apiClient.endpoint + "/settings/cache"
-        method = 'PUT'
+        method = "PUT"
 
         queryParams = {}
         headerParams = {"Content-Type": "application/json"}
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams)
@@ -149,21 +149,21 @@ class GraphDBApi(object):
             repo_name: String. Name of repository to upload data to
         """
 
-        allParams = ['repo_name']
+        allParams = ["repo_name"]
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError("Got an unexpected keyword argument {}" +
                                 " to method upload_data_file".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        repo_name = (params['repo_name'] if 'repo_name' in params else None)
+        repo_name = (params["repo_name"] if "repo_name" in params else None)
 
-        resourcePath = (self.apiClient.endpoint
-                        + "/repositories/{}/statements".format(repo_name))
-        method = 'POST'
+        resourcePath = (self.apiClient.endpoint +
+                        "/repositories/{}/statements".format(repo_name))
+        method = "POST"
 
         queryParams = {}
         headerParams = {"Content-Type": "application/rdf+xml;charset=UTF-8"}
@@ -174,7 +174,7 @@ class GraphDBApi(object):
                 resourcePath,
                 headers=headerParams,
                 data=postData,
-                auth=(self.apiClient.apiKey, self.apiClient.apiSecret))
+                auth=(self.apiClient.api_key, self.apiClient.key_secret))
 
         return response.content
 
@@ -190,33 +190,33 @@ class GraphDBApi(object):
             XML structure with results of SPARQL Select query
         """
 
-        allParams = ['body', 'repo_name']
+        allParams = ["body", "repo_name"]
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError("Got an unexpected keyword argument {}" +
                                 " to method sparql_select".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        repo_name = (params['repo_name'] if 'repo_name' in params else None)
-        resourcePath = (self.apiClient.endpoint
-                        + "/repositories/{}".format(repo_name))
-        method = 'POST'
+        repo_name = (params["repo_name"] if "repo_name" in params else None)
+        resourcePath = (self.apiClient.endpoint +
+                        "/repositories/{}".format(repo_name))
+        method = "POST"
 
         queryParams = {}
-        headerParams = {"Accept": "application/sparql-results+xml"}
+        headerParams = {"Accept": "application/sparql-results+json"}
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = requests.post(
             resourcePath,
-            headers={'Accept': 'application/sparql-results+xml'},
+            headers=headerParams,
             data=postData,
-            auth=(self.apiClient.apiKey, self.apiClient.apiSecret))
+            auth=(self.apiClient.api_key, self.apiClient.key_secret))
 
-        return response.content
+        return response.content.decode("utf-8")
 
     def sparql_update(self, **kwargs):
         """
@@ -227,31 +227,32 @@ class GraphDBApi(object):
             repo_name: String. Name of repository to upload data to
         """
 
-        allParams = ['body', 'repo_name']
+        allParams = ["body", "repo_name"]
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError("Got an unexpected keyword argument {}" +
                                 " to method sparql_update".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        repo_name = (params['repo_name'] if 'repo_name' in params else None)
-        resourcePath = (self.apiClient.endpoint
-                        + "/repositories/{}/statements".format(repo_name))
-        method = 'POST'
+        repo_name = (params["repo_name"] if "repo_name" in params else None)
+        resourcePath = (self.apiClient.endpoint +
+                        "/repositories/{}/statements".format(repo_name))
+        method = "POST"
 
         queryParams = {}
-        headerParams = {"Content-Type": "application/x-www-form-urlencoded"}
+        headerParams = {"Content-Type": "application/x-www-form-urlencoded",
+                        "Accept": "application/sparql-results+json"}
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = requests.post(
             resourcePath,
-            headers={'Accept': 'application/sparql-results+xml'},
+            headers=headerParams,
             data=postData,
-            auth=(self.apiClient.apiKey, self.apiClient.apiSecret))
+            auth=(self.apiClient.api_key, self.apiClient.key_secret))
 
         return response.content
 
@@ -263,25 +264,25 @@ class GraphDBApi(object):
             repo_name: String. Name of repository to upload data to
         """
 
-        allParams = ['repo_name']
+        allParams = ["repo_name"]
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError("Got an unexpected keyword argument {}" +
                                 " to method sparql_update".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
-        repo_name = (params['repo_name'] if 'repo_name' in params else None)
-        resourcePath = (self.apiClient.endpoint
-                        + "/repositories/{}".format(repo_name))
-        method = 'DELETE'
+        repo_name = (params["repo_name"] if "repo_name" in params else None)
+        resourcePath = (self.apiClient.endpoint +
+                        "/repositories/{}".format(repo_name))
+        method = "DELETE"
 
         queryParams = {}
         headerParams = {}
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams)

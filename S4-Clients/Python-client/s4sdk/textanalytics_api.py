@@ -163,7 +163,7 @@ class TextanalyticsApi(object):
 
         response = requests.post(
             resourcePath,
-            auth=(self.apiClient.apiKey, self.apiClient.apiSecret),
+            auth=(self.apiClient.api_key, self.apiClient.key_secret),
             files=data)
 
         return response.content
