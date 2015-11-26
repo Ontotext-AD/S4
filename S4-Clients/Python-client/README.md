@@ -6,6 +6,7 @@ This is the S4 SDK for Python3. Available APIs:
 
 1. [Text-Analytics Service](http://docs.s4.ontotext.com/display/S4docs/Text+Analytics)
 2. [Fully-Managed GraphDB in the Cloud](http://docs.s4.ontotext.com/display/S4docs/Fully+Managed+Database)
+3. [FactForge](http://docs.s4.ontotext.com/display/S4docs/Knowledge+Graphs)
 
 # Installation
 
