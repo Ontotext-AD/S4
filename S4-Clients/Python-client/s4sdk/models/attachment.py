@@ -16,13 +16,13 @@
 class Attachment:
     def __init__(self):
         self.swaggerTypes = {
-            'headers': 'javax.ws.rs.core.MultivaluedMap<java.lang.String, ' +
-            'java.lang.String>',
-            'object': 'Object',
-            'content_type': 'MediaType',
-            'data_handler': 'DataHandler',
-            'content_id': 'str',
-            'content_disposition': 'ContentDisposition'
+            "headers": "javax.ws.rs.core.MultivaluedMap<java.lang.String, " +
+            "java.lang.String>",
+            "object": "Object",
+            "content_type": "MediaType",
+            "data_handler": "DataHandler",
+            "content_id": "str",
+            "content_disposition": "ContentDisposition"
         }
 
         self.headers = None

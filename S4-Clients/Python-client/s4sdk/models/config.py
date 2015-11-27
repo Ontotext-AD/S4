@@ -16,7 +16,7 @@
 class Config:
     def __init__(self):
         self.swaggerTypes = {
-            'proportions': 'list[null]'
+            "proportions": "list[null]"
         }
 
         self.proportions = None

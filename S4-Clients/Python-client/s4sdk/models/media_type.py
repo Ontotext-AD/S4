@@ -16,11 +16,11 @@
 class MediaType:
     def __init__(self):
         self.swaggerTypes = {
-            'type': 'str',
-            'subtype': 'str',
-            'parameters': 'Map[string,string]',
-            'wildcard_type': 'bool',
-            'wildcard_subtype': 'bool'
+            "type": "str",
+            "subtype": "str",
+            "parameters": "Map[string,string]",
+            "wildcard_type": "bool",
+            "wildcard_subtype": "bool"
         }
 
         self.type = None  # str

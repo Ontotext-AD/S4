@@ -16,8 +16,8 @@
 class ContentDisposition:
     def __init__(self):
         self.swaggerTypes = {
-            'type': 'str',
-            'parameters': 'Map[string,string]'
+            "type": "str",
+            "parameters": "Map[string,string]"
         }
 
         self.type = None  # str

@@ -16,8 +16,8 @@
 class CommandInfo:
     def __init__(self):
         self.swaggerTypes = {
-            'command_class': 'str',
-            'command_name': 'str'
+            "command_class": "str",
+            "command_name": "str"
         }
 
         self.command_class = None  # str

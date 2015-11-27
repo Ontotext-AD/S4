@@ -16,10 +16,10 @@
 class DataSource:
     def __init__(self):
         self.swaggerTypes = {
-            'name': 'str',
-            'input_stream': 'InputStream',
-            'content_type': 'str',
-            'output_stream': 'OutputStream'
+            "name": "str",
+            "input_stream": "InputStream",
+            "content_type": "str",
+            "output_stream": "OutputStream"
         }
 
         self.name = None  # str

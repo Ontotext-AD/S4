@@ -40,13 +40,13 @@ class TextanalyticsApi(object):
         allParams = []
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError(
                     "Got an unexpected keyword argument" +
                     "{} to method test".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         services = ["/twitie", "/sbt", "/news"]
         test_endpoint = self.apiClient.endpoint
@@ -54,12 +54,12 @@ class TextanalyticsApi(object):
             if each in test_endpoint:
                 test_endpoint = test_endpoint[:len(test_endpoint)-len(each)]
         resourcePath = test_endpoint
-        method = 'GET'
+        method = "GET"
 
         queryParams = {}
         headerParams = {}
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams)
@@ -92,20 +92,20 @@ class TextanalyticsApi(object):
             JSON structure with annotated text
         """
 
-        allParams = ['body']
+        allParams = ["body"]
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError(
                     "Got an unexpected keyword argument" +
                     " {} to method process".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         resourcePath = self.apiClient.endpoint
 
-        method = 'POST'
+        method = "POST"
 
         queryParams = {}
         json_head = {"Accept": "application/json",
@@ -119,7 +119,7 @@ class TextanalyticsApi(object):
         else:
             raise ValueError("Please enter a valid output type.")
 
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = self.apiClient.callAPI(resourcePath, method, queryParams,
                                           postData, headerParams)
@@ -145,21 +145,21 @@ class TextanalyticsApi(object):
         allParams = []
 
         params = locals()
-        for (key, val) in params['kwargs'].items():
+        for (key, val) in params["kwargs"].items():
             if key not in allParams:
                 raise TypeError(
                     "Got an unexpected keyword argument {} " +
                     "to method process_multipart_request".format(key))
             params[key] = val
-        del params['kwargs']
+        del params["kwargs"]
 
         resourcePath = self.apiClient.endpoint
-        method = 'POST'
+        method = "POST"
 
         queryParams = {}
         headerParams = {"Content-Type": "multipart/mixed",
                         "Accept": "application/gate+xml"}
-        postData = (params['body'] if 'body' in params else None)
+        postData = (params["body"] if "body" in params else None)
 
         response = requests.post(
             resourcePath,

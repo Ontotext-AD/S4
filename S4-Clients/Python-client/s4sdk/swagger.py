@@ -42,7 +42,7 @@ class ApiClient:
             endpoint, str: The service endpoint (required)
         """
         if type(api_key) is None and type(key_secret) is None:
-            raise Exception("You must pass valid 'api_key' and 'key_secret' +"
+            raise Exception("You must pass valid 'api_key' and 'key_secret' " +
                             " when instantiating the APIClient")
         self.api_key = api_key
         self.key_secret = key_secret
@@ -75,9 +75,9 @@ class ApiClient:
             for param, value in queryParams.items():
                 if type(value) is not None:
                     sentQueryParams[param] = value
-            url = url + '?' + urllib.parse.urlencode(sentQueryParams)
+            url = url + "?" + urllib.parse.urlencode(sentQueryParams)
 
-        if method in ['GET']:
+        if method in ["GET"]:
             headers = headerParams
             data = None
             postData = None
@@ -85,17 +85,17 @@ class ApiClient:
             request = urllib.request.urlopen(requestParams)
             return request.read()
 
-        elif method in ['PATCH', 'POST', 'PUT', 'DELETE']:
+        elif method in ["PATCH", "POST", "PUT", "DELETE"]:
 
             if postData:
                 data = self.sanitizeForSerialization(postData)
                 data = json.dumps(data)
 
         else:
-            raise Exception('Method ' + method + ' is not recognized.')
+            raise Exception("Method " + method + " is not recognized.")
 
         if data:
-            data = data.encode('utf-8')
+            data = data.encode("utf-8")
         requestParams = MethodRequest(method=method, url=url,
                                       headers=headers, data=data)
 
@@ -103,7 +103,7 @@ class ApiClient:
         request = urllib.request.urlopen(requestParams)
         encoding = request.headers.get_content_charset()
         if not encoding:
-            encoding = 'utf-8'
+            encoding = "utf-8"
         response = request.read().decode(encoding)
         # try:
         #     data = json.loads(response)
@@ -121,7 +121,7 @@ class ApiClient:
             string -- quoted value
         """
         if type(obj) == list:
-            return urllib.parse.quote(','.join(obj))
+            return urllib.parse.quote(",".join(obj))
         else:
             return urllib.parse.quote(str(obj))
 
@@ -145,7 +145,7 @@ class ApiClient:
                 objDict = obj.__dict__
             return {key: self.sanitizeForSerialization(val)
                     for (key, val) in objDict.items()
-                    if key != 'swaggerTypes'}
+                    if key != "swaggerTypes"}
 
     def _iso8601Format(self, timesep, microsecond, offset, zulu):
         """
@@ -161,26 +161,26 @@ class ApiClient:
             str - format string for datetime.strptime
         """
 
-        return '%Y-%m-%d{}%H:%M:%S{}{}'.format(
+        return "%Y-%m-%d{}%H:%M:%S{}{}".format(
             timesep,
-            '.%f' if microsecond else '',
-            zulu or ('%z' if offset else ''))
+            ".%f" if microsecond else "",
+            zulu or ("%z" if offset else ""))
 
     # http://xml2rfc.ietf.org/public/rfc/html/rfc3339.html#anchor14
     _iso8601Regex = re.compile(
-        r'^\d\d\d\d-\d\d-\d\d([Tt])\d\d:\d\d:\d\d(\.\d+)?(([Zz])|(\+|-)\d\d:?\d\d)?$')
+        r"^\d\d\d\d-\d\d-\d\d([Tt])\d\d:\d\d:\d\d(\.\d+)?(([Zz])|(\+|-)\d\d:?\d\d)?$")
 
     def _parseDatetime(self, d):
         if d is None:
             return None
         m = ApiClient._iso8601Regex.match(d)
         if not m:
-            raise Exception('datetime regex match failed "%s"' % d)
+            raise Exception("datetime regex match failed {}".format(d))
         timesep, microsecond, offset, zulu, plusminus = m.groups()
         format = self._iso8601Format(timesep, microsecond, offset, zulu)
         if offset and not zulu:
             d = d.rsplit(sep=plusminus, maxsplit=1)[
-                0] + offset.replace(':', '')
+                0] + offset.replace(":", "")
         return datetime.datetime.strptime(d, format)
 
     def deserialize(self, obj, objClass):
@@ -198,16 +198,16 @@ class ApiClient:
         # Have to accept objClass as string or actual type. Type could be a
         # native Python type, or one of the model classes.
         if type(objClass) == str:
-            if 'list[' in objClass:
-                match = re.match('list\[(.*)\]', objClass)
+            if "list[" in objClass:
+                match = re.match("list\[(.*)\]", objClass)
                 subClass = match.group(1)
                 return [self.deserialize(subObj, subClass) for subObj in obj]
 
-            if (objClass in ['int', 'float', 'dict', 'list',
-                             'str', 'bool', 'datetime']):
+            if (objClass in ["int", "float", "dict", "list",
+                             "str", "bool", "datetime"]):
                 objClass = eval(objClass)
             else:  # not a native type, must be model class
-                objClass = eval(objClass + '.' + objClass)
+                objClass = eval(objClass + "." + objClass)
 
         if objClass in [int, float, dict, list, str, bool]:
             return objClass(obj)
@@ -220,7 +220,7 @@ class ApiClient:
 
             if attr in obj:
                 value = obj[attr]
-                if attrType in ['str', 'int', 'float', 'bool']:
+                if attrType in ["str", "int", "float", "bool"]:
                     attrType = eval(attrType)
                     try:
                         value = attrType(value)
@@ -229,10 +229,10 @@ class ApiClient:
                     except TypeError:
                         value = value
                     setattr(instance, attr, value)
-                elif (attrType == 'datetime'):
+                elif (attrType == "datetime"):
                     setattr(instance, attr, self._parseDatetime(value))
-                elif 'list[' in attrType:
-                    match = re.match('list\[(.*)\]', attrType)
+                elif "list[" in attrType:
+                    match = re.match("list\[(.*)\]", attrType)
                     subClass = match.group(1)
                     subValues = []
                     if not value:
@@ -257,9 +257,9 @@ class MethodRequest(urllib.request.Request):
         keyword argument. If supplied, `method` will be used instead of
         the default."""
 
-        if 'method' in kwargs:
-            self.method = kwargs.pop('method')
+        if "method" in kwargs:
+            self.method = kwargs.pop("method")
         return urllib.request.Request.__init__(self, *args, **kwargs)
 
     def get_method(self):
-        return getattr(self, 'method', urllib.request.Request.get_method(self))
+        return getattr(self, "method", urllib.request.Request.get_method(self))

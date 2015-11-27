@@ -16,9 +16,9 @@
 class Create:
     def __init__(self):
         self.swaggerTypes = {
-            'repository_id': 'str',
-            'label': 'str',
-            'ruleset': 'str'
+            "repository_id": "str",
+            "label": "str",
+            "ruleset": "str"
         }
 
         self.repository_id = None  # str

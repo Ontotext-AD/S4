@@ -16,13 +16,13 @@
 class ServiceRequest:
     def __init__(self):
         self.swaggerTypes = {
-            'image_tagging': 'bool',
-            'image_categorization': 'bool',
-            'document': 'str',
-            'document_url': 'str',
-            'annotation_selectors': 'list[str]',
-            'document_type': 'str',
-            'pipeline_id': 'str'
+            "image_tagging": "bool",
+            "image_categorization": "bool",
+            "document": "str",
+            "document_url": "str",
+            "annotation_selectors": "list[str]",
+            "document_type": "str",
+            "pipeline_id": "str"
         }
 
         self.image_tagging = None  # bool

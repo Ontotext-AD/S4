@@ -16,22 +16,22 @@
 class DataFlavor:
     def __init__(self):
         self.swaggerTypes = {
-            'human_presentable_name': 'str',
-            'sub_type': 'str',
-            'mime_type': 'str',
-            'default_representation_class_as_string': 'str',
-            'primary_type': 'str',
-            'flavor_java_file_list_type': 'bool',
-            'flavor_remote_object_type': 'bool',
-            'flavor_serialized_object_type': 'bool',
-            'flavor_text_type': 'bool',
-            'mime_type_serialized_object': 'bool',
-            'representation_class_byte_buffer': 'bool',
-            'representation_class_char_buffer': 'bool',
-            'representation_class_input_stream': 'bool',
-            'representation_class_reader': 'bool',
-            'representation_class_remote': 'bool',
-            'representation_class_serializable': 'bool'
+            "human_presentable_name": "str",
+            "sub_type": "str",
+            "mime_type": "str",
+            "default_representation_class_as_string": "str",
+            "primary_type": "str",
+            "flavor_java_file_list_type": "bool",
+            "flavor_remote_object_type": "bool",
+            "flavor_serialized_object_type": "bool",
+            "flavor_text_type": "bool",
+            "mime_type_serialized_object": "bool",
+            "representation_class_byte_buffer": "bool",
+            "representation_class_char_buffer": "bool",
+            "representation_class_input_stream": "bool",
+            "representation_class_reader": "bool",
+            "representation_class_remote": "bool",
+            "representation_class_serializable": "bool"
         }
 
         self.human_presentable_name = None  # str

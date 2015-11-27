@@ -16,15 +16,15 @@
 class DataHandler:
     def __init__(self):
         self.swaggerTypes = {
-            'data_source': 'DataSource',
-            'name': 'str',
-            'input_stream': 'InputStream',
-            'content': 'Object',
-            'content_type': 'str',
-            'output_stream': 'OutputStream',
-            'all_commands': 'list[CommandInfo]',
-            'preferred_commands': 'list[CommandInfo]',
-            'transfer_data_flavors': 'list[DataFlavor]'
+            "data_source": "DataSource",
+            "name": "str",
+            "input_stream": "InputStream",
+            "content": "Object",
+            "content_type": "str",
+            "output_stream": "OutputStream",
+            "all_commands": "list[CommandInfo]",
+            "preferred_commands": "list[CommandInfo]",
+            "transfer_data_flavors": "list[DataFlavor]"
 
         }
         self.data_source = None  # DataSource
