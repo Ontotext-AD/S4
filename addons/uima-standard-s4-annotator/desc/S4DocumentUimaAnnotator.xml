@@ -66,16 +66,16 @@ License along with this library.-->
                 <name>API_KEY_ID</name>
                 <value>
                     <string>
-					    <!-- Insert your S4 API key ID here (e.g. s4xxxxxxxxxx)-->
-					</string>
+                        <!-- Insert your S4 API key ID here (e.g. s4xxxxxxxxxx)-->
+                    </string>
                 </value>
             </nameValuePair>
             <nameValuePair>
                 <name>API_PASSWORD</name>
                 <value>
                     <string>
-					    <!-- Insert your S4 API key secret here (15 symbol string) -->
-					</string>
+                        <!-- Insert your S4 API key secret here (15 symbol string) -->
+                    </string>
                 </value>
             </nameValuePair>
         </configurationParameterSettings>
