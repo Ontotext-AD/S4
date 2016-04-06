@@ -49,25 +49,33 @@ License along with this library.-->
             <nameValuePair>
                 <name>S4_SERVICE_ENDPOINT</name>
                 <value>
-                    <!-- 
-                         Insert S4 service you want to call at the end of the url.
-                         Possible options: news, sbt, twitie
-                    -->
-                    <string>https://text.s4.ontotext.com/v1/</string>
+                   <!--
+                       Insert the S4 service URL you want to use. Supported services are: 
+                          https://text.s4.ontotext.com/v1/news 
+                          https://text.s4.ontotext.com/v1/sbt
+                          https://text.s4.ontotext.com/v1/twitie
+ 
+                       The example below demonstrates the use of the News annotation service.
+                   -->
+                   <string>
+                      https://text.s4.ontotext.com/v1/news
+                   </string>
                 </value>
             </nameValuePair>
             <nameValuePair>
                 <name>API_KEY_ID</name>
                 <value>
-                    <!-- Insert your S4 API key ID here -->
-                    <string></string>
+                    <string>
+					    <!-- Insert your S4 API key ID here (e.g. s4xxxxxxxxxx)-->
+					</string>
                 </value>
             </nameValuePair>
             <nameValuePair>
                 <name>API_PASSWORD</name>
                 <value>
-                    <!-- Insert your S4 API password here -->
-                    <string></string>
+                    <string>
+					    <!-- Insert your S4 API key secret here (15 symbol string) -->
+					</string>
                 </value>
             </nameValuePair>
         </configurationParameterSettings>
