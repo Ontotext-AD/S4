@@ -27,9 +27,9 @@ public class ClassificationCategory {
 	
 	public ClassificationCategory() {}
 	
-	public ClassificationCategory(String category, double conficence) {
+	public ClassificationCategory(String category, double score) {
 		this.label = category;
-		this.score = conficence;
+		this.score = score;
 	}
 
 	public String getLabel() {

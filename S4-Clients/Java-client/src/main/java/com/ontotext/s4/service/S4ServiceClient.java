@@ -479,7 +479,7 @@ public class S4ServiceClient {
 		}
 		String inFile = params.getValue("file");
 		String url = params.getValue("url");
-		String outFile = params.getValue("out", "result.txt");
+		String outFile = params.getValue("out", "result.json");
 
 		if (inFile != null) {
 			if (!new File(inFile).exists()) {
@@ -501,10 +501,17 @@ public class S4ServiceClient {
 		S4ServiceClient client = new S4ServiceClient(service, creds.getProperty("apikey"), creds.getProperty("secret"));
 
 		try {
-			InputStream resultData = (inFile != null) ?
-					client.annotateFileContentsAsStream(new File(inFile), Charset.forName("UTF-8"), mimetype, ResponseFormat.JSON)
-					: client.annotateDocumentFromUrlAsStream(new URL(url), mimetype, ResponseFormat.JSON);
-			
+			InputStream resultData = null;
+			if (service.getName().equals("news-classifier")) {
+				resultData = (inFile != null) ?
+						client.classifyFileContentsAsStream(new File(inFile), Charset.forName("UTF-8"), mimetype)
+						: client.classifyDocumentFromUrlAsStream(new URL(url), mimetype);
+			}
+			else {
+				resultData = (inFile != null) ?
+						client.annotateFileContentsAsStream(new File(inFile), Charset.forName("UTF-8"), mimetype, ResponseFormat.JSON)
+						: client.annotateDocumentFromUrlAsStream(new URL(url), mimetype, ResponseFormat.JSON);
+			}
 			FileOutputStream outStream = new FileOutputStream(outFile);
 			IOUtils.copy(resultData, outStream);
 			
@@ -527,8 +534,8 @@ public class S4ServiceClient {
 		System.out.println("  service - the service id to be used (one of: 'TwitIE', 'SBT', 'news' and 'news-classifier')");
 		System.out.println("  file    - input file path");
 		System.out.println("  url     - input document URL");
-		System.out.println("  dtype   - the MIME type of the document (one of:'text/plain', 'text/html', 'application/xml', 'text/xml', 'text/x-pubmed', 'text/x-pubmed', 'text/x-cochrane', 'text/x-mediawiki', 'text/x-json-twitter')");
-		System.out.println("  out     - result file name. Defaults to 'result.txt'");
+		System.out.println("  dtype   - the type of the document (one of:'PLAINTEXT', 'HTML', 'XML_APPLICATION', 'XML_TEXT', 'PUBMED', 'COCHRANE', 'MEDIAWIKI', 'TWITTER_JSON')");
+		System.out.println("  out     - result file name. Defaults to 'result.json'");
 		System.out.println("  apikey  - the api key if credentials file is not used");
 		System.out.println("  secret  - the api secret if credentials file is not used");
 		System.out.println("  creds   - credentails file path (if apikey and secret parameters are not used)");

@@ -8,12 +8,11 @@ A Java client library and command-line tool for the [S4 REST API][1].
 ```
  S4ClientService parameter1=value1 parameter2=value2 ...
  Parameters:
-	service - the service id to be used (one of: 'TwitIE', 'SBT' and 'news')
+	service - the service id to be used (one of: 'TwitIE', 'SBT', 'news' and 'news-classifier')
 	file	- input file path
 	url     - input document URL
-	dtype   - the MIME type of the document (one of:'text/plain', 'text/html', 'application/xml', 'text/xml',
-	          'text/x-pubmed', 'text/x-pubmed', 'text/x-cochrane', 'text/x-mediawiki', 'text/x-json-twitter')
-	out     - result file name. Defaults to 'result.txt'
+	dtype   - the type of the document (one of:'PLAINTEXT', 'HTML', 'XML_APPLICATION', 'XML_TEXT', 'PUBMED', 'COCHRANE', 'MEDIAWIKI', 'TWITTER_JSON')
+	out     - result file name. Defaults to 'result.json'
 	apikey  - the api key if credentials file is not used
 	secret  - the api secret if credentials file is not used
 	creds   - credentails file path (if apikey and secret parameters are not used)
@@ -30,6 +29,6 @@ Documentation can be found on [the S4 wiki][2]:
 
 
   [1]: http://docs.s4.ontotext.com/display/S4docs/REST+APIs
-  [2]: http://docs.s4.ontotext.com/display/S4docs/Java+Client+API
-  [3]: http://docs.s4.ontotext.com/display/S4docs/Java+Client+API
+  [2]: http://docs.s4.ontotext.com
+  [3]: http://docs.s4.ontotext.com/display/S4docs/Java+SDK
   [4]: http://ontotext-ad.github.io/S4/java-client/javadoc/
