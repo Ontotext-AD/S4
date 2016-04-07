@@ -29,6 +29,6 @@ Documentation can be found on [the S4 wiki][2]:
 
 
   [1]: http://docs.s4.ontotext.com/display/S4docs/REST+APIs
-  [2]: http://docs.s4.ontotext.com
+  [2]: http://docs.s4.ontotext.com/display/S4docs/S4+Overview
   [3]: http://docs.s4.ontotext.com/display/S4docs/Java+SDK
   [4]: http://ontotext-ad.github.io/S4/java-client/javadoc/
