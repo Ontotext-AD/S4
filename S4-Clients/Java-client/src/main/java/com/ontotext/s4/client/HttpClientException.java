@@ -1,19 +1,18 @@
 /*
  * S4 Java client library
- * Copyright (c) 2014, Ontotext AD, All rights reserved.
+ * Copyright 2016 Ontotext AD
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3.0 of the License, or (at your option) any later version.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ontotext.s4.client;
 
@@ -29,44 +28,44 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 public class HttpClientException extends RuntimeException {
 
-  private static final long serialVersionUID = -7227598956545774156L;
+    private static final long serialVersionUID = -7227598956545774156L;
 
-  /**
-   * The JSON error response message, if applicable.
-   */
-  private JsonNode response;
+    /**
+    * The JSON error response message, if applicable.
+    */
+    private JsonNode response;
 
-  public HttpClientException() {
-  }
+    public HttpClientException() {
+    }
 
-  public HttpClientException(String message) {
-    super(message);
-  }
+    public HttpClientException(String message) {
+    	super(message);
+    }
 
-  public HttpClientException(Throwable cause) {
-    super(cause);
-  }
+    public HttpClientException(Throwable cause) {
+    	super(cause);
+    }
 
-  public HttpClientException(String message, Throwable cause) {
-    super(message, cause);
-  }
+    public HttpClientException(String message, Throwable cause) {
+    	super(message, cause);
+    }
 
-  public HttpClientException(String message, JsonNode response) {
-    super(message);
-    this.response = response;
-  }
+    public HttpClientException(String message, JsonNode response) {
+        super(message);
+        this.response = response;
+    }
 
-  /**
-   * If this exception resulted from a 4xx or 5xx error response from
-   * the server, this method provides access to the response body.
-   * 
-   * @return the error response body as a Jackson {@link JsonNode}, or
-   *         <code>null</code> if no response is available (e.g. if this
-   *         exception wraps an IOException rather than representing an
-   *         error response from the server).
-   */
-  public JsonNode getResponse() {
-    return response;
-  }
+    /**
+    * If this exception resulted from a 4xx or 5xx error response from
+    * the server, this method provides access to the response body.
+    *
+    * @return the error response body as a Jackson {@link JsonNode}, or
+    *         <code>null</code> if no response is available (e.g. if this
+    *         exception wraps an IOException rather than representing an
+    *         error response from the server).
+    */
+    public JsonNode getResponse() {
+    	return response;
+    }
 
 }

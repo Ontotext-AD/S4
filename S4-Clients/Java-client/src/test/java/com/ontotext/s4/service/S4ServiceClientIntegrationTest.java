@@ -1,19 +1,19 @@
-/* Self-Service Semantic Suite
-Copyright (c) 2014, Ontotext AD, All rights reserved.
-
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 3.0 of the License, or (at your option) any later version.
-
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public
-License along with this library.
-*/
+/*
+ * S4 Java client library
+ * Copyright 2016 Ontotext AD
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.ontotext.s4.service;
 
@@ -25,11 +25,8 @@ import static org.junit.Assert.*;
 
 import java.net.MalformedURLException;
 
-import com.ontotext.s4.service.AnnotatedDocument;
-import com.ontotext.s4.service.S4ServiceClient;
-import com.ontotext.s4.service.ServiceRequest;
-import com.ontotext.s4.service.ResponseFormat;
-import com.ontotext.s4.service.SupportedMimeType;
+import com.ontotext.s4.catalog.ServiceDescriptor;
+import com.ontotext.s4.catalog.ServicesCatalog;
 
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -39,73 +36,307 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 import org.apache.commons.io.IOUtils;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class S4ServiceClientIntegrationTest {
 
-	private static final String testApiKeyId = "";
-	private static final String testApiKeyPass = "";
-	private static final String pipelineEndpoint = "https://text.s4.ontotext.com/v1/twitie";
+	final static String testApiKeyId = "";
+	final static String testApiKeyPass = "";
 
+	final static ServiceDescriptor descriptor = ServicesCatalog.getItem("twitie");
 
-	private S4ServiceClient api;
+    String documentText;
+    SupportedMimeType documentMimeType;
+    ResponseFormat serializationFormat;
 
-	public S4ServiceClientIntegrationTest() throws MalformedURLException {
-		this.api = new S4ServiceClient(new URL(pipelineEndpoint), testApiKeyId, testApiKeyPass);
+	static S4ServiceClient apiDesc;
+    static S4ServiceClient apiUrl;
+
+    @BeforeClass
+	public static void setUpBeforeClass() throws MalformedURLException {
+        final URL url = new URL("https://text.s4.ontotext.com/v1/twitie");
+
+		apiDesc = new S4ServiceClient(descriptor, testApiKeyId, testApiKeyPass);
+        apiUrl = new S4ServiceClient(url, testApiKeyId, testApiKeyPass);
 	}
 
+    @Before
+    public void setUp() {
+        documentText = "Barack Obama is the president of the USA.";
+        documentMimeType = SupportedMimeType.PLAINTEXT;
+    }
 
 	@Test
-	public void testAnnotateDocument() throws Exception {
-		String documentText = "Barack Obama is the president of the USA";
-		SupportedMimeType documentMimeType = SupportedMimeType.PLAINTEXT;
-		AnnotatedDocument result = api.annotateDocument(documentText, documentMimeType);
-		assertEquals(result.text, documentText);
-		assertNotNull(result.entities);
-		assertTrue(result.entities.size() > 0);
-	}	
-
-	@Test 
-	public void testAnnotateDocumentFromUrl() throws Exception {
-		AnnotatedDocument result = api.annotateDocumentFromUrl(new URL("http://en.wikipedia.org/wiki/Jimi_Hendrix"), SupportedMimeType.HTML);
-		assertTrue(result.text.contains("Hendrix"));
+	public void testAnnotateDocumentDescClient() throws Exception {
+		AnnotatedDocument result = apiDesc.annotateDocument(documentText, documentMimeType);
+		assertEquals(result.getText(), documentText);
+		assertNotNull(result.getEntities());
+		assertTrue(result.getEntities().size() > 0);
 	}
 
-	@Test 
-	public void testAnnotateFileContents() throws Exception {
+    @Test
+    public void testClassifyDocumentDescClient() throws Exception {
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+
+        ClassifiedDocument result = client.classifyDocument(documentText, documentMimeType);
+        assertNotNull(result.getCategory());
+        assertEquals(3, result.getAllScores().size());
+    }
+
+	@Test
+	public void testAnnotateDocumentFromUrlDescClient() throws Exception {
+        URL example = new URL("https://en.wikipedia.org/wiki/Christian_Slater");
+		AnnotatedDocument result = apiDesc.annotateDocumentFromUrl(example, SupportedMimeType.HTML);
+		assertTrue(result.getText().contains("Christian Slater"));
+	}
+
+    @Test
+    public void testClassifyDocumentFromUrlDescClient() throws Exception {
+        URL example = new URL("https://en.wikipedia.org/wiki/Christian_Slater");
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+
+        ClassifiedDocument result = client.classifyDocumentFromUrl(example, SupportedMimeType.HTML);
+
+        assertNotNull(result.getCategory());
+        assertEquals(3, result.getAllScores().size());
+    }
+
+	@Test
+	public void testAnnotateFileContentsDescClient() throws Exception {
 		File f = new File("test-file");
 		try {
 			Path p = f.toPath();
-			ArrayList<String> lines = new ArrayList<String>(1);
-			lines.add("Barack Obama is the president of the USA.");
+			ArrayList<String> lines = new ArrayList<>(1);
+			lines.add(documentText);
 			Files.write(p, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
-			AnnotatedDocument result = api.annotateFileContents(f, Charset.forName("UTF-8"), SupportedMimeType.PLAINTEXT);
-			assertTrue(result.text.contains("Barack"));
+			AnnotatedDocument result = apiDesc.annotateFileContents(f, Charset.forName("UTF-8"), documentMimeType);
+			assertTrue(result.getText().contains("Barack"));
 		} finally {
 			f.delete();
 		}
 	}
-	
+
+    @Test
+    public void testClassifyFileContentsDescClient() throws Exception {
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+
+        File f = new File("test-file");
+        try {
+            Path p = f.toPath();
+            ArrayList<String> lines = new ArrayList<>(1);
+            lines.add(documentText);
+            Files.write(p, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+            ClassifiedDocument result = client.classifyFileContents(f, Charset.forName("UTF-8"), documentMimeType);
+            assertNotNull(result.getCategory());
+            assertEquals(3, result.getAllScores().size());
+        }
+        finally {
+            f.delete();
+        }
+    }
+
 	@Test
-	public void testAnnotateDocumentAsStream() throws Exception {
-		String documentText = "Barack Obama is the president of the USA";
-		SupportedMimeType documentMimeType = SupportedMimeType.PLAINTEXT;
-		ResponseFormat serializationFormat = ResponseFormat.JSON;
-		InputStream result = api.annotateDocumentAsStream(documentText, documentMimeType, serializationFormat);
+	public void testAnnotateDocumentAsStreamDescClient() throws Exception {
+		serializationFormat = ResponseFormat.JSON;
+		InputStream result = apiDesc.annotateDocumentAsStream(documentText, documentMimeType, serializationFormat);
 		StringWriter w = new StringWriter();
 		IOUtils.copy(result, w, Charset.forName("UTF-8"));
+
 		assertTrue(w.toString().contains("Barack"));
 	}
-	
+
+    @Test
+    public void testClassifyDocumentAsStreamDescClient() throws Exception {
+         InputStream result = apiDesc.classifyDocumentAsStream(documentText, documentMimeType);
+        StringWriter w = new StringWriter();
+        IOUtils.copy(result, w, Charset.forName("UTF-8"));
+
+        assertTrue(w.toString().contains("Barack"));
+    }
+
 	@Test
-	public void testProcessRequestForStream() throws Exception {
-		String documentText = "Barack Obama is the president of the USA";
-		ResponseFormat serializationFormat = ResponseFormat.GATE_XML;		
-		ServiceRequest rq = new ServiceRequest(documentText, SupportedMimeType.PLAINTEXT, null);
-		InputStream result = api.processRequestForStream(rq, serializationFormat, false);
+	public void testProcessRequestForStreamDescClient() throws Exception {
+		serializationFormat = ResponseFormat.GATE_XML;
+		ServiceRequest rq = new ServiceRequest(documentText, documentMimeType);
+		InputStream result = apiDesc.processRequestForStream(rq, serializationFormat, false);
 		StringWriter w = new StringWriter();
 		IOUtils.copy(result, w, Charset.forName("UTF-8"));
-		
+
 		assertTrue(w.toString().contains("Barack"));
 	}
+
+    @Test
+    public void testClassifyDocumentFromUrlAsStreamDescClient() throws Exception {
+        URL example = new URL("https://en.wikipedia.org/wiki/Christian_Slater");
+        InputStream result = apiDesc.classifyDocumentFromUrlAsStream(example, SupportedMimeType.HTML);
+        StringWriter w = new StringWriter();
+        IOUtils.copy(result, w, Charset.forName("UTF-8"));
+
+        assertTrue(w.toString().contains("Slater"));
+    }
+
+    @Test
+    public void testClassifyFileContentsAsStreamDescClient() throws Exception {
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+        serializationFormat = ResponseFormat.JSON;
+        File f = new File("test-file");
+        try {
+            Path p = f.toPath();
+            ArrayList<String> lines = new ArrayList<>(1);
+            lines.add(documentText);
+            Files.write(p, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+
+            InputStream result = client.annotateFileContentsAsStream(f, Charset.forName("UTF-8"), SupportedMimeType.PLAINTEXT, serializationFormat);
+            StringWriter writer = new StringWriter();
+            IOUtils.copy(result, writer, Charset.forName("UTF-8"));
+
+            assertTrue(writer.toString().contains("category"));
+            assertTrue(writer.toString().contains("allScores"));
+        }
+        finally {
+            f.delete();
+        }
+    }
+
+    @Test
+    public void testAnnotateDocumentUrlClient() throws Exception {
+        AnnotatedDocument result = apiUrl.annotateDocument(documentText, documentMimeType);
+        assertEquals(result.getText(), documentText);
+        assertNotNull(result.getEntities());
+        assertTrue(result.getEntities().size() > 0);
+    }
+
+    @Test
+    public void testClassifyDocumentUrlClient() throws Exception {
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+
+        ClassifiedDocument result = client.classifyDocument(documentText, documentMimeType);
+        assertNotNull(result.getCategory());
+        assertEquals(3, result.getAllScores().size());
+    }
+
+    @Test
+    public void testAnnotateDocumentFromUrlUrlClient() throws Exception {
+        URL example = new URL("https://en.wikipedia.org/wiki/Christian_Slater");
+        AnnotatedDocument result = apiUrl.annotateDocumentFromUrl(example, SupportedMimeType.HTML);
+        assertTrue(result.getText().contains("Christian Slater"));
+    }
+
+    @Test
+    public void testClassifyDocumentFromUrlUrlClient() throws Exception {
+        URL example = new URL("https://en.wikipedia.org/wiki/Christian_Slater");
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+
+        ClassifiedDocument result = client.classifyDocumentFromUrl(example, SupportedMimeType.HTML);
+
+        assertNotNull(result.getCategory());
+        assertEquals(3, result.getAllScores().size());
+    }
+
+    @Test
+    public void testAnnotateFileContentsUrlClient() throws Exception {
+        File f = new File("test-file");
+        try {
+            Path p = f.toPath();
+            ArrayList<String> lines = new ArrayList<>(1);
+            lines.add(documentText);
+            Files.write(p, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+            AnnotatedDocument result = apiUrl.annotateFileContents(f, Charset.forName("UTF-8"), documentMimeType);
+            assertTrue(result.getText().contains("Barack"));
+        } finally {
+            f.delete();
+        }
+    }
+
+    @Test
+    public void testClassifyFileContentsUrlClient() throws Exception {
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+
+        File f = new File("test-file");
+        try {
+            Path p = f.toPath();
+            ArrayList<String> lines = new ArrayList<>(1);
+            lines.add(documentText);
+            Files.write(p, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+            ClassifiedDocument result = client.classifyFileContents(f, Charset.forName("UTF-8"), documentMimeType);
+            assertNotNull(result.getCategory());
+            assertEquals(3, result.getAllScores().size());
+        }
+        finally {
+            f.delete();
+        }
+    }
+
+    @Test
+    public void testAnnotateDocumentAsStreamUrlClient() throws Exception {
+        serializationFormat = ResponseFormat.JSON;
+        InputStream result = apiUrl.annotateDocumentAsStream(documentText, documentMimeType, serializationFormat);
+        StringWriter w = new StringWriter();
+        IOUtils.copy(result, w, Charset.forName("UTF-8"));
+
+        assertTrue(w.toString().contains("Barack"));
+    }
+
+    @Test
+    public void testClassifyDocumentAsStreamUrlClient() throws Exception {
+        InputStream result = apiUrl.classifyDocumentAsStream(documentText, documentMimeType);
+        StringWriter w = new StringWriter();
+        IOUtils.copy(result, w, Charset.forName("UTF-8"));
+
+        assertTrue(w.toString().contains("Barack"));
+    }
+
+    @Test
+    public void testProcessRequestForStreamUrlClient() throws Exception {
+        serializationFormat = ResponseFormat.GATE_XML;
+        ServiceRequest rq = new ServiceRequest(documentText, documentMimeType);
+        InputStream result = apiUrl.processRequestForStream(rq, serializationFormat, false);
+        StringWriter w = new StringWriter();
+        IOUtils.copy(result, w, Charset.forName("UTF-8"));
+
+        assertTrue(w.toString().contains("Barack"));
+    }
+
+    @Test
+    public void testClassifyDocumentFromUrlAsStreamUrlClient() throws Exception {
+        URL example = new URL("https://en.wikipedia.org/wiki/Christian_Slater");
+        InputStream result = apiUrl.classifyDocumentFromUrlAsStream(example, SupportedMimeType.HTML);
+        StringWriter w = new StringWriter();
+        IOUtils.copy(result, w, Charset.forName("UTF-8"));
+
+        assertTrue(w.toString().contains("Slater"));
+    }
+
+    @Test
+    public void testClassifyFileContentsAsStreamUrlClient() throws Exception {
+        ServiceDescriptor temp = ServicesCatalog.getItem("news-classifier");
+        S4ServiceClient client = new S4ServiceClient(temp, testApiKeyId, testApiKeyPass);
+        serializationFormat = ResponseFormat.JSON;
+        File f = new File("test-file");
+        try {
+            Path p = f.toPath();
+            ArrayList<String> lines = new ArrayList<>(1);
+            lines.add(documentText);
+            Files.write(p, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE);
+
+            InputStream result = client.annotateFileContentsAsStream(f, Charset.forName("UTF-8"), SupportedMimeType.PLAINTEXT, serializationFormat);
+            StringWriter writer = new StringWriter();
+            IOUtils.copy(result, writer, Charset.forName("UTF-8"));
+
+            assertTrue(writer.toString().contains("category"));
+            assertTrue(writer.toString().contains("allScores"));
+        }
+        finally {
+            f.delete();
+        }
+    }
 }

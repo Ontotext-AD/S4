@@ -14,25 +14,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.ontotext.s4.service;
 
 /**
- * Enumeration of the valid response types accepted by the S4 API.
+ * A single categorization entry containing the category label and the confidence score.
  */
-public enum ResponseFormat {
-    JSON("application/json"),
+public class ClassificationCategory {
+	
+	private String label;
+	private double score;
+	
+	public ClassificationCategory() {}
+	
+	public ClassificationCategory(String category, double conficence) {
+		this.label = category;
+		this.score = conficence;
+	}
 
-    GATE_JSON("application/gate+json"),
+	public String getLabel() {
+		return label;
+	}
 
-    GATE_XML("application/gate+xml");
+	public void setLabel(String category) {
+		this.label = category;
+	}
 
-    /**
-     * The HTTP "Accept" header corresponding to this response format.
-     */
-    public final String acceptHeader;
+	public double getScore() {
+		return score;
+	}
 
-    private ResponseFormat(String acceptHeader) {
-        this.acceptHeader = acceptHeader;
-    }
+	public void setScore(double confidence) {
+		this.score = confidence;
+	}
+
 
 }

@@ -1,135 +1,92 @@
 /*
  * S4 Java client library
- * Copyright (c) 2014, Ontotext AD, All rights reserved.
+ * Copyright 2016 Ontotext AD
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 3.0 of the License, or (at your option) any later version.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library.
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package com.ontotext.s4.service;
 
 import java.net.URL;
-import java.util.LinkedList;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
  * Class representing the request format for the S4 online API.
- * 
  */
 public class ServiceRequest {
 
-  /**
-   * The document text to annotate.
-   */
-  @JsonInclude(Include.NON_NULL)
-  private String document;
+    /**
+    * The document text to annotate.
+    */
+    @JsonInclude(Include.NON_NULL)
+    private String document;
 
-  /**
-   * The URL of a remote document to annotate.
-   */
-  @JsonInclude(Include.NON_NULL)
-  private String documentUrl;
+    /**
+    * The URL of a remote document to annotate.
+    */
+    @JsonInclude(Include.NON_NULL)
+    private String documentUrl;
 
-  /**
-   * The MIME type that the document should be parsed as by the service.
-   */
-  private String documentType;
+    /**
+    * The MIME type that the document should be parsed as by the service.
+    */
+    private String documentType;
 
-  /**
-   * Annotation selector expressions representing the annotations to
-   * return.
-   */
-  @JsonInclude(Include.NON_NULL)
-  private List<String> annotationSelectors;
-
-  /**
-   * Construct a request for the online service to annotate a document
-   * provided as part of the request.
-   * 
-   * @param document the content to process.
-   * @param type the MIME type that the service should use to parse the
-   *          document.
-   * @param annotationSelectors annotations to return. Leave as
-   *          <code>null</code> to use the default selectors recommended
-   *          by the pipeline provider.
-   */
-  public ServiceRequest(String document, SupportedMimeType type,
-          List<AnnotationSelector> annotationSelectors) {
-    this.document = document;
-    this.documentType = type.value;
-    if(annotationSelectors != null) {
-      this.annotationSelectors = new LinkedList<String>();
-      for(AnnotationSelector as : annotationSelectors) {
-        this.annotationSelectors.add(as.toString());
-      }
+    /**
+    * Construct a request for the online service to annotate or classify a document provided as part of the request.
+    *
+    * @param document the content to process.
+    * @param type the MIME type that the service should use to parse the document.
+    */
+    public ServiceRequest(String document, SupportedMimeType type) {
+        this.document = document;
+        this.documentType = type.value;
     }
-  }
 
-  /**
-   * Construct a request for the online service to annotate a document
-   * it downloads directly from a remote URL.
-   * 
-   * @param documentUrl the URL from which the document should be
-   *          downloaded. This must be accessible to the service so it
-   *          must not require authentication credentials etc. (but it
-   *          may be, for example, a pre-signed Amazon S3 URL).
-   * @param type the MIME type that the service should use to parse the
-   *          document.
-   * @param annotationSelectors annotations to return. Leave as
-   *          <code>null</code> to use the default selectors recommended
-   *          by the pipeline provider.
-   */
-  public ServiceRequest(URL documentUrl, SupportedMimeType type,
-          List<AnnotationSelector> annotationSelectors) {
-    this.documentUrl = documentUrl.toString();
-    this.documentType = type.value;
-    if(annotationSelectors != null) {
-      this.annotationSelectors = new LinkedList<String>();
-      for(AnnotationSelector as : annotationSelectors) {
-        this.annotationSelectors.add(as.toString());
-      }
+    /**
+    * Construct a request for the online service to annotate or classify a document downloaded directly from a remote URL.
+    *
+    * @param documentUrl the URL from which the document should be
+    *          downloaded. This must be accessible to the service so it
+    *          must not require authentication credentials etc. (but it
+    *          may be, for example, a pre-signed Amazon S3 URL).
+    * @param type the MIME type that the service should use to parse the document.
+    */
+    public ServiceRequest(URL documentUrl, SupportedMimeType type) {
+        this.documentUrl = documentUrl.toString();
+        this.documentType = type.value;
     }
-  }
 
-  /**
-   * @return the text of the document to annotate.
-   */
-  public String getDocument() {
-    return document;
-  }
 
-  /**
-   * @return the URL of the document to annotate.
-   */
-  public String getDocumentUrl() {
-    return documentUrl;
-  }
+    public String getDocument() {
+        return document;
+    }
+    public void setDocument(String document) {
+        this.document = document;
+    }
 
-  /**
-   * @return the MIME type that will be used to interpret the document.
-   */
-  public String getDocumentType() {
-    return documentType;
-  }
+    public String getDocumentUrl() {
+        return documentUrl;
+    }
+    public void setDocumentUrl(String documentUrl) {
+        this.documentUrl = documentUrl;
+    }
 
-  /**
-   * @return annotation selectors denoting the annotations to return. If
-   *         <code>null</code> the default selectors specified by the
-   *         pipeline provider will be used.
-   */
-  public List<String> getAnnotationSelectors() {
-    return annotationSelectors;
-  }
+    public String getDocumentType() {
+        return documentType;
+    }
+    public void setDocumentType(String documentType) {
+        this.documentType = documentType;
+    }
 }
