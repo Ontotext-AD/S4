@@ -22,9 +22,9 @@ limitations under the License. -->
     <version>1.1.0</version>
     <groupId>com.ontotext.s4</groupId>
     <packaging>jar</packaging>
-    <name>S4 API Client</name>
-    <description>The Self-Service Semantic Suite (S4) provides a set of services for low-cost,
-        on-demand text analytics and metadata management in the cloud.
+    <name>S4 Java SDK</name>
+    <description>The Self-Service Semantic Suite (S4) provides a set of services for on-demand and low-cost
+        smart data management in the cloud.
     </description>
     <url>https://s4.ontotext.com</url>
 
