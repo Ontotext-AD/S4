@@ -1,16 +1,17 @@
-# Copyright 2015 Ontotext AD
-
-#    Licensed under the Apache License, Version 2.0 (the "License");
-#    you may not use this file except in compliance with the License.
-#    You may obtain a copy of the License at
-
-#        http://www.apache.org/licenses/LICENSE-2.0
-
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS,
-#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    See the License for the specific language governing permissions and
-#    limitations under the License.
+# S4 Python3 client library
+# Copyright 2016 Ontotext AD
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 
 # import sys
@@ -19,6 +20,7 @@
 from .models import *
 
 import requests
+import json
 
 
 class TextanalyticsApi(object):
@@ -29,46 +31,6 @@ class TextanalyticsApi(object):
 
     def __init__(self, apiClient):
         self.apiClient = apiClient
-
-    def test(self, **kwargs):
-        """
-        Tests whether processing endpoint is functional.
-
-        Returns: String
-        """
-
-        allParams = []
-
-        params = locals()
-        for (key, val) in params["kwargs"].items():
-            if key not in allParams:
-                raise TypeError(
-                    "Got an unexpected keyword argument" +
-                    "{} to method test".format(key))
-            params[key] = val
-        del params["kwargs"]
-
-        services = ["/twitie", "/sbt", "/news"]
-        test_endpoint = self.apiClient.endpoint
-        for each in services:
-            if each in test_endpoint:
-                test_endpoint = test_endpoint[:len(test_endpoint)-len(each)]
-        resourcePath = test_endpoint
-        method = "GET"
-
-        queryParams = {}
-        headerParams = {}
-
-        postData = (params["body"] if "body" in params else None)
-
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-
-        if not response:
-            return None
-
-        # responseObject = self.apiClient.deserialize(response, 'str')
-        return response
 
     def process(self, output_type, **kwargs):
         """
@@ -103,10 +65,6 @@ class TextanalyticsApi(object):
             params[key] = val
         del params["kwargs"]
 
-        resourcePath = self.apiClient.endpoint
-
-        method = "POST"
-
         queryParams = {}
         json_head = {"Accept": "application/json",
                      "Content-type": "application/json"}
@@ -121,9 +79,13 @@ class TextanalyticsApi(object):
 
         postData = (params["body"] if "body" in params else None)
 
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-        return response
+        req = requests.post(
+            self.apiClient.endpoint,
+            auth=(self.apiClient.api_key, self.apiClient.key_secret),
+            headers=headerParams,
+            data=json.dumps(postData))
+
+        return req.content.decode("utf-8")
 
     def process_multipart_request(self, data, **kwargs):
         """
@@ -153,16 +115,13 @@ class TextanalyticsApi(object):
             params[key] = val
         del params["kwargs"]
 
-        resourcePath = self.apiClient.endpoint
-        method = "POST"
-
         queryParams = {}
         headerParams = {"Content-Type": "multipart/mixed",
                         "Accept": "application/gate+xml"}
         postData = (params["body"] if "body" in params else None)
 
         response = requests.post(
-            resourcePath,
+            self.apiClient.endpoint,
             auth=(self.apiClient.api_key, self.apiClient.key_secret),
             files=data)
 

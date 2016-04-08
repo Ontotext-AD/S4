@@ -1,7 +1,0 @@
-s4sdk
-=====
-
-.. toctree::
-   :maxdepth: 4
-
-   s4sdk

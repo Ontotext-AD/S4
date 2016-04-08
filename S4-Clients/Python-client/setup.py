@@ -12,15 +12,15 @@ description = ("Ontotext Self-Service Semantic Suite's SDK " +
                "visit http://s4.ontotext.com")
 
 setup(
-    name="s4sdk",
-    version="3.1.0",
+    name="s4api",
+    version="1.1.0",
     author="Svetlin Slavov",
     author_email="svetlin.slavov@ontotext.com",
 
-    packages=["s4sdk", "s4sdk.models"],
+    packages=["s4api", "s4api.models"],
     include_package_data=True,
 
-    url="https://pypi.python.org/pypi/s4sdk",
+    url="https://pypi.python.org/pypi/s4api",
     license="Apache License 2.0",
     description=description,
 

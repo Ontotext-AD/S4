@@ -1,21 +1,23 @@
-# Copyright 2015 Ontotext AD
-
-#    Licensed under the Apache License, Version 2.0 (the "License");
-#    you may not use this file except in compliance with the License.
-#    You may obtain a copy of the License at
-
-#        http://www.apache.org/licenses/LICENSE-2.0
-
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS,
-#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    See the License for the specific language governing permissions and
-#    limitations under the License.
+# S4 Python3 client library
+# Copyright 2016 Ontotext AD
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 
 # import sys
 # import os
 import requests
+import json
 from .models import *
 
 
@@ -54,17 +56,18 @@ class GraphDBApi(object):
             params[key] = val
         del params["kwargs"]
 
-        resourcePath = self.apiClient.endpoint + "/repositories"
-        method = "PUT"
-
         queryParams = {}
         headerParams = {"Content-Type": "application/json"}
 
         postData = (params["body"] if "body" in params else None)
 
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-        return response
+        req = requests.put(
+            self.apiClient.endpoint + "/repositories",
+            auth=(self.apiClient.api_key, self.apiClient.key_secret),
+            headers=headerParams,
+            data=json.dumps(postData))
+
+        return req.content.decode("utf-8")
 
     def get_repo_config(self, **kwargs):
         """
@@ -84,17 +87,18 @@ class GraphDBApi(object):
             params[key] = val
         del params["kwargs"]
 
-        resourcePath = self.apiClient.endpoint + "/settings/cache"
-        method = "GET"
-
         queryParams = {}
         headerParams = {"Content-Type": "application/json"}
 
         postData = (params["body"] if "body" in params else None)
 
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-        return response
+        req = requests.get(
+            self.apiClient.endpoint + "/settings/cache",
+            auth=(self.apiClient.api_key, self.apiClient.key_secret),
+            headers=headerParams,
+            data=postData)
+
+        return req.content.decode("utf-8")
 
     def update_repo_config(self, **kwargs):
         """
@@ -126,21 +130,22 @@ class GraphDBApi(object):
             params[key] = val
         del params["kwargs"]
 
-        resourcePath = self.apiClient.endpoint + "/settings/cache"
-        method = "PUT"
-
         queryParams = {}
         headerParams = {"Content-Type": "application/json"}
 
         postData = (params["body"] if "body" in params else None)
 
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-        return response
+        req = requests.put(
+            self.apiClient.endpoint + "/settings/cache",
+            auth=(self.apiClient.api_key, self.apiClient.key_secret),
+            headers=headerParams,
+            data=postData)
+
+        return req.content.decode("utf-8")
 
     def upload_data_file(self, file_path, **kwargs):  # RDFLib
         """
-        Upload data from an external .rdf file
+        Upload data from an external rdf file
 
         Args:
             file_path: String. Full path to the triples-containing file
@@ -261,7 +266,7 @@ class GraphDBApi(object):
         Delete repository and all of its data from database
 
         Kwargs:
-            repo_name: String. Name of repository to upload data to
+            repo_name: String. Name of repository to be deleted
         """
 
         allParams = ["repo_name"]
@@ -277,14 +282,9 @@ class GraphDBApi(object):
         repo_name = (params["repo_name"] if "repo_name" in params else None)
         resourcePath = (self.apiClient.endpoint +
                         "/repositories/{}".format(repo_name))
-        method = "DELETE"
-
-        queryParams = {}
-        headerParams = {}
 
         postData = (params["body"] if "body" in params else None)
 
-        response = self.apiClient.callAPI(resourcePath, method, queryParams,
-                                          postData, headerParams)
-
-        return response
+        req = requests.delete(
+            resourcePath,
+            auth=(self.apiClient.api_key, self.apiClient.key_secret))

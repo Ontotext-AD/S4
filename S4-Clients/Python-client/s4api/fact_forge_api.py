@@ -1,16 +1,17 @@
-# Copyright 2015 Ontotext AD
-
-#    Licensed under the Apache License, Version 2.0 (the "License");
-#    you may not use this file except in compliance with the License.
-#    You may obtain a copy of the License at
-
-#        http://www.apache.org/licenses/LICENSE-2.0
-
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS,
-#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    See the License for the specific language governing permissions and
-#    limitations under the License.
+# S4 Python3 client library
+# Copyright 2016 Ontotext AD
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 
 # import sys
@@ -30,7 +31,7 @@ class FactForgeApi(object):
         self.apiClient = apiClient
 
     def sparql_get(self, **kwargs):
-        """Execute a SPARQL query
+        """Execute a SPARQL query - 
         Execute a SPARQL 1.1 Select query on the FactForge dataset.
 
         Kwargs:
@@ -83,13 +84,11 @@ class FactForgeApi(object):
             auth=(self.apiClient.api_key, self.apiClient.key_secret),
             params=queryParams,
             headers=headerParams)
-        # response = self.apiClient.callAPI(resourcePath, method, queryParams,
-        #                                   postData, headerParams)
 
         return req.content.decode("utf-8")
 
     def sparql_post(self, **kwargs):
-        """Execute a SPARQL query
+        """Execute a SPARQL query - 
         Execute a valid SPARQL 1.1 Select query on the FactForge dataset.
         This method should be used in cases where the length of the query
         exceeds practicable limits of proxies, servers, etc.
@@ -148,7 +147,5 @@ class FactForgeApi(object):
             auth=(self.apiClient.api_key, self.apiClient.key_secret),
             data={"query": queryParams["query"]},
             headers=headerParams)
-        # response = self.apiClient.callAPI(resourcePath, method, queryParams,
-        #                                   postData, headerParams)
 
         return req.content.decode("utf-8")
