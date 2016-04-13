@@ -78,7 +78,6 @@
     <Compile Include="Client\HttpClientException.cs" />
     <Compile Include="Common\Parameters.cs" />
     <Compile Include="Common\StringValue.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AnnotatedDocument.cs" />
     <Compile Include="Service\Annotation.cs" />
