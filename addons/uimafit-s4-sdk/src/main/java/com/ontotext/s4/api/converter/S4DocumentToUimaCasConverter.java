@@ -1,19 +1,18 @@
 /*
-* Copyright (c) 2015
-*
-* This file is part of the s4.ontotext.com REST client library, and is
-* licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright 2016 Ontotext AD
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.ontotext.s4.api.converter;
 
@@ -107,7 +106,7 @@ public class S4DocumentToUimaCasConverter {
                 casAnnotation = getFeatureStructureForS4Annotation(cas, annotationName);
                 if (casAnnotation == null) {
                     LOG.warn(annotationName + " not available");
-                    return;
+                    continue;
                 }
 
                 Type type = casAnnotation.getType();
@@ -137,7 +136,6 @@ public class S4DocumentToUimaCasConverter {
         }
     }
 
-
     /**
      * A method acquiring the corresponding annotation type from the JCasGen generated java classes using reflection.
      *
@@ -147,16 +145,17 @@ public class S4DocumentToUimaCasConverter {
      */
     private org.apache.uima.jcas.tcas.Annotation getFeatureStructureForS4Annotation(JCas cas, String annotationName) {
         try {
-            return (org.apache.uima.jcas.tcas.Annotation) Reflect.on(annotationName)
+            org.apache.uima.jcas.tcas.Annotation annotation = (org.apache.uima.jcas.tcas.Annotation) Reflect.on(annotationName)
                     .create(cas)
                     .get();
+            return annotation;
         } catch (ReflectException e) {
             final Throwable cause = e.getCause();
-            LOG.error(cause.toString(), e);
+//            LOG.error(cause.toString(), e);
 
             //Expose real error if exception is InvocationTargetException because this exception is only a wrapper for the real one.
             if (cause instanceof InvocationTargetException) {
-                LOG.error(((InvocationTargetException) cause).getTargetException().toString(), cause);
+//                LOG.error(((InvocationTargetException) cause).getTargetException().toString(), cause);
             }
             return null;
         }
