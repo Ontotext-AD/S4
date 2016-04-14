@@ -1,22 +1,22 @@
-S4 Python3 SDK
-==============
+S4 Python3 Client Library
+=========================
 
-=============================================
-A Python3 client library for the S4 REST Api.
-=============================================
+============================================
+A Python3 client library for the S4 REST API
+============================================
 
 .. image:: http://s7.postimg.org/gvxtqu63r/S4logo.png
  :target: http://console.s4.ontotext.com/
 
-This is the S4 SDK for Python3. Available APIs:
+This is the Python3 client library for S4 Services APIs:
 
-1. `Text-Analytics Service
+1. `Text Analytics Service
 <http://docs.s4.ontotext.com/display/S4docs/Text+Analytics>`_ 
 
-2. `Fully-Managed GraphDB in the Cloud
+2. `Fully-Managed GraphDB Database in the Cloud
 <http://docs.s4.ontotext.com/display/S4docs/Fully+Managed+Database>`_
 
-3. `Fact-Forge
+3. `Knowledge Graphs Access
 <http://docs.s4.ontotext.com/display/S4docs/Knowledge+Graphs>`_
 
 Installation
