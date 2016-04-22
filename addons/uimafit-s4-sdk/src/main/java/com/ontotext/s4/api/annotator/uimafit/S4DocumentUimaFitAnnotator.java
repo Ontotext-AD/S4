@@ -129,7 +129,7 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
      *
      * @throws ResourceInitializationException
      */
-    private void initExternalResources() throws ResourceInitializationException {
+    void initExternalResources() throws ResourceInitializationException {
         checkConfigParams();
         this.restClient = S4ClientBuilder.newClientInstance()
                 .withS4Endpoint(serviceEndpoint)
@@ -165,7 +165,7 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
      * @param cas CAS document with set raw document text
      * @return document with S4 annotations
      */
-    private AnnotatedDocument fetchS4AnnotatedDocument(JCas cas) {
+    AnnotatedDocument fetchS4AnnotatedDocument(JCas cas) {
         /*
          * Get document text from the JCas object.
          * NOTE: the text has to be set in a CollectionReader component used earlier in the pipeline. This is not a

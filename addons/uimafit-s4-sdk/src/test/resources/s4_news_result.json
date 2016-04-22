@@ -1,0 +1,549 @@
+{
+    "PLEONASM": 1,
+    "entities": {
+        "Keyphrase": [
+            {
+                "class": "http://ontology.ontotext.com/taxonomy/Keyphrase",
+                "indices": [
+                    32,
+                    41
+                ],
+                "inst": "http://data.ontotext.com/publishing/topic/Broadband",
+                "label": "Pos",
+                "string": "Broadband",
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    61,
+                    73
+                ],
+                "inst": "http://dbpedia.org/resource/Google_Fiber",
+                "preferredLabel": [
+                    "Google Fiber"
+                ],
+                "string": "Google Fiber",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    137,
+                    143
+                ],
+                "inst": "http://dbpedia.org/resource/City",
+                "preferredLabel": [
+                    "city"
+                ],
+                "string": "cities",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    234,
+                    240
+                ],
+                "inst": "http://dbpedia.org/resource/City",
+                "preferredLabel": [
+                    "city"
+                ],
+                "string": "cities",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    457,
+                    465
+                ],
+                "inst": "http://dbpedia.org/resource/Wireless",
+                "preferredLabel": [
+                    "wireless"
+                ],
+                "string": "wireless",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://ontology.ontotext.com/taxonomy/Keyphrase",
+                "indices": [
+                    466,
+                    475
+                ],
+                "inst": "http://data.ontotext.com/publishing/topic/Broadband",
+                "label": "Pos",
+                "string": "Broadband",
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://ontology.ontotext.com/taxonomy/Keyphrase",
+                "indices": [
+                    490,
+                    495
+                ],
+                "inst": "http://data.ontotext.com/publishing/topic/Home",
+                "label": "Pos",
+                "string": "Home",
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://ontology.ontotext.com/taxonomy/Keyphrase",
+                "indices": [
+                    628,
+                    637
+                ],
+                "inst": "http://data.ontotext.com/publishing/topic/Broadband",
+                "label": "Pos",
+                "string": "Broadband",
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://ontology.ontotext.com/taxonomy/Keyphrase",
+                "indices": [
+                    822,
+                    827
+                ],
+                "inst": "http://data.ontotext.com/publishing/topic/Home",
+                "label": "Pos",
+                "string": "Home",
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    829,
+                    841
+                ],
+                "inst": "http://dbpedia.org/resource/Google_Fiber",
+                "preferredLabel": [
+                    "Google Fiber"
+                ],
+                "string": "Google Fiber",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    871,
+                    879
+                ],
+                "inst": "http://dbpedia.org/resource/Wireless",
+                "preferredLabel": [
+                    "wireless"
+                ],
+                "string": "wireless",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    943,
+                    964
+                ],
+                "inst": "http://dbpedia.org/resource/Wireless",
+                "preferredLabel": [
+                    "wireless"
+                ],
+                "string": "wireless technologies",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    1587,
+                    1599
+                ],
+                "inst": "http://dbpedia.org/resource/Google_Fiber",
+                "preferredLabel": [
+                    "Google Fiber"
+                ],
+                "string": "Google Fiber",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing"
+                ],
+                "type": "Keyphrase"
+            }
+        ],
+        "Location": [
+            {
+                "class": "http://dbpedia.org/ontology/Place",
+                "indices": [
+                    132,
+                    136
+                ],
+                "inst": "http://dbpedia.org/resource/United_States",
+                "preferredLabel": [
+                    "United States of America"
+                ],
+                "string": "U.S.",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Place"
+                ],
+                "type": "Location"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Place",
+                "indices": [
+                    505,
+                    512
+                ],
+                "inst": "http://dbpedia.org/resource/United_States",
+                "preferredLabel": [
+                    "United States of America"
+                ],
+                "string": "America",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Place"
+                ],
+                "type": "Location"
+            }
+        ],
+        "Organization": [
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    9,
+                    15
+                ],
+                "inst": "http://dbpedia.org/resource/Google",
+                "preferredLabel": [
+                    "Google"
+                ],
+                "string": "Google",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    337,
+                    344
+                ],
+                "inst": "http://dbpedia.org/resource/Comcast",
+                "preferredLabel": [
+                    "Comcast"
+                ],
+                "string": "Comcast",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    346,
+                    363
+                ],
+                "inst": "http://dbpedia.org/resource/Time_Warner_Cable",
+                "preferredLabel": [
+                    "Time Warner Cable"
+                ],
+                "string": "Time Warner Cable",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    399,
+                    405
+                ],
+                "inst": "http://dbpedia.org/resource/Google",
+                "preferredLabel": [
+                    "Google"
+                ],
+                "string": "Google",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    520,
+                    526
+                ],
+                "inst": "http://dbpedia.org/resource/Google",
+                "preferredLabel": [
+                    "Google"
+                ],
+                "string": "Google",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    989,
+                    995
+                ],
+                "inst": "http://dbpedia.org/resource/Google",
+                "preferredLabel": [
+                    "Google"
+                ],
+                "string": "Google",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1137,
+                    1144
+                ],
+                "inst": "http://dbpedia.org/resource/Verizon_Communications",
+                "preferredLabel": [
+                    "Verizon"
+                ],
+                "string": "Verizon",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1149,
+                    1156
+                ],
+                "inst": "http://dbpedia.org/resource/Comcast",
+                "preferredLabel": [
+                    "Comcast"
+                ],
+                "string": "Comcast",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1158,
+                    1164
+                ],
+                "inst": "http://dbpedia.org/resource/Google",
+                "preferredLabel": [
+                    "Google"
+                ],
+                "string": "Google",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1231,
+                    1239
+                ],
+                "inst": "http://dbpedia.org/resource/Facebook",
+                "preferredLabel": [
+                    "Facebook"
+                ],
+                "string": "Facebook",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1310,
+                    1318
+                ],
+                "inst": "http://dbpedia.org/resource/Facebook",
+                "preferredLabel": [
+                    "Facebook"
+                ],
+                "string": "Facebook",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1375,
+                    1381
+                ],
+                "inst": "http://dbpedia.org/resource/Google",
+                "preferredLabel": [
+                    "Google"
+                ],
+                "string": "Google",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1641,
+                    1649
+                ],
+                "inst": "http://dbpedia.org/resource/AT&T",
+                "preferredLabel": [
+                    "AT&T"
+                ],
+                "string": "AT&T",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            },
+            {
+                "class": "http://dbpedia.org/ontology/Organization",
+                "indices": [
+                    1654,
+                    1661
+                ],
+                "inst": "http://dbpedia.org/resource/Comcast",
+                "preferredLabel": [
+                    "Comcast"
+                ],
+                "string": "Comcast",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Organization"
+                ],
+                "type": "Organization"
+            }
+        ],
+        "Person": [
+            {
+                "ambiguityRank": 0,
+                "ambiguityRankWithinClass": 0,
+                "class": "http://dbpedia.org/ontology/Person",
+                "indices": [
+                    1548,
+                    1561
+                ],
+                "inst": "http://data.ontotext.com/publishing/person/Craig_Barratt",
+                "string": "Craig Barratt",
+                "type": "Person"
+            },
+            {
+                "ambiguityRank": 0,
+                "ambiguityRankWithinClass": 0,
+                "class": "http://dbpedia.org/ontology/Person",
+                "indices": [
+                    1662,
+                    1669
+                ],
+                "inst": "http://data.ontotext.com/publishing/person/Craig_Barratt",
+                "modifiedBy": [
+                    "PropagateGeneratedAnnotations"
+                ],
+                "string": "Barratt",
+                "type": "Person"
+            },
+            {
+                "ambiguityRank": 0,
+                "ambiguityRankWithinClass": 0,
+                "class": "http://dbpedia.org/ontology/Person",
+                "indices": [
+                    1946,
+                    1953
+                ],
+                "inst": "http://data.ontotext.com/publishing/person/Craig_Barratt",
+                "matchedWithLonger": true,
+                "modifiedBy": [
+                    "MapInstancesAfterOrthomatcher"
+                ],
+                "string": "Barratt",
+                "type": "Person"
+            }
+        ],
+        "RelationPersonRole": [
+            {
+                "class": "http://ontology.ontotext.com/taxonomy/RelationPersonRole",
+                "indices": [
+                    1544,
+                    1561
+                ],
+                "inst": "http://data.ontotext.com/publishing/RelationPersonRole/ceo_craig_barratt",
+                "personInst": "http://data.ontotext.com/publishing/person/Craig_Barratt",
+                "personStr": "Craig Barratt",
+                "roleClass": "http://www.ontotext.com/proton/protonext#ExecutivePosition",
+                "roleInst": "http://data.ontotext.com/publishing/roles#ceo",
+                "roleStr": "CEO",
+                "string": "CEO Craig Barratt",
+                "type": "RelationPersonRole"
+            }
+        ],
+        "Work": [
+            {
+                "class": "http://dbpedia.org/ontology/Thing",
+                "indices": [
+                    1609,
+                    1614
+                ],
+                "inst": "http://dbpedia.org/resource/Telephone",
+                "preferredLabel": [
+                    "telephone"
+                ],
+                "string": "Phone",
+                "subclasses": [
+                    "http://dbpedia.org/ontology/Thing",
+                    "http://dbpedia.org/ontology/Work"
+                ],
+                "type": "Work"
+            }
+        ]
+    },
+    "sentimentScore": 0.5949402715066666,
+    "text": "In 2011, Google jumped into the broadband space by launching Google Fiber, providing high-speed Internet and cable services in some U.S. cities. The reasonably priced, super-fast service has proved to be incredibly popular in the few cities where it's available, thanks at least partly because Fiber offers a much-welcome alternative to Comcast, Time Warner Cable, and other despised providers. Now Google has announced even grander plans: It wants to beam wireless broadband directly into homes all over America. While Google hasn't yet figured out how to make the technology work, a solution would represent a big boon to the broadband industry, Re/code reported. It would solve what's called the \"last mile problem,\" which is typically addressed by the slow, expensive process of stringing a web of wires directly into homes. Google Fiber is now working on connecting wireless towers to existing fiber lines by experimenting with different wireless technologies to make that happen. If Google develops a solution, its parent company, Alphabet, would be able to build a nationwide network to compete with existing giants like A&amp;T, Verizon and Comcast. Google is not the only tech company experimenting with this development: Facebook announced an initiative Wednesday to develop wireless Internet. While Facebook doesn't want to build or operate the wireless networks, Google Access, which oversees Fiber, does hope to do so. \"We're really transitioning from our earlier work, which was more of an experiment, to a real business,\" Access CEO Craig Barratt told Re/code. Read next: Google Fiber Adds $10 Phone Service to Help You Avoid AT&amp;T and Comcast Barratt declined to comment on a specific timetable or expenses that the project will entail. Yet it seems safe to assume the company's investment will be significant: The plan to develop \"abundant and ubiquitous networks\" will provide \"some real benefit to the Internet as a whole,\" Barratt said."
+}
