@@ -1,0 +1,13 @@
+In 2011, Google jumped into the broadband space by launching Google Fiber, providing high-speed Internet and cable services in some U.S. cities. The reasonably priced, super-fast service has proved to be incredibly popular in the few cities where it’s available, thanks at least partly because Fiber offers a much-welcome alternative to Comcast, Time Warner Cable, and other despised providers.
+
+Now Google has announced even grander plans: It wants to beam wireless broadband directly into homes all over America.
+
+While Google hasn’t yet figured out how to make the technology work, a solution would represent a big boon to the broadband industry, Re/code reported. It would solve what’s called the “last mile problem,” which is typically addressed by the slow, expensive process of stringing a web of wires directly into homes.
+
+Google Fiber is now working on connecting wireless towers to existing fiber lines by experimenting with different wireless technologies to make that happen. If Google develops a solution, its parent company, Alphabet, would be able to build a nationwide network to compete with existing giants like A&T, Verizon and Comcast.
+
+Google is not the only tech company experimenting with this development: Facebook announced an initiative Wednesday to develop wireless Internet. While Facebook doesn’t want to build or operate the wireless networks, Google Access, which oversees Fiber, does hope to do so. “We’re really transitioning from our earlier work, which was more of an experiment, to a real business,” Access CEO Craig Barratt told Re/code.
+
+Read next: Google Fiber Adds $10 Phone Service to Help You Avoid AT&T and Comcast
+
+Barratt declined to comment on a specific timetable or expenses that the project will entail. Yet it seems safe to assume the company’s investment will be significant: The plan to develop “abundant and ubiquitous networks” will provide “some real benefit to the Internet as a whole,” Barratt said.
