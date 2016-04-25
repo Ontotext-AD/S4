@@ -109,6 +109,10 @@ public class S4DocumentUimaFitAnnotator extends JCasAnnotator_ImplBase {
      */
     public static List<TypeSystemDescription> cachedTypeSystemDescriptions = new ArrayList<>();
 
+    public S4DocumentUimaFitAnnotator() {
+
+    }
+
     /**
      * Validate component parameters.
      *
