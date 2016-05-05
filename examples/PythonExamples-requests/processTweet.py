@@ -1,18 +1,17 @@
-# Copyright  2013, 2014, Ontotext AD
+# S4 Python3 client library
+# Copyright 2016 Ontotext AD
 #
-# This file is free software; you can redistribute it and/or modify it under
-# the terms of the GNU Lesser General Public License as published by the Free
-# Software Foundation; either version 2.1 of the License, or (at your option)
-# any later version.
-# This library is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
-# details.
-# You should have received a copy of the GNU Lesser General Public License
-# along with this library; if not, write to the Free Software Foundation, Inc.,
-# 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
-
-# IMPORTANT!!! Please install the packages below, needed for this example
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 import requests
 import json
@@ -22,18 +21,18 @@ endpoint = "https://text.s4.ontotext.com/v1/twitie"
 api_key = "<your-credentials-here>"
 key_secret = "<your-credentials-here>"
 
-document = ("{\"text\":\"Nearly 200,000 people have been killed in #Syria "
-            + "since the start of the conflict in 2011, according to "
-            + "the U.N. http://t.co/pK7t8AD7Xf\","
-            + "\"lang\":\"en\",\"entities\":{\"symbols\":[],"
-            + "\"urls\":[{\"expanded_url\":\"http://on.wsj.com/1pZmkY9\","
-            + "\"indices\":[112,134],\"display_url\":\"on.wsj.com/1pZmkY9\","
-            + "\"url\":\"http://t.co/pK7t8AD7Xf\"}],"
-            + "\"hashtags\":[{\"text\":\"Syria\",\"indices\":[42,48]}],"
-            + "\"user_mentions\":[]},"
-            + "\"id\":502743846716207104,"
-            + "\"created_at\":\"Fri Aug 22 09:07:28 +0000 2014\","
-            + "\"id_str\":\"502743846716207104\"}")
+document = ("{\"text\":\"Nearly 200,000 people have been killed in #Syria " +
+            "since the start of the conflict in 2011, according to " +
+            "the U.N. http://t.co/pK7t8AD7Xf\"," +
+            "\"lang\":\"en\",\"entities\":{\"symbols\":[]," +
+            "\"urls\":[{\"expanded_url\":\"http://on.wsj.com/1pZmkY9\"," +
+            "\"indices\":[112,134],\"display_url\":\"on.wsj.com/1pZmkY9\"," +
+            "\"url\":\"http://t.co/pK7t8AD7Xf\"}]," +
+            "\"hashtags\":[{\"text\":\"Syria\",\"indices\":[42,48]}]," +
+            "\"user_mentions\":[]}," +
+            "\"id\":502743846716207104," +
+            "\"created_at\":\"Fri Aug 22 09:07:28   000 2014\"," +
+            "\"id_str\":\"502743846716207104\"}")
 data = {
     "document": document,
     "documentType": "text/x-json-twitter"
