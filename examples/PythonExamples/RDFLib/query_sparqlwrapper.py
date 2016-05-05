@@ -12,21 +12,40 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from SPARQLWrapper import SPARQLWrapper, JSON
+from SPARQLWrapper import SPARQLWrapper, JSON, XML, N3, TURTLE
 
 
 sparql = SPARQLWrapper("https://rdf.s4.ontotext.com/<user-id>/" +
-                       "<databaseName>/repositories/<repo-name>")
+                       "<database-name>/repositories/<repo-name>")
 
 sparql.setQuery("""SELECT * WHERE { ?s ?p ?o } LIMIT 10""")
 
 # Optional - use only if your repository is not Publicly accessible
 sparql.setCredentials("<your-s4-api-key>", "<your-s4-key-secret>")
 
+
+# JSON example
 sparql.setReturnFormat(JSON)
+response = sparql.query().convert()
 
-results = sparql.query().convert()
+result = response["results"]["bindings"]
+for each in result:
+    print (each)
 
 
-for result in results["results"]["bindings"]:
-    print (result["s"]['value'], result["p"]["value"], result["o"]['value'])
+# XML example
+sparql.setReturnFormat(XML)
+response = sparql.query().convert().toxml()
+print (response)
+
+
+# N3 example
+sparql.setReturnFormat(N3)
+response = sparql.query().convert().decode("utf-8")
+print (response)
+
+
+# TURTLE example
+sparql.setReturnFormat(TURTLE)
+response = sparql.query().convert().decode("utf-8")
+print (response)
