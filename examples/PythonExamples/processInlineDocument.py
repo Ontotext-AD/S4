@@ -1,4 +1,3 @@
-# S4 Python3 client library
 # Copyright 2016 Ontotext AD
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
