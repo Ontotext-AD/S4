@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ontotext.s4.service;
+package com.ontotext.s4.model.annotation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +44,17 @@ public class Annotation {
      * The annotation's features.
      */
     private Map<String, Object> features = new HashMap<>();
+
+    public Annotation() {
+
+    }
+
+    public Annotation(long startOffset, long endOffset, Map<String, Object> features) {
+        this.startOffset = startOffset;
+        this.endOffset = endOffset;
+        this.features = features;
+    }
+
 
     public long getStartOffset() {
         return this.startOffset;
@@ -78,7 +89,11 @@ public class Annotation {
     }
 
     /**
-     * Catch-all setter used by Jackson to gather other properties from the JSON response into the {@link #features} map.
+     * Catch-all setter used by Jackson to gather other properties
+     * from the JSON response into the {@link #features} map.
+     *
+     * @param name The name of the feature
+     * @param value The value of the feature
      */
     @JsonAnySetter
     public void addFeature(String name, Object value) {

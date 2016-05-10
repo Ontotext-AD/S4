@@ -23,7 +23,7 @@ public class ServicesCatalog {
 	public static ServiceDescriptor getItem(String itemName) {
 
         if (itemName == null) {
-        	throw new IllegalArgumentException("No service id provided (expected one of: 'twitie', 'news', 'sbt' or 'news-classifier' )");
+        	throw new IllegalArgumentException("No service id provided ( expected one of: 'twitie', 'news', 'sbt' or 'news-classifier' )");
         }
         ServiceDescriptor item = new ServiceDescriptor();
         switch(itemName.toLowerCase()){

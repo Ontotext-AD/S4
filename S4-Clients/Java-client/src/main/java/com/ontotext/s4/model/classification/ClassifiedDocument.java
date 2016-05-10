@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.ontotext.s4.service;
+package com.ontotext.s4.model.classification;
 
 import com.ontotext.s4.common.ServiceResponseEntity;
 
@@ -44,6 +44,15 @@ public class ClassifiedDocument extends ServiceResponseEntity {
      * Note: This includes the {@link #category } property which will always have the highest score
      */
     private List<ClassificationCategory> allScores;
+
+    public ClassifiedDocument() {
+
+    }
+
+    public ClassifiedDocument(String category, List<ClassificationCategory> allScores) {
+        this.category = category;
+        this.allScores = allScores;
+    }
     
     public String getCategory() {
         return this.category;

@@ -19,12 +19,12 @@ limitations under the License. -->
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>s4-client</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <groupId>com.ontotext.s4</groupId>
     <packaging>jar</packaging>
     <name>S4 Java SDK</name>
-    <description>The Self-Service Semantic Suite (S4) provides a set of services for on-demand and low-cost
-        smart data management in the cloud.
+    <description>The Self-Service Semantic Suite (S4) provides a set of services for low-cost,
+        on-demand text analytics and metadata management in the cloud.
     </description>
     <url>https://s4.ontotext.com</url>
 
@@ -74,18 +74,21 @@ limitations under the License. -->
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>jcommander</artifactId>
+            <version>1.48</version>
         </dependency>
 
     </dependencies>
@@ -205,6 +208,12 @@ limitations under the License. -->
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.ontotext.s4.service.cli.S4CommandLineTool</mainClass>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                    </archive>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
@@ -220,8 +229,39 @@ limitations under the License. -->
                 </executions>
             </plugin>
 
-        </plugins>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.3</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+       </plugins>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>

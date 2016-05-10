@@ -24,6 +24,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
 import javax.xml.bind.DatatypeConverter;
@@ -116,17 +117,18 @@ public class HttpClient {
     * @param requestBody the object that should be serialized to JSON as the request body.
     *                    If <code>null</code>, no request body is sent
     * @param extraHeaders any additional HTTP headers, specified as an alternating sequence of header names and values
+    * @param <T> Type
     * @return for a successful response, the deserialized response body, or <code>null</code> for a 201 response
     * @throws HttpClientException if an exception occurs during processing,
     *           or the server returns a 4xx or 5xx error response
     */
     public <T> T request(
-            String target, String method, TypeReference<T> responseType, Object requestBody, String... extraHeaders)
+            String target, String method, TypeReference<T> responseType, Object requestBody, Map<String, String> extraHeaders)
             throws HttpClientException {
 
         try {
             HttpURLConnection connection = sendRequest(target, method, requestBody, extraHeaders);
-            return readResponseOrError(connection, responseType);
+            return readResponseOrError(connection, responseType, true, extraHeaders);
         } catch(IOException e) {
             throw new HttpClientException(e);
         }
@@ -145,7 +147,7 @@ public class HttpClient {
     * @throws HttpClientException if an exception occurs during processing,
     *           or the server returns a 4xx or 5xx error response
     */
-    public InputStream requestForStream(String target, String method, Object requestBody, String... extraHeaders)
+    public InputStream requestForStream(String target, String method, Object requestBody, Map<String, String> extraHeaders)
             throws HttpClientException {
 
         try {
@@ -177,36 +179,10 @@ public class HttpClient {
     }
 
     /**
-    * Make an API request and parse the JSON response, using the response
-    * to update the state of an existing object.
-    *
-    * @param target the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).
-    * @param method the request method (GET, POST, DELETE, etc.)
-    * @param responseObject the Java object to update from a successful response message for this URL
-    * @param requestBody the object that should be serialized to JSON as the request body.
-    * @param extraHeaders any additional HTTP headers, specified as an alternating sequence of header names and values
-    * @throws HttpClientException if an exception occurs during
-    *           processing, or the server returns a 4xx or 5xx error
-    *           response (in which case the response JSON message will be
-    *           available as a {@link JsonNode} in the exception).
-    */
-    public void requestForUpdate(
-            String target, String method, Object responseObject, Object requestBody, String... extraHeaders)
-            throws HttpClientException {
-
-        try {
-            HttpURLConnection connection = sendRequest(target, method, requestBody, extraHeaders);
-            readResponseOrErrorForUpdate(connection, responseObject);
-        } catch(IOException e) {
-            throw new HttpClientException(e);
-        }
-    }
-
-    /**
     * Handles the sending side of an HTTP request, returning a connection
     * from which the response (or error) can be read.
     */
-    private HttpURLConnection sendRequest(String target, String method, Object requestBody, String... extraHeaders)
+    private HttpURLConnection sendRequest(String target, String method, Object requestBody, Map<String, String> extraHeaders)
             throws IOException {
 
         URL requestUrl = new URL(baseUrl, target);
@@ -215,15 +191,10 @@ public class HttpClient {
         connection.setInstanceFollowRedirects(false);
         connection.setRequestProperty("Authorization", authorizationHeader);
 
-        boolean sentAccept = false;
-        if(extraHeaders != null) {
-            for(int i = 0; i < extraHeaders.length; i++) {
-                if("Accept".equals(extraHeaders[i])) sentAccept = true;
-                connection.setRequestProperty(extraHeaders[i], extraHeaders[++i]);
-            }
+        for (String key : extraHeaders.keySet()) {
+            connection.setRequestProperty(key, extraHeaders.get(key));
         }
 
-        if(!sentAccept) connection.setRequestProperty("Accept", "application/json");
         if(requestBody != null) {
             connection.setDoOutput(true);
             connection.setRequestProperty("Content-Type", "application/json");
@@ -231,6 +202,7 @@ public class HttpClient {
             try {
                 MAPPER.writeValue(out, requestBody);
             } finally {
+            	out.flush();
                 out.close();
             }
         }
@@ -238,19 +210,10 @@ public class HttpClient {
     }
 
     /**
-    * Read a response or error message from the given connection, handling any 303 redirect responses.
-    */
-    private <T> T readResponseOrError(HttpURLConnection connection, TypeReference<T> responseType)
-            throws HttpClientException {
-
-    return readResponseOrError(connection, responseType, true);
-    }
-
-    /**
     * Read a response or error message from the given connection, handling any 303 redirect responses
     * if <code>followRedirects</code> is true.
     */
-    private <T> T readResponseOrError(HttpURLConnection connection, TypeReference<T> responseType, boolean followRedirects)
+    private <T> T readResponseOrError(HttpURLConnection connection, TypeReference<T> responseType, boolean followRedirects, Map<String, String> extraHeaders)
           throws HttpClientException {
 
         InputStream stream = null;
@@ -282,34 +245,11 @@ public class HttpClient {
                 IOUtils.copy(stream, new NullOutputStream());
                 IOUtils.closeQuietly(stream);
                 // follow the redirect
-                return get(location, responseType);
+                return get(location, responseType, extraHeaders);
             }
         } catch(Exception e) {
             readError(connection);
             return null; // unreachable, as readError always throws exception
-        }
-    }
-
-    /**
-    * Read a response or error message from the given connection, and update the state of the given object.
-    */
-    private void readResponseOrErrorForUpdate(HttpURLConnection connection, Object responseObject)
-            throws HttpClientException {
-
-        InputStream stream = null;
-        try {
-            if(connection.getResponseCode() == HttpURLConnection.HTTP_NO_CONTENT) {
-                // successful response with no content
-                return;
-            }
-            stream = connection.getInputStream();
-            try {
-                MAPPER.readerForUpdating(responseObject).readValue(stream);
-            } finally {
-                stream.close();
-            }
-        } catch(Exception e) {
-            readError(connection);
         }
     }
 
@@ -355,109 +295,14 @@ public class HttpClient {
     *
     * @param target the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).
     * @param responseType the Java type corresponding to a successful response message for this URL
+    * @param extraHeaders any additional HTTP headers, specified as an alternating sequence of header names and values
     * @return for a successful response, the deserialized response body, or <code>null</code> for a 201 response
     * @throws HttpClientException if an exception occurs during
     *           processing, or the server returns a 4xx or 5xx error
     *           response (in which case the response JSON message will be
     *           available as a {@link JsonNode} in the exception).
     */
-    public <T> T get(String target, TypeReference<T> responseType) throws HttpClientException {
-        return request(target, "GET", responseType, null);
-    }
-
-    /**
-    * Perform an HTTP GET request, parsing the JSON response to update
-    * the state of an existing object.
-    *
-    * @param target the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).
-    * @param responseObject the Java object to update from a successful response message for this URL
-    * @throws HttpClientException if an exception occurs during
-    *           processing, or the server returns a 4xx or 5xx error
-    *           response (in which case the response JSON message will be
-    *           available as a {@link JsonNode} in the exception).
-    */
-    public void getForUpdate(String target, Object responseObject) throws HttpClientException {
-        requestForUpdate(target, "GET", responseObject, null);
-    }
-
-    /**
-    * Perform an HTTP POST request, parsing the JSON response to create a
-    * new object.
-    *
-    * @param target the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).
-    * @param responseType the Java type corresponding to a successful response message for this URL
-    * @param requestBody the object that should be serialized to JSON as the request body.
-    *          POST requests require a request body, so this parameter must not be <code>null</code>
-    * @return for a successful response, the deserialized response body, or <code>null</code> for a 201 response
-    * @throws HttpClientException if an exception occurs during
-    *           processing, or the server returns a 4xx or 5xx error
-    *           response (in which case the response JSON message will be
-    *           available as a {@link JsonNode} in the exception).
-    */
-    public <T> T post(String target, TypeReference<T> responseType, Object requestBody) throws HttpClientException {
-        return request(target, "POST", responseType, requestBody);
-    }
-
-    /**
-    * Perform an HTTP POST request, parsing the JSON response to update the state of an existing object.
-    *
-    * @param target the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).
-    * @param responseObject the Java object to update from a successful response message for this URL
-    * @param requestBody the object that should be serialized to JSON as the request body.
-    *          POST requests require a request body, so this parameter must not be <code>null</code>
-    * @throws HttpClientException if an exception occurs during
-    *           processing, or the server returns a 4xx or 5xx error
-    *           response (in which case the response JSON message will be
-    *           available as a {@link JsonNode} in the exception).
-    */
-    public void postForUpdate(String target, Object responseObject, Object requestBody) throws HttpClientException {
-        requestForUpdate(target, "POST", responseObject, requestBody);
-    }
-
-    /**
-    * Perform an HTTP DELETE request for the given resource.
-    *
-    * @param target the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).
-    * @throws HttpClientException if an exception occurs during
-    *           processing, or the server returns a 4xx or 5xx error
-    *           response (in which case the response JSON message will be
-    *           available as a {@link JsonNode} in the exception).
-    */
-    public void delete(String target) throws HttpClientException {
-        request(target, "DELETE", new TypeReference<JsonNode>() { }, null);
-    }
-
-    /**
-    * Perform an HTTP GET request on a URL whose response is expected to
-    * be a 3xx redirection, and return the target redirection URL.
-    *
-    * @param source the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).
-    * @return the URL returned by the "Location" header of the redirection response.
-    * @throws HttpClientException if an exception occurs during
-    *           processing, or the server returns a 4xx or 5xx error
-    *           response (in which case the response JSON message will be
-    *           available as a {@link JsonNode} in the exception), or if
-    *           the response was not a 3xx redirection.
-    */
-    public URL getRedirect(URL source) throws HttpClientException {
-        try {
-            HttpURLConnection connection = (HttpURLConnection)source.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("Authorization", authorizationHeader);
-            connection.setRequestProperty("Accept", "application/json");
-            connection.setInstanceFollowRedirects(false);
-            int responseCode = connection.getResponseCode();
-            // make sure we read any response content
-            readResponseOrError(connection, new TypeReference<JsonNode>() { }, false);
-            if(responseCode >= 300 && responseCode < 400) {
-                // it was a redirect
-                String redirectUrl = connection.getHeaderField("Location");
-                return new URL(redirectUrl);
-            } else {
-                throw new HttpClientException("Expected redirect but got " + responseCode);
-            }
-        } catch(IOException e) {
-            throw new HttpClientException(e);
-        }
+    public <T> T get(String target, TypeReference<T> responseType, Map<String, String> extraHeaders) throws HttpClientException {
+        return request(target, "GET", responseType, null, extraHeaders);
     }
 }

@@ -14,25 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ontotext.s4.service;
+package com.ontotext.s4.service.util;
 
 /**
- * Enumeration of the valid response types accepted by the S4 API.
+ * Enumeration of the MIME types supported by the online API.
  */
-public enum ResponseFormat {
-    JSON("application/json"),
+public enum SupportedMimeType {
 
-    GATE_JSON("application/gate+json"),
+    PLAINTEXT("text/plain"),
+    HTML("text/html"),
+    XML_APPLICATION("application/xml"),
+    XML_TEXT("text/xml"),
+    PUBMED("text/x-pubmed"),
+    COCHRANE("text/x-cochrane"),
+    MEDIAWIKI("text/x-mediawiki"),
+    TWITTER_JSON("text/x-json-twitter");
 
-    GATE_XML("application/gate+xml");
-
-    /**
-     * The HTTP "Accept" header corresponding to this response format.
-     */
-    public final String acceptHeader;
-
-    private ResponseFormat(String acceptHeader) {
-        this.acceptHeader = acceptHeader;
+    private SupportedMimeType(String type) {
+        this.value = type;
     }
 
+    public final String value;
 }

@@ -17,13 +17,15 @@
 package com.ontotext.s4.common;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class Parameters {
+public class Parameters extends HashMap<String, String> {
 
-
-	private Map<String, String> mParameters = new HashMap<>();
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**
 	 * Construct the parameters from an array of name-value pairs using equals '=' as the separator.
 	 * 
@@ -31,6 +33,17 @@ public class Parameters {
 	 */
 	public Parameters(String[] nameValuePairs) {
 		parseNameValuePairs(nameValuePairs, '=', true);
+	}
+	
+	private Parameters() {}
+	
+	/**
+	 * Creates a new empty Parameters instance
+	 * 
+	 * @return new empty parameters
+	 */
+	public static Parameters newInstance() {
+		return new Parameters();
 	}
 
 	/**
@@ -40,7 +53,7 @@ public class Parameters {
 	 * @return The value associated with the parameter.
 	 */
 	public String getValue(String name) {
-		return mParameters.get(name);
+		return get(name);
 	}
 
 	/**
@@ -66,7 +79,19 @@ public class Parameters {
 	 * @param value The value of the parameter.
 	 */
 	public void setValue(String name, String value) {
-		mParameters.put(name.trim().toLowerCase(), value);
+		put(name.trim(), value);
+	}
+	
+	/**
+	 * Associate the given value with the given parameter name. Convenience method allowing invocation chaining.
+	 * 
+	 * @param name The name of the parameter.
+	 * @param value The value of the parameter.
+	 * @return created object with newly added value
+	 */
+	public Parameters withValue(String name, String value) {
+		setValue(name, value);
+		return this;
 	}
 
 	/**
@@ -84,7 +109,7 @@ public class Parameters {
 	/**
 	 * The parse method that accepts an array of name-value pairs.
 	 * 
-	 * @param nameValuePairs An array of name-value pairs, where each string is of the form: "<name>'separator'<value>"
+	 * @param nameValuePairs An array of name-value pairs, where each string is of the form: "name-separator-value"
 	 * @param separator The character that separates the name from the value
 	 * @param overWrite true if the parsed values should overwrite existing value
 	 */
@@ -102,6 +127,4 @@ public class Parameters {
 				setDefaultValue(name, value);
 		}
 	}
-
-
 }

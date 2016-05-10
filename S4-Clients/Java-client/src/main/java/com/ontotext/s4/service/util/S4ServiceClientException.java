@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ontotext.s4.service;
+package com.ontotext.s4.service.util;
 
 public class S4ServiceClientException extends RuntimeException {
 

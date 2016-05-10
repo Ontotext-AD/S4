@@ -14,12 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.ontotext.s4.service;
+package com.ontotext.s4.service.util;
 
 import java.net.URL;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.ontotext.s4.service.util.SupportedMimeType;
 
 /**
  * Class representing the request format for the S4 online API.
@@ -44,6 +45,21 @@ public class ServiceRequest {
     private String documentType;
 
     /**
+     * The boolean flag to allow/deny image tagging of the document
+     */
+    private boolean imageTagging;
+
+    /**
+     * The boolean flag to allow/deny image categorization of the document
+     */
+    private boolean imageCategorization;
+
+
+    public ServiceRequest() {
+
+    }
+
+    /**
     * Construct a request for the online service to annotate or classify a document provided as part of the request.
     *
     * @param document the content to process.
@@ -52,32 +68,48 @@ public class ServiceRequest {
     public ServiceRequest(String document, SupportedMimeType type) {
         this.document = document;
         this.documentType = type.value;
+        this.imageTagging = false;
+        this.imageCategorization = false;
     }
 
     /**
     * Construct a request for the online service to annotate or classify a document downloaded directly from a remote URL.
     *
-    * @param documentUrl the URL from which the document should be
-    *          downloaded. This must be accessible to the service so it
-    *          must not require authentication credentials etc. (but it
-    *          may be, for example, a pre-signed Amazon S3 URL).
+    * @param documentUrl the URL from which the document should be downloaded
     * @param type the MIME type that the service should use to parse the document.
     */
     public ServiceRequest(URL documentUrl, SupportedMimeType type) {
         this.documentUrl = documentUrl.toString();
         this.documentType = type.value;
+        this.imageTagging = false;
+        this.imageCategorization = false;
+    }
+
+    /**
+     * Construct a request for the online service to annotate or classify a document downloaded directly from a remote URL.
+     *
+     * @param documentUrl The URL address of the document
+     * @param type the MIME type that the service should use to parse the document.
+     * @param imageTagging Whether to include image tagging in the response
+     * @param imageCategorization Whether to include image categorization in the response
+     */
+    public ServiceRequest(URL documentUrl, SupportedMimeType type, boolean imageTagging, boolean imageCategorization) {
+        this.documentUrl = documentUrl.toString();
+        this.documentType = type.value;
+        this.imageCategorization = imageCategorization;
+        this.imageTagging = imageTagging;
     }
 
 
     public String getDocument() {
-        return document;
+        return this.document;
     }
     public void setDocument(String document) {
         this.document = document;
     }
 
     public String getDocumentUrl() {
-        return documentUrl;
+        return this.documentUrl;
     }
     public void setDocumentUrl(String documentUrl) {
         this.documentUrl = documentUrl;
@@ -88,5 +120,19 @@ public class ServiceRequest {
     }
     public void setDocumentType(String documentType) {
         this.documentType = documentType;
+    }
+
+    public boolean getImageTagging() {
+        return this.imageTagging;
+    }
+    public void setImageTagging(boolean imageTagging) {
+        this.imageTagging = imageTagging;
+    }
+
+    public boolean getImageCategorization() {
+        return this.imageCategorization;
+    }
+    public void setImageCategorization(boolean imageCategorization) {
+        this.imageCategorization = imageCategorization;
     }
 }
