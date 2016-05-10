@@ -1,4 +1,10 @@
 com.ontotext.s4.catalog
 com.ontotext.s4.client
 com.ontotext.s4.common
+com.ontotext.s4.model.annotation
+com.ontotext.s4.model.classification
+com.ontotext.s4.model.image
 com.ontotext.s4.service
+com.ontotext.s4.service.cli
+com.ontotext.s4.service.impl
+com.ontotext.s4.service.util
