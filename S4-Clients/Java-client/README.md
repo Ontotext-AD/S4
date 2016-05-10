@@ -16,11 +16,11 @@ A Java client library and a command-line tool for the [S4 REST API][1].
 Alternatively you can download the source code from our [GitHub](https://github.com/Ontotext-AD/S4/tree/master/S4-Clients/Java-client) page
 
 ### .jar download
-Or you can download the packaged `.jar` from [here](http://ontotext-ad.github.io/S4/java-client/cli/s4-client-1.2.0-jar-with-dependencies.jar).
+Or you can download the packaged `.jar` from [here](http://ontotext-ad.github.io/S4/java-client/cli/s4-client-1.2.1-jar-with-dependencies.jar).
 
 ## Example usage
 ```java
-S4AnnotationClient annoClient = new S4AnnotationClientImpl(ServicesCatalog.getItem("news"), "<api-key>", "<key-secret>");
+S4AnnotationClient annoClient = ServiceClientsFactory.createAnnotationClient(ServicesCatalog.getItem("news"), "<api-key>", "<key-secret>");
 AnnotatedDocument doc = annoClient.annotateDocument("Your text here", SupportedMimeType.PLAINTEXT);
 System.out.println(doc.getEntities());
 System.out.println(doc.getText());

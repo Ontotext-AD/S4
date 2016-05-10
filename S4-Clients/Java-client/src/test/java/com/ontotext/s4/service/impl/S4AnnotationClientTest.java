@@ -21,6 +21,7 @@ import com.ontotext.s4.catalog.ServiceDescriptor;
 import com.ontotext.s4.catalog.ServicesCatalog;
 import com.ontotext.s4.model.annotation.AnnotatedDocument;
 import com.ontotext.s4.service.S4AnnotationClient;
+import com.ontotext.s4.service.ServiceClientsFactory;
 import com.ontotext.s4.service.util.ResponseFormat;
 import com.ontotext.s4.service.util.ServiceRequest;
 import com.ontotext.s4.service.util.SupportedMimeType;
@@ -42,10 +43,11 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
-
+@Ignore
 public class S4AnnotationClientTest {
+
     final static String testApiKeyId = "";
-	final static String testApiKeyPass = "";
+    final static String testApiKeyPass = "";
 
     final static ServiceDescriptor descriptor = ServicesCatalog.getItem("twitie");
 
@@ -63,8 +65,8 @@ public class S4AnnotationClientTest {
 
         imageURL = new URL("http://www.bbc.com/news/world-us-canada-36020717");
 
-		apiDesc = new S4AnnotationClientImpl(descriptor, testApiKeyId, testApiKeyPass);
-        apiUrl = new S4AnnotationClientImpl(serviceUrl, testApiKeyId, testApiKeyPass);
+		apiDesc = ServiceClientsFactory.createAnnotationClient(descriptor, testApiKeyId, testApiKeyPass);
+        apiUrl = ServiceClientsFactory.createAnnotationClient(serviceUrl, testApiKeyId, testApiKeyPass);
 	}
 
     @Before
@@ -384,25 +386,5 @@ public class S4AnnotationClientTest {
         assertFalse(writer.contains("\"tags\""));
         assertFalse(writer.contains("\"categories\""));
         assertFalse(writer.contains("\"tagging_id\""));
-    }
-
-    @Test
-	public void testProcessRequestForStreamDescClient() throws Exception {
-		ServiceRequest rq = new ServiceRequest(documentText, SupportedMimeType.PLAINTEXT);
-		InputStream result = apiDesc.processRequestForStream(rq, ResponseFormat.GATE_XML);
-		StringWriter w = new StringWriter();
-		IOUtils.copy(result, w, Charset.forName("UTF-8"));
-
-		assertTrue(w.toString().contains("Barack"));
-	}
-
-    @Test
-    public void testProcessRequestForStreamUrlClient() throws Exception {
-        ServiceRequest rq = new ServiceRequest(documentText, SupportedMimeType.PLAINTEXT);
-        InputStream result = apiUrl.processRequestForStream(rq, ResponseFormat.GATE_XML);
-        StringWriter w = new StringWriter();
-        IOUtils.copy(result, w, Charset.forName("UTF-8"));
-
-        assertTrue(w.toString().contains("Barack"));
     }
 }

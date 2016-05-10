@@ -20,7 +20,6 @@ import java.net.URL;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.ontotext.s4.service.util.SupportedMimeType;
 
 /**
  * Class representing the request format for the S4 online API.

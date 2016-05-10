@@ -19,7 +19,6 @@ package com.ontotext.s4.service;
 import com.ontotext.s4.model.annotation.AnnotatedDocument;
 import com.ontotext.s4.service.util.ResponseFormat;
 import com.ontotext.s4.service.util.S4ServiceClientException;
-import com.ontotext.s4.service.util.ServiceRequest;
 import com.ontotext.s4.service.util.SupportedMimeType;
 
 import java.io.File;
@@ -60,15 +59,15 @@ public interface S4AnnotationClient extends S4AbstractClient {
      * Annotates the contents of a single file with the specified MIME type. Returns an object which allows
      * for convenient access to the annotations in the annotated document.
      *
-     * @param documentContent the file which contents will be annotated
+     * @param documentFile the file containing the data to be annotated
      * @param documentEncoding the encoding of the document file
      * @param documentMimeType the MIME type of the document to annotated content as well as the annotations produced
-     * @return an {@link AnnotatedDocument} which allows for convenient access to the annotations in the annotated document.
+     * @return An {@link AnnotatedDocument} which allows for convenient access to the annotations in the annotated document.
      * @throws IOException Error
      * @throws S4ServiceClientException Error
      */
     public AnnotatedDocument annotateDocument(
-            File documentContent, Charset documentEncoding, SupportedMimeType documentMimeType)
+            File documentFile, Charset documentEncoding, SupportedMimeType documentMimeType)
             throws IOException, S4ServiceClientException;
 
     /**
@@ -77,7 +76,7 @@ public interface S4AnnotationClient extends S4AbstractClient {
      *
      * @param documentUrl the publicly accessible URL from where the document will be downloaded
      * @param documentMimeType the MIME type of the document which will be annotated
-     * @return an {@link AnnotatedDocument} which allows for convenient programmatic access to the annotated document
+     * @return An {@link AnnotatedDocument} which allows for convenient programmatic access to the annotated document
      * @throws S4ServiceClientException Error
      */
     public AnnotatedDocument annotateDocument(
@@ -91,7 +90,7 @@ public interface S4AnnotationClient extends S4AbstractClient {
      * @param documentText the contents of the document which will be annotated
      * @param documentMimeType the MIME type of the file which will be annotated
      * @param serializationFormat the format which will be used for serialization of the annotated document
-     * @return an {@link InputStream} from which the serialization of the annotated document can be read
+     * @return An {@link InputStream} from which the serialization of the annotated document can be read
      * @throws S4ServiceClientException Error
      */
     public InputStream annotateDocumentAsStream(
@@ -102,27 +101,27 @@ public interface S4AnnotationClient extends S4AbstractClient {
      * Annotates the contents of a single file returning an
      * {@link InputStream} from which the annotated content can be read
      *
-     * @param documentContent the file which will be annotated
+     * @param documentFile the file which will be annotated
      * @param documentEncoding the encoding of the file which will be annotated
      * @param documentMimeType the MIME type of the file which will be annotated
      * @param serializationFormat the serialization format used for the annotated content
-     * @return an {@link InputStream} from which the serialization of the annotated document can be read
+     * @return An {@link InputStream} from which the serialization of the annotated document can be read
      * @throws IOException if there are problems reading the contents of the file
      * @throws S4ServiceClientException Error
      */
     public InputStream annotateDocumentAsStream(
-            File documentContent, Charset documentEncoding, SupportedMimeType documentMimeType,
+            File documentFile, Charset documentEncoding, SupportedMimeType documentMimeType,
                 ResponseFormat serializationFormat)
             throws IOException, S4ServiceClientException;
 
     /**
      * Annotates a single document publicly available under a given URL.
-     * Returns an {@link InputStream} from which the annotated content can be read
+     * Returns An {@link InputStream} from which the annotated content can be read
      *
      * @param documentUrl the publicly accessible URL from where the document will be downloaded
      * @param documentMimeType the MIME type of the document which will be annotated
      * @param serializationFormat the serialization format of the output
-     * @return an {@link InputStream} from where the serialized output can be read
+     * @return An {@link InputStream} from where the serialized output can be read
      * @throws S4ServiceClientException Error
      */
     public InputStream annotateDocumentAsStream(
@@ -139,25 +138,11 @@ public interface S4AnnotationClient extends S4AbstractClient {
      * @param serializationFormat the serialization format of the output
      * @param imageTagging The boolean flag to allow/deny image tagging of the document
      * @param imageCategorization The boolean flag to allow/deny image categorization of the document
-     * @return an {@link InputStream} from where the serialized output can be read
+     * @return An {@link InputStream} from where the serialized output can be read
      * @throws S4ServiceClientException Error
      */
     public InputStream annotateDocumentAsStream(
             URL documentUrl, SupportedMimeType documentMimeType, ResponseFormat serializationFormat,
                 boolean imageTagging, boolean imageCategorization)
-            throws S4ServiceClientException;
-
-    /**
-     * This low level method allows the user to explicitly specify all the parameters sent to the service.
-     * This is done by constructing the appropriate ServiceRequest object.
-     * Returns the contents of the annotated document
-     *
-     * @param rq the request which will be sent
-     * @param serializationFormat the format in which to output the annotated document
-     * @return an {@link InputStream} for the serialization of the annotated document in the specified format
-     * @throws S4ServiceClientException Error
-     */
-    public InputStream processRequestForStream(
-            ServiceRequest rq, ResponseFormat serializationFormat)
             throws S4ServiceClientException;
 }

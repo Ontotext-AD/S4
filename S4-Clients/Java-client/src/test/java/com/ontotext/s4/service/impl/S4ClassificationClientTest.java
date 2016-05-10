@@ -17,10 +17,9 @@
 package com.ontotext.s4.service.impl;
 
 
-import com.ontotext.s4.catalog.ServiceDescriptor;
-import com.ontotext.s4.catalog.ServicesCatalog;
 import com.ontotext.s4.model.classification.ClassifiedDocument;
 import com.ontotext.s4.service.S4ClassificationClient;
+import com.ontotext.s4.service.ServiceClientsFactory;
 import com.ontotext.s4.service.util.SupportedMimeType;
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
@@ -40,13 +39,11 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
-
+@Ignore
 public class S4ClassificationClientTest {
 
     final static String testApiKeyId = "";
     final static String testApiKeyPass = "";
-
-    final static ServiceDescriptor descriptor = ServicesCatalog.getItem("news-classifier");
 
     String documentText;
 
@@ -59,8 +56,8 @@ public class S4ClassificationClientTest {
     public static void setUpBeforeClass() throws MalformedURLException {
         serviceUrl = new URL("https://text.s4.ontotext.com/v1/news-classifier");
 
-        apiDesc = new S4ClassificationClientImpl(descriptor, testApiKeyId, testApiKeyPass);
-        apiUrl = new S4ClassificationClientImpl(serviceUrl, testApiKeyId, testApiKeyPass);
+        apiDesc = ServiceClientsFactory.createClassificationClient(testApiKeyId, testApiKeyPass);
+        apiUrl = ServiceClientsFactory.createClassificationClient(serviceUrl, testApiKeyId, testApiKeyPass);
     }
 
     @Before

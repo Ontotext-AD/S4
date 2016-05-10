@@ -43,11 +43,11 @@ public class S4CommandLineTool {
     private static class CommandLineParams {
 
         @Parameter(names = {"-k", "--api-key"}, required = true,
-                description = "The S4 api key")
+                description = "The S4 API key")
         private String apiKey;
 
         @Parameter(names = {"-s", "--key-secret"}, required = true,
-                description = "The S4 api secret")
+                description = "The S4 key secret")
         private String keySecret;
 
         @Parameter(names = {"-t", "--service-type"}, required = true,

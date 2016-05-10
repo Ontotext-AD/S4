@@ -19,6 +19,8 @@ package com.ontotext.s4.model.image;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 public class ClassifiedImage {
 
@@ -60,10 +62,13 @@ public class ClassifiedImage {
         this.tagging_id = taggingID;
     }
 
-    public String getImage() {
+    @JsonProperty("image")
+    public String getImageURL() {
         return this.image;
     }
-    public void setImage(String imageURL) {
+    
+    @JsonProperty("image")
+    public void setImageURL(String imageURL) {
         this.image = imageURL;
     }
 

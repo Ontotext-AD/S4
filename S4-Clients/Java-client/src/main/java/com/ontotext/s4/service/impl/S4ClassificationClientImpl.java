@@ -20,7 +20,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ontotext.s4.catalog.ServiceDescriptor;
 import com.ontotext.s4.client.HttpClientException;
-import com.ontotext.s4.common.Parameters;
 import com.ontotext.s4.model.classification.ClassifiedDocument;
 import com.ontotext.s4.service.S4ClassificationClient;
 import com.ontotext.s4.service.util.S4ServiceClientException;
@@ -44,8 +43,8 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      * pipeline on the s4.ontotext.com platform using the given credentials.
      *
      * @param item the {@link ServiceDescriptor} which represents the processing pipeline which will be used
-     * @param apiKey API key ID for authentication
-     * @param keySecret corresponding password
+     * @param apiKey Your S4 API Key
+     * @param keySecret Your S4 Key Secret
      */
     public S4ClassificationClientImpl(ServiceDescriptor item, String apiKey, String keySecret) {
         super(item, apiKey, keySecret);
@@ -55,12 +54,12 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      * Constructs a <code>S4AnnotationClient</code> for accessing a specific processing
      * pipeline on the s4.ontotext.com platform using the given credentials.
      *
-     * @param endpoint the URL of the pipeline which will be used for processing
-     * @param apiKey apiKeyId API key ID for authentication
-     * @param keySecret corresponding password
+     * @param serviceURL The service endpoint URL
+     * @param apiKey Your S4 API Key
+     * @param keySecret Your S4 Key Secret
      */
-    public S4ClassificationClientImpl(URL endpoint, String apiKey, String keySecret) {
-        super(endpoint, apiKey, keySecret);
+    public S4ClassificationClientImpl(URL serviceURL, String apiKey, String keySecret) {
+        super(serviceURL, apiKey, keySecret);
     }
 
     /**
@@ -69,7 +68,7 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      *
      * @param documentText the document content to classify
      * @param documentMimeType the MIME type of the document which will be classified
-     * @return an {@link ClassifiedDocument} containing the original content as well as the classifications produced
+     * @return A {@link ClassifiedDocument} containing the original content as well as the classifications produced
      * @throws S4ServiceClientException Error
      */
     public ClassifiedDocument classifyDocument(String documentText, SupportedMimeType documentMimeType)
@@ -83,16 +82,16 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      * Classifies the contents of a single file with the specified MIME type. Returns an object which allows
      * for convenient access to the classification information for the document.
      *
-     * @param documentContent the file whose contents will be classified
+     * @param documentFile the file whose contents will be classified
      * @param documentEncoding the encoding of the document file
      * @param documentMimeType the MIME type of the document to classified content as well as the classifications produced
      * @throws IOException Error
      * @throws S4ServiceClientException Error
      */
-    public ClassifiedDocument classifyDocument(File documentContent, Charset documentEncoding, SupportedMimeType documentMimeType)
+    public ClassifiedDocument classifyDocument(File documentFile, Charset documentEncoding, SupportedMimeType documentMimeType)
             throws IOException, S4ServiceClientException {
 
-        Path documentPath = documentContent.toPath();
+        Path documentPath = documentFile.toPath();
         if(!Files.isReadable(documentPath)) {
             throw new IOException("File " + documentPath.toString()	+ " is not readable.");
         }
@@ -109,7 +108,7 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      *
      * @param documentUrl the publicly accessible URL from where the document will be downloaded
      * @param documentMimeType the MIME type of the document which will be classified
-     * @return an {@link ClassifiedDocument} which allows for convenient programmatic access to the classified document
+     * @return A {@link ClassifiedDocument} which allows for convenient programmatic access to the classified document
      * @throws S4ServiceClientException Error
      */
     public ClassifiedDocument classifyDocument(URL documentUrl, SupportedMimeType documentMimeType)
@@ -125,7 +124,7 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      *
      * @param documentText the contents of the document which will be classified
      * @param documentMimeType the MIME type of the file which will be classified
-     * @return an {@link InputStream} from which the serialization of the classified document can be read
+     * @return An {@link InputStream} from which the serialization of the classified document can be read
      * @throws S4ServiceClientException Error
      */
     public InputStream classifyDocumentAsStream(
@@ -134,7 +133,7 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
 
         ServiceRequest rq = new ServiceRequest(documentText, documentMimeType);
         try {
-            return client.requestForStream("", "POST", rq, Parameters.newInstance().withValue("Accept", ResponseFormat.JSON.acceptHeader));
+            return client.requestForStream("", "POST", rq, constructHeaders(ResponseFormat.JSON));
         } catch(HttpClientException e) {
             JsonNode msg = handleErrors(e);
             throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);
@@ -145,7 +144,7 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      * Classifies the contents of a single file returning an
      * {@link InputStream} from which the classification information can be read
      *
-     * @param documentContent the file which will be classified
+     * @param documentFile the file which will be classified
      * @param documentEncoding the encoding of the file which will be classified
      * @param documentMimeType the MIME type of the file which will be classified
      *
@@ -155,15 +154,15 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      * @throws S4ServiceClientException Error
      */
     public InputStream classifyDocumentAsStream(
-            File documentContent, Charset documentEncoding, SupportedMimeType documentMimeType)
+            File documentFile, Charset documentEncoding, SupportedMimeType documentMimeType)
             throws IOException,	S4ServiceClientException {
 
-        Path documentPath = documentContent.toPath();
+        Path documentPath = documentFile.toPath();
         if(!Files.isReadable(documentPath)) {
             throw new IOException("File " + documentPath.toString() + " is not readable.");
         }
-        ByteBuffer buff;
-        buff = ByteBuffer.wrap(Files.readAllBytes(documentPath));
+        ByteBuffer buff =
+        		ByteBuffer.wrap(Files.readAllBytes(documentPath));
         String content = documentEncoding.decode(buff).toString();
         return classifyDocumentAsStream(content, documentMimeType);
     }
@@ -174,7 +173,7 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      *
      * @param documentUrl the publicly accessible URL from where the document will be downloaded
      * @param documentMimeType the MIME type of the document which will be classified
-     * @return an {@link InputStream} from where the serialized output can be read
+     * @return An {@link InputStream} from where the serialized output can be read
      * @throws S4ServiceClientException Error
      */
     public InputStream classifyDocumentAsStream(
@@ -183,7 +182,7 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
 
         ServiceRequest rq = new ServiceRequest(documentUrl, documentMimeType);
         try {
-            return client.requestForStream("", "POST", rq, Parameters.newInstance().withValue("Accept", ResponseFormat.JSON.acceptHeader));
+            return client.requestForStream("", "POST", rq, constructHeaders(ResponseFormat.JSON));
         } catch(HttpClientException e) {
             JsonNode msg = handleErrors(e);
             throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);
@@ -195,22 +194,16 @@ public class S4ClassificationClientImpl extends S4AbstractClientImpl implements 
      * of the OnlineService request object. Returns an object which wraps the classified document.
      *
      * @param rq the request which will be sent
-     * @return a {@link ClassifiedDocument} containing the original content as well as the annotations produced
+     * @return A {@link ClassifiedDocument} containing the original content as well as the annotations produced
      * @throws S4ServiceClientException Error
      */
     private ClassifiedDocument classifyRequest(ServiceRequest rq)
             throws S4ServiceClientException {
 
         try {
-            if(requestCompression) {
-                return client.request("", "POST", new TypeReference<ClassifiedDocument>() {}, rq,
-                        Parameters.newInstance()
-                                .withValue("Accept", ResponseFormat.JSON.acceptHeader)
-                                .withValue("Accept-Encoding", "gzip"));
-            } else {
-                return client.request("", "POST", new TypeReference<ClassifiedDocument>() {}, rq,
-                        Parameters.newInstance().withValue("Accept", ResponseFormat.JSON.acceptHeader));
-            }
+            return client.request("", "POST", new TypeReference<ClassifiedDocument>() {}, rq,
+                    constructHeaders(ResponseFormat.JSON));
+
         } catch (HttpClientException e) {
             JsonNode msg = handleErrors(e);
             throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);

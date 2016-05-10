@@ -23,7 +23,8 @@ public class ServicesCatalog {
 	public static ServiceDescriptor getItem(String itemName) {
 
         if (itemName == null) {
-        	throw new IllegalArgumentException("No service id provided ( expected one of: 'twitie', 'news', 'sbt' or 'news-classifier' )");
+        	throw new IllegalArgumentException("No service id provided ( expected one of: 'twitie', 'news', " +
+                    "'news-de', 'sbt' or 'news-classifier' )");
         }
         ServiceDescriptor item = new ServiceDescriptor();
         switch(itemName.toLowerCase()){
@@ -44,6 +45,13 @@ public class ServicesCatalog {
             case "news":{
                 item.setName("news");
                 item.setServiceUrl(S4_SERVICE_ENDPOINT_URL + "news");
+                item.setDescription("The News Annotation service retrieves various types of entities from texts "
+                        + "as well as the relations between them.");
+                return item;
+            }
+            case "news-de":{
+                item.setName("news-de");
+                item.setServiceUrl(S4_SERVICE_ENDPOINT_URL + "news-de");
                 item.setDescription("The News Annotation service retrieves various types of entities from texts "
                         + "as well as the relations between them.");
                 return item;

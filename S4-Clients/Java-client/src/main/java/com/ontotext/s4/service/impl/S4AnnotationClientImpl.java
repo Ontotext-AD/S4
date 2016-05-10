@@ -21,7 +21,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ontotext.s4.catalog.ServiceDescriptor;
 import com.ontotext.s4.client.HttpClientException;
-import com.ontotext.s4.common.Parameters;
 import com.ontotext.s4.model.annotation.AnnotatedDocument;
 import com.ontotext.s4.service.S4AnnotationClient;
 import com.ontotext.s4.service.util.S4ServiceClientException;
@@ -56,12 +55,12 @@ public class S4AnnotationClientImpl extends S4AbstractClientImpl implements S4An
      * Constructs a <code>S4AnnotationClient</code> for accessing a specific processing
      * pipeline on the s4.ontotext.com platform using the given credentials.
      *
-     * @param endpoint the URL of the pipeline which will be used for processing
+     * @param serviceURL the URL of the pipeline which will be used for processing
      * @param apiKey apiKeyId API key ID for authentication
      * @param keySecret corresponding password
      */
-    public S4AnnotationClientImpl(URL endpoint, String apiKey, String keySecret) {
-        super(endpoint, apiKey, keySecret);
+    public S4AnnotationClientImpl(URL serviceURL, String apiKey, String keySecret) {
+        super(serviceURL, apiKey, keySecret);
     }
 
     /**
@@ -103,21 +102,22 @@ public class S4AnnotationClientImpl extends S4AbstractClientImpl implements S4An
      * Annotates the contents of a single file with the specified MIME type. Returns an object which allows
      * for convenient access to the annotations in the annotated document.
      *
-     * @param documentContent the file which contents will be annotated
+     * @param documentFile the file which contents will be annotated
      * @param documentEncoding the encoding of the document file
      * @param documentMimeType the MIME type of the document to annotated content as well as the annotations produced
      * @throws IOException Error
      * @throws S4ServiceClientException Error
      */
-    public AnnotatedDocument annotateDocument(File documentContent, Charset documentEncoding, SupportedMimeType documentMimeType)
+    public AnnotatedDocument annotateDocument(File documentFile, Charset documentEncoding,
+                                              SupportedMimeType documentMimeType)
             throws IOException, S4ServiceClientException {
 
-        Path documentPath = documentContent.toPath();
+        Path documentPath = documentFile.toPath();
         if(!Files.isReadable(documentPath)) {
             throw new IOException("File " + documentPath.toString() + " is not readable.");
         }
-        ByteBuffer buff;
-        buff = ByteBuffer.wrap(Files.readAllBytes(documentPath));
+        ByteBuffer buff = 
+        		ByteBuffer.wrap(Files.readAllBytes(documentPath));
         String content = documentEncoding.decode(buff).toString();
 
         return annotateDocument(content, documentMimeType);
@@ -149,13 +149,14 @@ public class S4AnnotationClientImpl extends S4AbstractClientImpl implements S4An
      * @return an {@link InputStream} from which the serialization of the annotated document can be read
      * @throws S4ServiceClientException Error
      */
-    public InputStream annotateDocumentAsStream(String documentText, SupportedMimeType documentMimeType, ResponseFormat serializationFormat)
+    public InputStream annotateDocumentAsStream(String documentText, SupportedMimeType documentMimeType,
+                                                ResponseFormat serializationFormat)
             throws S4ServiceClientException {
 
         ServiceRequest rq =
                 new ServiceRequest(documentText, documentMimeType);
         try {
-            return client.requestForStream("", "POST", rq, Parameters.newInstance().withValue("Accept", serializationFormat.acceptHeader));
+            return client.requestForStream("", "POST", rq, constructHeaders(serializationFormat));
         } catch(HttpClientException e) {
             JsonNode msg = handleErrors(e);
             throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);
@@ -183,8 +184,8 @@ public class S4AnnotationClientImpl extends S4AbstractClientImpl implements S4An
         if(!Files.isReadable(documentPath)) {
             throw new IOException("File " + documentPath.toString() + " is not readable.");
         }
-        ByteBuffer buff;
-        buff = ByteBuffer.wrap(Files.readAllBytes(documentPath));
+        ByteBuffer buff = 
+        		ByteBuffer.wrap(Files.readAllBytes(documentPath));
         String content = documentEncoding.decode(buff).toString();
 
         return annotateDocumentAsStream(content, documentMimeType, serializationFormat);
@@ -207,7 +208,7 @@ public class S4AnnotationClientImpl extends S4AbstractClientImpl implements S4An
         ServiceRequest rq =
                 new ServiceRequest(documentUrl, documentMimeType);
         try {
-            return client.requestForStream("", "POST", rq, Parameters.newInstance().withValue("Accept", serializationFormat.acceptHeader));
+            return client.requestForStream("", "POST", rq, constructHeaders(serializationFormat));
         } catch(HttpClientException e) {
             JsonNode msg = handleErrors(e);
             throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);
@@ -235,36 +236,7 @@ public class S4AnnotationClientImpl extends S4AbstractClientImpl implements S4An
         ServiceRequest rq =
                 new ServiceRequest(documentUrl, documentMimeType, imageTagging, imageCategorization);
         try {
-            return client.requestForStream("", "POST", rq, Parameters.newInstance().withValue("Accept", serializationFormat.acceptHeader));
-        } catch(HttpClientException e) {
-            JsonNode msg = handleErrors(e);
-            throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);
-        }
-    }
-
-    /**
-     * This low level method allows the user to explicitly specify all the parameters sent to the service.
-     * This is done by constructing the appropriate ServiceRequest object.
-     * Returns the contents of the annotated document
-     *
-     * @param rq the request which will be sent
-     * @param serializationFormat the format in which to output the annotated document
-     * @return an{@link InputStream} for the serialization of the annotated document in the specified format
-     * @throws S4ServiceClientException Error
-     */
-    public InputStream processRequestForStream(
-            ServiceRequest rq, ResponseFormat serializationFormat)
-            throws S4ServiceClientException {
-
-        try {
-            if(requestCompression) {
-                return client.requestForStream("", "POST", rq,
-                        Parameters.newInstance()
-                                .withValue("Accept", serializationFormat.acceptHeader)
-                                .withValue("Accept-Encoding", "gzip"));
-            } else {
-                return client.requestForStream("", "POST", rq, Parameters.newInstance().withValue("Accept", serializationFormat.acceptHeader));
-            }
+            return client.requestForStream("", "POST", rq, constructHeaders(serializationFormat));
         } catch(HttpClientException e) {
             JsonNode msg = handleErrors(e);
             throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);
@@ -282,17 +254,8 @@ public class S4AnnotationClientImpl extends S4AbstractClientImpl implements S4An
     private AnnotatedDocument processRequest(ServiceRequest rq)
             throws S4ServiceClientException {
         try {
-
-            if(requestCompression) {
-                return client.request("", "POST", new TypeReference<AnnotatedDocument>() {}, rq,
-                        Parameters.newInstance()
-                                .withValue("Accept", ResponseFormat.JSON.acceptHeader)
-                                .withValue("Accept-Encoding", "gzip"));
-            } else {
-                return client.request("", "POST", new TypeReference<AnnotatedDocument>() {}, rq,
-                        Parameters.newInstance()
-                                .withValue("Accept", ResponseFormat.JSON.acceptHeader));
-            }
+            return client.request("", "POST", new TypeReference<AnnotatedDocument>() {}, rq,
+                    constructHeaders(ResponseFormat.JSON));
         } catch(HttpClientException e) {
             JsonNode msg = handleErrors(e);
             throw new S4ServiceClientException(msg == null ? e.getMessage() : msg.asText(), e);

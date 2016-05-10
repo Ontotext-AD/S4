@@ -19,7 +19,7 @@ limitations under the License. -->
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>s4-client</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <groupId>com.ontotext.s4</groupId>
     <packaging>jar</packaging>
     <name>S4 Java SDK</name>
@@ -228,7 +228,6 @@ limitations under the License. -->
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -254,7 +253,8 @@ limitations under the License. -->
                     </execution>
                 </executions>
             </plugin>
-       </plugins>
+
+        </plugins>
     </build>
 
     <distributionManagement>

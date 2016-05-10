@@ -34,7 +34,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      *
      * @param documentText the document content to classify
      * @param documentMimeType the MIME type of the document which will be classified
-     * @return an {@link ClassifiedDocument} containing the original content as well as the classifications produced
+     * @return A {@link ClassifiedDocument} containing the original content as well as the classifications produced
      * @throws S4ServiceClientException Error
      */
     public ClassifiedDocument classifyDocument(
@@ -45,7 +45,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      * Classifies the contents of a single file with the specified MIME type. Returns an object which allows
      * for convenient access to the classification information for the document.
      *
-     * @param documentContent the file whose contents will be classified
+     * @param documentFile the file whose contents will be classified
      * @param documentEncoding the encoding of the document file
      * @param documentMimeType the MIME type of the document to classified content as well as the classifications produced
      * @return an object which allows for convenient access to the classification information for the document.
@@ -53,7 +53,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      * @throws S4ServiceClientException Error
      */
     public ClassifiedDocument classifyDocument(
-            File documentContent, Charset documentEncoding, SupportedMimeType documentMimeType)
+            File documentFile, Charset documentEncoding, SupportedMimeType documentMimeType)
             throws IOException, S4ServiceClientException;
 
     /**
@@ -62,7 +62,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      *
      * @param documentUrl the publicly accessible URL from where the document will be downloaded
      * @param documentMimeType the MIME type of the document which will be classified
-     * @return an {@link ClassifiedDocument} which allows for convenient programmatic access to the classified document
+     * @return A {@link ClassifiedDocument} which allows for convenient programmatic access to the classified document
      * @throws S4ServiceClientException Error
      */
     public ClassifiedDocument classifyDocument(
@@ -75,7 +75,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      *
      * @param documentText the contents of the document which will be classified
      * @param documentMimeType the MIME type of the file which will be classified
-     * @return an {@link InputStream} from which the serialization of the classified document can be read
+     * @return An {@link InputStream} from which the serialization of the classified document can be read
      * @throws S4ServiceClientException Error
      */
     public InputStream classifyDocumentAsStream(
@@ -86,7 +86,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      * Classifies the contents of a single file returning an
      * {@link InputStream} from which the classification information can be read
      *
-     * @param documentContent the file which will be classified
+     * @param documentFile the file which will be classified
      * @param documentEncoding the encoding of the file which will be classified
      * @param documentMimeType the MIME type of the file which will be classified
      *
@@ -96,7 +96,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      * @throws S4ServiceClientException Error
      */
     public InputStream classifyDocumentAsStream(
-            File documentContent, Charset documentEncoding, SupportedMimeType documentMimeType)
+            File documentFile, Charset documentEncoding, SupportedMimeType documentMimeType)
             throws IOException,	S4ServiceClientException;
 
     /**
@@ -105,7 +105,7 @@ public interface S4ClassificationClient extends S4AbstractClient {
      *
      * @param documentUrl the publicly accessible URL from where the document will be downloaded
      * @param documentMimeType the MIME type of the document which will be classified
-     * @return an {@link InputStream} from where the serialized output can be read
+     * @return An {@link InputStream} from where the serialized output can be read
      * @throws S4ServiceClientException Error
      */
     public InputStream classifyDocumentAsStream(

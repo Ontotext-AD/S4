@@ -79,11 +79,11 @@ public class HttpClient {
     /**
     * Create a client that uses the {@link #DEFAULT_BASE_URL default base URL}.
     *
-    * @param apiKeyId API key identifier for authentication
-    * @param apiPassword API key password
+    * @param apiKeyId S4 API key identifier for authentication
+    * @param keySecret S4 API key secret
     */
-    public HttpClient(String apiKeyId, String apiPassword) {
-    	this(DEFAULT_BASE_URL, apiKeyId, apiPassword);
+    public HttpClient(String apiKeyId, String keySecret) {
+    	this(DEFAULT_BASE_URL, apiKeyId, keySecret);
     }
 
     /**
@@ -91,13 +91,13 @@ public class HttpClient {
     *
     * @param url API base URL
     * @param apiKeyId API key identifier for authentication
-    * @param apiPassword API key password
+    * @param keySecret API key secret
     */
-    public HttpClient(URL url, String apiKeyId, String apiPassword) {
+    public HttpClient(URL url, String apiKeyId, String keySecret) {
         baseUrl = url;
         try {
             // HTTP header is "Basic base64(username:password)"
-            authorizationHeader = "Basic " + DatatypeConverter.printBase64Binary((apiKeyId + ":" + apiPassword).getBytes("UTF-8"));
+            authorizationHeader = "Basic " + DatatypeConverter.printBase64Binary((apiKeyId + ":" + keySecret).getBytes("UTF-8"));
         } catch(UnsupportedEncodingException uee) {
             // should never happen
             throw new RuntimeException("JVM claims not to support UTF-8 encoding...", uee);
