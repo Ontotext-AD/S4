@@ -15,7 +15,7 @@
 from SPARQLWrapper import SPARQLWrapper, JSON, XML, N3, TURTLE
 
 
-# Get all countries in Europe
+# Get all countries in Europe and order them alphabetically
 query = """PREFIX dbp-ont: <http://dbpedia.org/ontology/>
 PREFIX geo-ont: <http://www.geonames.org/ontology#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>

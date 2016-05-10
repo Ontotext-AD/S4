@@ -13,8 +13,8 @@
 # limitations under the License.
 
 # Note that this method works only for evaluation of small graphs and
-# PUBLIC-ONLY repositories. For sparql updates and non-public and fully
-# remote repository support - refer to the other two example files
+# PUBLIC-ONLY repositories. For SPARQL updates and non-public and fully
+# remote repository support - refer to the other example files
 
 import rdflib
 

@@ -15,6 +15,7 @@ SPARQL Update to personal S4 repository (more info [here](http://docs.s4.ontotex
 
 Query from the S4 [Knowledge Graphs](http://docs.s4.ontotext.com/display/S4docs/Knowledge+Graphs) - `knowledge_graphs.py`
 
+### Deep dive
 
 For more information, visit the [S4 Documentation](http://docs.s4.ontotext.com/).
 S4 GitHub with more resources and code samples: [here](https://github.com/Ontotext-AD/S4).
