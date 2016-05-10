@@ -18,4 +18,3 @@ Query from the S4 [Knowledge Graphs](http://docs.s4.ontotext.com/display/S4docs/
 ### Deep dive
 
 For more information, visit the [S4 Documentation](http://docs.s4.ontotext.com/).
-S4 GitHub with more resources and code samples: [here](https://github.com/Ontotext-AD/S4).

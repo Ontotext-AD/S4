@@ -14,11 +14,11 @@
 
 from SPARQLWrapper import SPARQLWrapper
 
-queryString = '''
+queryString = """
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 INSERT { <http://example/egbook> dc:title  "This is an example title" }
 WHERE {}
-'''
+"""
 
 sparql = SPARQLWrapper("https://rdf.s4.ontotext.com/<user-id>/" +
                        "<databaseName>/repositories/<repo-name>/statements")
@@ -28,6 +28,6 @@ sparql.setQuery(queryString)
 # Necessary - An update operation cannot be executed without ID credentials
 sparql.setCredentials("<your-s4-api-key>", "<your-s4-key-secret>")
 
-sparql.method = 'POST'
+sparql.method = "POST"
 
 sparql.query()
