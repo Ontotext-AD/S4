@@ -9,7 +9,7 @@ A Java client library and a command-line tool for the [S4 REST API][1].
 <dependency>
   <groupId>com.ontotext.s4</groupId>
   <artifactId>s4-client</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 ### Source download
