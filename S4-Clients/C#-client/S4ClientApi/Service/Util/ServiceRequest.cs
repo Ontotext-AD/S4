@@ -32,6 +32,8 @@ namespace Ontotext.S4.service
         private String Document;
         private String DocumentUrl;
         private String DocumentType;
+        private bool ImageTagging;
+        private bool ImageCategorization;
 
 
         /// <summary>
@@ -62,6 +64,29 @@ namespace Ontotext.S4.service
         }
 
         /// <summary>
+        /// The boolean flag to allow/deny image tagging of the document
+        /// </summary>
+        public bool imageTagging
+        {
+            get { return ImageTagging; }
+            set { ImageTagging = value; }
+        }
+
+        /// <summary>
+        /// The boolean flag to allow/deny image categorization of the document
+        /// </summary>
+        public bool imageCategorization
+        {
+            get { return ImageCategorization; }
+            set { ImageCategorization = value; }
+        }
+
+        public ServiceRequest()
+        {
+
+        }
+
+        /// <summary>
         /// Construct a request for the online service to annotate or classify a document provided as part of the request.
         /// </summary>
         /// <param name="document">the content to process.</param>
@@ -70,21 +95,36 @@ namespace Ontotext.S4.service
         {
             this.Document = document;
             this.DocumentType = type.ToStringValue();
+            this.ImageTagging = false;
+            this.ImageCategorization = false;
         }
 
         /// <summary>
         /// Construct a request for the online service to annotate or classify a document downloaded directly from a remote URL
         /// </summary>
-        /// <param name="documentUrl">the URL from which the document should be
-        /// downloaded. This must be accessible to the service so it
-        /// must not require authentication credentials etc. (but it
-        /// may be, for example, a pre-signed Amazon S3 URL).</param>
-        /// <param name="type">the MIME type that the service should use to parse the
-        /// document.</param>
+        /// <param name="documentUrl">the URL from which the document should be downloaded</param>
+        /// <param name="type">the MIME type that the service should use to parse the document</param>
         public ServiceRequest(Uri documentUrl, SupportedMimeType type)
         {
-            this.documentUrl = documentUrl.ToString();
-            this.documentType = type.ToStringValue();
+            this.DocumentUrl = documentUrl.ToString();
+            this.DocumentType = type.ToStringValue();
+            this.ImageTagging = false;
+            this.ImageCategorization = false;
+        }
+
+        /// <summary>
+        /// Construct a request for the online service to annotate or classify a document downloaded directly from a remote URL
+        /// </summary>
+        /// <param name="documentUrl">the URL from which the document should be downloaded</param>
+        /// <param name="type">the MIME type that the service should use to parse the document</param>
+        /// <param name="imageTagging">The boolean flag to allow/deny image tagging of the document</param>
+        /// <param name="imageCategorization">The boolean flag to allow/deny image categorization of the document</param>
+        public ServiceRequest(Uri documentUrl, SupportedMimeType type, bool imageTagging, bool imageCategorization)
+        {
+            this.DocumentUrl = documentUrl.ToString();
+            this.DocumentType = type.ToStringValue();
+            this.ImageTagging = imageTagging;
+            this.ImageCategorization = imageCategorization;
         }
     }
 }

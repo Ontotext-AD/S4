@@ -21,6 +21,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ontotext.S4.common;
 using System.Json;
+using S4ClientApi.Service.Images;
 
 namespace Ontotext.S4.service
 {
@@ -31,7 +32,23 @@ namespace Ontotext.S4.service
     {
         private String Text;
         private Dictionary<String, List<Annotation>> Entities;
+        private List<ClassifiedImage> Images;
         private Dictionary<String, JsonObject> OtherFeatures;
+
+        public AnnotatedDocument()
+        {
+
+        }
+
+        public AnnotatedDocument(
+            String text, Dictionary<String, List<Annotation>> entities,
+            List<ClassifiedImage> images, Dictionary<String, JsonObject> otherFeatures)
+        {
+            this.Text = text;
+            this.Entities = entities;
+            this.Images = images;
+            this.OtherFeatures = otherFeatures;
+        }
 
         /// <summary>
         ///  The <em>plain text</em> of the document, extracted from the original source. Any markup
@@ -55,6 +72,15 @@ namespace Ontotext.S4.service
         }
 
         /// <summary>
+        /// List of image annotations (if explicitly specified)
+        /// </summary>
+        public List<ClassifiedImage> images
+        {
+            get { return Images; }
+            set { Images = value; }
+        }
+
+        /// <summary>
         /// Holder for any additional properties found in the JSON response
         /// apart from the text and entities. Typically this will only contain
         /// values if the original document that was processed was Twitter
@@ -65,7 +91,7 @@ namespace Ontotext.S4.service
             get { return OtherFeatures; }
             set { OtherFeatures = value; }
         }
-
+        
         /// <summary>
         /// Catch-all setter used by Jackson to deserialize unknown properties
         /// into the {@link #otherFeatures} map.

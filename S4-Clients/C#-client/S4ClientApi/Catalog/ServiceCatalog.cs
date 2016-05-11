@@ -41,7 +41,7 @@ namespace Ontotext.S4.catalog
         {
             if (itemName == null)
             {
-                throw new ArgumentException("No service id provided (expected one of: 'twitie', 'news', 'sbt' or 'news-classifier')");
+                throw new ArgumentException("No service id provided (expected one of: 'twitie', 'news', 'news-de', 'sbt' or 'news-classifier')");
             }
             ServiceDescriptor item = new ServiceDescriptor();
             switch (itemName.ToLower())
@@ -66,6 +66,14 @@ namespace Ontotext.S4.catalog
                 {
                     item.Name = "news";
                     item.ServiceUrl = S4_SERVICE_ENDPOINT_URL + "news";
+                    item.Description = "The News Annotation service retrieves various types of entities from texts "
+                    + "as well as the relations between them.";
+                    return item;
+                }
+                case "news-de":
+                {
+                    item.Name = "news-de";
+                    item.ServiceUrl = S4_SERVICE_ENDPOINT_URL + "news-de";
                     item.Description = "The News Annotation service retrieves various types of entities from texts "
                     + "as well as the relations between them.";
                     return item;

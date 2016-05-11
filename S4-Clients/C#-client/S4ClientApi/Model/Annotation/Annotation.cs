@@ -29,6 +29,18 @@ namespace Ontotext.S4.service
         private long EndOffset;
         private Dictionary<String, Object> Features = new Dictionary<String, Object>();
 
+        public Annotation()
+        {
+
+        }
+
+        public Annotation(long startOffset, long endOffset, Dictionary<String, Object> features)
+        {
+            this.startOffset = startOffset;
+            this.endOffset = endOffset;
+            this.features = features;
+        }
+
         /// <summary>
         /// Start offset of the annotation (a zero-based index into the
         /// containing document's {@link AnnotatedDocument#text plain text}).

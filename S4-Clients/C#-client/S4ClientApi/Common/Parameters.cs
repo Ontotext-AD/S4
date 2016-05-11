@@ -25,10 +25,10 @@ namespace Ontotext.S4.common
     /// <summary>
     /// Contains parameters
     /// </summary>
-    public class Parameters
+    public class Parameters : Dictionary<String, String>
     {
 
-        private Dictionary<String, String> mParameters = new Dictionary<String, String>();
+        //private Dictionary<String, String> mParameters = new Dictionary<String, String>();
 
         /// <summary>
         /// Construct the parameters from an array of name-value pairs using equals '=' as the separator.  
@@ -39,6 +39,17 @@ namespace Ontotext.S4.common
             parseNameValuePairs(nameValuePairs, '=', true);
         }
 
+        private Parameters() { }
+
+        /// <summary>
+        /// Creates a new empty Parameters instance
+        /// </summary>
+        /// <returns></returns>
+        public static Parameters newInstance()
+        {
+            return new Parameters();
+        }
+
         /// <summary>
         ///  Get the value associated with a parameter. 
         /// </summary>
@@ -46,7 +57,7 @@ namespace Ontotext.S4.common
         /// <returns>The value associated with the parameter.</returns>
         public String getValue(String name)
         {
-            return mParameters[name];
+            return this[name];
         }
 
         /// <summary>
@@ -72,7 +83,14 @@ namespace Ontotext.S4.common
         /// <param name="value">The value of the parameter.</param>
         public void setValue(String name, String value)
         {
-            mParameters.Add(name.Trim().ToLower(), value);
+            Add(name.Trim(), value);
+            //mParameters.Add(name.Trim().ToLower(), value);
+        }
+
+        public Parameters withValue(String name, String value)
+        {
+            setValue(name, value);
+            return this;
         }
 
         /// <summary>

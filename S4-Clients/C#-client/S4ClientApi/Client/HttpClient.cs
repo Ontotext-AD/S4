@@ -57,10 +57,10 @@ namespace Ontotext.S4.client
         /// <summary>
         /// Create a client that uses the {@link #DEFAULT_BASE_URL default base URL}. 
         /// </summary>
-        /// <param name="apiKeyId">API key identifier for authentication</param>
-        /// <param name="apiPassword">API key password</param>
-        public HttpClient(String apiKeyId, String apiPassword)
-            : this(DEFAULT_BASE_URL, apiKeyId, apiPassword)
+        /// <param name="apiKey">API key identifier for authentication</param>
+        /// <param name="keySecret">API key password</param>
+        public HttpClient(String apiKey, String keySecret)
+            : this(DEFAULT_BASE_URL, apiKey, keySecret)
         {
         }
 
@@ -68,9 +68,9 @@ namespace Ontotext.S4.client
         /// Create a client using a specified base URL (for advanced use only - the default URL will work for all normal cases).
         /// </summary>
         /// <param name="url">API base URL</param>
-        /// <param name="apiKeyId">API key identifier for authentication</param>
-        /// <param name="apiPassword">API key password</param>
-        public HttpClient(Uri url, String apiKeyId, String apiPassword)
+        /// <param name="apiKey">API key identifier for authentication</param>
+        /// <param name="keySecret">API key password</param>
+        public HttpClient(Uri url, String apiKey, String keySecret)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace Ontotext.S4.client
             try
             {
                 // HTTP header is "Basic base64(username:password)"
-                nc = new NetworkCredential(apiKeyId, apiPassword);
+                nc = new NetworkCredential(apiKey, keySecret);
             }
             catch (Exception e)
             {
@@ -110,7 +110,7 @@ namespace Ontotext.S4.client
         /// <param name="requestBody">the object that should be serialized to JSON as  the request body. If <code>null</code> no request body is sent</param>
         /// <param name="extraHeaders">any additional HTTP headers, specified as an alternating sequence of header names and values</param>
         /// <returns>for a successful response, the deserialized response body, or <code>null</code> for a 201 response</returns>
-        public T request<T>(String target, String method, T responseType, ServiceRequest requestBody, WebHeaderCollection extraHeaders)
+        public T request<T>(String target, String method, T responseType, ServiceRequest requestBody, Dictionary<String, String> extraHeaders)
         {
             try
             {
@@ -131,7 +131,7 @@ namespace Ontotext.S4.client
         /// <param name="requestBody">the object that should be serialized to JSON as the request body. If <code>null</code> no request body is sent</param>
         /// <param name="extraHeaders">any additional HTTP headers, specified as an alternating sequence of header names and values</param>
         /// <returns>for a successful response, the response stream, or <code>null</code> for a 201 response</returns>
-        public Stream requestForStream(String target, String method, ServiceRequest requestBody, WebHeaderCollection extraHeaders)
+        public Stream requestForStream(String target, String method, ServiceRequest requestBody, Dictionary<String, String> extraHeaders)
         {
             try
             {
@@ -172,29 +172,6 @@ namespace Ontotext.S4.client
             }
 
         }
-
-        /// <summary>
-        /// Make an API request and parse the JSON response, using the response to update the state of an existing object.
-        /// </summary>
-        /// <param name="target">the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).</param>
-        /// <param name="method"> the request method (GET, POST, DELETE, etc.)</param>
-        /// <param name="responseObject">the C# object to update from a successful response message for this URL</param>
-        /// <param name="requestBody">the object that should be serialized to JSON as the request body. If <code>null</code> no request body is sent</param>
-        /// <param name="extraHeaders">any additional HTTP headers, specified as an alternating sequence of header names and values</param>
-        public void requestForUpdate(String target, String method,
-                Object responseObject, ServiceRequest requestBody, WebHeaderCollection extraHeaders)
-        {
-            try
-            {
-                HttpWebResponse connection = sendRequest(target, method, requestBody, extraHeaders);
-                readResponseOrErrorForUpdate(connection, responseObject);
-            }
-            catch (IOException e)
-            {
-                throw new HttpClientException(e.Message);
-            }
-        }
-
         /// <summary>
         /// Handles the sending side of an HTTP request, returning a connection from which the response (or error) can be read.
         /// </summary>
@@ -203,7 +180,7 @@ namespace Ontotext.S4.client
         /// <param name="requestBody"></param>
         /// <param name="extraHeaders"></param>
         /// <returns></returns>
-        private HttpWebResponse sendRequest(String target, String method, ServiceRequest requestBody, WebHeaderCollection extraHeaders)
+        private HttpWebResponse sendRequest(String target, String method, ServiceRequest requestBody, Dictionary<String, String> extraHeaders)
         {
             Uri requestUrl = new Uri(baseUrl, target);
             HttpWebRequest connection = (HttpWebRequest)WebRequest.Create(requestUrl);
@@ -211,28 +188,21 @@ namespace Ontotext.S4.client
             connection.Method = method;
             connection.AllowAutoRedirect = false;
             connection.Credentials = nc;
-            Boolean sentAccept = false;
             
 
             if (extraHeaders != null)
             {
-                for (int i = 0; i < extraHeaders.AllKeys.Length; i++)
+                foreach (KeyValuePair<string, string> entry in extraHeaders)
                 {
-                    if (extraHeaders.GetKey(i).ToString().Contains("Accept"))
+                    if (entry.Key.Contains("Accept"))
                     {
-                        sentAccept = true;
-                        connection.Accept = extraHeaders[i];
+                        connection.Accept = entry.Value;
+                        continue;
                     }
-                    else
-                    {
-                        connection.Headers.Add(extraHeaders.GetKey(i), extraHeaders[i]);
-                    }
+                    connection.Headers.Add(entry.Key, entry.Value);
                 }
             }
-            if (sentAccept == false)
-            {
-                connection.Accept = "application/json";
-            }
+
             if (requestBody != null)
             {
                 connection.ContentType = "application/json";
@@ -243,7 +213,6 @@ namespace Ontotext.S4.client
                     var serializedResult = serializer.Serialize(requestBody);
 
                     String postData = serializedResult;
-
                     UTF8Encoding encoding = new UTF8Encoding();
                     byte[] byte1 = encoding.GetBytes(postData);
 
@@ -446,82 +415,6 @@ namespace Ontotext.S4.client
         public T get<T>(String target, T responseType)
         {
             return request(target, "GET", responseType, null, null);
-        }
-
-        /// <summary>
-        /// Perform an HTTP GET request, parsing the JSON response to update the state of an existing object.
-        /// </summary>
-        /// <param name="target">the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).</param>
-        /// <param name="responseObject">the Java object to update from a successful response message for this URL</param>
-        public void getForUpdate(String target, ServiceRequest responseObject)
-        {
-            requestForUpdate(target, "GET", responseObject, null, null);
-        }
-
-        /// <summary>
-        /// Perform an HTTP POST request, parsing the JSON response to create a new object.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="target">the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).</param>
-        /// <param name="responseType">the Java type corresponding to a successful response message for this URL</param>
-        /// <param name="requestBody">the object that should be serialized to JSON as the request body. POST requests require a request body, so this parameter must not be <code>null</code>></param>
-        /// <returns>for a successful response, the deserialized response body, or <code>null</code> for a 201 response</returns>
-        public T post<T>(String target, T responseType, ServiceRequest requestBody)
-        {
-            return request(target, "POST", responseType, requestBody, null);
-        }
-
-        /// <summary>
-        /// Perform an HTTP POST request, parsing the JSON response to update the state of an existing object.
-        /// </summary>
-        /// <param name="target">the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).</param>
-        /// <param name="responseObject">the Java object to update from a successful response message for this URL</param>
-        /// <param name="requestBody"> the object that should be serialized to JSON as the request body. POST requests require a request body, so this parameter must not be <code>null</code></param>
-        public void postForUpdate(String target, Object responseObject, ServiceRequest requestBody)
-        {
-            requestForUpdate(target, "POST", responseObject, requestBody, null);
-        }
-
-        /// <summary>
-        /// Perform an HTTP DELETE request for the given resource.
-        /// </summary>
-        /// <param name="target"> the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).</param>
-        public void delete(String target)
-        {
-            request(target, "DELETE", new JsonObject(new KeyValuePair<String, JsonValue>()), null, null);
-        }
-
-        /// <summary>
-        /// Perform an HTTP GET request on a URL whose response is expected to be a 3xx redirection, and return the target redirection URL.
-        /// </summary>
-        /// <param name="source"> the URL to request (relative URLs will resolve against the {@link #getBaseUrl() base URL}).</param>
-        /// <returns>the URL returned by the "Location" header of the redirection response.</returns>
-        public Uri getRedirect(Uri source)
-        {
-            try
-            {
-                HttpWebRequest connection = (HttpWebRequest)WebRequest.Create(source);
-                connection.Method = "GET";
-                connection.Headers.Set("Accept", "application/json");
-                connection.AllowAutoRedirect = false;
-                int responseCode = (int)((HttpWebResponse)connection.GetResponse()).StatusCode;
-                // make sure we read any response content
-                readResponseOrError((HttpWebResponse)connection.GetResponse(), new JsonObject(), false);
-                if (responseCode >= 300 && responseCode < 400)
-                {
-                    // it was a redirect
-                    String redirectUrl = connection.Headers.Get("Location");
-                    return new Uri(redirectUrl);
-                }
-                else
-                {
-                    throw new HttpClientException("Expected redirect but got " + responseCode);
-                }
-            }
-            catch (IOException e)
-            {
-                throw new HttpClientException(e);
-            }
         }
     }
 }
