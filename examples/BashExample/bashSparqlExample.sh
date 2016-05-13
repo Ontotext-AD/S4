@@ -17,8 +17,8 @@
 PROTOCOL="https://"
 ENDPOINT_URL="lod.s4.ontotext.com/v1/FactForge/sparql"
 # API Key
-KEY_ID="<your-credentials-here>"
-PASSWORD="<your-credentials-here>"
+KEY_ID="<s4-api-key>"
+PASSWORD="<s4-key-secret>"
 
 # Headers
 ACCEPT="application/sparql-results+json"
@@ -46,17 +46,7 @@ urldecode() {
 
 # POST body parameters
 read -e  -d '' query <<"EOF"
-PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-PREFIX dbpedia: <http://dbpedia.org/resource/> 
-PREFIX dbp-ont: <http://dbpedia.org/ontology/> 
-PREFIX geo-ont: <http://www.geonames.org/ontology#> 
-PREFIX umbel-sc: <http://umbel.org/umbel/sc/> 
-SELECT DISTINCT ?Company ?Location WHERE {  
-?Company rdf:type dbp-ont:Company ; 
-dbp-ont:industry dbpedia:Computer_software ; 
-dbp-ont:foundationPlace ?Location . 
-?Location geo-ont:parentFeature ?o. 
-?o geo-ont:parentCountry dbpedia:United_States . } limit 5
+SELECT * WHERE { ?s ?p ?o } LIMIT 10
 EOF
 
 echo -e "Processing an embedded plain text document...\n"
