@@ -1,30 +1,30 @@
 <?php
 /*
- Copyright  2013, 2014, Ontotext AD
+Copyright 2016 Ontotext AD
 
- This file is free software; you can redistribute it and/or modify it under
- the terms of the GNU Lesser General Public License as published by the Free
- Software Foundation; either version 2.1 of the License, or (at your option)
- any later version.
- This library is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- details.
- You should have received a copy of the GNU Lesser General Public License along
- with this library; if not, write to the Free Software Foundation, Inc.,
- 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 
 error_reporting(E_ALL);
 
-$username = 's4ubcmbn7csq';
-$password = 'dh8escu9q9pm1tc';
+$username = '<s4-api-key>';
+$password = '<s4-key-secret>';
 $pipeLineUrl = 'https://text.s4.ontotext.com/v1/news';
 
 $isResultGzipEncoded = false;
 
 $data = array(
-    "documentUrl" => "http://www.bbc.com/news/world-us-canada-36020717",
+    "documentUrl" => "<document-url-here>",
     "documentType" => "text/html",
     "imageTagging" => true,
     "imageCategorization" => true
