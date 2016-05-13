@@ -1,27 +1,27 @@
 /*
- Copyright  2013, 2014, Ontotext AD
+Copyright 2016 Ontotext AD
 
- This file is free software; you can redistribute it and/or modify it under
- the terms of the GNU Lesser General Public License as published by the Free
- Software Foundation; either version 2.1 of the License, or (at your option)
- any later version.
- This library is distributed in the hope that it will be useful, but WITHOUT
- ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- details.
- You should have received a copy of the GNU Lesser General Public License along
- with this library; if not, write to the Free Software Foundation, Inc.,
- 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
 
 (function () {
     window.addEventListener("load", function sendingDocumentsForProcessing() {
-        var username = "<key>";
-        var password = "<password>";
-        var url = "https://text.s4.ontotext.com/v1/twitie";
+        var username = "<s4-api-key>";
+        var password = "<s4-key-secret>";
+        var url = "https://text.s4.ontotext.com/v1/news";
         var method = "POST";
 
-        var inputString = "London";
+        var inputString = "<your-text-here>";
 
         var postData = {
             "document": inputString,
@@ -86,7 +86,6 @@
         xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("Content-Length", dataString.length);
         xhr.send(dataString);
 
         // remove listener to clean up
