@@ -21,8 +21,8 @@ require "stringio"
 
 endpoint = "https://rdf.s4.ontotext.com/<userID>/<databaseName>/repositories/<repoName>"
 data = "query=SELECT * WHERE {?s ?p ?o} limit 50"
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 headers = {"Accept" => "application/sparql-results+json",
         "Content-Type" => "application/x-www-form-urlencoded"}
 

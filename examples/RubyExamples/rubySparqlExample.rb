@@ -20,8 +20,8 @@ require "stringio"
 
 
 endpoint = "https://lod.s4.ontotext.com/v1/FactForge/sparql"
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 headers = {"Accept" => "application/sparql-results+json",
            "Content-Type" => "application/x-www-form-urlencoded"}
 

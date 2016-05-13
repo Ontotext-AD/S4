@@ -22,8 +22,8 @@ require "stringio"
 endpoint = "https://rdf.s4.ontotext.com/<user-id>/<databaseName>/repositories/<repoName>/statements"
 data = "update=PREFIX dc: <http://purl.org/dc/elements/1.1/>\n" +
 "INSERT Data{ <http://example/egbook> dc:title  \"This is an example title\" }"
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 headers = {"Content-Type"=> "application/x-www-form-urlencoded"}
 
 hydra = Typhoeus::Hydra.hydra
