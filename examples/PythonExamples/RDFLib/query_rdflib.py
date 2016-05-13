@@ -19,7 +19,7 @@
 import rdflib
 
 g = rdflib.Graph()
-g.load("https://rdf.s4.ontotext.com/<user-id>/<database-name>" +
+g.load("https://rdf.s4.ontotext.com/<user-id>/<db-id>" +
        "/repositories/<repo-name>/statements")
 
 query = """SELECT * WHERE { ?s ?p ?o } LIMIT 10"""

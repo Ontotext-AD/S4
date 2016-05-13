@@ -35,7 +35,7 @@ sparql = SPARQLWrapper("https://lod.s4.ontotext.com/v1/FactForge/sparql")
 sparql.setQuery(query)
 
 # Your S4 API Credenials
-sparql.setCredentials("<your-s4-api-key>", "<your-s4-key-secret>")
+sparql.setCredentials("<s4-api-key>", "<s4-key-secret>")
 
 # Optional - uncomment line if necessary, default method is GET
 # sparql.method = "POST"

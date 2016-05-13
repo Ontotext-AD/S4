@@ -21,12 +21,12 @@ WHERE {}
 """
 
 sparql = SPARQLWrapper("https://rdf.s4.ontotext.com/<user-id>/" +
-                       "<databaseName>/repositories/<repo-name>/statements")
+                       "<db-id>/repositories/<repo-name>/statements")
 
 sparql.setQuery(queryString)
 
 # Necessary - An update operation cannot be executed without ID credentials
-sparql.setCredentials("<your-s4-api-key>", "<your-s4-key-secret>")
+sparql.setCredentials("<s4-api-key>", "<s4-key-secret>")
 
 sparql.method = "POST"
 

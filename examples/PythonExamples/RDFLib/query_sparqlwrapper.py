@@ -16,12 +16,12 @@ from SPARQLWrapper import SPARQLWrapper, JSON, XML, N3, TURTLE
 
 
 sparql = SPARQLWrapper("https://rdf.s4.ontotext.com/<user-id>/" +
-                       "<database-name>/repositories/<repo-name>")
+                       "<db-id>/repositories/<repo-name>")
 
 sparql.setQuery("""SELECT * WHERE { ?s ?p ?o } LIMIT 10""")
 
 # Optional - use only if your repository is not Publicly accessible
-sparql.setCredentials("<your-s4-api-key>", "<your-s4-key-secret>")
+sparql.setCredentials("<s4-api-key>", "<s4-key-secret>")
 
 
 # JSON example
