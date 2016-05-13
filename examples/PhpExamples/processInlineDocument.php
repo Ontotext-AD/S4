@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  Copyright  2013, 2014, Ontotext AD
 
  This file is free software; you can redistribute it and/or modify it under
@@ -17,22 +17,19 @@
 
 error_reporting(E_ALL);
 
-$username = '<your-credentials-here>';
-$password = '<your-credentials-here>';
-$pipeLineUrl = 'https://text.s4.ontotext.com/v1/twitie';
+$username = 's4ubcmbn7csq';
+$password = 'dh8escu9q9pm1tc';
+$pipeLineUrl = 'https://text.s4.ontotext.com/v1/news';
 
 $isResultGzipEncoded = false;
 
 $inputStr = <<<DEMO
-{"text":"Nearly 200,000 people have been killed in #Syria since the start of the conflict in 2011, according to the U.N. http://t.co/pK7t8AD7Xf","lang":"en",
-"entities":{"symbols":[],"urls":[{"expanded_url":"http://on.wsj.com/1pZmkY9","indices":[112,134],"display_url":"on.wsj.com/1pZmkY9","url":"http://t.co/pK7t8AD7Xf"}],
-"hashtags":[{"text":"Syria","indices":[42,48]}],"user_mentions":[]},"id":502743846716207104,"created_at":"Fri Aug 22 09:07:28 +0000 2014","id_str":"502743846716207104"}
+Barack Obama
 DEMO;
 
 $data = array(
-    "document" => str_replace(array("\r", "\n"), '', $inputStr),
-    "documentType" => "text/x-json-twitter",
-    "annotationSelectors" => array(":", "Original markups:")
+    "document" => $inputStr,
+    "documentType" => "text/plain"
 );
 
 $options = array(

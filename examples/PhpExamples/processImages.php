@@ -17,22 +17,23 @@
 
 error_reporting(E_ALL);
 
-$username = '<your-credentials-here>';
-$password = '<your-credentials-here>';
-$pipeLineUrl = 'https://text.s4.ontotext.com/v1/twitie';
+$username = 's4ubcmbn7csq';
+$password = 'dh8escu9q9pm1tc';
+$pipeLineUrl = 'https://text.s4.ontotext.com/v1/news';
 
 $isResultGzipEncoded = false;
 
 $data = array(
-    "documentUrl" => "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
-    "documentType" => "text/html"
+    "documentUrl" => "http://www.bbc.com/news/world-us-canada-36020717",
+    "documentType" => "text/html",
+    "imageTagging" => true,
+    "imageCategorization" => true
 );
 
 $options = array(
     'http' => array(
         'header' => "Accept: application/json\r\n" .
             "Content-type: application/json\r\n" .
-            "Accept-Encoding: gzip\r\n" .
             "Authorization: Basic " . base64_encode("$username:$password"),
         "content" => json_encode($data),
         'method' => 'POST'

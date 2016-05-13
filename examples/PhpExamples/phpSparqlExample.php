@@ -17,25 +17,13 @@
 
 error_reporting(E_ALL);
 
-$username = '<your-credentials-here>';
-$password = '<your-credentials-here>';
+$username = 's4ubcmbn7csq';
+$password = 'dh8escu9q9pm1tc';
 $pipeLineUrl = 'https://lod.s4.ontotext.com/v1/FactForge/sparql';
 
 
 
-$data = "query=" . urlencode('
- PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX dbpedia: <http://dbpedia.org/resource/>
-PREFIX dbp-ont: <http://dbpedia.org/ontology/>
-PREFIX geo-ont: <http://www.geonames.org/ontology#>
-PREFIX umbel-sc: <http://umbel.org/umbel/sc/>
-SELECT DISTINCT ?Company ?Location WHERE {
-?Company rdf:type dbp-ont:Company ;
-dbp-ont:industry dbpedia:Computer_software ;
-dbp-ont:foundationPlace ?Location .
-?Location geo-ont:parentFeature ?o.
-?o geo-ont:parentCountry dbpedia:United_States . } limit 5
-');
+$data = "query=" . urlencode('SELECT * WHERE { ?s ?p ?o } LIMIT 10');
 
 $options = array(
     'http' => array(
