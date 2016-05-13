@@ -15,10 +15,10 @@
 import requests
 
 
-endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<databaseName>/"
-            + "repositories/<repoName>/statements")
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<databaseName>/" +
+            "repositories/<repoName>/statements")
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 query = """PREFIX dc: <http://purl.org/dc/elements/1.1/>
 INSERT DATA {<http://example/egbook> dc:title \"This is an example title\"}"""
 
@@ -28,7 +28,7 @@ headers = {
 
 req = requests.post(
     endpoint, headers=headers,
-    data="update="+query, auth=(api_key, key_secret))
+    data="update=" + query, auth=(api_key, key_secret))
 
 # Response status code
 print ("Request Code: {}\n".format(req.status_code))

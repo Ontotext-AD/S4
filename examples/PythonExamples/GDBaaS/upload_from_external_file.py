@@ -17,8 +17,8 @@ import requests
 
 endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<databaseName>/" +
             "repositories/<repo-name>/statements")
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 
 headers = {"Content-Type": "application/rdf+xml;charset=UTF-8"}
 

@@ -14,10 +14,11 @@
 import requests
 
 
-endpoint = "https://lod.s4.ontotext.com/v1/FactForge/sparql"
+endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<databaseName>/" +
+            "repositories/<repoName>")
 api_key = "<your-credentials-here>"
 key_secret = "<your-credentials-here>"
-query = "Select * {?s ?p ?o} limit 50"
+query = "SELECT * WHERE { ?s ?p ?o } LIMIT 10"
 
 headers = {
     "Accept": "application/sparql-results+json",
@@ -26,7 +27,7 @@ headers = {
 
 req = requests.post(
     endpoint, headers=headers,
-    data="query="+query, auth=(api_key, key_secret))
+    data="query=" + query, auth=(api_key, key_secret))
 
 response = req.content.decode("utf-8")
 print (response, "\n")
