@@ -15,7 +15,7 @@
 import requests
 
 
-endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<databaseName>/" +
+endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<db-id>/" +
             "repositories/<repo-name>/statements")
 api_key = "<s4-api-key>"
 key_secret = "<s4-key-secret>"

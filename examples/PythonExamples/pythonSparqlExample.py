@@ -15,22 +15,9 @@ import requests
 
 
 endpoint = "https://lod.s4.ontotext.com/v1/FactForge/sparql"
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
-query = """PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX dbpedia: <http://dbpedia.org/resource/>
-PREFIX dbp-ont: <http://dbpedia.org/ontology/>
-PREFIX geo-ont: <http://www.geonames.org/ontology#>
-PREFIX umbel-sc: <http://umbel.org/umbel/sc/>
-
-SELECT DISTINCT ?Company ?Location
-WHERE {
-    ?Company rdf:type dbp-ont:Company ;
-             dbp-ont:industry dbpedia:Computer_software ;
-             dbp-ont:foundationPlace ?Location .
-    ?Location geo-ont:parentFeature ?o.
-    ?o geo-ont:parentCountry dbpedia:United_States .
-} limit 5"""
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
+query = """SELECT * WHERE { ?s ?p ?o } LIMIT 10"""
 
 headers = {
     "Accept": "application/sparql-results+json",
@@ -39,7 +26,7 @@ headers = {
 
 req = requests.post(
     endpoint, headers=headers,
-    data="query="+query, auth=(api_key, key_secret))
+    data="query=" + query, auth=(api_key, key_secret))
 
 response = req.content.decode("utf-8")
 print (response, "\n")

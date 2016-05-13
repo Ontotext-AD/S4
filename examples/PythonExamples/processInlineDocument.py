@@ -16,8 +16,8 @@ import requests
 import json
 
 endpoint = "https://text.s4.ontotext.com/v1/news"
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 data = {
     "document": "Tiruchirappalli is the " +
                 "fourth largest city in the Indian state of " +
@@ -43,8 +43,7 @@ data = {
 jsonData = json.dumps(data)
 headers = {
     "Accept": "application/json",
-    "Content-Type": "application/json",
-    "Accept-Encoding": "gzip",
+    "Content-Type": "application/json"
 }
 
 req = requests.post(

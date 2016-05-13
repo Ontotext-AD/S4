@@ -16,13 +16,13 @@ import requests
 import json
 
 endpoint = "https://text.s4.ontotext.com/v1/news"
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 img_tag = True
 img_cat = True
 
 data = {
-    "documentUrl": "<URL-goes-here>",
+    "documentUrl": "<document-url-location>",
     "documentType": "text/html",
     "imageTagging": img_tag,
     "imageCategorization": img_cat

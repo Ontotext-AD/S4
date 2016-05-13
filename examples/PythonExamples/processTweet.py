@@ -17,8 +17,8 @@ import json
 from array import *
 
 endpoint = "https://text.s4.ontotext.com/v1/twitie"
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 
 document = ("{\"text\":\"Nearly 200,000 people have been killed in #Syria " +
             "since the start of the conflict in 2011, according to " +

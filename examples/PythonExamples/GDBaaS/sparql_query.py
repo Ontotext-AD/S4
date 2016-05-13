@@ -14,10 +14,10 @@
 import requests
 
 
-endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<databaseName>/" +
-            "repositories/<repoName>")
-api_key = "<your-credentials-here>"
-key_secret = "<your-credentials-here>"
+endpoint = ("https://rdf.s4.ontotext.com/<user-id>/<db-id>/" +
+            "repositories/<repo-name>")
+api_key = "<s4-api-key>"
+key_secret = "<s4-key-secret>"
 query = "SELECT * WHERE { ?s ?p ?o } LIMIT 10"
 
 headers = {
