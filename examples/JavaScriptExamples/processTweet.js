@@ -16,8 +16,8 @@ limitations under the License.
 
 (function () {
     window.addEventListener("load", function sendingTweetForProcessing() {
-        var username = "s4ubcmbn7csq";
-        var password = "dh8escu9q9pm1tc";
+        var username = "<s4-api-key>";
+        var password = "<s4-key-secret>";
         var url = "https://text.s4.ontotext.com/v1/twitie";
         var method = "POST";
 
