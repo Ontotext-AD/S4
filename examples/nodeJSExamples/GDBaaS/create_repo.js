@@ -27,7 +27,7 @@ var headers = {
 
 var options = {
     hostname: "rdf.s4.ontotext.com",
-    path: "/4839327863/<db-id>/repositories/<repo-name>", // same as one in the configuration string
+    path: "/<user-id>/<db-id>/repositories/<repo-name>", // same as one in the configuration string
     method: "PUT",
     auth: "<s4 api key>:<s4 key secret>",
     headers: headers
