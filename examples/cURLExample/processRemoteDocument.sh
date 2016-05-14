@@ -12,34 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#!/bin/bash
 
-# Url of the endpoint
-PROTOCOL="https://"
-ENDPOINT_URL="text.s4.ontotext.com/v1/"
-SERVICE_ID="news"
-
-# API Key
-KEY_ID="<s4-api-key>"
-PASSWORD="<s4-key-secret>"
-
+API_KEY="<s4-api-key>"
+KEY_SECRET="<s4-key-secret>"
 
 # Headers
 ACCEPT="application/json"
 CONTENT_TYPE="application/json"
 
 # POST body parameters
-DOCUMENT_URL="http://www.bbc.com/news/world-us-canada-36020717"
+DOCUMENT_URL="<document-url-here>"
 DOCUMENT_MIME_TYPE="text/html"
 JSON_BODY="{\"documentUrl\" : \"$DOCUMENT_URL\", \"documentType\" : \"$DOCUMENT_MIME_TYPE\"}"
 
-echo -e "Processing an embedded plain text document...\n"
-echo -e "Request body is: "
-echo -e $JSON_BODY
-echo -e "\n"
-
-PIPELINE_ENDPOINT="$PROTOCOL$KEY_ID:$PASSWORD@$ENDPOINT_URL$SERVICE_ID"
-echo -e "Pipeline endpoint is:"
-echo -e "$PIPELINE_ENDPOINT\n"
+PIPELINE_ENDPOINT="https://$API_KEY:$KEY_SECRET@text.s4.ontotext.com/v1/news"
 
 curl -X POST -w "\n\n\nContent-Type:%{content_type}\nHTTP Code: %{http_code}\n" -H "Content-Type: $CONTENT_TYPE" -H "Accept: $ACCEPT" -d "$JSON_BODY" $PIPELINE_ENDPOINT
