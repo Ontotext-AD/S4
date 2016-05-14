@@ -22,7 +22,7 @@ require "stringio"
 endpoint = "https://rdf.s4.ontotext.com/<user-id>/<db-id>/repositories/<repo-name>/statements"
 
 api_key = "<s4-api-key>"
-key_secret = "<s4-key-secret>"
+key_secret = "<s4-api-secret>"
 headers = {"Content-Type" => "application/rdf+xml;charset=UTF-8"}
 
 file = File.open("example.rdf", "r")
@@ -31,7 +31,7 @@ file.close
 
 hydra = Typhoeus::Hydra.hydra
 req = Typhoeus::Request.new(endpoint,
-    method: :put,
+    method: :post,
     userpwd: api_key + ":" + key_secret, 
     body: data,
     headers: headers)
