@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+S4 Java client library
+Copyright 2016 Ontotext AD
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License. -->
+
+<rdf:RDF
+	xmlns:bbc-pont="http://purl.org/ontology/po/"
+	xmlns:d2r="http://sites.wiwiss.fu-berlin.de/suhl/bizer/d2r-server/config.rdf#"
+	xmlns:db="http://www4.wiwiss.fu-berlin.de/factbook/resource/"
+	xmlns:dbp="http://dbpedia.org/ontology/"
+	xmlns:dbp-prop="http://dbpedia.org/property/"
+	xmlns:dbpedia="http://dbpedia.org/resource/"
+	xmlns:dbtune="http://dbtune.org/bbc/peel/work/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dc-term="http://purl.org/dc/terms/"
+	xmlns:factbook="http://www.daml.org/2001/12/factbook/factbook-ont#"
+	xmlns:fb="http://rdf.freebase.com/ns/"
+	xmlns:ff="http://factforge.net/"
+	xmlns:fibo-fnd-aap-agt="http://www.omg.org/spec/EDMC-FIBO/FND/AgentsAndPeople/Agents/"
+	xmlns:fibo-fnd-aap-ppl="http://www.omg.org/spec/EDMC-FIBO/FND/AgentsAndPeople/People/"
+	xmlns:fibo-fnd-org-fm="http://www.omg.org/spec/EDMC-FIBO/FND/Organizations/FormalOrganizations/"
+	xmlns:fibo-fnd-org-org="http://www.omg.org/spec/EDMC-FIBO/FND/Organizations/Organizations/"
+	xmlns:fibo-fnd-plc-cty="http://www.omg.org/spec/EDMC-FIBO/FND/Places/Countries/"
+	xmlns:fibo-fnd-plc-loc="http://www.omg.org/spec/EDMC-FIBO/FND/Places/Locations/"
+	xmlns:fibo-fnd-rel-rel="http://www.omg.org/spec/EDMC-FIBO/FND/Relations/Relations/"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:geo-ont="http://www.geonames.org/ontology#"
+	xmlns:geo-pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	xmlns:geonames="http://sws.geonames.org/"
+	xmlns:gr="http://purl.org/goodrelations/v1#"
+	xmlns:lexvo="http://lexvo.org/id/"
+	xmlns:lib="http://www.swi-prolog.org/rdf/library/"
+	xmlns:lingvoj="http://www.lingvoj.org/ontology#"
+	xmlns:lvont="http://lexvo.org/ontology#"
+	xmlns:map="file:///C:/Documents%20and%20Settings/cyganiak/Desktop/d2r-server-0.3.2/factbook.n3#"
+	xmlns:music-ont="http://purl.org/ontology/mo/"
+	xmlns:nytimes="http://data.nytimes.com/"
+	xmlns:oasis="http://psi.oasis-open.org/iso/639/#"
+	xmlns:om="http://www.ontotext.com/owlim/"
+	xmlns:onto="http://www.ontotext.com/"
+	xmlns:opencyc="http://sw.opencyc.org/concept/"
+	xmlns:opencyc-en="http://sw.opencyc.org/2008/06/10/concept/en/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:pext="http://www.ontotext.com/proton/protonext#"
+	xmlns:pfb="http://www.ontotext.com/prot_fb#"
+	xmlns:pkm="http://proton.semanticweb.org/protonkm#"
+	xmlns:psys="http://proton.semanticweb.org/protonsys#"
+	xmlns:ptop="http://www.ontotext.com/proton/protontop#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:skosxl="http://www.w3.org/2008/05/skos-xl#"
+	xmlns:sw-vocab="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+	xmlns:ub="http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#"
+	xmlns:umbel="http://umbel.org/umbel#"
+	xmlns:umbel-ac="http://umbel.org/umbel/ac/"
+	xmlns:umbel-en="http://umbel.org/umbel/ne/wikipedia/"
+	xmlns:umbel-sc="http://umbel.org/umbel/sc/"
+	xmlns:wn30="http://purl.org/vocabularies/princeton/wn30/"
+	xmlns:wordn-sc="http://www.w3.org/2006/03/wn/wn20/schema/"
+	xmlns:wordnet="http://www.w3.org/2006/03/wn/wn20/instances/"
+	xmlns:wordnet16="http://xmlns.com/wordnet/1.6/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:yago="http://mpii.de/yago/resource/">
+<rdf:Description rdf:about="http://dbpedia.org/resource/University_of_Leipzig">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">University of Leipzig</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25933</dbp-prop:students>
+	<dbp-prop:staff rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3246</dbp-prop:staff>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1409-12-02</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.20</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.01y06y">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">University of Leipzig</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">25933</dbp-prop:students>
+	<dbp-prop:staff rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3246</dbp-prop:staff>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1409-12-02</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/University_of_Music_and_Theatre_Leipzig">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">University of Music and Theatre Leipzig</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">813</dbp-prop:students>
+	<dbp-prop:staff rdf:datatype="http://www.w3.org/2001/XMLSchema#int">519</dbp-prop:staff>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1843-04-02</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.04</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.05byyt">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">University of Music and Theatre Leipzig</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">813</dbp-prop:students>
+	<dbp-prop:staff rdf:datatype="http://www.w3.org/2001/XMLSchema#int">519</dbp-prop:staff>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1843-04-02</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/Technische_Universit%C3%A4t_Bergakademie_Freiberg">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Technische Universität Bergakademie Freiberg</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1765</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.02</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.05qk28">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Technische Universität Bergakademie Freiberg</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1765</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/Chemnitz_University_of_Technology">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Chemnitz University of Technology</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10850</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1836</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.01</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.06b_s_">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Chemnitz University of Technology</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10850</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1836</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/Handelshochschule_Leipzig">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Handelshochschule Leipzig</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">380</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1898</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.01</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.07x8cp">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Handelshochschule Leipzig</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">380</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1898</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/West_Saxon_University_of_Applied_Sciences_of_Zwickau">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">West Saxon University of Applied Sciences of Zwickau</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4700</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1897</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.01</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.0gqz1h">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">West Saxon University of Applied Sciences of Zwickau</rdfs:label>
+	<dbp-prop:students rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4700</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1897</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/Dresden_Academy_of_Fine_Arts">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Dresden Academy of Fine Arts</rdfs:label>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1764</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.01</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.026l7yx">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Dresden Academy of Fine Arts</rdfs:label>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1764</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/Hochschule_f%C3%BCr_Musik_Carl_Maria_von_Weber">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Hochschule für Musik Carl Maria von Weber</rdfs:label>
+	<dbp-prop:students xml:lang="en">c.600</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1856</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.01</om:hasRDFRank>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.freebase.com/ns/m.065_44m">
+	<dbp-prop:state rdf:resource="http://dbpedia.org/resource/Saxony"/>
+	<rdf:type rdf:resource="http://dbpedia.org/ontology/University"/>
+	<rdfs:label xml:lang="en">Hochschule für Musik Carl Maria von Weber</rdfs:label>
+	<dbp-prop:students xml:lang="en">c.600</dbp-prop:students>
+	<dbp-prop:established rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1856</dbp-prop:established>
+	<om:hasRDFRank rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.00</om:hasRDFRank>
+</rdf:Description>
+
+</rdf:RDF>
