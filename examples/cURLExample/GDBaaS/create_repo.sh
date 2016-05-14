@@ -18,12 +18,12 @@ CONFIG="{
    \"ruleset\" : \"owl-horst-optimized\"
 }"
 
-API_KEY=""
-KEY_SECRET=""
+API_KEY="<s4-api-key>"
+KEY_SECRET="<s4-key-secret>"
 
-USER=<user-id>
-DATABASE=<db-id>
-REPOSITORY_ID=<repo-name> # same as repositoryID in $CONFIG
+USER="<user-id>"
+DATABASE="<db-id>"
+REPOSITORY_ID="<repo-name>" # same as repositoryID in $CONFIG
 SERVICE_ENDPOINT="https://$API_KEY:$KEY_SECRET@rdf.s4.ontotext.com/$USER/$DATABASE"
 
 curl -X PUT -H "Content-Type:application/json" -d "$CONFIG" $SERVICE_ENDPOINT/repositories/$REPOSITORY_ID

@@ -21,9 +21,9 @@ CONTENT_TYPE="application/x-www-form-urlencoded"
 
 SPARQL_SELECT="SELECT * WHERE { ?s ?p ?o} LIMIT 5"
 
-USER_ID=<user-id>
-DATABASE=<database-id>
-REPOSITORY=<repo-name>
+USER_ID="<user-id>"
+DATABASE="<database-id>"
+REPOSITORY="<repo-name>"
 SERVICE_ENDPOINT="https://$API_KEY:$KEY_SECRET@rdf.s4.ontotext.com/$USER_ID/$DATABASE"
 
 curl -X POST -w "\n\n\nContent-Type:%{content_type}\nHTTP Code: %{http_code}\n" -H "Content-Type: $CONTENT_TYPE" -H "Accept: $ACCEPT" --data-urlencode "query=$SPARQL_SELECT" $SERVICE_ENDPOINT/repositories/$REPOSITORY
