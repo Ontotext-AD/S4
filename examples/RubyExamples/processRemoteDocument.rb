@@ -23,10 +23,9 @@ endpoint = "https://text.s4.ontotext.com/v1/news"
 api_key = "<s4-api-key>"
 key_secret = "<s4-key-secret>"
 headers = {"Accept" => "application/json",
-                "Content-Type" => "application/json",
-                "Accept-Encoding" => "gzip"}
+                "Content-Type" => "application/json"}
 data = {
-    "documentUrl" => "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car",
+    "documentUrl" => "<document-url-here>",
     "documentType" => "text/html",
 }
 jsonData = data.to_json

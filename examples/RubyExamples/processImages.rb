@@ -28,7 +28,7 @@ img_cat = true
 headers = {"Accept" => "application/json",
                 "Content-Type" => "application/json"}
 data = {
-    "documentUrl" => "<URL-goes-here>",
+    "documentUrl" => "<document-url-here>",
     "documentType" => "text/html",
     "imageTagging" => img_tag,
     "imageCategorization" => img_cat

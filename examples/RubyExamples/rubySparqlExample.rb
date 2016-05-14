@@ -25,17 +25,7 @@ key_secret = "<s4-key-secret>"
 headers = {"Accept" => "application/sparql-results+json",
            "Content-Type" => "application/x-www-form-urlencoded"}
 
-data = "query=PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" +
-    "PREFIX dbpedia: <http://dbpedia.org/resource/>\n" +
-    "PREFIX dbp-ont: <http://dbpedia.org/ontology/>\n" +
-    "PREFIX geo-ont: <http://www.geonames.org/ontology#>\n" +
-    "PREFIX umbel-sc: <http://umbel.org/umbel/sc/>\n\n" +
-    "SELECT DISTINCT ?Company ?Location\nWHERE {\n" +
-    "    ?Company rdf:type dbp-ont:Company ;\n" +
-    "             dbp-ont:industry dbpedia:Computer_software ;\n" +
-    "             dbp-ont:foundationPlace ?Location .\n" +
-    "    ?Location geo-ont:parentFeature ?o.\n" +
-    "    ?o geo-ont:parentCountry dbpedia:United_States .\n} limit 5"
+data = "query=SELECT * WHERE { ?s ?p ?o } LIMIT 10"
 
 hydra = Typhoeus::Hydra.hydra
 req = Typhoeus::Request.new(endpoint,

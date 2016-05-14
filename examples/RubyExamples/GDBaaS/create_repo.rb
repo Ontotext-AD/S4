@@ -19,18 +19,21 @@ require "zlib"
 require "stringio"
 
 
-endpoint = "https://rdf.s4.ontotext.com/<userID>/<databaseName>/repositories/<repoName>"
-data = "query=SELECT * WHERE {?s ?p ?o} limit 5"
+endpoint = "https://rdf.s4.ontotext.com/<user-id>/<db-id>/repositories/<repo-name>"
+data = {
+   "repositoryID" => "<repo-name>",  # Same as <repo-name> in the endpoint
+   "label" => "Description of my repository",
+   "ruleset" => "owl-horst-optimized"
+}
 api_key = "<s4-api-key>"
 key_secret = "<s4-key-secret>"
-headers = {"Accept" => "application/sparql-results+json",
-        "Content-Type" => "application/x-www-form-urlencoded"}
+headers = {"Content-Type" => "application/json"}
 
 hydra = Typhoeus::Hydra.hydra
 req = Typhoeus::Request.new(endpoint,
-    method: :post,
+    method: :put,
     userpwd: api_key + ":" + key_secret, 
-    body: data,
+    body: data.to_json,
     headers: headers)
 hydra.queue(req)
 hydra.run

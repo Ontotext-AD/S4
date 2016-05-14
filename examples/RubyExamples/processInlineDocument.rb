@@ -22,28 +22,9 @@ endpoint = "https://text.s4.ontotext.com/v1/news"
 api_key = "<s4-api-key>"
 key_secret = "<s4-key-secret>"
 headers = {"Accept" => "application/json",
-           "Content-Type" => "application/json",
-           "Accept-Encoding" => "gzip"}
+           "Content-Type" => "application/json"}
 data = {
-    "document" => "Tiruchirappalli is the " +
-                "fourth largest city in the Indian state of " +
-                "Tamil Nadu and is the administrative headquarters " +
-                "of Tiruchirappalli District. Its recorded " +
-                "history begins in the 3rd century BC, " +
-                "when it was under the rule of the Cholas. " +
-                "The city has also been ruled by the Pandyas, " +
-                "Pallavas, Vijayanagar Empire, Nayak Dynasty, " +
-                "the Carnatic state and the British. " +
-                "It played a crucial role in the Carnatic Wars " +
-                "between the British and the French " +
-                "East India companies. During British rule, the city " +
-                "was popular for the Trichinopoly cigar, its unique brand " +
-                "of cheroot. Monuments include the Rockfort (pictured), the " +
-                "Ranganathaswamy temple and the Jambukeswarar temple. " +
-                "It is an important educational centre in Tamil Nadu, " +
-                "housing nationally recognised institutions such as the " +
-                "Indian Institute of Management and the National " +
-                "Institute of Technology.",
+    "document" => "<your-text-here>",
     "documentType" => "text/plain"
 }
 jsonData = data.to_json
