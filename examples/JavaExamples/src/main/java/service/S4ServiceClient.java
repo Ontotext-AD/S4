@@ -1,12 +1,11 @@
 /*
- * Copyright (c) 2014
+ * Copyright 2016 Ontotext AD
  *
- * This file is part of the s4.ontotext.com REST client library, and is
- * licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -43,9 +42,9 @@ import org.apache.http.impl.client.HttpClients;
  */
 public class S4ServiceClient {
 
-	public static final String SPARQL_ACCEPT_HEADER="application/sparql-results+json";
+	public static final String SPARQL_ACCEPT="application/sparql-results+json";
 	public static final String SPARQL_CONTENT_TYPE="application/x-www-form-urlencoded";
-	public static final String APPLICATION_JSON_HEADER = "application/json";
+	public static final String APPLICATION_JSON = "application/json";
 	
 	private CloseableHttpClient httpClient;
 	private HttpClientContext ctx;
@@ -53,7 +52,7 @@ public class S4ServiceClient {
 	private String keyId;
 	private String password;
 	
-	public S4ServiceClient(String endpointURL,String keyId,String password){
+	public S4ServiceClient(String endpointURL, String keyId, String password){
 		this.setEndpointUrl(endpointURL);
 		this.keyId=keyId;
 		this.password=password;
@@ -81,46 +80,10 @@ public class S4ServiceClient {
 	}
 	
 	/**
-	 * Sends a test request to the service
-	 * @return true if the service is available
-	 */
-	public boolean testEndpoint() {
-		HttpGet get = new HttpGet(getEndpointUrl().substring(0,getEndpointUrl().lastIndexOf("/")));
-		CloseableHttpResponse response = null;
-		try {
-			response = httpClient.execute(get, ctx);
-			StatusLine sl = response.getStatusLine();
-			int statusCode = sl.getStatusCode();
-			if(statusCode != 200) {
-				System.out.println("Error communicating with endpoint.");
-				System.out.println(response.toString());
-				System.out.println(getContent(response));
-				return false;
-			} else {
-				System.out.println("Endpoint returned status SUCCESS.");
-				System.out.println(response.toString());
-				System.out.println("Response body: ");
-				System.out.println(getContent(response));
-				return true;
-			}
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				response.close();
-			} catch (IOException e) {}
-		}
-		return false;
-	}
-	
-	/**
 	 * Serialize a ProcessingRequest and send it to Self Service Semantic Suite Online Processing Service
-	 * @param pr the processing request to send
 	 * @param acceptType the type of output we want to produce
 	 */
-	public String processRequest(String message, String acceptType,String contentType) {
+	public String processRequest(String message, String acceptType, String contentType) {
 		HttpPost post = new HttpPost(getEndpointUrl());
 		post.setHeader("Content-Type", contentType);
 		post.setHeader("Accept", acceptType);
