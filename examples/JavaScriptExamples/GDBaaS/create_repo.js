@@ -18,10 +18,10 @@ limitations under the License.
     window.addEventListener("load", function sendingRemoteDocumentsForProcessing() {
         var username = "<s4-api-key>";
         var password = "<s4-key-secret>"
-        var url = "https://rdf.s4.ontotext.com/4839327863/TestDataBase/repositories/qwe";
+        var url = "https://rdf.s4.ontotext.com/<user-id>/<db-id>/repositories/<repo-name>";
         var method = "PUT";
 
-        var config = {"repositoryID": "qwe", "label": "Description of my repository", "ruleset": "owl-horst-optimized"};
+        var config = {"repositoryID": "<repo-name>", "label": "Description of my repository", "ruleset": "owl-horst-optimized"};
         var postData = JSON.stringify(config);;
 
         var xhr = new XMLHttpRequest();
