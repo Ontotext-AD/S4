@@ -1,12 +1,11 @@
 ﻿/*
- * Copyright (c) 2014
+ * Copyright 2016 Ontotext AD
  *
- * This file is part of the s4.ontotext.com REST client library, and is
- * licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,7 +27,8 @@ namespace ServiceSamples
         private String Document;           
         private String DocumentUrl;
         private String DocumentType;
-        private String[] AnnotationSelectors;
+        private bool ImgTag;
+        private bool ImgCat;
 
         public String toJSON()
         {
@@ -52,13 +52,15 @@ namespace ServiceSamples
             get { return DocumentType; }
             set { DocumentType = value; }
         }
-        public String[] annotationSelectors
+        public bool imgTagging
         {
-            get { return AnnotationSelectors; }
-            set { AnnotationSelectors = value; }
+            get { return ImgTag; }
+            set { ImgTag = value; }
         }
-
-      
-
+        public bool imgCategorization
+        {
+            get { return ImgCat; }
+            set { ImgCat = value; }
+        }
     }
 }

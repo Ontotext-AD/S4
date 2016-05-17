@@ -1,12 +1,11 @@
 ﻿/*
- * Copyright (c) 2014
+ * Copyright 2016 Ontotext AD
  *
- * This file is part of the s4.ontotext.com REST client library, and is
- * licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -28,157 +27,158 @@ namespace ServiceSamples
 {
     class MainClass
     {
-
-        //API Keys
-        //TODO set your own credentials generated from s4.ontotext.com
-        private static String keyId = "<your-credentials-here>";
-        private static String password = "<your-credentials-here>";
-
-        private static S4ServiceClient apiExecutor;
-
-
-        static void Main(string[] args)
+        private static String apiKey = "<s4-api-key>";
+        private static String keySecret = "<s4-key-secret>";
+        
+        public static void Main(string[] args)
         {
-            apiExecutor = new S4ServiceClient("https://text.s4.ontotext.com/v1/twitie", keyId, password);
+            // Process inline document
+            Console.WriteLine(processInlineDocument("<your-text-here>"));
 
-            //send a test GET request to the endpoint
-            Console.Out.WriteLine("Testing endpoint...");
-            if (!apiExecutor.testEndpoint())
-            {
-                return;
-            }
-            Console.Out.WriteLine("\n\n\n");
+            // Process remote HTML document
+            Console.WriteLine(processRemoteDocument("<document-url-here>"));
 
-            //Process three different requests with different sets of options
-            Console.Out.WriteLine("Processing inline document...");
-            processInlineDocument();
-            Console.Out.WriteLine("\n\n\n");
+            // Process images from remote HTML document
+            Console.WriteLine(processImages("<document-url-here>"));
 
-            Console.Out.WriteLine("Processing a remote document...");
-            processRemoteDocument();
-            Console.Out.WriteLine("\n\n\n");
+            // Process Tweets
+            String tweet = "<tweet-here>";
+            Console.WriteLine(processTweet(tweet));
 
-            Console.Out.WriteLine("Processing a Tweet message...");
-            processTweet();
+            String query = "SELECT * WHERE { ?S ?P ?O } LIMIT 10";
+            String update = "PREFIX dc: <http://purl.org/dc/elements/1.1/>" + "\r\n" + "INSERT DATA { <http://example/egbook> dc:title \"This is an example title\"}";
 
-            apiExecutor.EndpointUrl = "https://lod.s4.ontotext.com/v1/FactForge/sparql";
+            String userID = "<user-id>";
+            String dbName = "<db-id>";
+            String repo = "<repo-name>";
 
-            processSparql();
+            // Access the Knowledge Graph
+            Console.WriteLine(sparqlSelectFromKnowledgeGraph(query));
 
-            uploadDataToGDBaaS();
+            // SPARQL SELECT (GDBaaS)
+            Console.WriteLine(sparqlSelectFromGDBaaS(query, userID, dbName, repo));
+            
+            // SPARQL UPDATE (GDBaaS)
+            sparqlUpdate(update, userID, dbName, repo);
 
-            processGDBaaSRequest();
-
+            // Create new repo in GDBaaS
+            String newRepo = "<repo-name>";
+            String config = "{\"repositoryID\": \"" + newRepo + "\", \"label\": \"Description of my repository\", \"ruleset\": \"owl-horst-optimized\"}";
+            Console.WriteLine(createRepository(config, userID, dbName, newRepo));
+            
             Console.Read();
         }
 
-        /**
-	    * Send a request with embedded plain text document,
-	    * Request output as GATE JSON and use the defauls set of annotation selectors.
-	    */
-        private static void processInlineDocument()
+        public static String processTweet(String tweet)
         {
-            ProcessingRequest pr = new ProcessingRequest();
-            pr.document = ("Tiruchirappalli is the " +
-                    "fourth largest city in the Indian state of " +
-                    "Tamil Nadu and is the administrative headquarters " +
-                    "of Tiruchirappalli District. Its recorded " +
-                    "history begins in the 3rd century BC, " +
-                    "when it was under the rule of the Cholas. " +
-                    "The city has also been ruled by the Pandyas, " +
-                    "Pallavas, Vijayanagar Empire, Nayak Dynasty, " +
-                    "the Carnatic state and the British. " +
-                    "It played a crucial role in the Carnatic Wars " +
-                    "(1746–63) between the British and the French " +
-                    "East India companies. During British rule, the city " +
-                    "was popular for the Trichinopoly cigar, its unique brand " +
-                    "of cheroot. Monuments include the Rockfort (pictured), the " +
-                    "Ranganathaswamy temple and the Jambukeswarar temple. " +
-                    "It is an important educational centre in Tamil Nadu, " +
-                    "housing nationally recognised institutions such as the " +
-                    "Indian Institute of Management and the National " +
-                    "Institute of Technology.");
-            pr.documentType = ("text/plain");
-            apiExecutor.processRequest(pr.toJSON(),S4ServiceClient.APPLICATION_JSON_HEADER,S4ServiceClient.APPLICATION_JSON_HEADER);
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                client.Headers[HttpRequestHeader.Accept] = "application/json";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://text.s4.ontotext.com/v1/twitie", "POST", "{\"document\": \"" + tweet + "\", \"documentType\": \"text/x-json-twitter\"}");
+            }
+            return result;
         }
 
-        /**
-	    * Process a tweet as an embedded document
-	    * Request output as GATE JSON and set some custom annotation selectors
-	    */
-        private static void processTweet()
+        public static String processInlineDocument(String text)
         {
-            ProcessingRequest pr = new ProcessingRequest();
-            pr.document = (
-				"{\"text\":\"Nearly 200,000 people have been killed in #Syria since the start of the conflict in 2011, according to the U.N. http://t.co/pK7t8AD7Xf\","
-				+ "\"lang\":\"en\",\"entities\":{\"symbols\":[],"
-				+ "\"urls\":[{\"expanded_url\":\"http://on.wsj.com/1pZmkY9\",\"indices\":[112,134],\"display_url\":\"on.wsj.com/1pZmkY9\",\"url\":\"http://t.co/pK7t8AD7Xf\"}],"
-				+ "\"hashtags\":[{\"text\":\"Syria\",\"indices\":[42,48]}],"
-				+ "\"user_mentions\":[]},"
-				+ "\"id\":502743846716207104,"
-				+ "\"created_at\":\"Fri Aug 22 09:07:28 +0000 2014\","
-				+ "\"id_str\":\"502743846716207104\"}");
-            pr.documentType = ("text/x-json-twitter");
-            pr.annotationSelectors = (new String[] { ":", "Original markups:" });
-            apiExecutor.processRequest(pr.toJSON(), S4ServiceClient.APPLICATION_JSON_HEADER, S4ServiceClient.APPLICATION_JSON_HEADER);
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                client.Headers[HttpRequestHeader.Accept] = "application/json";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://text.s4.ontotext.com/v1/news", "POST", "{\"document\": \"" + text + "\", \"documentType\": \"text/plain\"}");
+            }
+            return result;
         }
 
-        /**
-        * Process an HTML document by supplying its publicly accessible URL
-        * Request output as GATE XML and use the default set of annotation selectors.
-        */
-        private static void processRemoteDocument()
+        public static String processRemoteDocument(String documentURL)
         {
-            ProcessingRequest pr = new ProcessingRequest();
-            pr.documentUrl = ("http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car");
-            pr.documentType = ("text/html");
-            apiExecutor.processRequest(pr.toJSON(), S4ServiceClient.APPLICATION_JSON_HEADER, S4ServiceClient.APPLICATION_JSON_HEADER);
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                client.Headers[HttpRequestHeader.Accept] = "application/json";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://text.s4.ontotext.com/v1/news", "POST", "{\"documentUrl\": \"" + documentURL + "\", \"documentType\": \"text/html\"}");
+            }
+            return result;
         }
 
-        /**
-        * Executes one SPARQL query 
-        */
-        private static String processSparql()
+        public static String processImages(String documentURL)
         {
-            String query="PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-           + "PREFIX dbpedia: <http://dbpedia.org/resource/>\n"
-           + "PREFIX dbp-ont: <http://dbpedia.org/ontology/>\n"
-           + "PREFIX geo-ont: <http://www.geonames.org/ontology#>\n"
-           + "PREFIX umbel-sc: <http://umbel.org/umbel/sc/>\n\n"
-           + "SELECT DISTINCT ?Company ?Location\nWHERE {\n"
-           + "    ?Company rdf:type dbp-ont:Company ;\n"
-           + "             dbp-ont:industry dbpedia:Computer_software ;\n"
-           + "             dbp-ont:foundationPlace ?Location .\n"
-           + "    ?Location geo-ont:parentFeature ?o.\n"
-           + "    ?o geo-ont:parentCountry dbpedia:United_States .\n} limit 5";
-            query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
-            return apiExecutor.processRequest("query=" + query, S4ServiceClient.SPARQL_ACCEPT_HEADER, S4ServiceClient.SPARQL_CONTENT_TYPE);
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                client.Headers[HttpRequestHeader.Accept] = "application/json";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://text.s4.ontotext.com/v1/news", "POST", "{\"documentUrl\": \"" + documentURL + "\"," +
+                    "\"documentType\": \"text/html\", \"imageTagging\": true, \"imageCategorization\": true}");
+            }
+            return result;
+        }
+        
+        public static String sparqlSelectFromKnowledgeGraph(String query)
+        {
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                client.Headers[HttpRequestHeader.Accept] = "application/sparql-results+json";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://lod.s4.ontotext.com/v1/FactForge/sparql", "POST", "query=" + query);
+            }
+            return result;
         }
 
-        /**
-        * Execute one SPARQL query over GDBaaS
-        */
-        private static String processGDBaaSRequest()
+        public static String createRepository(String config, String userID, String databaseID, String newRepoName)
         {
-
-            apiExecutor = new S4ServiceClient("https://rdf.s4.ontotext.com/{userId}/{databaseName}/repositories/{repositoryName}", keyId, password);
-            String query = "Select * {?s ?p ?o} limit 5";
-            query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
-            return apiExecutor.processRequest("query=" + query, S4ServiceClient.SPARQL_ACCEPT_HEADER, S4ServiceClient.SPARQL_CONTENT_TYPE);
-
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                client.Headers[HttpRequestHeader.Accept] = "application/json";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://rdf.s4.ontotext.com/" + userID + "/" + databaseID + "/repositories/" + newRepoName, "PUT", config);
+            }
+            return result;
         }
 
-        /**
-        * Execute one SPARQL query over GDBaaS
-        */
-        private static String uploadDataToGDBaaS()
+        public static String sparqlSelectFromGDBaaS(String query, String userID, String databaseID, String repoName)
         {
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                client.Headers[HttpRequestHeader.Accept] = "application/sparql-results+json";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://rdf.s4.ontotext.com/" + userID + "/" + databaseID + "/repositories/" + repoName, "POST", "query=" + query);
+            }
+            return result;
+        }
 
-            apiExecutor = new S4ServiceClient("https://rdf.s4.ontotext.com/{userId}/{databaseName}/repositories/{repositoryName}/statements", keyId, password);
-            String query = "INSERT DATA ...";
-            query = System.Web.HttpUtility.UrlEncode(query, Encoding.UTF8);
-            return apiExecutor.processRequest("update=" + query, S4ServiceClient.SPARQL_ACCEPT_HEADER, S4ServiceClient.SPARQL_CONTENT_TYPE);
-
+        public static String sparqlUpdate(String update, String userID, String databaseID, String repoName)
+        {
+            String result = "";
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                String credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":" + keySecret));
+                client.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+                result = client.UploadString("https://rdf.s4.ontotext.com/" + userID + "/" + databaseID + "/repositories/" + repoName + "/statements", "POST", "update=" + update);
+            }
+            return result;
         }
     }
 }
