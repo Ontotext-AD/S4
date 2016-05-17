@@ -16,7 +16,7 @@ License along with this library.
 */
 
 @Grab(group='org.codehaus.groovy.modules.http-builder',
-	module='http-builder', version='0.5.2' )
+       module='http-builder', version='0.5.2' )
 import groovyx.net.http.*
 import org.apache.http.entity.FileEntity
 import org.apache.http.util.EntityUtils
@@ -48,8 +48,8 @@ def headers=["Content-Type":"application/x-www-form-urlencoded","Accept":"applic
 print(query)
 print(headers)
 def response = client.post(
-	body : query.toString(),
-	requestContentType : "application/x-www-form-urlencoded",  
-	contentType : "application/sparql-results+xml") 
+    body : query.toString(),
+    requestContentType : "application/x-www-form-urlencoded",  
+    contentType : "application/sparql-results+xml") 
 println response.getStatusLine()
 println response.data.text

@@ -32,14 +32,14 @@ client.auth.basic(keyId, password)
 
 def builder = new groovy.json.JsonBuilder();
 builder(
-		documentUrl : "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car", //process the document available under this url
-		documentType : "text/html" //treat the downloaded document as HTML
-		);
+        documentUrl : "http://www.bbc.com/future/story/20130630-super-shrinking-the-city-car", //process the document available under this url
+        documentType : "text/html" //treat the downloaded document as HTML
+        );
 println("JSON body of request: ")
 println(builder.toPrettyString())
 def response = client.post(
-	body : builder.toString(), //the request body
-	requestContentType : "application/json", //the request body is always JSON
-	contentType : "application/json") //request GATE XML output
+    body : builder.toString(), //the request body
+    requestContentType : "application/json", //the request body is always JSON
+    contentType : "application/json") //request GATE XML output
 println response.getStatusLine()
 println response.data.text
