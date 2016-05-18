@@ -1,3 +1,5 @@
 # Self-Service Semantic Suite Examples
 
-Groovy examples for the S4 service. 
+# WARNING
+
+Support for these examples is deprecated
